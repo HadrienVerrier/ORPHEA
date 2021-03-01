@@ -8,9 +8,9 @@
 
     <!-- DATA TAGS-->
     <meta name="author" content="Hadrien VERRIER">
-    <meta name="description" content="Discover ORPH&Eacute;A, the website dedicated on electronic music.">
-    <meta name="keywords" content="music, electro, electronic">
-    <title>Home - ORPH&Eacute;A</title>
+    <meta name="description" content="About ORPH&Eacute;A and this project.">
+    <meta name="keywords" content="about, project, music, electro, electronic">
+    <title>About - ORPH&Eacute;A</title>
 
     <!-- RESSOURCE TAGS-->
     <link href="#" rel="stylesheet">
@@ -29,65 +29,51 @@
 
 <body>
     <header>
-        <!-- LOGO-->
         <div id="logo">
             <a href="index.html" title="Go to Home Page">
                 <img src="ressources/images/logo_pattern/logo.png" alt="logo d'ORPH&Eacute;A" width="100">
             </a>
             <h1>ORPH&Eacute;A</h1>
         </div>
-        <!-- MENU-->
         <nav>
             <ul>
-                <li><a href="index.html" title="Go to Home Page"><strong>HOME</strong></a></li>
+                <li><a href="index.html" title="Go to Home Page">HOME</a></li>
                 <li><a href="discover.html" title="Discover the website and the functionalities">DISCOVER</a></li>
                 <li><a href="about.html" title="About the website and us who support this project !">ABOUT</a></li>
-                <li><a href="login.html" title="Connect or Create an account">LOGIN/SIGNUP</a></li>
+                <li><a href="login.html" title="Connect or Create an account"><strong>LOGIN/SIGNUP</strong></a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <!-- SLIDESHOW-->
-        <section id="slider">
-            <h2 class="hidden">Discover a short video introducing to ORPH&Eacute;A</h2>
-
-            <video width="100" height="100" controls id="slider-1">
-                <source src="#" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <img src="ressources/images/footage/slider-1.jpg" alt="Illustration Picture on Synthesizers" width="100"
-                class="hidden">
-            <img src="ressources/images/footage/slider-2.jpg" alt="Illustration Picture on Synthesizers" width="100"
-                class="hidden">
-            <img src="ressources/images/footage/slider-3.jpg" alt="Illustration Picture on Synthesizers" width="100"
-                class="hidden">
-        </section>
-
         <section>
-            <!-- CARDS-->
-            <h2 class="hidden">Discover more</h2>
-
-            <article>
-                <h3>LISTEN</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin
-                    gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor.
-                </p>
-                <a href="listen.html">DISCOVER SONGS</a>
-            </article>
-            <article>
-                <h3>COMPOSE</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin
-                    gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor.
-                </p>
-                <a href="compose.html">MY FIRST MUSIC</a>
-            </article>
-            <article class="disabled">
-                <h3>LEARN</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin
-                    gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor.
-                </p>
-                <a href="learn.html">MY FIRST LESSON</a>
-            </article>
+            <h2>LOGIN</h2>
+            <p>Login to have access to your member page and other functionalities.</p>
+            <form method="POST" action="dashboard.html">
+                <label for="l_username">Username/Mail</label>
+                <input type="text" id="l_username" name="l_username" required="required">
+                <label for="l_password">Username/Mail</label>
+                <input type="password" id="l_password" name="l_password" required="required">
+                <label for="remember">Remember Me</label>
+                <input type="checkbox" id="remember" name="remember" required="required">
+                <label for="l_submit">Login</label>
+                <input type="submit" value="LOGIN" name="l_submit" id="l_submit">
+            </form>
+        </section>
+        <section>
+            <h2>SIGNUP</h2>
+            <p>Create an account to have full acces to ORPH&Eacute;A.</p>
+            <form method="POST" action="dashboard.html">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" required="required">
+                <label for="s_username">Username</label>
+                <input type="text" id="s_username" name="s_username" required="required">
+                <label for="s_password">Password</label>
+                <input type="password" id="s_password" name="s_password" required="required">
+                <label for="s_c_password">Confirm Password</label>
+                <input type="password" id="s_c_password" name="s_c_password" required="required">
+                <label for="s_submit">Sign Up</label>
+                <input type="submit" name="s_submit" id="s_submit">
+            </form>
         </section>
     </main>
     <footer>

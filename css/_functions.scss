@@ -1,3 +1,4 @@
+@import "_settings.scss";
 @mixin center($v, $h) {
 	@if $v {
 		top: 50%;
@@ -6,5 +7,14 @@
 	@if $h {
 		top: 50%;
 		transform: translateX(-50%);
+	}
+}
+
+%pass_link {
+	color: $white;
+	font-style: normal;
+
+	&:visited {
+		color: $white;
 	}
 }

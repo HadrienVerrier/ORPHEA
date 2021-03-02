@@ -92,11 +92,18 @@ body > footer {
 }
 
 body > footer > section {
+  outline: 1px solid black;
   display: inline-block;
 }
 
 body > footer > section ul li {
   display: inline-block;
+  margin: 0 1.5rem;
+  font-size: 1.12rem;
+}
+
+body > footer img {
+  outline: 1px solid black;
 }
 
 /***************/

@@ -74,12 +74,18 @@ body {
 		width: 100%;
 
 		> section {
+			outline: 1px solid black;
 			display: inline-block;
 			ul {
 				li {
 					display: inline-block;
+					margin: 0 1.5rem;
+					font-size: $regular * 0.7;
 				}
 			}
+		}
+		img {
+			outline: 1px solid black;
 		}
 		a {
 			@extend %pass_link;

@@ -1,0 +1,85 @@
+/*SETTINGS*/
+@import url("reset.css");
+@import "_settings.scss";
+
+/***************/
+/*****MAIN******/
+/***************/
+html {
+	font-size: 62.5%;
+}
+body {
+	background-color: $background;
+	font-family: $fRegular;
+	font-size: $regular;
+	color: $white;
+
+	> header {
+		position: relative;
+		width: 100%;
+		height: $headerW;
+		outline: 1px solid black;
+		div#logo {
+			position: absolute;
+			@include center(true, false);
+			h1 {
+				font-family: $fTitle;
+				font-size: $regular * 2.5;
+				font-weight: bolder;
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+		nav {
+			position: absolute;
+			@include center(true, false);
+			right: 3rem;
+			ul {
+				li {
+					font-size: $regular * 0.9;
+					float: left;
+					margin: 0 1.5rem;
+					font-weight: lighter;
+				}
+			}
+		}
+		a {
+			color: $white;
+			font-style: normal;
+
+			&:visited {
+				color: $white;
+			}
+		}
+	}
+	> main,
+	> footer {
+		display: none;
+	}
+}
+
+/***************/
+/*****CLASS*****/
+/***************/
+
+.hidden {
+	display: none;
+}
+
+/**************/
+/***GENERAL****/
+/**************/
+
+a {
+	text-decoration: none;
+	font-style: italic;
+	color: $white;
+
+	&:visited {
+		color: $mainLightPlus;
+	}
+}
+
+strong {
+	font-weight: bold;
+}

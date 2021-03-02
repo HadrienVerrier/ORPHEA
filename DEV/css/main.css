@@ -1,0 +1,92 @@
+/*SETTINGS*/
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
+/***************/
+/*****MAIN******/
+/***************/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #383838;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
+  color: #f7f9f5;
+}
+
+body > header {
+  position: relative;
+  width: 100%;
+  height: 12rem;
+  outline: 1px solid black;
+}
+
+body > header div#logo {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+body > header div#logo h1 {
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 4rem;
+  font-weight: bolder;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+body > header nav {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 3rem;
+}
+
+body > header nav ul li {
+  font-size: 1.44rem;
+  float: left;
+  margin: 0 1.5rem;
+  font-weight: lighter;
+}
+
+body > header a {
+  color: #f7f9f5;
+  font-style: normal;
+}
+
+body > header a:visited {
+  color: #f7f9f5;
+}
+
+body > main,
+body > footer {
+  display: none;
+}
+
+/***************/
+/*****CLASS*****/
+/***************/
+.hidden {
+  display: none;
+}
+
+/**************/
+/***GENERAL****/
+/**************/
+a {
+  text-decoration: none;
+  font-style: italic;
+  color: #f7f9f5;
+}
+
+a:visited {
+  color: #e366f6;
+}
+
+strong {
+  font-weight: bold;
+}
+/*# sourceMappingURL=main.css.map */

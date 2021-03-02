@@ -1,0 +1,65 @@
+//FUNCTION IMPORT
+
+@import "_functions.scss";
+
+//////////
+//COLORS//
+//////////
+
+//MAIN
+$background: #383838;
+$white: #f7f9f5;
+$main: #650076;
+$mainLight: #b900d7;
+$mainLightPlus: #e366f6;
+$mainDark: #2b1f2d;
+
+//TRACKS
+
+$t1main: #ffb502;
+$t1light: #f5ce6f;
+$t1dark: #c4910c;
+
+$t2main: #09812a;
+$t2light: #0ec642;
+$t2dark: #0e4b1f;
+
+$t3main: #a10f0f;
+$t3light: #d45c5d;
+$t3dark: #701615;
+
+$t4main: #2e2bc4;
+$t4light: #7c7cee;
+$t4dark: #202170;
+
+//////////
+///FONTS//
+//////////
+
+//IMPORT FONT
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+//DEFINED FONT
+$fTitle: "Big Shoulders Display", cursive;
+$fRegular: "Quicksand", sans-serif;
+
+//DEFINED FONT SIZE
+
+$regular: 1.6rem;
+
+//////////////
+//RESSOURCES//
+//////////////
+
+$pattern: url("../ressources/images/logo_pattern/pattern_nb.png");
+$logo: url("../ressources/images/logo_pattern/logo.png");
+$logo_nb: url("../ressources/images/logo_pattern/logo_nb.png");
+$logo_nbi: url("../ressources/images/logo_pattern/logo_nbi.png");
+
+////////////////
+///DIMENSIONS///
+////////////////
+
+//HEADER
+
+$headerW: 12rem;

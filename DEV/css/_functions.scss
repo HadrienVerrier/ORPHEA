@@ -1,0 +1,10 @@
+@mixin center($v, $h) {
+	@if $v {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	@if $h {
+		top: 50%;
+		transform: translateX(-50%);
+	}
+}

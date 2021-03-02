@@ -70,7 +70,7 @@ body > header > img {
   z-index: -1;
   width: 100%;
   min-height: 12rem;
-  height: 30vh;
+  height: 45vh;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -80,30 +80,46 @@ body > main {
   z-index: 2;
   margin: 2rem auto 2rem auto;
   width: 90%;
-  height: calc(100vh - 6rem - 12rem - 4rem);
+  min-height: calc(100vh - 6rem - 12rem - 4rem);
 }
 
 body > footer {
+  position: relative;
   background-image: url("../ressources/images/logo_pattern/pattern_nb.png");
   background-size: 12rem;
   height: 6rem;
-  outline: 1px solid black;
   width: 100%;
+  display: table;
 }
 
 body > footer > section {
-  outline: 1px solid black;
-  display: inline-block;
+  vertical-align: middle;
+  display: table-cell;
+  width: 45%;
 }
 
 body > footer > section ul li {
   display: inline-block;
-  margin: 0 1.5rem;
+  margin: 0 2rem;
   font-size: 1.12rem;
 }
 
-body > footer img {
-  outline: 1px solid black;
+body > footer > section:first-of-type {
+  text-align: left;
+  padding-left: 3rem;
+}
+
+body > footer > section:last-of-type {
+  text-align: right;
+  padding-right: 3rem;
+}
+
+body > footer > a {
+  display: table-cell;
+  width: 10%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
 }
 
 /***************/

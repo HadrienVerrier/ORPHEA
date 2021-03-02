@@ -1,0 +1,19 @@
+{
+    "name": "ORPH\u00c9A",
+    "short_name": "ORPH\u00c9A",
+    "icons": [
+        {
+            "src": "/ressources/images/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/ressources/images/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#414141",
+    "background_color": "#414141",
+    "display": "standalone"
+}

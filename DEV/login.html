@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- SETTINGS TAGS-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- DATA TAGS-->
+    <meta name="author" content="Hadrien VERRIER">
+    <meta name="description" content="Login and signup page.">
+    <meta name="keywords" content="login, signup, music, electro, electronic">
+    <title>Login/Signup - ORPH&Eacute;A</title>
+
+    <!-- RESSOURCE TAGS-->
+    <link href="#" rel="stylesheet">
+
+    <!-- FAVICON TAGS-->
+    <link rel="apple-touch-icon" sizes="180x180" href="ressources/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ressources/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ressources/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="ressources/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="ressources/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="ressources/images/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#505050">
+    <meta name="msapplication-config" content="ressources/images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#414141">
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="index.html" title="Go to Home Page">
+                <img src="ressources/images/logo_pattern/logo.png" alt="logo d'ORPH&Eacute;A" width="100">
+            </a>
+            <h1>ORPH&Eacute;A</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" title="Go to Home Page">HOME</a></li>
+                <li><a href="discover.html" title="Discover the website and the functionalities">DISCOVER</a></li>
+                <li><a href="about.html" title="About the website and us who support this project !">ABOUT</a></li>
+                <li><a href="login.html" title="Connect or Create an account"><strong>LOGIN/SIGNUP</strong></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>LOGIN</h2>
+            <p>Login to have access to your member page and other functionalities.</p>
+            <form method="POST" action="dashboard.html">
+                <label for="l_username">Username/Mail</label>
+                <input type="text" id="l_username" name="l_username" required="required">
+                <label for="l_password">Username/Mail</label>
+                <input type="password" id="l_password" name="l_password" required="required">
+                <label for="remember">Remember Me</label>
+                <input type="checkbox" id="remember" name="remember">
+                <label for="l_submit">Login</label>
+                <input type="submit" value="LOGIN" name="l_submit" id="l_submit">
+            </form>
+        </section>
+        <section>
+            <h2>SIGNUP</h2>
+            <p>Create an account to have full acces to ORPH&Eacute;A.</p>
+            <form method="POST" action="dashboard.html">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" required="required">
+                <label for="s_username">Username</label>
+                <input type="text" id="s_username" name="s_username" required="required">
+                <label for="s_password">Password</label>
+                <input type="password" id="s_password" name="s_password" required="required">
+                <label for="s_c_password">Confirm Password</label>
+                <input type="password" id="s_c_password" name="s_c_password" required="required">
+                <label for="s_submit">Sign Up</label>
+                <input type="submit" name="s_submit" id="s_submit">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <h4 class="hidden">INFOS LINKS</h4>
+            <ul>
+                <li><a href="terms.html">TERMS</a></li>
+                <li><a href="#">COOKIES SETTINGS</a></li>
+                <li><a href="sitemap.html">SITE MAP</a></li>
+            </ul>
+        </section>
+        <a href="index.html" title="Go to Home Page">
+            <img src="ressources/images/logo_pattern/logo.png" alt="logo d'ORPH&Eacute;A" width="50">
+        </a>
+        <section>
+            <h4 class="hidden">OTHER LINKS</h4>
+            <ul>
+                <li><a href="contact.html">CONTACT US</a></li>
+                <li><a href="bugtracker.html">REPORT A BUG</a></li>
+                <!-- CHOOSE LANGUAGE-->
+                <li>
+                    <form method="GET" action="#">
+                        <select>
+                            <option id="fr">Français</option>
+                            <option id="en">English</option>
+                        </select>
+                    </form>
+                </li>
+            </ul>
+        </section>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- SETTINGS TAGS-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- DATA TAGS-->
+    <meta name="author" content="Hadrien VERRIER">
+    <meta name="description" content="Compose in ORPH&Eacute;A, the website dedicated on electronic music.">
+    <meta name="keywords" content="compose, music, electro, electronic">
+    <title>Compose - ORPH&Eacute;A</title>
+
+    <!-- RESSOURCE TAGS-->
+    <link href="#" rel="stylesheet">
+
+    <!-- FAVICON TAGS-->
+    <link rel="apple-touch-icon" sizes="180x180" href="ressources/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ressources/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ressources/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="ressources/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="ressources/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="ressources/images/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#505050">
+    <meta name="msapplication-config" content="ressources/images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#414141">
+</head>
+
+<body>
+    <header>
+        <!-- LOGO-->
+        <div id="logo">
+            <a href="index.html" title="Go to Home Page">
+                <img src="ressources/images/logo_pattern/logo.png" alt="logo d'ORPH&Eacute;A" width="100">
+            </a>
+            <h1>ORPH&Eacute;A</h1>
+        </div>
+        <!-- MENU-->
+        <nav>
+            <ul>
+                <li><a href="index.html" title="Go to Home Page">HOME</a></li>
+                <li><a href="discover.html" title="Discover the website and the functionalities">DISCOVER</a></li>
+                <li><a href="about.html" title="About the website and us who support this project !">ABOUT</a></li>
+                <li><a href="login.html" title="Connect or Create an account">LOGIN/SIGNUP</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <header>
+            <h2>LOOP EDITION TOOLS</h2>
+            <label for="l_name">LOOP NAME</label>
+            <input type="text" id="l_name" name="l_name" placeholder="Your Loop name here">
+            <label for="l_bpm">BPM</label>
+            <input type="number" id="l_bpm" name="l_bpm" placeholder="Loop BPM" value="80">
+            <p>TAGS</p>
+            <div id="tags">
+                <label for="edm">EDM</label>
+                <input type="checkbox" id="edm" name="edm">
+                <label for="funk">funk</label>
+                <input type="checkbox" id="funk" name="funk">
+                <label for="exp">Experimental</label>
+                <input type="checkbox" id="exp" name="exp">
+                <label for="trap">Trap</label>
+                <input type="checkbox" id="trap" name="trap">
+            </div>
+            <label for="licence">Your licence</label>
+            <select name="licence" id="licence">
+                <option value="">--Choose Licence--</option>
+                <option value="ccby">CC-BY</option>
+                <option value="ccbync">CC-BY-NC</option>
+                <option value="ccbyncnd">CC-BY-NC-ND</option>
+                <option value="private">PRIVATE</option>
+            </select>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>Click here to save your loop</title>
+                <path
+                    d="M14 3h2.997v5h-2.997v-5zm9 1v20h-22v-24h17.997l4.003 4zm-17 5h12v-7h-12v7zm14 4h-16v9h16v-9z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>Click Here to Delete your loop</title>
+                <path
+                    d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z" />
+            </svg>
+        </header>
+        <section id="transport_controls">
+            <h3>Transport Controls</h3>
+            <svg id="play" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>Play</title>
+                <path d="M3 22v-20l18 10-18 10z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <title>Stop</title>
+                <path d="M2 2h20v20h-20z" />
+            </svg>
+        </section>
+        <section id="tracks">
+            <h3 class="hidden">Your Tracks</h3>
+            <div id="t1" data-type="drums" data-synth='original'>
+                <div class="controls">
+                    <label for="midi_input_t1">MIDI Input</label>
+                    <select id="midi_input_t1" name="midi_input_t1">
+                        <option value="">--SELECT MIDI DEVICE--</option>
+                        <option value="midi_t1_1">Focusrite Midi</option>
+                        <option value="midi_t1_2">KeyStation 49</option>
+                        <option value="midi_t1_3">KeyStepPro</option>
+                        <option value="midi_t1_4">MicroFreaks</option>
+                    </select>
+                    <label for="midi_channel_t1">MIDI Channel</label>
+                    <select id="midi_channel_t1" name="midi_channel_t1">
+                        <option>--SELECT MIDI CHANNEL--</option>
+                        <option value="ch_t1_1">1</option>
+                        <option value="ch_t1_2">2</option>
+                        <option value="ch_t1_3">3</option>
+                        <option value="ch_t1_4">4</option>
+                        <option value="ch_t1_5">5</option>
+                        <option value="ch_t1_6">6</option>
+                        <option value="ch_t1_7">7</option>
+                        <option value="ch_t1_8">8</option>
+                        <option value="ch_t1_9">9</option>
+                        <option value="ch_t1_10">10</option>
+                        <option value="ch_t1_11">11</option>
+                        <option value="ch_t1_12">12</option>
+                        <option value="ch_t1_13">13</option>
+                        <option value="ch_t1_14">14</option>
+                        <option value="ch_t1_15">15</option>
+                        <option value="ch_t1_16">16</option>
+                    </select>
+                    <label for="mute_t1">M</label>
+                    <input type="checkbox" id="mute_t1" name="mute_t1">
+                    <label for="solo_t1">S</label>
+                    <input type="checkbox" id="solo_t1" name="solo_t1">
+                    <div class="dbMeter"></div>
+                    <svg id='settings_t1' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <title>Click Here to change settings on synth</title>
+                        <path
+                            d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
+                    </svg>
+                    <div id="pan_t1"></div>
+                    <svg id="rec_t1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <title>Click here to record this loop</title>
+                        <circle cx="12" cy="12" r="12" />
+                    </svg>
+                    <p>TRACK 1</p>
+                </div>
+                <div id="seq_t1">
+                    <div id="t1_n1">
+                        <input type="checkbox" id="t1_n1_1" name="t1_1_1">
+                        <label for="t1_n1_1"></label>
+                        <input type="checkbox" id="t1_n1_2" name="t1_1_2">
+                        <label for="t1_n1_2"></label>
+                        <input type="checkbox" id="t1_n1_3" name="t1_1_3">
+                        <label for="t1_n1_3"></label>
+                        <input type="checkbox" id="t1_n1_4" name="t1_1_4">
+                        <label for="t1_n1_4"></label>
+                        <input type="checkbox" id="t1_n1_5" name="t1_1_5">
+                        <label for="t1_n1_5"></label>
+                        <input type="checkbox" id="t1_n1_6" name="t1_1_6">
+                        <label for="t1_n1_6"></label>
+                        <input type="checkbox" id="t1_n1_7" name="t1_1_7">
+                        <label for="t1_n1_7"></label>
+                        <input type="checkbox" id="t1_n1_8" name="t1_1_8">
+                        <label for="t1_n1_8"></label>
+                        <input type="checkbox" id="t1_n1_9" name="t1_1_9">
+                        <label for="t1_n1_9"></label>
+                        <input type="checkbox" id="t1_n1_10" name="t1_1_10">
+                        <label for="t1_n1_10"></label>
+                        <input type="checkbox" id="t1_n1_11" name="t1_1_11">
+                        <label for="t1_n1_11"></label>
+                        <input type="checkbox" id="t1_n1_12" name="t1_1_12">
+                        <label for="t1_n1_12"></label>
+                        <input type="checkbox" id="t1_n1_13" name="t1_1_13">
+                        <label for="t1_n1_13"></label>
+                        <input type="checkbox" id="t1_n1_14" name="t1_1_14">
+                        <label for="t1_n1_14"></label>
+                        <input type="checkbox" id="t1_n1_15" name="t1_1_15">
+                        <label for="t1_n1_15"></label>
+                        <input type="checkbox" id="t1_n1_16" name="t1_1_16">
+                        <label for="t1_n1_16"></label>
+                    </div>
+                    <div id="t1_n2">
+                        <input type="checkbox" id="t1_n2_1" name="t1_1_1">
+                        <label for="t1_n2_1"></label>
+                        <input type="checkbox" id="t1_n2_2" name="t1_1_2">
+                        <label for="t1_n2_2"></label>
+                        <input type="checkbox" id="t1_n2_3" name="t1_1_3">
+                        <label for="t1_n2_3"></label>
+                        <input type="checkbox" id="t1_n2_4" name="t1_1_4">
+                        <label for="t1_n2_4"></label>
+                        <input type="checkbox" id="t1_n2_5" name="t1_1_5">
+                        <label for="t1_n2_5"></label>
+                        <input type="checkbox" id="t1_n2_6" name="t1_1_6">
+                        <label for="t1_n2_6"></label>
+                        <input type="checkbox" id="t1_n2_7" name="t1_1_7">
+                        <label for="t1_n2_7"></label>
+                        <input type="checkbox" id="t1_n2_8" name="t1_1_8">
+                        <label for="t1_n2_8"></label>
+                        <input type="checkbox" id="t1_n2_9" name="t1_1_9">
+                        <label for="t1_n2_9"></label>
+                        <input type="checkbox" id="t1_n2_10" name="t1_1_10">
+                        <label for="t1_n2_10"></label>
+                        <input type="checkbox" id="t1_n2_11" name="t1_1_11">
+                        <label for="t1_n2_11"></label>
+                        <input type="checkbox" id="t1_n2_12" name="t1_1_12">
+                        <label for="t1_n2_12"></label>
+                        <input type="checkbox" id="t1_n2_13" name="t1_1_13">
+                        <label for="t1_n2_13"></label>
+                        <input type="checkbox" id="t1_n2_14" name="t1_1_14">
+                        <label for="t1_n2_14"></label>
+                        <input type="checkbox" id="t1_n2_15" name="t1_1_15">
+                        <label for="t1_n2_15"></label>
+                        <input type="checkbox" id="t1_n2_16" name="t1_1_16">
+                        <label for="t1_n2_16"></label>
+                    </div>
+                    <div id="t1_n3">
+                        <input type="checkbox" id="t1_n3_1" name="t1_1_1">
+                        <label for="t1_n3_1"></label>
+                        <input type="checkbox" id="t1_n3_2" name="t1_1_2">
+                        <label for="t1_n3_2"></label>
+                        <input type="checkbox" id="t1_n3_3" name="t1_1_3">
+                        <label for="t1_n3_3"></label>
+                        <input type="checkbox" id="t1_n3_4" name="t1_1_4">
+                        <label for="t1_n3_4"></label>
+                        <input type="checkbox" id="t1_n3_5" name="t1_1_5">
+                        <label for="t1_n3_5"></label>
+                        <input type="checkbox" id="t1_n3_6" name="t1_1_6">
+                        <label for="t1_n3_6"></label>
+                        <input type="checkbox" id="t1_n3_7" name="t1_1_7">
+                        <label for="t1_n3_7"></label>
+                        <input type="checkbox" id="t1_n3_8" name="t1_1_8">
+                        <label for="t1_n3_8"></label>
+                        <input type="checkbox" id="t1_n3_9" name="t1_1_9">
+                        <label for="t1_n3_9"></label>
+                        <input type="checkbox" id="t1_n3_10" name="t1_1_10">
+                        <label for="t1_n3_10"></label>
+                        <input type="checkbox" id="t1_n3_11" name="t1_1_11">
+                        <label for="t1_n3_11"></label>
+                        <input type="checkbox" id="t1_n3_12" name="t1_1_12">
+                        <label for="t1_n3_12"></label>
+                        <input type="checkbox" id="t1_n3_13" name="t1_1_13">
+                        <label for="t1_n3_13"></label>
+                        <input type="checkbox" id="t1_n3_14" name="t1_1_14">
+                        <label for="t1_n3_14"></label>
+                        <input type="checkbox" id="t1_n3_15" name="t1_1_15">
+                        <label for="t1_n3_15"></label>
+                        <input type="checkbox" id="t1_n3_16" name="t1_1_16">
+                        <label for="t1_n3_16"></label>
+                    </div>
+                    <div id="t1_n4">
+                        <input type="checkbox" id="t1_n4_1" name="t1_1_1">
+                        <label for="t1_n4_1"></label>
+                        <input type="checkbox" id="t1_n4_2" name="t1_1_2">
+                        <label for="t1_n4_2"></label>
+                        <input type="checkbox" id="t1_n4_3" name="t1_1_3">
+                        <label for="t1_n4_3"></label>
+                        <input type="checkbox" id="t1_n4_4" name="t1_1_4">
+                        <label for="t1_n4_4"></label>
+                        <input type="checkbox" id="t1_n4_5" name="t1_1_5">
+                        <label for="t1_n4_5"></label>
+                        <input type="checkbox" id="t1_n4_6" name="t1_1_6">
+                        <label for="t1_n4_6"></label>
+                        <input type="checkbox" id="t1_n4_7" name="t1_1_7">
+                        <label for="t1_n4_7"></label>
+                        <input type="checkbox" id="t1_n4_8" name="t1_1_8">
+                        <label for="t1_n4_8"></label>
+                        <input type="checkbox" id="t1_n4_9" name="t1_1_9">
+                        <label for="t1_n4_9"></label>
+                        <input type="checkbox" id="t1_n4_10" name="t1_1_10">
+                        <label for="t1_n4_10"></label>
+                        <input type="checkbox" id="t1_n4_11" name="t1_1_11">
+                        <label for="t1_n4_11"></label>
+                        <input type="checkbox" id="t1_n4_12" name="t1_1_12">
+                        <label for="t1_n4_12"></label>
+                        <input type="checkbox" id="t1_n4_13" name="t1_1_13">
+                        <label for="t1_n4_13"></label>
+                        <input type="checkbox" id="t1_n4_14" name="t1_1_14">
+                        <label for="t1_n4_14"></label>
+                        <input type="checkbox" id="t1_n4_15" name="t1_1_15">
+                        <label for="t1_n4_15"></label>
+                        <input type="checkbox" id="t1_n4_16" name="t1_1_16">
+                        <label for="t1_n4_16"></label>
+                    </div>
+                    <div id="t1_n5">
+                        <input type="checkbox" id="t1_n5_1" name="t1_1_1">
+                        <label for="t1_n5_1"></label>
+                        <input type="checkbox" id="t1_n5_2" name="t1_1_2">
+                        <label for="t1_n5_2"></label>
+                        <input type="checkbox" id="t1_n5_3" name="t1_1_3">
+                        <label for="t1_n5_3"></label>
+                        <input type="checkbox" id="t1_n5_4" name="t1_1_4">
+                        <label for="t1_n5_4"></label>
+                        <input type="checkbox" id="t1_n5_5" name="t1_1_5">
+                        <label for="t1_n5_5"></label>
+                        <input type="checkbox" id="t1_n5_6" name="t1_1_6">
+                        <label for="t1_n5_6"></label>
+                        <input type="checkbox" id="t1_n5_7" name="t1_1_7">
+                        <label for="t1_n5_7"></label>
+                        <input type="checkbox" id="t1_n5_8" name="t1_1_8">
+                        <label for="t1_n5_8"></label>
+                        <input type="checkbox" id="t1_n5_9" name="t1_1_9">
+                        <label for="t1_n5_9"></label>
+                        <input type="checkbox" id="t1_n5_10" name="t1_1_10">
+                        <label for="t1_n5_10"></label>
+                        <input type="checkbox" id="t1_n5_11" name="t1_1_11">
+                        <label for="t1_n5_11"></label>
+                        <input type="checkbox" id="t1_n5_12" name="t1_1_12">
+                        <label for="t1_n5_12"></label>
+                        <input type="checkbox" id="t1_n5_13" name="t1_1_13">
+                        <label for="t1_n5_13"></label>
+                        <input type="checkbox" id="t1_n5_14" name="t1_1_14">
+                        <label for="t1_n5_14"></label>
+                        <input type="checkbox" id="t1_n5_15" name="t1_1_15">
+                        <label for="t1_n5_15"></label>
+                        <input type="checkbox" id="t1_n5_16" name="t1_1_16">
+                        <label for="t1_n5_16"></label>
+                    </div>
+                    <div id="t1_n6">
+                        <input type="checkbox" id="t1_n6_1" name="t1_1_1">
+                        <label for="t1_n6_1"></label>
+                        <input type="checkbox" id="t1_n6_2" name="t1_1_2">
+                        <label for="t1_n6_2"></label>
+                        <input type="checkbox" id="t1_n6_3" name="t1_1_3">
+                        <label for="t1_n6_3"></label>
+                        <input type="checkbox" id="t1_n6_4" name="t1_1_4">
+                        <label for="t1_n6_4"></label>
+                        <input type="checkbox" id="t1_n6_5" name="t1_1_5">
+                        <label for="t1_n6_5"></label>
+                        <input type="checkbox" id="t1_n6_6" name="t1_1_6">
+                        <label for="t1_n6_6"></label>
+                        <input type="checkbox" id="t1_n6_7" name="t1_1_7">
+                        <label for="t1_n6_7"></label>
+                        <input type="checkbox" id="t1_n6_8" name="t1_1_8">
+                        <label for="t1_n6_8"></label>
+                        <input type="checkbox" id="t1_n6_9" name="t1_1_9">
+                        <label for="t1_n6_9"></label>
+                        <input type="checkbox" id="t1_n6_10" name="t1_1_10">
+                        <label for="t1_n6_10"></label>
+                        <input type="checkbox" id="t1_n6_11" name="t1_1_11">
+                        <label for="t1_n6_11"></label>
+                        <input type="checkbox" id="t1_n6_12" name="t1_1_12">
+                        <label for="t1_n6_12"></label>
+                        <input type="checkbox" id="t1_n6_13" name="t1_1_13">
+                        <label for="t1_n6_13"></label>
+                        <input type="checkbox" id="t1_n6_14" name="t1_1_14">
+                        <label for="t1_n6_14"></label>
+                        <input type="checkbox" id="t1_n6_15" name="t1_1_15">
+                        <label for="t1_n6_15"></label>
+                        <input type="checkbox" id="t1_n6_16" name="t1_1_16">
+                        <label for="t1_n6_16"></label>
+                    </div>
+                    <div id="t1_n7">
+                        <input type="checkbox" id="t1_n7_1" name="t1_1_1">
+                        <label for="t1_n7_1"></label>
+                        <input type="checkbox" id="t1_n7_2" name="t1_1_2">
+                        <label for="t1_n7_2"></label>
+                        <input type="checkbox" id="t1_n7_3" name="t1_1_3">
+                        <label for="t1_n7_3"></label>
+                        <input type="checkbox" id="t1_n7_4" name="t1_1_4">
+                        <label for="t1_n7_4"></label>
+                        <input type="checkbox" id="t1_n7_5" name="t1_1_5">
+                        <label for="t1_n7_5"></label>
+                        <input type="checkbox" id="t1_n7_6" name="t1_1_6">
+                        <label for="t1_n7_6"></label>
+                        <input type="checkbox" id="t1_n7_7" name="t1_1_7">
+                        <label for="t1_n7_7"></label>
+                        <input type="checkbox" id="t1_n7_8" name="t1_1_8">
+                        <label for="t1_n7_8"></label>
+                        <input type="checkbox" id="t1_n7_9" name="t1_1_9">
+                        <label for="t1_n7_9"></label>
+                        <input type="checkbox" id="t1_n7_10" name="t1_1_10">
+                        <label for="t1_n7_10"></label>
+                        <input type="checkbox" id="t1_n7_11" name="t1_1_11">
+                        <label for="t1_n7_11"></label>
+                        <input type="checkbox" id="t1_n7_12" name="t1_1_12">
+                        <label for="t1_n7_12"></label>
+                        <input type="checkbox" id="t1_n7_13" name="t1_1_13">
+                        <label for="t1_n7_13"></label>
+                        <input type="checkbox" id="t1_n7_14" name="t1_1_14">
+                        <label for="t1_n7_14"></label>
+                        <input type="checkbox" id="t1_n7_15" name="t1_1_15">
+                        <label for="t1_n7_15"></label>
+                        <input type="checkbox" id="t1_n7_16" name="t1_1_16">
+                        <label for="t1_n7_16"></label>
+                    </div>
+                    <div id="t1_n8">
+                        <input type="checkbox" id="t1_n8_1" name="t1_1_1">
+                        <label for="t1_n8_1"></label>
+                        <input type="checkbox" id="t1_n8_2" name="t1_1_2">
+                        <label for="t1_n8_2"></label>
+                        <input type="checkbox" id="t1_n8_3" name="t1_1_3">
+                        <label for="t1_n8_3"></label>
+                        <input type="checkbox" id="t1_n8_4" name="t1_1_4">
+                        <label for="t1_n8_4"></label>
+                        <input type="checkbox" id="t1_n8_5" name="t1_1_5">
+                        <label for="t1_n8_5"></label>
+                        <input type="checkbox" id="t1_n8_6" name="t1_1_6">
+                        <label for="t1_n8_6"></label>
+                        <input type="checkbox" id="t1_n8_7" name="t1_1_7">
+                        <label for="t1_n8_7"></label>
+                        <input type="checkbox" id="t1_n8_8" name="t1_1_8">
+                        <label for="t1_n8_8"></label>
+                        <input type="checkbox" id="t1_n8_9" name="t1_1_9">
+                        <label for="t1_n8_9"></label>
+                        <input type="checkbox" id="t1_n8_10" name="t1_1_10">
+                        <label for="t1_n8_10"></label>
+                        <input type="checkbox" id="t1_n8_11" name="t1_1_11">
+                        <label for="t1_n8_11"></label>
+                        <input type="checkbox" id="t1_n8_12" name="t1_1_12">
+                        <label for="t1_n8_12"></label>
+                        <input type="checkbox" id="t1_n8_13" name="t1_1_13">
+                        <label for="t1_n8_13"></label>
+                        <input type="checkbox" id="t1_n8_14" name="t1_1_14">
+                        <label for="t1_n8_14"></label>
+                        <input type="checkbox" id="t1_n8_15" name="t1_1_15">
+                        <label for="t1_n8_15"></label>
+                        <input type="checkbox" id="t1_n8_16" name="t1_1_16">
+                        <label for="t1_n8_16"></label>
+                    </div>
+                </div>
+            </div>
+            <div id="t2" data-type="drums" data-synth='original'>
+                <div class="controls">
+                    <label for="midi_input_t2">MIDI Input</label>
+                    <select id="midi_input_t2" name="midi_input_t2">
+                        <option value="">--SELECT MIDI DEVICE--</option>
+                        <option value="midi_t2_1">Focusrite Midi</option>
+                        <option value="midi_t2_2">KeyStation 49</option>
+                        <option value="midi_t2_3">KeyStepPro</option>
+                        <option value="midi_t2_4">MicroFreaks</option>
+                    </select>
+                    <label for="midi_channel_t2">MIDI Channel</label>
+                    <select id="midi_channel_t2" name="midi_channel_t2">
+                        <option>--SELECT MIDI CHANNEL--</option>
+                        <option value="ch_t2_1">1</option>
+                        <option value="ch_t2_2">2</option>
+                        <option value="ch_t2_3">3</option>
+                        <option value="ch_t2_4">4</option>
+                        <option value="ch_t2_5">5</option>
+                        <option value="ch_t2_6">6</option>
+                        <option value="ch_t2_7">7</option>
+                        <option value="ch_t2_8">8</option>
+                        <option value="ch_t2_9">9</option>
+                        <option value="ch_t2_10">10</option>
+                        <option value="ch_t2_11">11</option>
+                        <option value="ch_t2_12">12</option>
+                        <option value="ch_t2_13">13</option>
+                        <option value="ch_t2_14">14</option>
+                        <option value="ch_t2_15">15</option>
+                        <option value="ch_t2_16">16</option>
+                    </select>
+                    <label for="mute_t2">M</label>
+                    <input type="checkbox" id="mute_t2" name="mute_t2">
+                    <label for="solo_t2">S</label>
+                    <input type="checkbox" id="solo_t2" name="solo_t2">
+                    <div class="dbMeter"></div>
+                    <svg id='settings_t2' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <title>Click Here to change settings on synth</title>
+                        <path
+                            d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
+                    </svg>
+                    <div id="pan_t2"></div>
+                    <svg id="rec_t2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <title>Click here to record this loop</title>
+                        <circle cx="12" cy="12" r="12" />
+                    </svg>
+                    <p>TRACK 1</p>
+                </div>
+                <div id="seq_t2">
+                    <div id="t2_n1">
+                        <input type="checkbox" id="t2_n1_1" name="t2_1_1">
+                        <label for="t2_n1_1"></label>
+                        <input type="checkbox" id="t2_n1_2" name="t2_1_2">
+                        <label for="t2_n1_2"></label>
+                        <input type="checkbox" id="t2_n1_3" name="t2_1_3">
+                        <label for="t2_n1_3"></label>
+                        <input type="checkbox" id="t2_n1_4" name="t2_1_4">
+                        <label for="t2_n1_4"></label>
+                        <input type="checkbox" id="t2_n1_5" name="t2_1_5">
+                        <label for="t2_n1_5"></label>
+                        <input type="checkbox" id="t2_n1_6" name="t2_1_6">
+                        <label for="t2_n1_6"></label>
+                        <input type="checkbox" id="t2_n1_7" name="t2_1_7">
+                        <label for="t2_n1_7"></label>
+                        <input type="checkbox" id="t2_n1_8" name="t2_1_8">
+                        <label for="t2_n1_8"></label>
+                        <input type="checkbox" id="t2_n1_9" name="t2_1_9">
+                        <label for="t2_n1_9"></label>
+                        <input type="checkbox" id="t2_n1_10" name="t2_1_10">
+                        <label for="t2_n1_10"></label>
+                        <input type="checkbox" id="t2_n1_11" name="t2_1_11">
+                        <label for="t2_n1_11"></label>
+                        <input type="checkbox" id="t2_n1_12" name="t2_1_12">
+                        <label for="t2_n1_12"></label>
+                        <input type="checkbox" id="t2_n1_13" name="t2_1_13">
+                        <label for="t2_n1_13"></label>
+                        <input type="checkbox" id="t2_n1_14" name="t2_1_14">
+                        <label for="t2_n1_14"></label>
+                        <input type="checkbox" id="t2_n1_15" name="t2_1_15">
+                        <label for="t2_n1_15"></label>
+                        <input type="checkbox" id="t2_n1_16" name="t2_1_16">
+                        <label for="t2_n1_16"></label>
+                    </div>
+                    <div id="t2_n2">
+                        <input type="checkbox" id="t2_n2_1" name="t2_1_1">
+                        <label for="t2_n2_1"></label>
+                        <input type="checkbox" id="t2_n2_2" name="t2_1_2">
+                        <label for="t2_n2_2"></label>
+                        <input type="checkbox" id="t2_n2_3" name="t2_1_3">
+                        <label for="t2_n2_3"></label>
+                        <input type="checkbox" id="t2_n2_4" name="t2_1_4">
+                        <label for="t2_n2_4"></label>
+                        <input type="checkbox" id="t2_n2_5" name="t2_1_5">
+                        <label for="t2_n2_5"></label>
+                        <input type="checkbox" id="t2_n2_6" name="t2_1_6">
+                        <label for="t2_n2_6"></label>
+                        <input type="checkbox" id="t2_n2_7" name="t2_1_7">
+                        <label for="t2_n2_7"></label>
+                        <input type="checkbox" id="t2_n2_8" name="t2_1_8">
+                        <label for="t2_n2_8"></label>
+                        <input type="checkbox" id="t2_n2_9" name="t2_1_9">
+                        <label for="t2_n2_9"></label>
+                        <input type="checkbox" id="t2_n2_10" name="t2_1_10">
+                        <label for="t2_n2_10"></label>
+                        <input type="checkbox" id="t2_n2_11" name="t2_1_11">
+                        <label for="t2_n2_11"></label>
+                        <input type="checkbox" id="t2_n2_12" name="t2_1_12">
+                        <label for="t2_n2_12"></label>
+                        <input type="checkbox" id="t2_n2_13" name="t2_1_13">
+                        <label for="t2_n2_13"></label>
+                        <input type="checkbox" id="t2_n2_14" name="t2_1_14">
+                        <label for="t2_n2_14"></label>
+                        <input type="checkbox" id="t2_n2_15" name="t2_1_15">
+                        <label for="t2_n2_15"></label>
+                        <input type="checkbox" id="t2_n2_16" name="t2_1_16">
+                        <label for="t2_n2_16"></label>
+                    </div>
+                    <div id="t2_n3">
+                        <input type="checkbox" id="t2_n3_1" name="t2_1_1">
+                        <label for="t2_n3_1"></label>
+                        <input type="checkbox" id="t2_n3_2" name="t2_1_2">
+                        <label for="t2_n3_2"></label>
+                        <input type="checkbox" id="t2_n3_3" name="t2_1_3">
+                        <label for="t2_n3_3"></label>
+                        <input type="checkbox" id="t2_n3_4" name="t2_1_4">
+                        <label for="t2_n3_4"></label>
+                        <input type="checkbox" id="t2_n3_5" name="t2_1_5">
+                        <label for="t2_n3_5"></label>
+                        <input type="checkbox" id="t2_n3_6" name="t2_1_6">
+                        <label for="t2_n3_6"></label>
+                        <input type="checkbox" id="t2_n3_7" name="t2_1_7">
+                        <label for="t2_n3_7"></label>
+                        <input type="checkbox" id="t2_n3_8" name="t2_1_8">
+                        <label for="t2_n3_8"></label>
+                        <input type="checkbox" id="t2_n3_9" name="t2_1_9">
+                        <label for="t2_n3_9"></label>
+                        <input type="checkbox" id="t2_n3_10" name="t2_1_10">
+                        <label for="t2_n3_10"></label>
+                        <input type="checkbox" id="t2_n3_11" name="t2_1_11">
+                        <label for="t2_n3_11"></label>
+                        <input type="checkbox" id="t2_n3_12" name="t2_1_12">
+                        <label for="t2_n3_12"></label>
+                        <input type="checkbox" id="t2_n3_13" name="t2_1_13">
+                        <label for="t2_n3_13"></label>
+                        <input type="checkbox" id="t2_n3_14" name="t2_1_14">
+                        <label for="t2_n3_14"></label>
+                        <input type="checkbox" id="t2_n3_15" name="t2_1_15">
+                        <label for="t2_n3_15"></label>
+                        <input type="checkbox" id="t2_n3_16" name="t2_1_16">
+                        <label for="t2_n3_16"></label>
+                    </div>
+                    <div id="t2_n4">
+                        <input type="checkbox" id="t2_n4_1" name="t2_1_1">
+                        <label for="t2_n4_1"></label>
+                        <input type="checkbox" id="t2_n4_2" name="t2_1_2">
+                        <label for="t2_n4_2"></label>
+                        <input type="checkbox" id="t2_n4_3" name="t2_1_3">
+                        <label for="t2_n4_3"></label>
+                        <input type="checkbox" id="t2_n4_4" name="t2_1_4">
+                        <label for="t2_n4_4"></label>
+                        <input type="checkbox" id="t2_n4_5" name="t2_1_5">
+                        <label for="t2_n4_5"></label>
+                        <input type="checkbox" id="t2_n4_6" name="t2_1_6">
+                        <label for="t2_n4_6"></label>
+                        <input type="checkbox" id="t2_n4_7" name="t2_1_7">
+                        <label for="t2_n4_7"></label>
+                        <input type="checkbox" id="t2_n4_8" name="t2_1_8">
+                        <label for="t2_n4_8"></label>
+                        <input type="checkbox" id="t2_n4_9" name="t2_1_9">
+                        <label for="t2_n4_9"></label>
+                        <input type="checkbox" id="t2_n4_10" name="t2_1_10">
+                        <label for="t2_n4_10"></label>
+                        <input type="checkbox" id="t2_n4_11" name="t2_1_11">
+                        <label for="t2_n4_11"></label>
+                        <input type="checkbox" id="t2_n4_12" name="t2_1_12">
+                        <label for="t2_n4_12"></label>
+                        <input type="checkbox" id="t2_n4_13" name="t2_1_13">
+                        <label for="t2_n4_13"></label>
+                        <input type="checkbox" id="t2_n4_14" name="t2_1_14">
+                        <label for="t2_n4_14"></label>
+                        <input type="checkbox" id="t2_n4_15" name="t2_1_15">
+                        <label for="t2_n4_15"></label>
+                        <input type="checkbox" id="t2_n4_16" name="t2_1_16">
+                        <label for="t2_n4_16"></label>
+                    </div>
+                    <div id="t2_n5">
+                        <input type="checkbox" id="t2_n5_1" name="t2_1_1">
+                        <label for="t2_n5_1"></label>
+                        <input type="checkbox" id="t2_n5_2" name="t2_1_2">
+                        <label for="t2_n5_2"></label>
+                        <input type="checkbox" id="t2_n5_3" name="t2_1_3">
+                        <label for="t2_n5_3"></label>
+                        <input type="checkbox" id="t2_n5_4" name="t2_1_4">
+                        <label for="t2_n5_4"></label>
+                        <input type="checkbox" id="t2_n5_5" name="t2_1_5">
+                        <label for="t2_n5_5"></label>
+                        <input type="checkbox" id="t2_n5_6" name="t2_1_6">
+                        <label for="t2_n5_6"></label>
+                        <input type="checkbox" id="t2_n5_7" name="t2_1_7">
+                        <label for="t2_n5_7"></label>
+                        <input type="checkbox" id="t2_n5_8" name="t2_1_8">
+                        <label for="t2_n5_8"></label>
+                        <input type="checkbox" id="t2_n5_9" name="t2_1_9">
+                        <label for="t2_n5_9"></label>
+                        <input type="checkbox" id="t2_n5_10" name="t2_1_10">
+                        <label for="t2_n5_10"></label>
+                        <input type="checkbox" id="t2_n5_11" name="t2_1_11">
+                        <label for="t2_n5_11"></label>
+                        <input type="checkbox" id="t2_n5_12" name="t2_1_12">
+                        <label for="t2_n5_12"></label>
+                        <input type="checkbox" id="t2_n5_13" name="t2_1_13">
+                        <label for="t2_n5_13"></label>
+                        <input type="checkbox" id="t2_n5_14" name="t2_1_14">
+                        <label for="t2_n5_14"></label>
+                        <input type="checkbox" id="t2_n5_15" name="t2_1_15">
+                        <label for="t2_n5_15"></label>
+                        <input type="checkbox" id="t2_n5_16" name="t2_1_16">
+                        <label for="t2_n5_16"></label>
+                    </div>
+                    <div id="t2_n6">
+                        <input type="checkbox" id="t2_n6_1" name="t2_1_1">
+                        <label for="t2_n6_1"></label>
+                        <input type="checkbox" id="t2_n6_2" name="t2_1_2">
+                        <label for="t2_n6_2"></label>
+                        <input type="checkbox" id="t2_n6_3" name="t2_1_3">
+                        <label for="t2_n6_3"></label>
+                        <input type="checkbox" id="t2_n6_4" name="t2_1_4">
+                        <label for="t2_n6_4"></label>
+                        <input type="checkbox" id="t2_n6_5" name="t2_1_5">
+                        <label for="t2_n6_5"></label>
+                        <input type="checkbox" id="t2_n6_6" name="t2_1_6">
+                        <label for="t2_n6_6"></label>
+                        <input type="checkbox" id="t2_n6_7" name="t2_1_7">
+                        <label for="t2_n6_7"></label>
+                        <input type="checkbox" id="t2_n6_8" name="t2_1_8">
+                        <label for="t2_n6_8"></label>
+                        <input type="checkbox" id="t2_n6_9" name="t2_1_9">
+                        <label for="t2_n6_9"></label>
+                        <input type="checkbox" id="t2_n6_10" name="t2_1_10">
+                        <label for="t2_n6_10"></label>
+                        <input type="checkbox" id="t2_n6_11" name="t2_1_11">
+                        <label for="t2_n6_11"></label>
+                        <input type="checkbox" id="t2_n6_12" name="t2_1_12">
+                        <label for="t2_n6_12"></label>
+                        <input type="checkbox" id="t2_n6_13" name="t2_1_13">
+                        <label for="t2_n6_13"></label>
+                        <input type="checkbox" id="t2_n6_14" name="t2_1_14">
+                        <label for="t2_n6_14"></label>
+                        <input type="checkbox" id="t2_n6_15" name="t2_1_15">
+                        <label for="t2_n6_15"></label>
+                        <input type="checkbox" id="t2_n6_16" name="t2_1_16">
+                        <label for="t2_n6_16"></label>
+                    </div>
+                    <div id="t2_n7">
+                        <input type="checkbox" id="t2_n7_1" name="t2_1_1">
+                        <label for="t2_n7_1"></label>
+                        <input type="checkbox" id="t2_n7_2" name="t2_1_2">
+                        <label for="t2_n7_2"></label>
+                        <input type="checkbox" id="t2_n7_3" name="t2_1_3">
+                        <label for="t2_n7_3"></label>
+                        <input type="checkbox" id="t2_n7_4" name="t2_1_4">
+                        <label for="t2_n7_4"></label>
+                        <input type="checkbox" id="t2_n7_5" name="t2_1_5">
+                        <label for="t2_n7_5"></label>
+                        <input type="checkbox" id="t2_n7_6" name="t2_1_6">
+                        <label for="t2_n7_6"></label>
+                        <input type="checkbox" id="t2_n7_7" name="t2_1_7">
+                        <label for="t2_n7_7"></label>
+                        <input type="checkbox" id="t2_n7_8" name="t2_1_8">
+                        <label for="t2_n7_8"></label>
+                        <input type="checkbox" id="t2_n7_9" name="t2_1_9">
+                        <label for="t2_n7_9"></label>
+                        <input type="checkbox" id="t2_n7_10" name="t2_1_10">
+                        <label for="t2_n7_10"></label>
+                        <input type="checkbox" id="t2_n7_11" name="t2_1_11">
+                        <label for="t2_n7_11"></label>
+                        <input type="checkbox" id="t2_n7_12" name="t2_1_12">
+                        <label for="t2_n7_12"></label>
+                        <input type="checkbox" id="t2_n7_13" name="t2_1_13">
+                        <label for="t2_n7_13"></label>
+                        <input type="checkbox" id="t2_n7_14" name="t2_1_14">
+                        <label for="t2_n7_14"></label>
+                        <input type="checkbox" id="t2_n7_15" name="t2_1_15">
+                        <label for="t2_n7_15"></label>
+                        <input type="checkbox" id="t2_n7_16" name="t2_1_16">
+                        <label for="t2_n7_16"></label>
+                    </div>
+                    <div id="t2_n8">
+                        <input type="checkbox" id="t2_n8_1" name="t2_1_1">
+                        <label for="t2_n8_1"></label>
+                        <input type="checkbox" id="t2_n8_2" name="t2_1_2">
+                        <label for="t2_n8_2"></label>
+                        <input type="checkbox" id="t2_n8_3" name="t2_1_3">
+                        <label for="t2_n8_3"></label>
+                        <input type="checkbox" id="t2_n8_4" name="t2_1_4">
+                        <label for="t2_n8_4"></label>
+                        <input type="checkbox" id="t2_n8_5" name="t2_1_5">
+                        <label for="t2_n8_5"></label>
+                        <input type="checkbox" id="t2_n8_6" name="t2_1_6">
+                        <label for="t2_n8_6"></label>
+                        <input type="checkbox" id="t2_n8_7" name="t2_1_7">
+                        <label for="t2_n8_7"></label>
+                        <input type="checkbox" id="t2_n8_8" name="t2_1_8">
+                        <label for="t2_n8_8"></label>
+                        <input type="checkbox" id="t2_n8_9" name="t2_1_9">
+                        <label for="t2_n8_9"></label>
+                        <input type="checkbox" id="t2_n8_10" name="t2_1_10">
+                        <label for="t2_n8_10"></label>
+                        <input type="checkbox" id="t2_n8_11" name="t2_1_11">
+                        <label for="t2_n8_11"></label>
+                        <input type="checkbox" id="t2_n8_12" name="t2_1_12">
+                        <label for="t2_n8_12"></label>
+                        <input type="checkbox" id="t2_n8_13" name="t2_1_13">
+                        <label for="t2_n8_13"></label>
+                        <input type="checkbox" id="t2_n8_14" name="t2_1_14">
+                        <label for="t2_n8_14"></label>
+                        <input type="checkbox" id="t2_n8_15" name="t2_1_15">
+                        <label for="t2_n8_15"></label>
+                        <input type="checkbox" id="t2_n8_16" name="t2_1_16">
+                        <label for="t2_n8_16"></label>
+                    </div>
+                </div>
+            </div>
+            <div id="t3" data-type="drums" data-synth='original'>
+                <div class="controls">
+                    <label for="midi_input_t3">MIDI Input</label>
+                    <select id="midi_input_t3" name="midi_input_t3">
+                        <option value="">--SELECT MIDI DEVICE--</option>
+                        <option value="midi_t3_1">Focusrite Midi</option>
+                        <option value="midi_t3_2">KeyStation 49</option>
+                        <option value="midi_t3_3">KeyStepPro</option>
+                        <option value="midi_t3_4">MicroFreaks</option>
+                    </select>
+                    <label for="midi_channel_t3">MIDI Channel</label>
+                    <select id="midi_channel_t3" name="midi_channel_t3">
+                        <option>--SELECT MIDI CHANNEL--</option>
+                        <option value="ch_t3_1">1</option>
+                        <option value="ch_t3_2">2</option>
+                        <option value="ch_t3_3">3</option>
+                        <option value="ch_t3_4">4</option>
+                        <option value="ch_t3_5">5</option>
+                        <option value="ch_t3_6">6</option>
+                        <option value="ch_t3_7">7</option>
+                        <option value="ch_t3_8">8</option>
+                        <option value="ch_t3_9">9</option>
+                        <option value="ch_t3_10">10</option>
+                        <option value="ch_t3_11">11</option>
+                        <option value="ch_t3_12">12</option>
+                        <option value="ch_t3_13">13</option>
+                        <option value="ch_t3_14">14</option>
+                        <option value="ch_t3_15">15</option>
+                        <option value="ch_t3_16">16</option>
+                    </select>
+                    <label for="mute_t3">M</label>
+                    <input type="checkbox" id="mute_t3" name="mute_t3">
+                    <label for="solo_t3">S</label>
+                    <input type="checkbox" id="solo_t3" name="solo_t3">
+                    <div class="dbMeter"></div>
+                    <svg id='settings_t3' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <title>Click Here to change settings on synth</title>
+                        <path
+                            d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
+                    </svg>
+                    <div id="pan_t3"></div>
+                    <svg id="rec_t3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <title>Click here to record this loop</title>
+                        <circle cx="12" cy="12" r="12" />
+                    </svg>
+                    <p>TRACK 1</p>
+                </div>
+                <div id="seq_t3">
+                    <div id="t3_n1">
+                        <input type="checkbox" id="t3_n1_1" name="t3_1_1">
+                        <label for="t3_n1_1"></label>
+                        <input type="checkbox" id="t3_n1_2" name="t3_1_2">
+                        <label for="t3_n1_2"></label>
+                        <input type="checkbox" id="t3_n1_3" name="t3_1_3">
+                        <label for="t3_n1_3"></label>
+                        <input type="checkbox" id="t3_n1_4" name="t3_1_4">
+                        <label for="t3_n1_4"></label>
+                        <input type="checkbox" id="t3_n1_5" name="t3_1_5">
+                        <label for="t3_n1_5"></label>
+                        <input type="checkbox" id="t3_n1_6" name="t3_1_6">
+                        <label for="t3_n1_6"></label>
+                        <input type="checkbox" id="t3_n1_7" name="t3_1_7">
+                        <label for="t3_n1_7"></label>
+                        <input type="checkbox" id="t3_n1_8" name="t3_1_8">
+                        <label for="t3_n1_8"></label>
+                        <input type="checkbox" id="t3_n1_9" name="t3_1_9">
+                        <label for="t3_n1_9"></label>
+                        <input type="checkbox" id="t3_n1_10" name="t3_1_10">
+                        <label for="t3_n1_10"></label>
+                        <input type="checkbox" id="t3_n1_11" name="t3_1_11">
+                        <label for="t3_n1_11"></label>
+                        <input type="checkbox" id="t3_n1_12" name="t3_1_12">
+                        <label for="t3_n1_12"></label>
+                        <input type="checkbox" id="t3_n1_13" name="t3_1_13">
+                        <label for="t3_n1_13"></label>
+                        <input type="checkbox" id="t3_n1_14" name="t3_1_14">
+                        <label for="t3_n1_14"></label>
+                        <input type="checkbox" id="t3_n1_15" name="t3_1_15">
+                        <label for="t3_n1_15"></label>
+                        <input type="checkbox" id="t3_n1_16" name="t3_1_16">
+                        <label for="t3_n1_16"></label>
+                    </div>
+                    <div id="t3_n2">
+                        <input type="checkbox" id="t3_n2_1" name="t3_1_1">
+                        <label for="t3_n2_1"></label>
+                        <input type="checkbox" id="t3_n2_2" name="t3_1_2">
+                        <label for="t3_n2_2"></label>
+                        <input type="checkbox" id="t3_n2_3" name="t3_1_3">
+                        <label for="t3_n2_3"></label>
+                        <input type="checkbox" id="t3_n2_4" name="t3_1_4">
+                        <label for="t3_n2_4"></label>
+                        <input type="checkbox" id="t3_n2_5" name="t3_1_5">
+                        <label for="t3_n2_5"></label>
+                        <input type="checkbox" id="t3_n2_6" name="t3_1_6">
+                        <label for="t3_n2_6"></label>
+                        <input type="checkbox" id="t3_n2_7" name="t3_1_7">
+                        <label for="t3_n2_7"></label>
+                        <input type="checkbox" id="t3_n2_8" name="t3_1_8">
+                        <label for="t3_n2_8"></label>
+                        <input type="checkbox" id="t3_n2_9" name="t3_1_9">
+                        <label for="t3_n2_9"></label>
+                        <input type="checkbox" id="t3_n2_10" name="t3_1_10">
+                        <label for="t3_n2_10"></label>
+                        <input type="checkbox" id="t3_n2_11" name="t3_1_11">
+                        <label for="t3_n2_11"></label>
+                        <input type="checkbox" id="t3_n2_12" name="t3_1_12">
+                        <label for="t3_n2_12"></label>
+                        <input type="checkbox" id="t3_n2_13" name="t3_1_13">
+                        <label for="t3_n2_13"></label>
+                        <input type="checkbox" id="t3_n2_14" name="t3_1_14">
+                        <label for="t3_n2_14"></label>
+                        <input type="checkbox" id="t3_n2_15" name="t3_1_15">
+                        <label for="t3_n2_15"></label>
+                        <input type="checkbox" id="t3_n2_16" name="t3_1_16">
+                        <label for="t3_n2_16"></label>
+                    </div>
+                    <div id="t3_n3">
+                        <input type="checkbox" id="t3_n3_1" name="t3_1_1">
+                        <label for="t3_n3_1"></label>
+                        <input type="checkbox" id="t3_n3_2" name="t3_1_2">
+                        <label for="t3_n3_2"></label>
+                        <input type="checkbox" id="t3_n3_3" name="t3_1_3">
+                        <label for="t3_n3_3"></label>
+                        <input type="checkbox" id="t3_n3_4" name="t3_1_4">
+                        <label for="t3_n3_4"></label>
+                        <input type="checkbox" id="t3_n3_5" name="t3_1_5">
+                        <label for="t3_n3_5"></label>
+                        <input type="checkbox" id="t3_n3_6" name="t3_1_6">
+                        <label for="t3_n3_6"></label>
+                        <input type="checkbox" id="t3_n3_7" name="t3_1_7">
+                        <label for="t3_n3_7"></label>
+                        <input type="checkbox" id="t3_n3_8" name="t3_1_8">
+                        <label for="t3_n3_8"></label>
+                        <input type="checkbox" id="t3_n3_9" name="t3_1_9">
+                        <label for="t3_n3_9"></label>
+                        <input type="checkbox" id="t3_n3_10" name="t3_1_10">
+                        <label for="t3_n3_10"></label>
+                        <input type="checkbox" id="t3_n3_11" name="t3_1_11">
+                        <label for="t3_n3_11"></label>
+                        <input type="checkbox" id="t3_n3_12" name="t3_1_12">
+                        <label for="t3_n3_12"></label>
+                        <input type="checkbox" id="t3_n3_13" name="t3_1_13">
+                        <label for="t3_n3_13"></label>
+                        <input type="checkbox" id="t3_n3_14" name="t3_1_14">
+                        <label for="t3_n3_14"></label>
+                        <input type="checkbox" id="t3_n3_15" name="t3_1_15">
+                        <label for="t3_n3_15"></label>
+                        <input type="checkbox" id="t3_n3_16" name="t3_1_16">
+                        <label for="t3_n3_16"></label>
+                    </div>
+                    <div id="t3_n4">
+                        <input type="checkbox" id="t3_n4_1" name="t3_1_1">
+                        <label for="t3_n4_1"></label>
+                        <input type="checkbox" id="t3_n4_2" name="t3_1_2">
+                        <label for="t3_n4_2"></label>
+                        <input type="checkbox" id="t3_n4_3" name="t3_1_3">
+                        <label for="t3_n4_3"></label>
+                        <input type="checkbox" id="t3_n4_4" name="t3_1_4">
+                        <label for="t3_n4_4"></label>
+                        <input type="checkbox" id="t3_n4_5" name="t3_1_5">
+                        <label for="t3_n4_5"></label>
+                        <input type="checkbox" id="t3_n4_6" name="t3_1_6">
+                        <label for="t3_n4_6"></label>
+                        <input type="checkbox" id="t3_n4_7" name="t3_1_7">
+                        <label for="t3_n4_7"></label>
+                        <input type="checkbox" id="t3_n4_8" name="t3_1_8">
+                        <label for="t3_n4_8"></label>
+                        <input type="checkbox" id="t3_n4_9" name="t3_1_9">
+                        <label for="t3_n4_9"></label>
+                        <input type="checkbox" id="t3_n4_10" name="t3_1_10">
+                        <label for="t3_n4_10"></label>
+                        <input type="checkbox" id="t3_n4_11" name="t3_1_11">
+                        <label for="t3_n4_11"></label>
+                        <input type="checkbox" id="t3_n4_12" name="t3_1_12">
+                        <label for="t3_n4_12"></label>
+                        <input type="checkbox" id="t3_n4_13" name="t3_1_13">
+                        <label for="t3_n4_13"></label>
+                        <input type="checkbox" id="t3_n4_14" name="t3_1_14">
+                        <label for="t3_n4_14"></label>
+                        <input type="checkbox" id="t3_n4_15" name="t3_1_15">
+                        <label for="t3_n4_15"></label>
+                        <input type="checkbox" id="t3_n4_16" name="t3_1_16">
+                        <label for="t3_n4_16"></label>
+                    </div>
+                    <div id="t3_n5">
+                        <input type="checkbox" id="t3_n5_1" name="t3_1_1">
+                        <label for="t3_n5_1"></label>
+                        <input type="checkbox" id="t3_n5_2" name="t3_1_2">
+                        <label for="t3_n5_2"></label>
+                        <input type="checkbox" id="t3_n5_3" name="t3_1_3">
+                        <label for="t3_n5_3"></label>
+                        <input type="checkbox" id="t3_n5_4" name="t3_1_4">
+                        <label for="t3_n5_4"></label>
+                        <input type="checkbox" id="t3_n5_5" name="t3_1_5">
+                        <label for="t3_n5_5"></label>
+                        <input type="checkbox" id="t3_n5_6" name="t3_1_6">
+                        <label for="t3_n5_6"></label>
+                        <input type="checkbox" id="t3_n5_7" name="t3_1_7">
+                        <label for="t3_n5_7"></label>
+                        <input type="checkbox" id="t3_n5_8" name="t3_1_8">
+                        <label for="t3_n5_8"></label>
+                        <input type="checkbox" id="t3_n5_9" name="t3_1_9">
+                        <label for="t3_n5_9"></label>
+                        <input type="checkbox" id="t3_n5_10" name="t3_1_10">
+                        <label for="t3_n5_10"></label>
+                        <input type="checkbox" id="t3_n5_11" name="t3_1_11">
+                        <label for="t3_n5_11"></label>
+                        <input type="checkbox" id="t3_n5_12" name="t3_1_12">
+                        <label for="t3_n5_12"></label>
+                        <input type="checkbox" id="t3_n5_13" name="t3_1_13">
+                        <label for="t3_n5_13"></label>
+                        <input type="checkbox" id="t3_n5_14" name="t3_1_14">
+                        <label for="t3_n5_14"></label>
+                        <input type="checkbox" id="t3_n5_15" name="t3_1_15">
+                        <label for="t3_n5_15"></label>
+                        <input type="checkbox" id="t3_n5_16" name="t3_1_16">
+                        <label for="t3_n5_16"></label>
+                    </div>
+                    <div id="t3_n6">
+                        <input type="checkbox" id="t3_n6_1" name="t3_1_1">
+                        <label for="t3_n6_1"></label>
+                        <input type="checkbox" id="t3_n6_2" name="t3_1_2">
+                        <label for="t3_n6_2"></label>
+                        <input type="checkbox" id="t3_n6_3" name="t3_1_3">
+                        <label for="t3_n6_3"></label>
+                        <input type="checkbox" id="t3_n6_4" name="t3_1_4">
+                        <label for="t3_n6_4"></label>
+                        <input type="checkbox" id="t3_n6_5" name="t3_1_5">
+                        <label for="t3_n6_5"></label>
+                        <input type="checkbox" id="t3_n6_6" name="t3_1_6">
+                        <label for="t3_n6_6"></label>
+                        <input type="checkbox" id="t3_n6_7" name="t3_1_7">
+                        <label for="t3_n6_7"></label>
+                        <input type="checkbox" id="t3_n6_8" name="t3_1_8">
+                        <label for="t3_n6_8"></label>
+                        <input type="checkbox" id="t3_n6_9" name="t3_1_9">
+                        <label for="t3_n6_9"></label>
+                        <input type="checkbox" id="t3_n6_10" name="t3_1_10">
+                        <label for="t3_n6_10"></label>
+                        <input type="checkbox" id="t3_n6_11" name="t3_1_11">
+                        <label for="t3_n6_11"></label>
+                        <input type="checkbox" id="t3_n6_12" name="t3_1_12">
+                        <label for="t3_n6_12"></label>
+                        <input type="checkbox" id="t3_n6_13" name="t3_1_13">
+                        <label for="t3_n6_13"></label>
+                        <input type="checkbox" id="t3_n6_14" name="t3_1_14">
+                        <label for="t3_n6_14"></label>
+                        <input type="checkbox" id="t3_n6_15" name="t3_1_15">
+                        <label for="t3_n6_15"></label>
+                        <input type="checkbox" id="t3_n6_16" name="t3_1_16">
+                        <label for="t3_n6_16"></label>
+                    </div>
+                    <div id="t3_n7">
+                        <input type="checkbox" id="t3_n7_1" name="t3_1_1">
+                        <label for="t3_n7_1"></label>
+                        <input type="checkbox" id="t3_n7_2" name="t3_1_2">
+                        <label for="t3_n7_2"></label>
+                        <input type="checkbox" id="t3_n7_3" name="t3_1_3">
+                        <label for="t3_n7_3"></label>
+                        <input type="checkbox" id="t3_n7_4" name="t3_1_4">
+                        <label for="t3_n7_4"></label>
+                        <input type="checkbox" id="t3_n7_5" name="t3_1_5">
+                        <label for="t3_n7_5"></label>
+                        <input type="checkbox" id="t3_n7_6" name="t3_1_6">
+                        <label for="t3_n7_6"></label>
+                        <input type="checkbox" id="t3_n7_7" name="t3_1_7">
+                        <label for="t3_n7_7"></label>
+                        <input type="checkbox" id="t3_n7_8" name="t3_1_8">
+                        <label for="t3_n7_8"></label>
+                        <input type="checkbox" id="t3_n7_9" name="t3_1_9">
+                        <label for="t3_n7_9"></label>
+                        <input type="checkbox" id="t3_n7_10" name="t3_1_10">
+                        <label for="t3_n7_10"></label>
+                        <input type="checkbox" id="t3_n7_11" name="t3_1_11">
+                        <label for="t3_n7_11"></label>
+                        <input type="checkbox" id="t3_n7_12" name="t3_1_12">
+                        <label for="t3_n7_12"></label>
+                        <input type="checkbox" id="t3_n7_13" name="t3_1_13">
+                        <label for="t3_n7_13"></label>
+                        <input type="checkbox" id="t3_n7_14" name="t3_1_14">
+                        <label for="t3_n7_14"></label>
+                        <input type="checkbox" id="t3_n7_15" name="t3_1_15">
+                        <label for="t3_n7_15"></label>
+                        <input type="checkbox" id="t3_n7_16" name="t3_1_16">
+                        <label for="t3_n7_16"></label>
+                    </div>
+                    <div id="t3_n8">
+                        <input type="checkbox" id="t3_n8_1" name="t3_1_1">
+                        <label for="t3_n8_1"></label>
+                        <input type="checkbox" id="t3_n8_2" name="t3_1_2">
+                        <label for="t3_n8_2"></label>
+                        <input type="checkbox" id="t3_n8_3" name="t3_1_3">
+                        <label for="t3_n8_3"></label>
+                        <input type="checkbox" id="t3_n8_4" name="t3_1_4">
+                        <label for="t3_n8_4"></label>
+                        <input type="checkbox" id="t3_n8_5" name="t3_1_5">
+                        <label for="t3_n8_5"></label>
+                        <input type="checkbox" id="t3_n8_6" name="t3_1_6">
+                        <label for="t3_n8_6"></label>
+                        <input type="checkbox" id="t3_n8_7" name="t3_1_7">
+                        <label for="t3_n8_7"></label>
+                        <input type="checkbox" id="t3_n8_8" name="t3_1_8">
+                        <label for="t3_n8_8"></label>
+                        <input type="checkbox" id="t3_n8_9" name="t3_1_9">
+                        <label for="t3_n8_9"></label>
+                        <input type="checkbox" id="t3_n8_10" name="t3_1_10">
+                        <label for="t3_n8_10"></label>
+                        <input type="checkbox" id="t3_n8_11" name="t3_1_11">
+                        <label for="t3_n8_11"></label>
+                        <input type="checkbox" id="t3_n8_12" name="t3_1_12">
+                        <label for="t3_n8_12"></label>
+                        <input type="checkbox" id="t3_n8_13" name="t3_1_13">
+                        <label for="t3_n8_13"></label>
+                        <input type="checkbox" id="t3_n8_14" name="t3_1_14">
+                        <label for="t3_n8_14"></label>
+                        <input type="checkbox" id="t3_n8_15" name="t3_1_15">
+                        <label for="t3_n8_15"></label>
+                        <input type="checkbox" id="t3_n8_16" name="t3_1_16">
+                        <label for="t3_n8_16"></label>
+                    </div>
+                </div>
+            </div>
+            <div id="t4" data-type="drums" data-synth='original'>
+                <div class="controls">
+                    <label for="midi_input_t4">MIDI Input</label>
+                    <select id="midi_input_t4" name="midi_input_t4">
+                        <option value="">--SELECT MIDI DEVICE--</option>
+                        <option value="midi_t4_1">Focusrite Midi</option>
+                        <option value="midi_t4_2">KeyStation 49</option>
+                        <option value="midi_t4_3">KeyStepPro</option>
+                        <option value="midi_t4_4">MicroFreaks</option>
+                    </select>
+                    <label for="midi_channel_t4">MIDI Channel</label>
+                    <select id="midi_channel_t4" name="midi_channel_t4">
+                        <option>--SELECT MIDI CHANNEL--</option>
+                        <option value="ch_t4_1">1</option>
+                        <option value="ch_t4_2">2</option>
+                        <option value="ch_t4_3">3</option>
+                        <option value="ch_t4_4">4</option>
+                        <option value="ch_t4_5">5</option>
+                        <option value="ch_t4_6">6</option>
+                        <option value="ch_t4_7">7</option>
+                        <option value="ch_t4_8">8</option>
+                        <option value="ch_t4_9">9</option>
+                        <option value="ch_t4_10">10</option>
+                        <option value="ch_t4_11">11</option>
+                        <option value="ch_t4_12">12</option>
+                        <option value="ch_t4_13">13</option>
+                        <option value="ch_t4_14">14</option>
+                        <option value="ch_t4_15">15</option>
+                        <option value="ch_t4_16">16</option>
+                    </select>
+                    <label for="mute_t4">M</label>
+                    <input type="checkbox" id="mute_t4" name="mute_t4">
+                    <label for="solo_t4">S</label>
+                    <input type="checkbox" id="solo_t4" name="solo_t4">
+                    <div class="dbMeter"></div>
+                    <svg id='settings_t4' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <title>Click Here to change settings on synth</title>
+                        <path
+                            d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
+                    </svg>
+                    <div id="pan_t4"></div>
+                    <svg id="rec_t4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <title>Click here to record this loop</title>
+                        <circle cx="12" cy="12" r="12" />
+                    </svg>
+                    <p>TRACK 1</p>
+                </div>
+                <div id="seq_t4">
+                    <div id="t4_n1">
+                        <input type="checkbox" id="t4_n1_1" name="t4_1_1">
+                        <label for="t4_n1_1"></label>
+                        <input type="checkbox" id="t4_n1_2" name="t4_1_2">
+                        <label for="t4_n1_2"></label>
+                        <input type="checkbox" id="t4_n1_3" name="t4_1_3">
+                        <label for="t4_n1_3"></label>
+                        <input type="checkbox" id="t4_n1_4" name="t4_1_4">
+                        <label for="t4_n1_4"></label>
+                        <input type="checkbox" id="t4_n1_5" name="t4_1_5">
+                        <label for="t4_n1_5"></label>
+                        <input type="checkbox" id="t4_n1_6" name="t4_1_6">
+                        <label for="t4_n1_6"></label>
+                        <input type="checkbox" id="t4_n1_7" name="t4_1_7">
+                        <label for="t4_n1_7"></label>
+                        <input type="checkbox" id="t4_n1_8" name="t4_1_8">
+                        <label for="t4_n1_8"></label>
+                        <input type="checkbox" id="t4_n1_9" name="t4_1_9">
+                        <label for="t4_n1_9"></label>
+                        <input type="checkbox" id="t4_n1_10" name="t4_1_10">
+                        <label for="t4_n1_10"></label>
+                        <input type="checkbox" id="t4_n1_11" name="t4_1_11">
+                        <label for="t4_n1_11"></label>
+                        <input type="checkbox" id="t4_n1_12" name="t4_1_12">
+                        <label for="t4_n1_12"></label>
+                        <input type="checkbox" id="t4_n1_13" name="t4_1_13">
+                        <label for="t4_n1_13"></label>
+                        <input type="checkbox" id="t4_n1_14" name="t4_1_14">
+                        <label for="t4_n1_14"></label>
+                        <input type="checkbox" id="t4_n1_15" name="t4_1_15">
+                        <label for="t4_n1_15"></label>
+                        <input type="checkbox" id="t4_n1_16" name="t4_1_16">
+                        <label for="t4_n1_16"></label>
+                    </div>
+                    <div id="t4_n2">
+                        <input type="checkbox" id="t4_n2_1" name="t4_1_1">
+                        <label for="t4_n2_1"></label>
+                        <input type="checkbox" id="t4_n2_2" name="t4_1_2">
+                        <label for="t4_n2_2"></label>
+                        <input type="checkbox" id="t4_n2_3" name="t4_1_3">
+                        <label for="t4_n2_3"></label>
+                        <input type="checkbox" id="t4_n2_4" name="t4_1_4">
+                        <label for="t4_n2_4"></label>
+                        <input type="checkbox" id="t4_n2_5" name="t4_1_5">
+                        <label for="t4_n2_5"></label>
+                        <input type="checkbox" id="t4_n2_6" name="t4_1_6">
+                        <label for="t4_n2_6"></label>
+                        <input type="checkbox" id="t4_n2_7" name="t4_1_7">
+                        <label for="t4_n2_7"></label>
+                        <input type="checkbox" id="t4_n2_8" name="t4_1_8">
+                        <label for="t4_n2_8"></label>
+                        <input type="checkbox" id="t4_n2_9" name="t4_1_9">
+                        <label for="t4_n2_9"></label>
+                        <input type="checkbox" id="t4_n2_10" name="t4_1_10">
+                        <label for="t4_n2_10"></label>
+                        <input type="checkbox" id="t4_n2_11" name="t4_1_11">
+                        <label for="t4_n2_11"></label>
+                        <input type="checkbox" id="t4_n2_12" name="t4_1_12">
+                        <label for="t4_n2_12"></label>
+                        <input type="checkbox" id="t4_n2_13" name="t4_1_13">
+                        <label for="t4_n2_13"></label>
+                        <input type="checkbox" id="t4_n2_14" name="t4_1_14">
+                        <label for="t4_n2_14"></label>
+                        <input type="checkbox" id="t4_n2_15" name="t4_1_15">
+                        <label for="t4_n2_15"></label>
+                        <input type="checkbox" id="t4_n2_16" name="t4_1_16">
+                        <label for="t4_n2_16"></label>
+                    </div>
+                    <div id="t4_n3">
+                        <input type="checkbox" id="t4_n3_1" name="t4_1_1">
+                        <label for="t4_n3_1"></label>
+                        <input type="checkbox" id="t4_n3_2" name="t4_1_2">
+                        <label for="t4_n3_2"></label>
+                        <input type="checkbox" id="t4_n3_3" name="t4_1_3">
+                        <label for="t4_n3_3"></label>
+                        <input type="checkbox" id="t4_n3_4" name="t4_1_4">
+                        <label for="t4_n3_4"></label>
+                        <input type="checkbox" id="t4_n3_5" name="t4_1_5">
+                        <label for="t4_n3_5"></label>
+                        <input type="checkbox" id="t4_n3_6" name="t4_1_6">
+                        <label for="t4_n3_6"></label>
+                        <input type="checkbox" id="t4_n3_7" name="t4_1_7">
+                        <label for="t4_n3_7"></label>
+                        <input type="checkbox" id="t4_n3_8" name="t4_1_8">
+                        <label for="t4_n3_8"></label>
+                        <input type="checkbox" id="t4_n3_9" name="t4_1_9">
+                        <label for="t4_n3_9"></label>
+                        <input type="checkbox" id="t4_n3_10" name="t4_1_10">
+                        <label for="t4_n3_10"></label>
+                        <input type="checkbox" id="t4_n3_11" name="t4_1_11">
+                        <label for="t4_n3_11"></label>
+                        <input type="checkbox" id="t4_n3_12" name="t4_1_12">
+                        <label for="t4_n3_12"></label>
+                        <input type="checkbox" id="t4_n3_13" name="t4_1_13">
+                        <label for="t4_n3_13"></label>
+                        <input type="checkbox" id="t4_n3_14" name="t4_1_14">
+                        <label for="t4_n3_14"></label>
+                        <input type="checkbox" id="t4_n3_15" name="t4_1_15">
+                        <label for="t4_n3_15"></label>
+                        <input type="checkbox" id="t4_n3_16" name="t4_1_16">
+                        <label for="t4_n3_16"></label>
+                    </div>
+                    <div id="t4_n4">
+                        <input type="checkbox" id="t4_n4_1" name="t4_1_1">
+                        <label for="t4_n4_1"></label>
+                        <input type="checkbox" id="t4_n4_2" name="t4_1_2">
+                        <label for="t4_n4_2"></label>
+                        <input type="checkbox" id="t4_n4_3" name="t4_1_3">
+                        <label for="t4_n4_3"></label>
+                        <input type="checkbox" id="t4_n4_4" name="t4_1_4">
+                        <label for="t4_n4_4"></label>
+                        <input type="checkbox" id="t4_n4_5" name="t4_1_5">
+                        <label for="t4_n4_5"></label>
+                        <input type="checkbox" id="t4_n4_6" name="t4_1_6">
+                        <label for="t4_n4_6"></label>
+                        <input type="checkbox" id="t4_n4_7" name="t4_1_7">
+                        <label for="t4_n4_7"></label>
+                        <input type="checkbox" id="t4_n4_8" name="t4_1_8">
+                        <label for="t4_n4_8"></label>
+                        <input type="checkbox" id="t4_n4_9" name="t4_1_9">
+                        <label for="t4_n4_9"></label>
+                        <input type="checkbox" id="t4_n4_10" name="t4_1_10">
+                        <label for="t4_n4_10"></label>
+                        <input type="checkbox" id="t4_n4_11" name="t4_1_11">
+                        <label for="t4_n4_11"></label>
+                        <input type="checkbox" id="t4_n4_12" name="t4_1_12">
+                        <label for="t4_n4_12"></label>
+                        <input type="checkbox" id="t4_n4_13" name="t4_1_13">
+                        <label for="t4_n4_13"></label>
+                        <input type="checkbox" id="t4_n4_14" name="t4_1_14">
+                        <label for="t4_n4_14"></label>
+                        <input type="checkbox" id="t4_n4_15" name="t4_1_15">
+                        <label for="t4_n4_15"></label>
+                        <input type="checkbox" id="t4_n4_16" name="t4_1_16">
+                        <label for="t4_n4_16"></label>
+                    </div>
+                    <div id="t4_n5">
+                        <input type="checkbox" id="t4_n5_1" name="t4_1_1">
+                        <label for="t4_n5_1"></label>
+                        <input type="checkbox" id="t4_n5_2" name="t4_1_2">
+                        <label for="t4_n5_2"></label>
+                        <input type="checkbox" id="t4_n5_3" name="t4_1_3">
+                        <label for="t4_n5_3"></label>
+                        <input type="checkbox" id="t4_n5_4" name="t4_1_4">
+                        <label for="t4_n5_4"></label>
+                        <input type="checkbox" id="t4_n5_5" name="t4_1_5">
+                        <label for="t4_n5_5"></label>
+                        <input type="checkbox" id="t4_n5_6" name="t4_1_6">
+                        <label for="t4_n5_6"></label>
+                        <input type="checkbox" id="t4_n5_7" name="t4_1_7">
+                        <label for="t4_n5_7"></label>
+                        <input type="checkbox" id="t4_n5_8" name="t4_1_8">
+                        <label for="t4_n5_8"></label>
+                        <input type="checkbox" id="t4_n5_9" name="t4_1_9">
+                        <label for="t4_n5_9"></label>
+                        <input type="checkbox" id="t4_n5_10" name="t4_1_10">
+                        <label for="t4_n5_10"></label>
+                        <input type="checkbox" id="t4_n5_11" name="t4_1_11">
+                        <label for="t4_n5_11"></label>
+                        <input type="checkbox" id="t4_n5_12" name="t4_1_12">
+                        <label for="t4_n5_12"></label>
+                        <input type="checkbox" id="t4_n5_13" name="t4_1_13">
+                        <label for="t4_n5_13"></label>
+                        <input type="checkbox" id="t4_n5_14" name="t4_1_14">
+                        <label for="t4_n5_14"></label>
+                        <input type="checkbox" id="t4_n5_15" name="t4_1_15">
+                        <label for="t4_n5_15"></label>
+                        <input type="checkbox" id="t4_n5_16" name="t4_1_16">
+                        <label for="t4_n5_16"></label>
+                    </div>
+                    <div id="t4_n6">
+                        <input type="checkbox" id="t4_n6_1" name="t4_1_1">
+                        <label for="t4_n6_1"></label>
+                        <input type="checkbox" id="t4_n6_2" name="t4_1_2">
+                        <label for="t4_n6_2"></label>
+                        <input type="checkbox" id="t4_n6_3" name="t4_1_3">
+                        <label for="t4_n6_3"></label>
+                        <input type="checkbox" id="t4_n6_4" name="t4_1_4">
+                        <label for="t4_n6_4"></label>
+                        <input type="checkbox" id="t4_n6_5" name="t4_1_5">
+                        <label for="t4_n6_5"></label>
+                        <input type="checkbox" id="t4_n6_6" name="t4_1_6">
+                        <label for="t4_n6_6"></label>
+                        <input type="checkbox" id="t4_n6_7" name="t4_1_7">
+                        <label for="t4_n6_7"></label>
+                        <input type="checkbox" id="t4_n6_8" name="t4_1_8">
+                        <label for="t4_n6_8"></label>
+                        <input type="checkbox" id="t4_n6_9" name="t4_1_9">
+                        <label for="t4_n6_9"></label>
+                        <input type="checkbox" id="t4_n6_10" name="t4_1_10">
+                        <label for="t4_n6_10"></label>
+                        <input type="checkbox" id="t4_n6_11" name="t4_1_11">
+                        <label for="t4_n6_11"></label>
+                        <input type="checkbox" id="t4_n6_12" name="t4_1_12">
+                        <label for="t4_n6_12"></label>
+                        <input type="checkbox" id="t4_n6_13" name="t4_1_13">
+                        <label for="t4_n6_13"></label>
+                        <input type="checkbox" id="t4_n6_14" name="t4_1_14">
+                        <label for="t4_n6_14"></label>
+                        <input type="checkbox" id="t4_n6_15" name="t4_1_15">
+                        <label for="t4_n6_15"></label>
+                        <input type="checkbox" id="t4_n6_16" name="t4_1_16">
+                        <label for="t4_n6_16"></label>
+                    </div>
+                    <div id="t4_n7">
+                        <input type="checkbox" id="t4_n7_1" name="t4_1_1">
+                        <label for="t4_n7_1"></label>
+                        <input type="checkbox" id="t4_n7_2" name="t4_1_2">
+                        <label for="t4_n7_2"></label>
+                        <input type="checkbox" id="t4_n7_3" name="t4_1_3">
+                        <label for="t4_n7_3"></label>
+                        <input type="checkbox" id="t4_n7_4" name="t4_1_4">
+                        <label for="t4_n7_4"></label>
+                        <input type="checkbox" id="t4_n7_5" name="t4_1_5">
+                        <label for="t4_n7_5"></label>
+                        <input type="checkbox" id="t4_n7_6" name="t4_1_6">
+                        <label for="t4_n7_6"></label>
+                        <input type="checkbox" id="t4_n7_7" name="t4_1_7">
+                        <label for="t4_n7_7"></label>
+                        <input type="checkbox" id="t4_n7_8" name="t4_1_8">
+                        <label for="t4_n7_8"></label>
+                        <input type="checkbox" id="t4_n7_9" name="t4_1_9">
+                        <label for="t4_n7_9"></label>
+                        <input type="checkbox" id="t4_n7_10" name="t4_1_10">
+                        <label for="t4_n7_10"></label>
+                        <input type="checkbox" id="t4_n7_11" name="t4_1_11">
+                        <label for="t4_n7_11"></label>
+                        <input type="checkbox" id="t4_n7_12" name="t4_1_12">
+                        <label for="t4_n7_12"></label>
+                        <input type="checkbox" id="t4_n7_13" name="t4_1_13">
+                        <label for="t4_n7_13"></label>
+                        <input type="checkbox" id="t4_n7_14" name="t4_1_14">
+                        <label for="t4_n7_14"></label>
+                        <input type="checkbox" id="t4_n7_15" name="t4_1_15">
+                        <label for="t4_n7_15"></label>
+                        <input type="checkbox" id="t4_n7_16" name="t4_1_16">
+                        <label for="t4_n7_16"></label>
+                    </div>
+                    <div id="t4_n8">
+                        <input type="checkbox" id="t4_n8_1" name="t4_1_1">
+                        <label for="t4_n8_1"></label>
+                        <input type="checkbox" id="t4_n8_2" name="t4_1_2">
+                        <label for="t4_n8_2"></label>
+                        <input type="checkbox" id="t4_n8_3" name="t4_1_3">
+                        <label for="t4_n8_3"></label>
+                        <input type="checkbox" id="t4_n8_4" name="t4_1_4">
+                        <label for="t4_n8_4"></label>
+                        <input type="checkbox" id="t4_n8_5" name="t4_1_5">
+                        <label for="t4_n8_5"></label>
+                        <input type="checkbox" id="t4_n8_6" name="t4_1_6">
+                        <label for="t4_n8_6"></label>
+                        <input type="checkbox" id="t4_n8_7" name="t4_1_7">
+                        <label for="t4_n8_7"></label>
+                        <input type="checkbox" id="t4_n8_8" name="t4_1_8">
+                        <label for="t4_n8_8"></label>
+                        <input type="checkbox" id="t4_n8_9" name="t4_1_9">
+                        <label for="t4_n8_9"></label>
+                        <input type="checkbox" id="t4_n8_10" name="t4_1_10">
+                        <label for="t4_n8_10"></label>
+                        <input type="checkbox" id="t4_n8_11" name="t4_1_11">
+                        <label for="t4_n8_11"></label>
+                        <input type="checkbox" id="t4_n8_12" name="t4_1_12">
+                        <label for="t4_n8_12"></label>
+                        <input type="checkbox" id="t4_n8_13" name="t4_1_13">
+                        <label for="t4_n8_13"></label>
+                        <input type="checkbox" id="t4_n8_14" name="t4_1_14">
+                        <label for="t4_n8_14"></label>
+                        <input type="checkbox" id="t4_n8_15" name="t4_1_15">
+                        <label for="t4_n8_15"></label>
+                        <input type="checkbox" id="t4_n8_16" name="t4_1_16">
+                        <label for="t4_n8_16"></label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <h4 class="hidden">INFOS LINKS</h4>
+            <ul>
+                <li><a href="terms.html">TERMS</a></li>
+                <li><a href="#">COOKIES SETTINGS</a></li>
+                <li><a href="sitemap.html">SITE MAP</a></li>
+            </ul>
+        </section>
+        <a href="index.html" title="Go to Home Page">
+            <img src="ressources/images/logo_pattern/logo.png" alt="logo d'ORPH&Eacute;A" width="50">
+        </a>
+        <section>
+            <h4 class="hidden">OTHER LINKS</h4>
+            <ul>
+                <li><a href="contact.html">CONTACT US</a></li>
+                <li><a href="bugtracker.html">REPORT A BUG</a></li>
+                <!-- CHOOSE LANGUAGE-->
+                <li>
+                    <form method="GET" action="#">
+                        <select>
+                            <option id="fr">Français</option>
+                            <option id="en">English</option>
+                        </select>
+                    </form>
+                </li>
+            </ul>
+        </section>
+    </footer>
+</body>
+
+</html>

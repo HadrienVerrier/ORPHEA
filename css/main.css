@@ -1,11 +1,23 @@
 /*SETTINGS*/
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
+body > header a, body > footer a {
+  color: #f7f9f5;
+  font-style: normal;
+}
+
+body > header a:visited, body > footer a:visited {
+  color: #f7f9f5;
+}
+
 /***************/
 /*****MAIN******/
 /***************/
 html {
   font-size: 62.5%;
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -13,6 +25,8 @@ body {
   font-family: "Quicksand", sans-serif;
   font-size: 1.6rem;
   color: #f7f9f5;
+  width: 100%;
+  height: 100%;
 }
 
 body > header {
@@ -51,17 +65,38 @@ body > header nav ul li {
   font-weight: lighter;
 }
 
-body > header a {
-  color: #f7f9f5;
-  font-style: normal;
+body > header > img {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  min-height: 12rem;
+  height: 30vh;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-body > header a:visited {
-  color: #f7f9f5;
+body > main {
+  position: relative;
+  z-index: 2;
+  margin: 2rem auto 2rem auto;
+  width: 90%;
+  height: calc(100vh - 6rem - 12rem - 4rem);
 }
 
 body > footer {
-  display: none;
+  background-image: url("../ressources/images/logo_pattern/pattern_nb.png");
+  background-size: 12rem;
+  height: 6rem;
+  outline: 1px solid black;
+  width: 100%;
+}
+
+body > footer > section {
+  display: inline-block;
+}
+
+body > footer > section ul li {
+  display: inline-block;
 }
 
 /***************/

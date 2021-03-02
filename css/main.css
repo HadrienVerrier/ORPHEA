@@ -145,4 +145,37 @@ a:visited {
 strong {
   font-weight: bold;
 }
+
+/***********/
+/***INDEX***/
+/***********/
+main #slider-container {
+  border-radius: 2rem;
+  overflow: hidden;
+  width: 50%;
+  height: 28.125%;
+  margin: auto;
+}
+
+main #slider-container video,
+main #slider-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main #sliderControls {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+main #sliderControls label {
+  display: inline-block;
+  margin: 0 1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #650076;
+}
 /*# sourceMappingURL=main.css.map */

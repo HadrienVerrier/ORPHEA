@@ -60,7 +60,6 @@ body > header a:visited {
   color: #f7f9f5;
 }
 
-body > main,
 body > footer {
   display: none;
 }

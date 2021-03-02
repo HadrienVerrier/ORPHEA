@@ -19,7 +19,6 @@ body > header {
   position: relative;
   width: 100%;
   height: 12rem;
-  outline: 1px solid black;
 }
 
 body > header div#logo {

@@ -505,6 +505,14 @@ main#login input {
   margin: 0rem auto;
 }
 
+main#login input[type="checkbox"] {
+  vertical-align: middle;
+}
+
+main#login input[type="checkbox"] + label {
+  font-size: 1.28rem;
+}
+
 main#login #pass_forgot {
   font-size: 1.28rem;
   color: #e366f6;

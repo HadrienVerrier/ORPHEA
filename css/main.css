@@ -2,12 +2,12 @@
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
-body > header a, body > footer a, .button {
+body > header a, body > footer a, .button, main#discover section article ul li a {
   color: #f7f9f5;
   font-style: normal;
 }
 
-body > header a:visited, body > footer a:visited, .button:visited {
+body > header a:visited, body > footer a:visited, .button:visited, main#discover section article ul li a:visited {
   color: #f7f9f5;
 }
 
@@ -169,6 +169,7 @@ body > footer > a {
   font-family: "Big Shoulders Display", cursive;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  cursor: pointer;
 }
 
 .button:hover {
@@ -334,6 +335,62 @@ main#index > section:not(#video) article p {
 }
 
 /*DISCOVER*/
+main#discover section {
+  width: 50%;
+  margin: 4rem 0 2rem 0;
+  text-align: justify;
+}
+
+main#discover section article {
+  background-color: #650076;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin: 3rem 0;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  position: relative;
+}
+
+main#discover section article p {
+  width: 70%;
+  display: inline-block;
+}
+
+main#discover section article img {
+  border-radius: 100%;
+  width: 10rem;
+  height: 10rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 4rem;
+}
+
+main#discover section article ul {
+  height: 5rem;
+}
+
+main#discover section article ul li {
+  margin: 1rem;
+  width: calc(30% - 1rem);
+  display: inline-block;
+}
+
+main#discover section article ul li a {
+  font-size: 1.76rem;
+}
+
+main#discover section article ul li a svg {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -0.2rem;
+  fill: #f7f9f5;
+}
+
 /*ABOUT*/
 main#about section {
   width: 50%;

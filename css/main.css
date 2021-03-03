@@ -471,7 +471,6 @@ main#about section ul li {
 /*ABOUT*/
 main#login {
   position: relative;
-  margin-top: 10rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;

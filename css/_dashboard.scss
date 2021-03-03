@@ -64,7 +64,6 @@ main#dashboard {
 				li {
 					a {
 						@extend %pass_link;
-
 						svg {
 							fill: $white;
 							vertical-align: text-bottom;

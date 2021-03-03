@@ -159,6 +159,10 @@ body {
 	&:hover {
 		background-color: $mainLightPlus;
 	}
+	a {
+		display: block;
+		width: 100%;
+	}
 }
 .disabled {
 	position: relative;

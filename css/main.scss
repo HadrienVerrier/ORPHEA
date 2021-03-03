@@ -25,6 +25,11 @@ body {
 		height: $headerH;
 		div#logo {
 			@include center(true, false);
+			img {
+				margin-left: 2rem;
+				width: 7.5rem;
+				height: 7.5rem;
+			}
 			h1 {
 				font-family: $fTitle;
 				font-size: $regular * 2.5;
@@ -326,3 +331,6 @@ input[type="submit"] + label {
 
 /*DASHBOARD*/
 @import "_dashboard.scss";
+
+/*MEMBER PAGE*/
+@import "_member.scss";

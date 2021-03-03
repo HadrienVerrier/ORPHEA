@@ -42,6 +42,12 @@ body > header div#logo {
           transform: translateY(-50%);
 }
 
+body > header div#logo img {
+  margin-left: 2rem;
+  width: 7.5rem;
+  height: 7.5rem;
+}
+
 body > header div#logo h1 {
   font-family: "Big Shoulders Display", cursive;
   font-size: 4rem;
@@ -732,4 +738,6 @@ main#dashboard > section article ul li a svg {
   fill: #f7f9f5;
   vertical-align: text-bottom;
 }
+
+/*MEMBER PAGE*/
 /*# sourceMappingURL=main.css.map */

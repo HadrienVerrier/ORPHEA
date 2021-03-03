@@ -740,4 +740,36 @@ main#dashboard > section article ul li a svg {
 }
 
 /*MEMBER PAGE*/
+main#member header {
+  width: 100%;
+  margin-left: 3rem;
+  position: relative;
+}
+
+main#member header section {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2rem;
+}
+
+main#member header section ul li {
+  padding: 1rem 2rem 1rem 0;
+  display: inline-block;
+}
+
+main#member header section ul li svg {
+  fill: #f7f9f5;
+}
+
+main#member header img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+}
 /*# sourceMappingURL=main.css.map */

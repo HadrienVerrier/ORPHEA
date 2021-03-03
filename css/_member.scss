@@ -1,0 +1,30 @@
+main#member {
+	header {
+		width: 100%;
+		margin-left: 3rem;
+		position: relative;
+		section {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 2rem;
+			ul {
+				li {
+					padding: 1rem 2rem 1rem 0;
+					display: inline-block;
+					svg {
+						fill: $white;
+					}
+				}
+			}
+		}
+		img {
+			display: inline-block;
+			vertical-align: middle;
+			width: 20rem;
+			height: 20rem;
+			border-radius: 100%;
+			object-fit: cover;
+			box-shadow: $shadow;
+		}
+	}
+}

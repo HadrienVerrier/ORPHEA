@@ -42,6 +42,10 @@ body {
 					float: left;
 					margin: 0 1.5rem;
 					font-weight: lighter;
+
+					&:hover {
+						text-shadow: 1px 1px 1px $white;
+					}
 				}
 			}
 		}
@@ -123,6 +127,10 @@ body {
 		}
 		a {
 			@extend %pass_link;
+
+			&:hover {
+				text-shadow: 0px 0px 2px $white;
+			}
 		}
 	}
 }
@@ -262,7 +270,7 @@ input[type="password"] {
 	& + label {
 		display: block;
 		position: relative;
-		top: -7.5rem;
+		top: -7.8rem;
 		font-size: $regular * 0.8;
 	}
 	&:required + label {
@@ -304,3 +312,6 @@ input[type="submit"] + label {
 
 /*ABOUT*/
 @import "_login.scss";
+
+/*CONTACT*/
+@import "_contact.scss";

@@ -65,6 +65,10 @@ body > header nav ul li {
   font-weight: lighter;
 }
 
+body > header nav ul li:hover {
+  text-shadow: 1px 1px 1px #f7f9f5;
+}
+
 body > header > img {
   position: relative;
   z-index: -1;
@@ -147,6 +151,10 @@ body > footer > a {
   height: 100%;
   text-align: center;
   vertical-align: middle;
+}
+
+body > footer a:hover {
+  text-shadow: 0px 0px 2px #f7f9f5;
 }
 
 /***************/
@@ -307,7 +315,7 @@ input[type="text"] + label,
 input[type="password"] + label {
   display: block;
   position: relative;
-  top: -7.5rem;
+  top: -7.8rem;
   font-size: 1.28rem;
 }
 
@@ -520,5 +528,29 @@ main#login #pass_forgot {
 
 main#login #pass_forgot:hover {
   color: #b900d7;
+}
+
+/*CONTACT*/
+main#contact {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+}
+
+main#contact section {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+main#contact section:nth-of-type(1) {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 2;
 }
 /*# sourceMappingURL=main.css.map */

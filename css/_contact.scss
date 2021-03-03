@@ -1,0 +1,15 @@
+main#contact {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+
+	section {
+		justify-self: center;
+		&:nth-of-type(1) {
+			grid-column-start: 1;
+			grid-column-end: 3;
+			grid-row-start: 1;
+			grid-row-end: 2;
+		}
+	}
+}

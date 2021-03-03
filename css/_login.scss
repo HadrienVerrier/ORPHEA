@@ -1,6 +1,38 @@
 main#login {
+	position: relative;
+
+	margin-top: 10rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	&::after {
+		content: " ";
+		@include center(false, true);
+		width: 2px;
+		height: 70%;
+		border-right: 2px solid $main;
+	}
 	p {
 		text-indent: 0;
-		margin: 3rem 0 5rem;
+		width: 75%;
+
+		margin: 3rem auto 5rem;
+	}
+
+	section {
+		text-align: center;
+		justify-self: center;
+	}
+	input {
+		margin: 0rem auto;
+
+		&[type="checkbox"] {
+			position: relative;
+			left: -4rem;
+			& + label {
+				position: relative;
+				left: -4rem;
+			}
+		}
 	}
 }

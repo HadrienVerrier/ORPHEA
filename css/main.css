@@ -326,6 +326,7 @@ input[type="password"]:required + label::after {
 
 input[type="submit"] + label {
   width: 10rem;
+  margin: 2rem auto;
 }
 
 /************/
@@ -467,8 +468,49 @@ main#about section ul li {
 }
 
 /*ABOUT*/
+main#login {
+  position: relative;
+  margin-top: 10rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+main#login::after {
+  content: " ";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 2px;
+  height: 70%;
+  border-right: 2px solid #650076;
+}
+
 main#login p {
   text-indent: 0;
-  margin: 3rem 0 5rem;
+  width: 75%;
+  margin: 3rem auto 5rem;
+}
+
+main#login section {
+  text-align: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+main#login input {
+  margin: 0rem auto;
+}
+
+main#login input[type="checkbox"] {
+  position: relative;
+  left: -4rem;
+}
+
+main#login input[type="checkbox"] + label {
+  position: relative;
+  left: -4rem;
 }
 /*# sourceMappingURL=main.css.map */

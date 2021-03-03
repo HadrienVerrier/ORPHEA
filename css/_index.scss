@@ -1,4 +1,4 @@
-main {
+main#index {
 	#video-container {
 		border-radius: $borderRadius;
 		overflow: hidden;
@@ -12,6 +12,37 @@ main {
 		video {
 			width: 100%;
 			height: 100%;
+		}
+	}
+
+	> section:not(#video) {
+		margin-top: 3rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+
+		article {
+			justify-self: center;
+			min-height: 30rem;
+			max-height: 50rem;
+			width: 65%;
+			padding: 1.5rem;
+			background-color: $main;
+			border-radius: $borderRadius;
+			box-shadow: $shadow;
+
+			h3 {
+				text-align: center;
+				display: block;
+				width: 80%;
+				padding: 1rem;
+				border-bottom: 0.1rem solid rgba(255, 255, 255, 0.445);
+				margin: auto;
+			}
+
+			p {
+				margin: 2rem 1rem;
+				text-indent: 2rem;
+			}
 		}
 	}
 }

@@ -2,12 +2,12 @@
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
-body > header a, body > footer a {
+body > header a, body > footer a, .button {
   color: #f7f9f5;
   font-style: normal;
 }
 
-body > header a:visited, body > footer a:visited {
+body > header a:visited, body > footer a:visited, .button:visited {
   color: #f7f9f5;
 }
 
@@ -83,6 +83,27 @@ body > main {
   min-height: calc(100vh - 6rem - 10rem - 4rem);
 }
 
+body > main h2,
+body > main h3,
+body > main h4,
+body > main h5,
+body > main h6 {
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: bold;
+}
+
+body > main h2 {
+  font-size: 3.36rem;
+}
+
+body > main h3 {
+  font-size: 2.88rem;
+}
+
+body > main h4 {
+  font-size: 2.56rem;
+}
+
 body > footer {
   position: relative;
   background-image: url("../ressources/images/logo_pattern/pattern_nb.png");
@@ -129,6 +150,66 @@ body > footer > a {
   display: none;
 }
 
+.button {
+  display: block;
+  width: 70%;
+  height: 4rem;
+  text-align: center;
+  margin: auto;
+  background-color: #b900d7;
+  border-radius: 0.75rem;
+  font-size: 2.08rem;
+  line-height: 4.16rem;
+  font-family: "Big Shoulders Display", cursive;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+}
+
+.button:hover {
+  background-color: #e366f6;
+}
+
+.disabled {
+  position: relative;
+}
+
+.disabled * {
+  pointer-events: none;
+}
+
+.disabled::after {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.274);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 1.5rem;
+}
+
+.disabled:hover::before {
+  content: attr(data-disabled);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 5;
+  font-family: "Quicksand", sans-serif;
+  font-style: italic;
+  width: 80%;
+  height: 4rem;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  font-size: 1.92rem;
+  line-height: 3.84rem;
+  background-color: #e366f6;
+}
+
 /**************/
 /***GENERAL****/
 /**************/
@@ -146,11 +227,39 @@ strong {
   font-weight: bold;
 }
 
+select {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 0.45rem;
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  padding: 0.6rem 1.4rem 0.5rem 0.8rem;
+  font-size: 1.28rem;
+  background-color: #383838;
+  color: #f7f9f5;
+  border: 1px solid #aaa;
+}
+
+select:hover {
+  background-color: #6a6a6a;
+}
+
+select:focus {
+  border-color: #aaa;
+  -webkit-box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
+          box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
+  outline: none;
+}
+
 /***********/
 /***INDEX***/
 /***********/
-main #video-container {
-  border-radius: 2rem;
+main#index #video-container {
+  border-radius: 1.5rem;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -161,8 +270,43 @@ main #video-container {
   margin: auto;
 }
 
-main #video-container video {
+main#index #video-container video {
   width: 100%;
   height: 100%;
+}
+
+main#index > section:not(#video) {
+  margin-top: 3rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+main#index > section:not(#video) article {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  min-height: 30rem;
+  max-height: 50rem;
+  width: 65%;
+  padding: 1.5rem;
+  background-color: #650076;
+  border-radius: 1.5rem;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+}
+
+main#index > section:not(#video) article h3 {
+  text-align: center;
+  display: block;
+  width: 80%;
+  padding: 1rem;
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.445);
+  margin: auto;
+}
+
+main#index > section:not(#video) article p {
+  margin: 2rem 1rem;
+  text-indent: 2rem;
 }
 /*# sourceMappingURL=main.css.map */

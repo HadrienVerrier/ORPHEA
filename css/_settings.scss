@@ -61,9 +61,17 @@ $logo_nbi: url("../ressources/images/logo_pattern/logo_nbi.png");
 $headerH: 10rem;
 
 //MAIN
+$borderRadius: 1.5rem;
 
-$borderRadius: 2rem;
 //FOOTER
 
 $footerH: 6rem;
 $footerAllow: 100%;
+
+////////////
+///EFFECT///
+////////////
+
+//SHADOW
+
+$shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);

@@ -1,2 +1,20 @@
 main#about {
+	section {
+		width: 50%;
+		margin: 4rem 0 2rem 0;
+		text-align: justify;
+
+		&:first-of-type {
+			margin-top: $headerH + 2rem;
+		}
+
+		ul {
+			margin: 3rem;
+
+			li {
+				list-style: circle;
+				width: 80%;
+			}
+		}
+	}
 }

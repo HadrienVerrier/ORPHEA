@@ -335,4 +335,22 @@ main#index > section:not(#video) article p {
 
 /*DISCOVER*/
 /*ABOUT*/
+main#about section {
+  width: 50%;
+  margin: 4rem 0 2rem 0;
+  text-align: justify;
+}
+
+main#about section:first-of-type {
+  margin-top: 12rem;
+}
+
+main#about section ul {
+  margin: 3rem;
+}
+
+main#about section ul li {
+  list-style: circle;
+  width: 80%;
+}
 /*# sourceMappingURL=main.css.map */

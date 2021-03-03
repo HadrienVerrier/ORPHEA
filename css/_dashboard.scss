@@ -1,0 +1,48 @@
+main#dashboard {
+	header {
+		h2 {
+			text-align: center;
+		}
+		> ul {
+			margin-top: 3rem;
+			display: grid;
+			grid-template-columns: repeat(3, 33%);
+			li {
+				position: relative;
+				line-height: $regular * 3;
+				height: 5rem;
+				border-radius: $borderRadius;
+				&::before {
+					height: 2rem;
+					line-height: normal;
+				}
+				a {
+					font-family: $fTitle;
+					color: $white;
+					font-style: normal;
+				}
+				svg {
+					fill: $white;
+					vertical-align: text-bottom;
+				}
+				ul {
+					display: none;
+				}
+				&:hover ul {
+					display: block;
+					li {
+						border: 1px solid $mainDark;
+						background-color: $mainLight;
+						height: 4rem;
+
+						&:hover {
+							background-color: $mainLightPlus;
+						}
+					}
+				}
+			}
+		}
+	}
+	> section {
+	}
+}

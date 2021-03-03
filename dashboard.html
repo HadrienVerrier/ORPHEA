@@ -49,13 +49,12 @@
         <img src="ressources/images/footage/background_main.jpg" width="500" alt="Music Machine for composition">
 
     </header>
-    <main>
+    <main id="dashboard">
 
         <header>
             <h2>WELCOME MEMBER_NAME</h2>
             <ul>
                 <li class="button">
-
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path
                             d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
@@ -63,8 +62,9 @@
                     COMPOSE
                     <ul>
                         <li><a href="compose.html?t=loop">LOOP</a></li>
-                        <li class="disabled"><a href="compose.html?t=song">SONG</a></li>
-                        <li class="disabled"><a href="compose.html?t=album">ALBUM</a></li>
+                        <li class="disabled" data-disabled="SOON AVAILABLE"><a href="compose.html?t=song">SONG</a></li>
+                        <li class="disabled" data-disabled="SOON AVAILABLE"><a href="compose.html?t=album">ALBUM</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="button">
@@ -76,7 +76,7 @@
                         MEMBER PAGE
                     </a>
                 </li>
-                <li class="button disabled">
+                <li class="button disabled" data-disabled="SOON AVAILABLE">
                     <a href="member_message.html?m=Member" title="See your notification">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path

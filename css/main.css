@@ -541,10 +541,10 @@ main#login #pass_forgot:hover {
 main#contact {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: (50%)[2];
+      grid-template-columns: repeat(2, 50%);
+  -ms-grid-rows: (33%)[3];
+      grid-template-rows: repeat(3, 33%);
 }
 
 main#contact section {
@@ -559,7 +559,16 @@ main#contact section:nth-of-type(1) {
   grid-column-end: 2;
   -ms-grid-row: 1;
       grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-end: 4;
+}
+
+main#contact section:nth-of-type(3) {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 3;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row-end: 4;
 }
 
 main#contact section p {
@@ -616,9 +625,21 @@ main#contact section textarea:required + label::after {
   font-size: 4rem;
 }
 
-main#contact section svg {
+main#contact section a {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 3rem;
+}
+
+main#contact section a svg {
+  vertical-align: middle;
   fill: #f7f9f5;
   width: 5rem;
   height: 5rem;
+  margin: -2rem 2rem;
+}
+
+main#contact section a svg:first-of-type {
+  margin-top: 0;
 }
 /*# sourceMappingURL=main.css.map */

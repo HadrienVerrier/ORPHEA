@@ -1,7 +1,7 @@
 main#contact {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
+	grid-template-columns: repeat(2, 50%);
+	grid-template-rows: repeat(3, 33%);
 
 	section {
 		text-align: center;
@@ -11,7 +11,13 @@ main#contact {
 			grid-column-start: 1;
 			grid-column-end: 2;
 			grid-row-start: 1;
-			grid-row-end: 3;
+			grid-row-end: 4;
+		}
+		&:nth-of-type(3) {
+			grid-column-start: 2;
+			grid-column-end: 3;
+			grid-row-start: 2;
+			grid-row-end: 4;
 		}
 		p {
 			width: 75%;
@@ -61,10 +67,20 @@ main#contact {
 			}
 		}
 
-		svg {
-			fill: $white;
-			width: 5rem;
-			height: 5rem;
+		a {
+			display: inline-block;
+			vertical-align: middle;
+			margin: 3rem;
+			svg {
+				&:first-of-type {
+					margin-top: 0;
+				}
+				vertical-align: middle;
+				fill: $white;
+				width: 5rem;
+				height: 5rem;
+				margin: -2rem 2rem;
+			}
 		}
 	}
 }

@@ -324,6 +324,10 @@ input[type="password"]:required + label::after {
   font-size: 4rem;
 }
 
+input[type="submit"] + label {
+  width: 10rem;
+}
+
 /************/
 /***CUSTOM***/
 /************/
@@ -463,4 +467,8 @@ main#about section ul li {
 }
 
 /*ABOUT*/
+main#login p {
+  text-indent: 0;
+  margin: 3rem 0 5rem;
+}
 /*# sourceMappingURL=main.css.map */

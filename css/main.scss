@@ -260,7 +260,6 @@ input[type="password"] {
 		outline: none;
 	}
 	& + label {
-		// display: none;
 		position: relative;
 		top: -7.5rem;
 		font-size: $regular * 0.8;
@@ -279,6 +278,10 @@ input[type="password"] {
 			font-size: $regular * 2.5;
 		}
 	}
+}
+
+input[type="submit"] + label {
+	width: 10rem;
 }
 
 /************/

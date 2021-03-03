@@ -25,14 +25,22 @@ main#login {
 	}
 	input {
 		margin: 0rem auto;
+		// &[type="checkbox"] {
+		// 	position: relative;
+		// 	left: -4rem;
+		// 	& + label {
+		// 		position: relative;
+		// 		left: -4rem;
+		// 	}
+		// }
+	}
+	#pass_forgot {
+		font-size: $regular * 0.8;
+		color: $mainLightPlus;
+		text-shadow: $shadow;
 
-		&[type="checkbox"] {
-			position: relative;
-			left: -4rem;
-			& + label {
-				position: relative;
-				left: -4rem;
-			}
+		&:hover {
+			color: $mainLight;
 		}
 	}
 }

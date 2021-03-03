@@ -2,12 +2,12 @@
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
-body > header a, body > footer a, .button, main#discover section article ul li a {
+body > header a, body > footer a, .button, main#discover section article ul li a, main#dashboard > section article ul li a {
   color: #f7f9f5;
   font-style: normal;
 }
 
-body > header a:visited, body > footer a:visited, .button:visited, main#discover section article ul li a:visited {
+body > header a:visited, body > footer a:visited, .button:visited, main#discover section article ul li a:visited, main#dashboard > section article ul li a:visited {
   color: #f7f9f5;
 }
 
@@ -695,5 +695,36 @@ main#dashboard header > ul li:hover ul li {
 
 main#dashboard header > ul li:hover ul li:hover {
   background-color: #e366f6;
+}
+
+main#dashboard > section {
+  margin-top: 5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (33%)[3];
+      grid-template-columns: repeat(3, 33%);
+}
+
+main#dashboard > section article {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 90%;
+  height: 40rem;
+  text-align: center;
+  background-color: #650076;
+  padding: 1rem;
+  border-radius: 1.5rem;
+}
+
+main#dashboard > section article ul {
+  height: 90%;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-rows: auto;
+}
+
+main#dashboard > section article ul li a svg {
+  fill: #f7f9f5;
+  vertical-align: text-bottom;
 }
 /*# sourceMappingURL=main.css.map */

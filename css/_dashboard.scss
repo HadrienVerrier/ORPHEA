@@ -44,5 +44,34 @@ main#dashboard {
 		}
 	}
 	> section {
+		margin-top: 5rem;
+		display: grid;
+		grid-template-columns: repeat(3, 33%);
+		article {
+			justify-self: center;
+			width: 90%;
+			height: 40rem;
+			text-align: center;
+
+			background-color: $main;
+			padding: 1rem;
+			border-radius: $borderRadius;
+
+			ul {
+				height: 90%;
+				display: grid;
+				grid-auto-rows: auto;
+				li {
+					a {
+						@extend %pass_link;
+
+						svg {
+							fill: $white;
+							vertical-align: text-bottom;
+						}
+					}
+				}
+			}
+		}
 	}
 }

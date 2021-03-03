@@ -6,6 +6,7 @@ main#contact {
 	section {
 		text-align: center;
 		justify-self: center;
+
 		&:nth-of-type(1) {
 			grid-column-start: 1;
 			grid-column-end: 2;
@@ -58,6 +59,12 @@ main#contact {
 					font-size: $regular * 2.5;
 				}
 			}
+		}
+
+		svg {
+			fill: $white;
+			width: 5rem;
+			height: 5rem;
 		}
 	}
 }

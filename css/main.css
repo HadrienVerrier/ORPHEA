@@ -615,4 +615,10 @@ main#contact section textarea:required + label::after {
   color: #e366f6;
   font-size: 4rem;
 }
+
+main#contact section svg {
+  fill: #f7f9f5;
+  width: 5rem;
+  height: 5rem;
+}
 /*# sourceMappingURL=main.css.map */

@@ -47,35 +47,35 @@
         <img src="ressources/images/footage/background_main.jpg" width="500" alt="Music Machine for composition">
 
     </header>
-    <main>
+    <main id="login">
         <section>
             <h2>LOGIN</h2>
             <p>Login to have access to your member page and other functionalities.</p>
             <form method="POST" action="dashboard.html">
-                <label for="l_username">Username/Mail</label>
                 <input type="text" id="l_username" name="l_username" required="required">
-                <label for="l_password">Username/Mail</label>
+                <label for="l_username">Username/Mail</label>
                 <input type="password" id="l_password" name="l_password" required="required">
-                <label for="remember">Remember Me</label>
+                <label for="l_password">Password</label>
                 <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember Me</label>
+                <input type="submit" value="LOGIN" name="l_submit" id="l_submit" class="hidden">
                 <label for="l_submit">Login</label>
-                <input type="submit" value="LOGIN" name="l_submit" id="l_submit">
             </form>
         </section>
         <section>
             <h2>SIGNUP</h2>
             <p>Create an account to have full acces to ORPH&Eacute;A.</p>
             <form method="POST" action="dashboard.html">
-                <label for="email">Email</label>
                 <input type="text" id="email" name="email" required="required">
-                <label for="s_username">Username</label>
+                <label for="email">Email</label>
                 <input type="text" id="s_username" name="s_username" required="required">
-                <label for="s_password">Password</label>
+                <label for="s_username">Username</label>
                 <input type="password" id="s_password" name="s_password" required="required">
-                <label for="s_c_password">Confirm Password</label>
+                <label for="s_password">Password</label>
                 <input type="password" id="s_c_password" name="s_c_password" required="required">
+                <label for="s_c_password">Confirm Password</label>
+                <input type="submit" name="s_submit" id="s_submit" class="hidden">
                 <label for="s_submit">Sign Up</label>
-                <input type="submit" name="s_submit" id="s_submit">
             </form>
         </section>
     </main>

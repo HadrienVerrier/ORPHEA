@@ -236,6 +236,51 @@ select {
 	}
 }
 
+input[type="text"],
+input[type="password"] {
+	display: block;
+	height: 3.5rem;
+	box-sizing: border-box;
+	border-radius: $borderRadius * 0.3;
+	margin: 0;
+	font-family: $fRegular;
+	font-weight: bold;
+	padding: 0.6rem 1.4rem 0.5rem 0.8rem;
+	font-size: $regular * 0.8;
+	background-color: $white;
+	color: $background;
+	border: 1px solid #aaa;
+
+	&:hover {
+		background-color: $white + 255;
+	}
+	&:focus {
+		border-color: #aaa;
+		box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
+		outline: none;
+	}
+	& + label {
+		// display: none;
+		position: relative;
+		top: -7.5rem;
+		font-size: $regular * 0.8;
+	}
+	&:required + label {
+		&::after {
+			content: "*";
+			position: relative;
+			top: 2.2rem;
+			padding-left: 1rem;
+			display: inline-block;
+			width: 1rem;
+			height: 1rem;
+			font-family: $fTitle;
+			color: $mainLightPlus;
+			font-size: $regular * 2.5;
+		}
+	}
+}
+
 /************/
 /***CUSTOM***/
 /************/
@@ -251,3 +296,6 @@ select {
 
 /*ABOUT*/
 @import "_about.scss";
+
+/*ABOUT*/
+@import "_login.scss";

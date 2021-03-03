@@ -632,7 +632,7 @@ main#contact section a {
 }
 
 main#contact section a svg {
-  vertical-align: middle;
+  vertical-align: text-bottom;
   fill: #f7f9f5;
   width: 5rem;
   height: 5rem;

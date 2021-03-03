@@ -209,10 +209,10 @@ body {
 a {
 	text-decoration: none;
 	font-style: italic;
-	color: $white;
+	color: $mainLightPlus;
 
 	&:visited {
-		color: $mainLightPlus;
+		color: $mainLight;
 	}
 }
 
@@ -243,7 +243,11 @@ select {
 		outline: none;
 	}
 }
-
+*:focus-visible {
+	border-color: #aaa;
+	box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
+	outline: none;
+}
 input[type="text"],
 input[type="password"] {
 	display: block;

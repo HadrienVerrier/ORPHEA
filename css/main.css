@@ -242,11 +242,11 @@ body > footer a:hover {
 a {
   text-decoration: none;
   font-style: italic;
-  color: #f7f9f5;
+  color: #e366f6;
 }
 
 a:visited {
-  color: #e366f6;
+  color: #b900d7;
 }
 
 strong {
@@ -275,6 +275,13 @@ select:hover {
 }
 
 select:focus {
+  border-color: #aaa;
+  -webkit-box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
+          box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
+  outline: none;
+}
+
+*:focus-visible {
   border-color: #aaa;
   -webkit-box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
           box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
@@ -541,6 +548,7 @@ main#contact {
 }
 
 main#contact section {
+  text-align: center;
   -ms-grid-column-align: center;
       justify-self: center;
 }
@@ -548,9 +556,63 @@ main#contact section {
 main#contact section:nth-of-type(1) {
   -ms-grid-column: 1;
       grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 2;
   -ms-grid-row: 1;
       grid-row-start: 1;
-  grid-row-end: 2;
+  grid-row-end: 3;
+}
+
+main#contact section p {
+  width: 75%;
+  margin: 2rem auto 4rem auto;
+}
+
+main#contact section input,
+main#contact section textarea {
+  margin: 0 auto;
+}
+
+main#contact section textarea {
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  resize: none;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  font-size: 1.28rem;
+  background-color: #f7f9f5;
+  display: block;
+}
+
+main#contact section textarea:hover {
+  background-color: white;
+}
+
+main#contact section textarea:focus {
+  border-color: #aaa;
+  -webkit-box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
+          box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
+  outline: none;
+}
+
+main#contact section textarea + label {
+  display: block;
+  position: relative;
+  top: -14.5rem;
+  font-size: 1.28rem;
+}
+
+main#contact section textarea:required + label::after {
+  content: "*";
+  position: relative;
+  top: 2.2rem;
+  padding-left: 1rem;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  font-family: "Big Shoulders Display", cursive;
+  color: #e366f6;
+  font-size: 4rem;
 }
 /*# sourceMappingURL=main.css.map */

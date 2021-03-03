@@ -82,6 +82,11 @@ body {
 		h4 {
 			font-size: $regular * 1.6;
 		}
+		p {
+			margin: 2rem 0;
+			text-indent: 2rem;
+			line-height: $regular * 1.2;
+		}
 	}
 	> footer {
 		position: relative;
@@ -163,23 +168,29 @@ body {
 		left: 0;
 		border-radius: $borderRadius;
 	}
-
+	&:before {
+		content: attr(data-disabled);
+		display: block;
+		opacity: 0;
+		transition: opacity 1s ease-in-out;
+		@include center(true, true);
+		z-index: 5;
+		font-family: $fRegular;
+		font-style: italic;
+		width: 80%;
+		height: 4rem;
+		padding: 0.5rem;
+		border-radius: $borderRadius * 0.5;
+		text-align: center;
+		font-size: $regular * 1.2;
+		line-height: $regular * 2 * 1.2;
+		background-color: $mainLightPlus;
+		transition: opacity 0.2s ease-in-out;
+	}
 	&:hover {
 		&::before {
-			content: attr(data-disabled);
-			display: block;
-			@include center(true, true);
-			z-index: 5;
-			font-family: $fRegular;
-			font-style: italic;
-			width: 80%;
-			height: 4rem;
-			padding: 0.5rem;
-			border-radius: $borderRadius * 0.5;
-			text-align: center;
-			font-size: $regular * 1.2;
-			line-height: $regular * 2 * 1.2;
-			background-color: $mainLightPlus;
+			opacity: 1;
+			transition: opacity 0.2s ease-in-out;
 		}
 	}
 }
@@ -224,8 +235,19 @@ select {
 		outline: none;
 	}
 }
-/***********/
-/***INDEX***/
-/***********/
 
+/************/
+/***CUSTOM***/
+/************/
+
+/*PLAYER*/
+@import "_player.scss";
+
+/*INDEX*/
 @import "_index.scss";
+
+/*DISCOVER*/
+@import "_discover.scss";
+
+/*ABOUT*/
+@import "_about.scss";

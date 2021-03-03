@@ -104,6 +104,12 @@ body > main h4 {
   font-size: 2.56rem;
 }
 
+body > main p {
+  margin: 2rem 0;
+  text-indent: 2rem;
+  line-height: 1.92rem;
+}
+
 body > footer {
   position: relative;
   background-image: url("../ressources/images/logo_pattern/pattern_nb.png");
@@ -189,9 +195,12 @@ body > footer > a {
   border-radius: 1.5rem;
 }
 
-.disabled:hover::before {
+.disabled:before {
   content: attr(data-disabled);
   display: block;
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -208,6 +217,14 @@ body > footer > a {
   font-size: 1.92rem;
   line-height: 3.84rem;
   background-color: #e366f6;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.disabled:hover::before {
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
 /**************/
@@ -255,9 +272,15 @@ select:focus {
   outline: none;
 }
 
-/***********/
-/***INDEX***/
-/***********/
+/************/
+/***CUSTOM***/
+/************/
+/*PLAYER*/
+#player-container {
+  display: none;
+}
+
+/*INDEX*/
 main#index #video-container {
   border-radius: 1.5rem;
   overflow: hidden;
@@ -309,4 +332,7 @@ main#index > section:not(#video) article p {
   margin: 2rem 1rem;
   text-indent: 2rem;
 }
+
+/*DISCOVER*/
+/*ABOUT*/
 /*# sourceMappingURL=main.css.map */

@@ -599,7 +599,7 @@ main#contact section textarea:focus {
 main#contact section textarea + label {
   display: block;
   position: relative;
-  top: -14.5rem;
+  top: -22.5rem;
   font-size: 1.28rem;
 }
 

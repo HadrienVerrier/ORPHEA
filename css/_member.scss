@@ -27,4 +27,24 @@ main#member {
 			box-shadow: $shadow;
 		}
 	}
+	> section {
+		margin-top: 5rem;
+		display: grid;
+		grid-template-columns: repeat(3, 33%);
+		gap: 2rem;
+		> article {
+			justify-self: center;
+			width: 90%;
+			height: 40rem;
+			text-align: center;
+
+			background-color: $main;
+			padding: 1rem;
+			border-radius: $borderRadius;
+
+			a {
+				@extend %pass_link;
+			}
+		}
+	}
 }

@@ -1,6 +1,8 @@
 /*SETTINGS*/
 @import url("reset.css");
 @import "_settings.scss";
+
+/*PLACEHOLDER ACTION*/
 @import "_functions.scss";
 
 /***************/
@@ -334,3 +336,6 @@ input[type="submit"] + label {
 
 /*MEMBER PAGE*/
 @import "_member.scss";
+
+/*COMPOSE*/
+@import "_compose.scss";

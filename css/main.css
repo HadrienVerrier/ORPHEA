@@ -1,13 +1,14 @@
 /*SETTINGS*/
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
+/*PLACEHOLDER ACTION*/
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
-body > header a, body > footer a, .button, main#discover section article ul li a, main#dashboard > section article ul li a {
+body > header a, body > footer a, .button, main#discover section article ul li a, main#dashboard > section article ul li a, main#member > section > article a {
   color: #f7f9f5;
   font-style: normal;
 }
 
-body > header a:visited, body > footer a:visited, .button:visited, main#discover section article ul li a:visited, main#dashboard > section article ul li a:visited {
+body > header a:visited, body > footer a:visited, .button:visited, main#discover section article ul li a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
   color: #f7f9f5;
 }
 
@@ -722,6 +723,8 @@ main#dashboard > section article {
   width: 90%;
   height: 40rem;
   text-align: center;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
   background-color: #650076;
   padding: 1rem;
   border-radius: 1.5rem;
@@ -772,4 +775,26 @@ main#member header img {
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
 }
+
+main#member > section {
+  margin-top: 5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (33%)[3];
+      grid-template-columns: repeat(3, 33%);
+  gap: 2rem;
+}
+
+main#member > section > article {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 90%;
+  height: 40rem;
+  text-align: center;
+  background-color: #650076;
+  padding: 1rem;
+  border-radius: 1.5rem;
+}
+
+/*COMPOSE*/
 /*# sourceMappingURL=main.css.map */

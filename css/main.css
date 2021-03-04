@@ -851,6 +851,10 @@ main#compose #tracks > div[id^="t"] .controls {
 }
 
 main#compose #tracks > div[id^="t"] .controls > div {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   position: absolute;
 }
 
@@ -870,9 +874,11 @@ main#compose #tracks > div[id^="t"] .controls > div input[type="checkbox"] + lab
   margin: 1rem 1.25rem;
   text-align: center;
   font-weight: bolder;
-  font-size: 1.6rem;
+  font-size: 1.28rem;
   line-height: 1.92rem;
   border-radius: 0.75rem;
+  -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.363);
+          box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.363);
 }
 
 main#compose #tracks > div[id^="t"] div[id^="seq"] {
@@ -961,6 +967,10 @@ main#compose #tracks div#t1 #drum_name p:hover {
 }
 
 main#compose #tracks div#t1 .controls > div input[type="checkbox"] + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t1 .controls > div input[type="checkbox"]:checked + label {
   background-color: var(--tmain);
 }
 
@@ -983,6 +993,10 @@ main#compose #tracks div#t2 {
 }
 
 main#compose #tracks div#t2 .controls > div input[type="checkbox"] + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t2 .controls > div input[type="checkbox"]:checked + label {
   background-color: var(--tmain);
 }
 
@@ -1005,6 +1019,10 @@ main#compose #tracks div#t3 {
 }
 
 main#compose #tracks div#t3 .controls > div input[type="checkbox"] + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t3 .controls > div input[type="checkbox"]:checked + label {
   background-color: var(--tmain);
 }
 
@@ -1027,6 +1045,10 @@ main#compose #tracks div#t4 {
 }
 
 main#compose #tracks div#t4 .controls > div input[type="checkbox"] + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t4 .controls > div input[type="checkbox"]:checked + label {
   background-color: var(--tmain);
 }
 

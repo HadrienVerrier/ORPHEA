@@ -44,6 +44,7 @@ main#compose {
 				padding: 2rem 1rem;
 
 				> div {
+					user-select: none;
 					position: absolute;
 					select {
 						width: 10rem;
@@ -59,9 +60,10 @@ main#compose {
 							margin: 1rem 1.25rem;
 							text-align: center;
 							font-weight: bolder;
-							font-size: $regular;
+							font-size: $regular * 0.8;
 							line-height: $regular * 1.2;
 							border-radius: $borderRadius * 0.5;
+							box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.363);
 						}
 					}
 				}
@@ -142,6 +144,9 @@ main#compose {
 					> div {
 						input[type="checkbox"] {
 							& + label {
+								background-color: var(--tdark);
+							}
+							&:checked + label {
 								background-color: var(--tmain);
 							}
 						}

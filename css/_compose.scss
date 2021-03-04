@@ -34,7 +34,7 @@ main#compose {
 			margin: 2rem 0;
 			height: 25rem;
 			box-shadow: $shadow;
-			border-radius: $borderRadius;
+			border-radius: $borderRadius * 0.5;
 			overflow: hidden;
 			.controls {
 				position: relative;
@@ -48,16 +48,30 @@ main#compose {
 					position: absolute;
 					select {
 						width: 10rem;
+						position: relative;
+						top: 1rem;
+						&:first-of-type {
+							margin-bottom: 1rem;
+						}
+
+						& + label {
+							position: relative;
+							top: -5.2rem;
+							font-size: $regular * 0.8;
+							text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.363);
+						}
+						&:last-of-type + label {
+							top: -4.2rem;
+						}
 					}
 					input[type="checkbox"] {
 						display: none;
-
 						& + label {
-							display: inline-block;
+							display: block;
 							background-color: $main;
 							width: 2rem;
 							height: 2rem;
-							margin: 1rem 1.25rem;
+							margin: 0.5rem 1.25rem;
 							text-align: center;
 							font-weight: bolder;
 							font-size: $regular * 0.8;
@@ -71,9 +85,14 @@ main#compose {
 						color: $background;
 						font-weight: bolder;
 						font-size: $regular * 1.5;
+						line-height: 0;
 						text-indent: 0;
-						position: relative;
-						top: -0.5rem;
+						position: absolute;
+						bottom: -2rem;
+					}
+					svg {
+						filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.555));
+						display: inline-block;
 					}
 				}
 			}
@@ -158,6 +177,9 @@ main#compose {
 							&:checked + label {
 								background-color: var(--tmain);
 							}
+						}
+						svg {
+							fill: var(--tmain);
 						}
 					}
 				}

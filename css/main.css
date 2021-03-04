@@ -884,6 +884,10 @@ main#compose #tracks div#t1 #drum_name {
 }
 
 main#compose #tracks div#t1 #drum_name p {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   border-top: 1px solid var(--tlight);
   cursor: pointer;
   font-size: 1.12rem;

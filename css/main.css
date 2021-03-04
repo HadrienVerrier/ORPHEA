@@ -797,4 +797,1046 @@ main#member > section > article {
 }
 
 /*COMPOSE*/
+main#compose header {
+  display: none;
+}
+
+main#compose #transport_controls {
+  display: none;
+}
+
+main#compose #tracks div#t1 {
+  --tmain: #ffb502;
+  --tlight: #f5ce6f;
+  --tdark: #c4910c;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  margin: 2rem 0;
+  height: 25rem;
+  background-color: var(--tlight);
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  -ms-grid-columns: 14rem 6rem 1fr;
+      grid-template-columns: 14rem 6rem 1fr;
+}
+
+main#compose #tracks div#t1 #drum_name {
+  height: calc(90% - 1rem);
+  width: 95%;
+  position: relative;
+  top: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (12.5%)[8];
+      grid-template-rows: repeat(8, 12.5%);
+}
+
+main#compose #tracks div#t1 #drum_name p {
+  border: 1px solid var(--tlight);
+  cursor: pointer;
+  font-size: 1.12rem;
+  line-height: 2.24rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #383838;
+}
+
+main#compose #tracks div#t1 .controls {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 15rem;
+  height: 100%;
+  padding: 2rem 1rem;
+}
+
+main#compose #tracks div#t1 #seq_t1 {
+  height: calc(90% - 1rem);
+  width: 95%;
+  position: relative;
+  top: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (12.5%)[8];
+      grid-template-rows: repeat(8, 12.5%);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n1 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n1 input {
+  display: none;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n1 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n1 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n1 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n2 input {
+  display: none;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n2 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n2 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n2 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n3 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n3 input {
+  display: none;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n3 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n3 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n3 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n4 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n4 input {
+  display: none;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n4 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n4 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n4 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n5 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n5 input {
+  display: none;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n5 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n5 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n5 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n6 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n6 input {
+  display: none;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n6 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n6 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n6 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n7 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n7 input {
+  display: none;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n7 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n7 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n7 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n8 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n8 input {
+  display: none;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n8 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n8 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t1 #seq_t1 #t1_n8 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t2 {
+  --tmain: #09812a;
+  --tlight: #0ec642;
+  --tdark: #0e4b1f;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  margin: 2rem 0;
+  height: 25rem;
+  background-color: var(--tlight);
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  -ms-grid-columns: 20rem 1fr;
+      grid-template-columns: 20rem 1fr;
+}
+
+main#compose #tracks div#t2 .controls {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 15rem;
+  height: 100%;
+  padding: 2rem 1rem;
+}
+
+main#compose #tracks div#t2 #seq_t2 {
+  height: calc(90% - 1rem);
+  width: 95%;
+  position: relative;
+  top: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (12.5%)[8];
+      grid-template-rows: repeat(8, 12.5%);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n1 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n1 input {
+  display: none;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n1 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n1 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n1 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n2 input {
+  display: none;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n2 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n2 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n2 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n3 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n3 input {
+  display: none;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n3 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n3 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n3 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n4 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n4 input {
+  display: none;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n4 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n4 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n4 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n5 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n5 input {
+  display: none;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n5 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n5 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n5 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n6 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n6 input {
+  display: none;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n6 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n6 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n6 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n7 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n7 input {
+  display: none;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n7 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n7 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n7 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n8 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n8 input {
+  display: none;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n8 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n8 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t2 #seq_t2 #t2_n8 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t3 {
+  --tmain: #a10f0f;
+  --tlight: #d45c5d;
+  --tdark: #701615;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  margin: 2rem 0;
+  height: 25rem;
+  background-color: var(--tlight);
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  -ms-grid-columns: 20rem 1fr;
+      grid-template-columns: 20rem 1fr;
+}
+
+main#compose #tracks div#t3 .controls {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 15rem;
+  height: 100%;
+  padding: 2rem 1rem;
+}
+
+main#compose #tracks div#t3 #seq_t3 {
+  height: calc(90% - 1rem);
+  width: 95%;
+  position: relative;
+  top: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (12.5%)[8];
+      grid-template-rows: repeat(8, 12.5%);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n1 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n1 input {
+  display: none;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n1 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n1 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n1 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n2 input {
+  display: none;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n2 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n2 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n2 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n3 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n3 input {
+  display: none;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n3 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n3 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n3 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n4 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n4 input {
+  display: none;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n4 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n4 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n4 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n5 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n5 input {
+  display: none;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n5 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n5 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n5 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n6 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n6 input {
+  display: none;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n6 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n6 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n6 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n7 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n7 input {
+  display: none;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n7 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n7 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n7 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n8 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n8 input {
+  display: none;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n8 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n8 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t3 #seq_t3 #t3_n8 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t4 {
+  --tmain: #2e2bc4;
+  --tlight: #7c7cee;
+  --tdark: #202170;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  margin: 2rem 0;
+  height: 25rem;
+  background-color: var(--tlight);
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  -ms-grid-columns: 20rem 1fr;
+      grid-template-columns: 20rem 1fr;
+}
+
+main#compose #tracks div#t4 .controls {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 15rem;
+  height: 100%;
+  padding: 2rem 1rem;
+}
+
+main#compose #tracks div#t4 #seq_t4 {
+  height: calc(90% - 1rem);
+  width: 95%;
+  position: relative;
+  top: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (12.5%)[8];
+      grid-template-rows: repeat(8, 12.5%);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n1 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n1 input {
+  display: none;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n1 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n1 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n1 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n2 input {
+  display: none;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n2 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n2 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n2 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n3 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n3 input {
+  display: none;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n3 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n3 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n3 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n4 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n4 input {
+  display: none;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n4 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n4 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n4 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n5 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n5 input {
+  display: none;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n5 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n5 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n5 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n6 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n6 input {
+  display: none;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n6 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n6 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n6 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n7 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n7 input {
+  display: none;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n7 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n7 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n7 input:checked + label {
+  background-color: var(--tdark);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n8 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n8 input {
+  display: none;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n8 input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tmain);
+  border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n8 input + label:nth-of-type(4n + 1) {
+  border-left: 1px solid #383838;
+}
+
+main#compose #tracks div#t4 #seq_t4 #t4_n8 input:checked + label {
+  background-color: var(--tdark);
+}
 /*# sourceMappingURL=main.css.map */

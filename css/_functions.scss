@@ -19,6 +19,25 @@
 	padding-#{$type}: 3rem;
 }
 
+@mixin track($n) {
+	@if $n == 1 {
+		--tmain: #ffb502;
+		--tlight: #f5ce6f;
+		--tdark: #c4910c;
+	} @else if $n == 2 {
+		--tmain: #09812a;
+		--tlight: #0ec642;
+		--tdark: #0e4b1f;
+	} @else if $n == 3 {
+		--tmain: #a10f0f;
+		--tlight: #d45c5d;
+		--tdark: #701615;
+	} @else if $n == 4 {
+		--tmain: #2e2bc4;
+		--tlight: #7c7cee;
+		--tdark: #202170;
+	}
+}
 %pass_link {
 	color: $white;
 	font-style: normal;

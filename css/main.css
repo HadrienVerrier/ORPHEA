@@ -854,7 +854,7 @@ main#compose #tracks div#t1 .controls {
   padding: 2rem 1rem;
 }
 
-main#compose #tracks div#t1 #seq_t1 {
+main#compose #tracks div#t1 div[id^="seq"] {
   height: calc(90% - 1rem);
   width: 95%;
   position: relative;
@@ -865,18 +865,18 @@ main#compose #tracks div#t1 #seq_t1 {
       grid-template-rows: repeat(8, 12.5%);
 }
 
-main#compose #tracks div#t1 #seq_t1 #t1_n1 {
+main#compose #tracks div#t1 div[id^="seq"] > div {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (6.25%)[16];
       grid-template-columns: repeat(16, 6.25%);
 }
 
-main#compose #tracks div#t1 #seq_t1 #t1_n1 input {
+main#compose #tracks div#t1 div[id^="seq"] > div input {
   display: none;
 }
 
-main#compose #tracks div#t1 #seq_t1 #t1_n1 input + label {
+main#compose #tracks div#t1 div[id^="seq"] > div input + label {
   display: block;
   width: 100%;
   height: 100%;
@@ -884,200 +884,11 @@ main#compose #tracks div#t1 #seq_t1 #t1_n1 input + label {
   border: 1px solid var(--tlight);
 }
 
-main#compose #tracks div#t1 #seq_t1 #t1_n1 input + label:nth-of-type(4n + 1) {
+main#compose #tracks div#t1 div[id^="seq"] > div input + label:nth-of-type(4n + 1) {
   border-left: 1px solid #383838;
 }
 
-main#compose #tracks div#t1 #seq_t1 #t1_n1 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n2 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n2 input {
-  display: none;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n2 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n2 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n2 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n3 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n3 input {
-  display: none;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n3 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n3 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n3 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n4 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n4 input {
-  display: none;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n4 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n4 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n4 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n5 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n5 input {
-  display: none;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n5 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n5 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n5 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n6 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n6 input {
-  display: none;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n6 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n6 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n6 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n7 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n7 input {
-  display: none;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n7 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n7 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n7 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n8 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n8 input {
-  display: none;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n8 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n8 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t1 #seq_t1 #t1_n8 input:checked + label {
+main#compose #tracks div#t1 div[id^="seq"] > div input:checked + label {
   background-color: var(--tdark);
 }
 
@@ -1107,7 +918,7 @@ main#compose #tracks div#t2 .controls {
   padding: 2rem 1rem;
 }
 
-main#compose #tracks div#t2 #seq_t2 {
+main#compose #tracks div#t2 div[id^="seq"] {
   height: calc(90% - 1rem);
   width: 95%;
   position: relative;
@@ -1118,18 +929,18 @@ main#compose #tracks div#t2 #seq_t2 {
       grid-template-rows: repeat(8, 12.5%);
 }
 
-main#compose #tracks div#t2 #seq_t2 #t2_n1 {
+main#compose #tracks div#t2 div[id^="seq"] > div {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (6.25%)[16];
       grid-template-columns: repeat(16, 6.25%);
 }
 
-main#compose #tracks div#t2 #seq_t2 #t2_n1 input {
+main#compose #tracks div#t2 div[id^="seq"] > div input {
   display: none;
 }
 
-main#compose #tracks div#t2 #seq_t2 #t2_n1 input + label {
+main#compose #tracks div#t2 div[id^="seq"] > div input + label {
   display: block;
   width: 100%;
   height: 100%;
@@ -1137,200 +948,11 @@ main#compose #tracks div#t2 #seq_t2 #t2_n1 input + label {
   border: 1px solid var(--tlight);
 }
 
-main#compose #tracks div#t2 #seq_t2 #t2_n1 input + label:nth-of-type(4n + 1) {
+main#compose #tracks div#t2 div[id^="seq"] > div input + label:nth-of-type(4n + 1) {
   border-left: 1px solid #383838;
 }
 
-main#compose #tracks div#t2 #seq_t2 #t2_n1 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n2 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n2 input {
-  display: none;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n2 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n2 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n2 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n3 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n3 input {
-  display: none;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n3 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n3 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n3 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n4 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n4 input {
-  display: none;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n4 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n4 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n4 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n5 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n5 input {
-  display: none;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n5 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n5 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n5 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n6 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n6 input {
-  display: none;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n6 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n6 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n6 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n7 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n7 input {
-  display: none;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n7 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n7 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n7 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n8 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n8 input {
-  display: none;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n8 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n8 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t2 #seq_t2 #t2_n8 input:checked + label {
+main#compose #tracks div#t2 div[id^="seq"] > div input:checked + label {
   background-color: var(--tdark);
 }
 
@@ -1360,7 +982,7 @@ main#compose #tracks div#t3 .controls {
   padding: 2rem 1rem;
 }
 
-main#compose #tracks div#t3 #seq_t3 {
+main#compose #tracks div#t3 div[id^="seq"] {
   height: calc(90% - 1rem);
   width: 95%;
   position: relative;
@@ -1371,18 +993,18 @@ main#compose #tracks div#t3 #seq_t3 {
       grid-template-rows: repeat(8, 12.5%);
 }
 
-main#compose #tracks div#t3 #seq_t3 #t3_n1 {
+main#compose #tracks div#t3 div[id^="seq"] > div {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (6.25%)[16];
       grid-template-columns: repeat(16, 6.25%);
 }
 
-main#compose #tracks div#t3 #seq_t3 #t3_n1 input {
+main#compose #tracks div#t3 div[id^="seq"] > div input {
   display: none;
 }
 
-main#compose #tracks div#t3 #seq_t3 #t3_n1 input + label {
+main#compose #tracks div#t3 div[id^="seq"] > div input + label {
   display: block;
   width: 100%;
   height: 100%;
@@ -1390,200 +1012,11 @@ main#compose #tracks div#t3 #seq_t3 #t3_n1 input + label {
   border: 1px solid var(--tlight);
 }
 
-main#compose #tracks div#t3 #seq_t3 #t3_n1 input + label:nth-of-type(4n + 1) {
+main#compose #tracks div#t3 div[id^="seq"] > div input + label:nth-of-type(4n + 1) {
   border-left: 1px solid #383838;
 }
 
-main#compose #tracks div#t3 #seq_t3 #t3_n1 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n2 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n2 input {
-  display: none;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n2 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n2 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n2 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n3 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n3 input {
-  display: none;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n3 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n3 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n3 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n4 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n4 input {
-  display: none;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n4 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n4 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n4 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n5 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n5 input {
-  display: none;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n5 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n5 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n5 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n6 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n6 input {
-  display: none;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n6 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n6 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n6 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n7 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n7 input {
-  display: none;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n7 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n7 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n7 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n8 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n8 input {
-  display: none;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n8 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n8 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t3 #seq_t3 #t3_n8 input:checked + label {
+main#compose #tracks div#t3 div[id^="seq"] > div input:checked + label {
   background-color: var(--tdark);
 }
 
@@ -1613,7 +1046,7 @@ main#compose #tracks div#t4 .controls {
   padding: 2rem 1rem;
 }
 
-main#compose #tracks div#t4 #seq_t4 {
+main#compose #tracks div#t4 div[id^="seq"] {
   height: calc(90% - 1rem);
   width: 95%;
   position: relative;
@@ -1624,18 +1057,18 @@ main#compose #tracks div#t4 #seq_t4 {
       grid-template-rows: repeat(8, 12.5%);
 }
 
-main#compose #tracks div#t4 #seq_t4 #t4_n1 {
+main#compose #tracks div#t4 div[id^="seq"] > div {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (6.25%)[16];
       grid-template-columns: repeat(16, 6.25%);
 }
 
-main#compose #tracks div#t4 #seq_t4 #t4_n1 input {
+main#compose #tracks div#t4 div[id^="seq"] > div input {
   display: none;
 }
 
-main#compose #tracks div#t4 #seq_t4 #t4_n1 input + label {
+main#compose #tracks div#t4 div[id^="seq"] > div input + label {
   display: block;
   width: 100%;
   height: 100%;
@@ -1643,200 +1076,11 @@ main#compose #tracks div#t4 #seq_t4 #t4_n1 input + label {
   border: 1px solid var(--tlight);
 }
 
-main#compose #tracks div#t4 #seq_t4 #t4_n1 input + label:nth-of-type(4n + 1) {
+main#compose #tracks div#t4 div[id^="seq"] > div input + label:nth-of-type(4n + 1) {
   border-left: 1px solid #383838;
 }
 
-main#compose #tracks div#t4 #seq_t4 #t4_n1 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n2 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n2 input {
-  display: none;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n2 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n2 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n2 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n3 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n3 input {
-  display: none;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n3 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n3 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n3 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n4 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n4 input {
-  display: none;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n4 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n4 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n4 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n5 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n5 input {
-  display: none;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n5 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n5 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n5 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n6 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n6 input {
-  display: none;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n6 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n6 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n6 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n7 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n7 input {
-  display: none;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n7 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n7 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n7 input:checked + label {
-  background-color: var(--tdark);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n8 {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n8 input {
-  display: none;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n8 input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--tmain);
-  border: 1px solid var(--tlight);
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n8 input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t4 #seq_t4 #t4_n8 input:checked + label {
+main#compose #tracks div#t4 div[id^="seq"] > div input:checked + label {
   background-color: var(--tdark);
 }
 /*# sourceMappingURL=main.css.map */

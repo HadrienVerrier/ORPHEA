@@ -805,20 +805,59 @@ main#compose #transport_controls {
   display: none;
 }
 
-main#compose #tracks div#t1 {
-  --tmain: #ffb502;
-  --tlight: #f5ce6f;
-  --tdark: #c4910c;
+main#compose #tracks > div[id^="t"] {
   display: -ms-grid;
   display: grid;
   width: 100%;
   margin: 2rem 0;
   height: 25rem;
-  background-color: var(--tlight);
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
   border-radius: 1.5rem;
   overflow: hidden;
+}
+
+main#compose #tracks > div[id^="t"] .controls {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 15rem;
+  height: 100%;
+  padding: 2rem 1rem;
+}
+
+main#compose #tracks > div[id^="t"] div[id^="seq"] {
+  height: calc(90% - 1rem);
+  width: 95%;
+  position: relative;
+  top: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (12.5%)[8];
+      grid-template-rows: repeat(8, 12.5%);
+}
+
+main#compose #tracks > div[id^="t"] div[id^="seq"] > div {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6.25%)[16];
+      grid-template-columns: repeat(16, 6.25%);
+}
+
+main#compose #tracks > div[id^="t"] div[id^="seq"] > div input {
+  display: none;
+}
+
+main#compose #tracks > div[id^="t"] div[id^="seq"] > div input + label {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+main#compose #tracks div#t1 {
+  --tmain: #ffb502;
+  --tlight: #f5ce6f;
+  --tdark: #c4910c;
+  background-color: var(--tlight);
   -ms-grid-columns: 14rem 6rem 1fr;
       grid-template-columns: 14rem 6rem 1fr;
 }
@@ -846,40 +885,7 @@ main#compose #tracks div#t1 #drum_name p {
   background-color: #383838;
 }
 
-main#compose #tracks div#t1 .controls {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 15rem;
-  height: 100%;
-  padding: 2rem 1rem;
-}
-
-main#compose #tracks div#t1 div[id^="seq"] {
-  height: calc(90% - 1rem);
-  width: 95%;
-  position: relative;
-  top: 1rem;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: (12.5%)[8];
-      grid-template-rows: repeat(8, 12.5%);
-}
-
-main#compose #tracks div#t1 div[id^="seq"] > div {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t1 div[id^="seq"] > div input {
-  display: none;
-}
-
 main#compose #tracks div#t1 div[id^="seq"] > div input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
   background-color: var(--tmain);
   border: 1px solid var(--tlight);
 }
@@ -896,54 +902,12 @@ main#compose #tracks div#t2 {
   --tmain: #09812a;
   --tlight: #0ec642;
   --tdark: #0e4b1f;
-  display: -ms-grid;
-  display: grid;
-  width: 100%;
-  margin: 2rem 0;
-  height: 25rem;
   background-color: var(--tlight);
-  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
-          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
-  border-radius: 1.5rem;
-  overflow: hidden;
   -ms-grid-columns: 20rem 1fr;
       grid-template-columns: 20rem 1fr;
 }
 
-main#compose #tracks div#t2 .controls {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 15rem;
-  height: 100%;
-  padding: 2rem 1rem;
-}
-
-main#compose #tracks div#t2 div[id^="seq"] {
-  height: calc(90% - 1rem);
-  width: 95%;
-  position: relative;
-  top: 1rem;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: (12.5%)[8];
-      grid-template-rows: repeat(8, 12.5%);
-}
-
-main#compose #tracks div#t2 div[id^="seq"] > div {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t2 div[id^="seq"] > div input {
-  display: none;
-}
-
 main#compose #tracks div#t2 div[id^="seq"] > div input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
   background-color: var(--tmain);
   border: 1px solid var(--tlight);
 }
@@ -960,54 +924,12 @@ main#compose #tracks div#t3 {
   --tmain: #a10f0f;
   --tlight: #d45c5d;
   --tdark: #701615;
-  display: -ms-grid;
-  display: grid;
-  width: 100%;
-  margin: 2rem 0;
-  height: 25rem;
   background-color: var(--tlight);
-  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
-          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
-  border-radius: 1.5rem;
-  overflow: hidden;
   -ms-grid-columns: 20rem 1fr;
       grid-template-columns: 20rem 1fr;
 }
 
-main#compose #tracks div#t3 .controls {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 15rem;
-  height: 100%;
-  padding: 2rem 1rem;
-}
-
-main#compose #tracks div#t3 div[id^="seq"] {
-  height: calc(90% - 1rem);
-  width: 95%;
-  position: relative;
-  top: 1rem;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: (12.5%)[8];
-      grid-template-rows: repeat(8, 12.5%);
-}
-
-main#compose #tracks div#t3 div[id^="seq"] > div {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t3 div[id^="seq"] > div input {
-  display: none;
-}
-
 main#compose #tracks div#t3 div[id^="seq"] > div input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
   background-color: var(--tmain);
   border: 1px solid var(--tlight);
 }
@@ -1024,54 +946,12 @@ main#compose #tracks div#t4 {
   --tmain: #2e2bc4;
   --tlight: #7c7cee;
   --tdark: #202170;
-  display: -ms-grid;
-  display: grid;
-  width: 100%;
-  margin: 2rem 0;
-  height: 25rem;
   background-color: var(--tlight);
-  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
-          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
-  border-radius: 1.5rem;
-  overflow: hidden;
   -ms-grid-columns: 20rem 1fr;
       grid-template-columns: 20rem 1fr;
 }
 
-main#compose #tracks div#t4 .controls {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 15rem;
-  height: 100%;
-  padding: 2rem 1rem;
-}
-
-main#compose #tracks div#t4 div[id^="seq"] {
-  height: calc(90% - 1rem);
-  width: 95%;
-  position: relative;
-  top: 1rem;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: (12.5%)[8];
-      grid-template-rows: repeat(8, 12.5%);
-}
-
-main#compose #tracks div#t4 div[id^="seq"] > div {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
-}
-
-main#compose #tracks div#t4 div[id^="seq"] > div input {
-  display: none;
-}
-
 main#compose #tracks div#t4 div[id^="seq"] > div input + label {
-  display: block;
-  width: 100%;
-  height: 100%;
   background-color: var(--tmain);
   border: 1px solid var(--tlight);
 }

@@ -851,6 +851,16 @@ main#compose #tracks > div[id^="t"] div[id^="seq"] > div input + label {
   display: block;
   width: 100%;
   height: 100%;
+  border-bottom: 1px solid #f7f9f5 !important;
+  border-top: 1px solid #f7f9f5 !important;
+}
+
+main#compose #tracks > div[id^="t"] div[id^="seq"] > div input + label:nth-of-type(4n + 1) {
+  border-left: 2px solid #f7f9f5 !important;
+}
+
+main#compose #tracks > div[id^="t"] div[id^="seq"] > div input:checked + label {
+  background-color: #f7f9f5 !important;
 }
 
 main#compose #tracks div#t1 {
@@ -874,15 +884,21 @@ main#compose #tracks div#t1 #drum_name {
 }
 
 main#compose #tracks div#t1 #drum_name p {
-  border: 1px solid var(--tlight);
+  border-top: 1px solid var(--tlight);
   cursor: pointer;
   font-size: 1.12rem;
-  line-height: 2.24rem;
+  line-height: 2.8rem;
+  text-indent: 0;
   width: 100%;
   margin: 0;
   padding: 0;
+  text-align: center;
   height: 100%;
   background-color: #383838;
+}
+
+main#compose #tracks div#t1 #drum_name p:hover {
+  background-color: #6f6f6f;
 }
 
 main#compose #tracks div#t1 div[id^="seq"] > div input + label {
@@ -890,11 +906,7 @@ main#compose #tracks div#t1 div[id^="seq"] > div input + label {
   border: 1px solid var(--tlight);
 }
 
-main#compose #tracks div#t1 div[id^="seq"] > div input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t1 div[id^="seq"] > div input:checked + label {
+main#compose #tracks div#t1 div[id^="seq"] > div:nth-of-type(2n) input + label {
   background-color: var(--tdark);
 }
 
@@ -912,11 +924,7 @@ main#compose #tracks div#t2 div[id^="seq"] > div input + label {
   border: 1px solid var(--tlight);
 }
 
-main#compose #tracks div#t2 div[id^="seq"] > div input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t2 div[id^="seq"] > div input:checked + label {
+main#compose #tracks div#t2 div[id^="seq"] > div:nth-of-type(2n) input + label {
   background-color: var(--tdark);
 }
 
@@ -934,11 +942,7 @@ main#compose #tracks div#t3 div[id^="seq"] > div input + label {
   border: 1px solid var(--tlight);
 }
 
-main#compose #tracks div#t3 div[id^="seq"] > div input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t3 div[id^="seq"] > div input:checked + label {
+main#compose #tracks div#t3 div[id^="seq"] > div:nth-of-type(2n) input + label {
   background-color: var(--tdark);
 }
 
@@ -956,11 +960,7 @@ main#compose #tracks div#t4 div[id^="seq"] > div input + label {
   border: 1px solid var(--tlight);
 }
 
-main#compose #tracks div#t4 div[id^="seq"] > div input + label:nth-of-type(4n + 1) {
-  border-left: 1px solid #383838;
-}
-
-main#compose #tracks div#t4 div[id^="seq"] > div input:checked + label {
+main#compose #tracks div#t4 div[id^="seq"] > div:nth-of-type(2n) input + label {
   background-color: var(--tdark);
 }
 /*# sourceMappingURL=main.css.map */

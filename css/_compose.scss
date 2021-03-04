@@ -38,6 +38,14 @@ main#compose {
 							display: block;
 							width: 100%;
 							height: 100%;
+							border-bottom: 1px solid $white !important;
+							border-top: 1px solid $white !important;
+							&:nth-of-type(4n + 1) {
+								border-left: 2px solid $white !important;
+							}
+						}
+						&:checked + label {
+							background-color: $white !important;
 						}
 					}
 				}
@@ -60,15 +68,21 @@ main#compose {
 						display: grid;
 						grid-template-rows: repeat(8, 12.5%);
 						p {
-							border: 1px solid var(--tlight);
+							border-top: 1px solid var(--tlight);
 							cursor: pointer;
 							font-size: $regular * 0.7;
-							line-height: $regular * 0.7 * 2;
+							line-height: $regular * 0.7 * 2.5;
+							text-indent: 0;
 							width: 100%;
 							margin: 0;
 							padding: 0;
+							text-align: center;
 							height: 100%;
 							background-color: $background;
+
+							&:hover {
+								background-color: $background + 55;
+							}
 						}
 					}
 				} @else {
@@ -81,12 +95,10 @@ main#compose {
 							& + label {
 								background-color: var(--tmain);
 								border: 1px solid var(--tlight);
-
-								&:nth-of-type(4n + 1) {
-									border-left: 1px solid $background;
-								}
 							}
-							&:checked + label {
+						}
+						&:nth-of-type(2n) {
+							input + label {
 								background-color: var(--tdark);
 							}
 						}

@@ -6,7 +6,27 @@ main#compose {
 		display: none;
 	}
 	#transport_mark {
-		display: none;
+		position: absolute;
+		width: 0.6rem;
+		height: calc(100% + 4rem);
+		background-color: $mainLightPlus;
+		left: 20rem;
+		top: -2rem;
+		z-index: 5;
+
+		&::before {
+			content: " ";
+			width: 1rem;
+			height: 1rem;
+			display: block;
+			position: absolute;
+			box-sizing: border-box;
+			top: -1.5rem;
+			left: -1.2rem;
+			border-left: 1.5rem solid transparent;
+			border-right: 1.5rem solid transparent;
+			border-top: 2rem solid $mainLightPlus;
+		}
 	}
 	#tracks {
 		> div[id^="t"] {

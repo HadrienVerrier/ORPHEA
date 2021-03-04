@@ -5,7 +5,9 @@ main#compose {
 	#transport_controls {
 		display: none;
 	}
-
+	#transport_mark {
+		display: none;
+	}
 	#tracks {
 		> div[id^="t"] {
 			display: grid;

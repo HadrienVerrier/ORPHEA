@@ -805,6 +805,10 @@ main#compose #transport_controls {
   display: none;
 }
 
+main#compose #transport_mark {
+  display: none;
+}
+
 main#compose #tracks > div[id^="t"] {
   display: -ms-grid;
   display: grid;

@@ -102,50 +102,53 @@
             <h3 class="hidden">Your Tracks</h3>
             <div id="t1" data-type="drums" data-synth='original'>
                 <div class="controls">
-                    <label for="midi_input_t1">MIDI Input</label>
-                    <select id="midi_input_t1" name="midi_input_t1">
-                        <option value="">--SELECT MIDI DEVICE--</option>
-                        <option value="midi_t1_1">Focusrite Midi</option>
-                        <option value="midi_t1_2">KeyStation 49</option>
-                        <option value="midi_t1_3">KeyStepPro</option>
-                        <option value="midi_t1_4">MicroFreaks</option>
-                    </select>
-                    <label for="midi_channel_t1">MIDI Channel</label>
-                    <select id="midi_channel_t1" name="midi_channel_t1">
-                        <option>--SELECT MIDI CHANNEL--</option>
-                        <option value="ch_t1_1">1</option>
-                        <option value="ch_t1_2">2</option>
-                        <option value="ch_t1_3">3</option>
-                        <option value="ch_t1_4">4</option>
-                        <option value="ch_t1_5">5</option>
-                        <option value="ch_t1_6">6</option>
-                        <option value="ch_t1_7">7</option>
-                        <option value="ch_t1_8">8</option>
-                        <option value="ch_t1_9">9</option>
-                        <option value="ch_t1_10">10</option>
-                        <option value="ch_t1_11">11</option>
-                        <option value="ch_t1_12">12</option>
-                        <option value="ch_t1_13">13</option>
-                        <option value="ch_t1_14">14</option>
-                        <option value="ch_t1_15">15</option>
-                        <option value="ch_t1_16">16</option>
-                    </select>
-                    <label for="mute_t1">M</label>
-                    <input type="checkbox" id="mute_t1" name="mute_t1">
-                    <label for="solo_t1">S</label>
-                    <input type="checkbox" id="solo_t1" name="solo_t1">
-                    <div class="dbMeter"></div>
-                    <svg id='settings_t1' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <title>Click Here to change settings on synth</title>
-                        <path
-                            d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
-                    </svg>
-                    <div id="pan_t1"></div>
-                    <svg id="rec_t1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <title>Click here to record this loop</title>
-                        <circle cx="12" cy="12" r="12" />
-                    </svg>
-                    <p>TRACK 1</p>
+                    <div><label for="midi_input_t1">MIDI Input</label>
+                        <select id="midi_input_t1" name="midi_input_t1">
+                            <option value="">--SELECT MIDI DEVICE--</option>
+                            <option value="midi_t1_1">Focusrite Midi</option>
+                            <option value="midi_t1_2">KeyStation 49</option>
+                            <option value="midi_t1_3">KeyStepPro</option>
+                            <option value="midi_t1_4">MicroFreaks</option>
+                        </select>
+                        <label for="midi_channel_t1">MIDI Channel</label>
+                        <select id="midi_channel_t1" name="midi_channel_t1">
+                            <option>--SELECT MIDI CHANNEL--</option>
+                            <option value="ch_t1_1">1</option>
+                            <option value="ch_t1_2">2</option>
+                            <option value="ch_t1_3">3</option>
+                            <option value="ch_t1_4">4</option>
+                            <option value="ch_t1_5">5</option>
+                            <option value="ch_t1_6">6</option>
+                            <option value="ch_t1_7">7</option>
+                            <option value="ch_t1_8">8</option>
+                            <option value="ch_t1_9">9</option>
+                            <option value="ch_t1_10">10</option>
+                            <option value="ch_t1_11">11</option>
+                            <option value="ch_t1_12">12</option>
+                            <option value="ch_t1_13">13</option>
+                            <option value="ch_t1_14">14</option>
+                            <option value="ch_t1_15">15</option>
+                            <option value="ch_t1_16">16</option>
+                        </select>
+
+                        <input type="checkbox" id="mute_t1" name="mute_t1">
+                        <label for="mute_t1">M</label>
+                        <input type="checkbox" id="solo_t1" name="solo_t1">
+                        <label for="solo_t1">S</label>
+                        <div class="dbMeter"></div>
+                        <svg id='settings_t1' xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <title>Click Here to change settings on synth</title>
+                            <path
+                                d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
+                        </svg>
+                        <div id="pan_t1"></div>
+                        <svg id="rec_t1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <title>Click here to record this loop</title>
+                            <circle cx="12" cy="12" r="12" />
+                        </svg>
+                        <p>TRACK 1</p>
+                    </div>
                 </div>
                 <div id="drum_name">
                     <p id="n1" title="Kick">KICK</p>
@@ -434,50 +437,52 @@
             </div>
             <div id="t2" data-type="drums" data-synth='original'>
                 <div class="controls">
-                    <label for="midi_input_t2">MIDI Input</label>
-                    <select id="midi_input_t2" name="midi_input_t2">
-                        <option value="">--SELECT MIDI DEVICE--</option>
-                        <option value="midi_t2_1">Focusrite Midi</option>
-                        <option value="midi_t2_2">KeyStation 49</option>
-                        <option value="midi_t2_3">KeyStepPro</option>
-                        <option value="midi_t2_4">MicroFreaks</option>
-                    </select>
-                    <label for="midi_channel_t2">MIDI Channel</label>
-                    <select id="midi_channel_t2" name="midi_channel_t2">
-                        <option>--SELECT MIDI CHANNEL--</option>
-                        <option value="ch_t2_1">1</option>
-                        <option value="ch_t2_2">2</option>
-                        <option value="ch_t2_3">3</option>
-                        <option value="ch_t2_4">4</option>
-                        <option value="ch_t2_5">5</option>
-                        <option value="ch_t2_6">6</option>
-                        <option value="ch_t2_7">7</option>
-                        <option value="ch_t2_8">8</option>
-                        <option value="ch_t2_9">9</option>
-                        <option value="ch_t2_10">10</option>
-                        <option value="ch_t2_11">11</option>
-                        <option value="ch_t2_12">12</option>
-                        <option value="ch_t2_13">13</option>
-                        <option value="ch_t2_14">14</option>
-                        <option value="ch_t2_15">15</option>
-                        <option value="ch_t2_16">16</option>
-                    </select>
-                    <label for="mute_t2">M</label>
-                    <input type="checkbox" id="mute_t2" name="mute_t2">
-                    <label for="solo_t2">S</label>
-                    <input type="checkbox" id="solo_t2" name="solo_t2">
-                    <div class="dbMeter"></div>
-                    <svg id='settings_t2' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <title>Click Here to change settings on synth</title>
-                        <path
-                            d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
-                    </svg>
-                    <div id="pan_t2"></div>
-                    <svg id="rec_t2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <title>Click here to record this loop</title>
-                        <circle cx="12" cy="12" r="12" />
-                    </svg>
-                    <p>TRACK 2</p>
+                    <div><label for="midi_input_t2">MIDI Input</label>
+                        <select id="midi_input_t2" name="midi_input_t2">
+                            <option value="">--SELECT MIDI DEVICE--</option>
+                            <option value="midi_t2_1">Focusrite Midi</option>
+                            <option value="midi_t2_2">KeyStation 49</option>
+                            <option value="midi_t2_3">KeyStepPro</option>
+                            <option value="midi_t2_4">MicroFreaks</option>
+                        </select>
+                        <label for="midi_channel_t2">MIDI Channel</label>
+                        <select id="midi_channel_t2" name="midi_channel_t2">
+                            <option>--SELECT MIDI CHANNEL--</option>
+                            <option value="ch_t2_1">1</option>
+                            <option value="ch_t2_2">2</option>
+                            <option value="ch_t2_3">3</option>
+                            <option value="ch_t2_4">4</option>
+                            <option value="ch_t2_5">5</option>
+                            <option value="ch_t2_6">6</option>
+                            <option value="ch_t2_7">7</option>
+                            <option value="ch_t2_8">8</option>
+                            <option value="ch_t2_9">9</option>
+                            <option value="ch_t2_10">10</option>
+                            <option value="ch_t2_11">11</option>
+                            <option value="ch_t2_12">12</option>
+                            <option value="ch_t2_13">13</option>
+                            <option value="ch_t2_14">14</option>
+                            <option value="ch_t2_15">15</option>
+                            <option value="ch_t2_16">16</option>
+                        </select>
+                        <input type="checkbox" id="mute_t2" name="mute_t2">
+                        <label for="mute_t2">M</label>
+                        <input type="checkbox" id="solo_t2" name="solo_t2">
+                        <label for="solo_t2">S</label>
+                        <div class="dbMeter"></div>
+                        <svg id='settings_t2' xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <title>Click Here to change settings on synth</title>
+                            <path
+                                d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
+                        </svg>
+                        <div id="pan_t2"></div>
+                        <svg id="rec_t2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <title>Click here to record this loop</title>
+                            <circle cx="12" cy="12" r="12" />
+                        </svg>
+                        <p>TRACK 2</p>
+                    </div>
                 </div>
                 <div id="seq_t2">
                     <div id="t2_n1">
@@ -756,50 +761,52 @@
             </div>
             <div id="t3" data-type="drums" data-synth='original'>
                 <div class="controls">
-                    <label for="midi_input_t3">MIDI Input</label>
-                    <select id="midi_input_t3" name="midi_input_t3">
-                        <option value="">--SELECT MIDI DEVICE--</option>
-                        <option value="midi_t3_1">Focusrite Midi</option>
-                        <option value="midi_t3_2">KeyStation 49</option>
-                        <option value="midi_t3_3">KeyStepPro</option>
-                        <option value="midi_t3_4">MicroFreaks</option>
-                    </select>
-                    <label for="midi_channel_t3">MIDI Channel</label>
-                    <select id="midi_channel_t3" name="midi_channel_t3">
-                        <option>--SELECT MIDI CHANNEL--</option>
-                        <option value="ch_t3_1">1</option>
-                        <option value="ch_t3_2">2</option>
-                        <option value="ch_t3_3">3</option>
-                        <option value="ch_t3_4">4</option>
-                        <option value="ch_t3_5">5</option>
-                        <option value="ch_t3_6">6</option>
-                        <option value="ch_t3_7">7</option>
-                        <option value="ch_t3_8">8</option>
-                        <option value="ch_t3_9">9</option>
-                        <option value="ch_t3_10">10</option>
-                        <option value="ch_t3_11">11</option>
-                        <option value="ch_t3_12">12</option>
-                        <option value="ch_t3_13">13</option>
-                        <option value="ch_t3_14">14</option>
-                        <option value="ch_t3_15">15</option>
-                        <option value="ch_t3_16">16</option>
-                    </select>
-                    <label for="mute_t3">M</label>
-                    <input type="checkbox" id="mute_t3" name="mute_t3">
-                    <label for="solo_t3">S</label>
-                    <input type="checkbox" id="solo_t3" name="solo_t3">
-                    <div class="dbMeter"></div>
-                    <svg id='settings_t3' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <title>Click Here to change settings on synth</title>
-                        <path
-                            d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
-                    </svg>
-                    <div id="pan_t3"></div>
-                    <svg id="rec_t3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <title>Click here to record this loop</title>
-                        <circle cx="12" cy="12" r="12" />
-                    </svg>
-                    <p>TRACK 3</p>
+                    <div><label for="midi_input_t3">MIDI Input</label>
+                        <select id="midi_input_t3" name="midi_input_t3">
+                            <option value="">--SELECT MIDI DEVICE--</option>
+                            <option value="midi_t3_1">Focusrite Midi</option>
+                            <option value="midi_t3_2">KeyStation 49</option>
+                            <option value="midi_t3_3">KeyStepPro</option>
+                            <option value="midi_t3_4">MicroFreaks</option>
+                        </select>
+                        <label for="midi_channel_t3">MIDI Channel</label>
+                        <select id="midi_channel_t3" name="midi_channel_t3">
+                            <option>--SELECT MIDI CHANNEL--</option>
+                            <option value="ch_t3_1">1</option>
+                            <option value="ch_t3_2">2</option>
+                            <option value="ch_t3_3">3</option>
+                            <option value="ch_t3_4">4</option>
+                            <option value="ch_t3_5">5</option>
+                            <option value="ch_t3_6">6</option>
+                            <option value="ch_t3_7">7</option>
+                            <option value="ch_t3_8">8</option>
+                            <option value="ch_t3_9">9</option>
+                            <option value="ch_t3_10">10</option>
+                            <option value="ch_t3_11">11</option>
+                            <option value="ch_t3_12">12</option>
+                            <option value="ch_t3_13">13</option>
+                            <option value="ch_t3_14">14</option>
+                            <option value="ch_t3_15">15</option>
+                            <option value="ch_t3_16">16</option>
+                        </select>
+                        <input type="checkbox" id="mute_t3" name="mute_t3">
+                        <label for="mute_t3">M</label>
+                        <input type="checkbox" id="solo_t3" name="solo_t3">
+                        <label for="solo_t3">S</label>
+                        <div class="dbMeter"></div>
+                        <svg id='settings_t3' xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <title>Click Here to change settings on synth</title>
+                            <path
+                                d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
+                        </svg>
+                        <div id="pan_t3"></div>
+                        <svg id="rec_t3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <title>Click here to record this loop</title>
+                            <circle cx="12" cy="12" r="12" />
+                        </svg>
+                        <p>TRACK 3</p>
+                    </div>
                 </div>
                 <div id="seq_t3">
                     <div id="t3_n1">
@@ -1078,50 +1085,54 @@
             </div>
             <div id="t4" data-type="drums" data-synth='original'>
                 <div class="controls">
-                    <label for="midi_input_t4">MIDI Input</label>
-                    <select id="midi_input_t4" name="midi_input_t4">
-                        <option value="">--SELECT MIDI DEVICE--</option>
-                        <option value="midi_t4_1">Focusrite Midi</option>
-                        <option value="midi_t4_2">KeyStation 49</option>
-                        <option value="midi_t4_3">KeyStepPro</option>
-                        <option value="midi_t4_4">MicroFreaks</option>
-                    </select>
-                    <label for="midi_channel_t4">MIDI Channel</label>
-                    <select id="midi_channel_t4" name="midi_channel_t4">
-                        <option>--SELECT MIDI CHANNEL--</option>
-                        <option value="ch_t4_1">1</option>
-                        <option value="ch_t4_2">2</option>
-                        <option value="ch_t4_3">3</option>
-                        <option value="ch_t4_4">4</option>
-                        <option value="ch_t4_5">5</option>
-                        <option value="ch_t4_6">6</option>
-                        <option value="ch_t4_7">7</option>
-                        <option value="ch_t4_8">8</option>
-                        <option value="ch_t4_9">9</option>
-                        <option value="ch_t4_10">10</option>
-                        <option value="ch_t4_11">11</option>
-                        <option value="ch_t4_12">12</option>
-                        <option value="ch_t4_13">13</option>
-                        <option value="ch_t4_14">14</option>
-                        <option value="ch_t4_15">15</option>
-                        <option value="ch_t4_16">16</option>
-                    </select>
-                    <label for="mute_t4">M</label>
-                    <input type="checkbox" id="mute_t4" name="mute_t4">
-                    <label for="solo_t4">S</label>
-                    <input type="checkbox" id="solo_t4" name="solo_t4">
-                    <div class="dbMeter"></div>
-                    <svg id='settings_t4' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <title>Click Here to change settings on synth</title>
-                        <path
-                            d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
-                    </svg>
-                    <div id="pan_t4"></div>
-                    <svg id="rec_t4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <title>Click here to record this loop</title>
-                        <circle cx="12" cy="12" r="12" />
-                    </svg>
-                    <p>TRACK 4</p>
+                    <div>
+                        <label for="midi_input_t4">MIDI Input</label>
+                        <select id="midi_input_t4" name="midi_input_t4">
+                            <option value="">--SELECT MIDI DEVICE--</option>
+                            <option value="midi_t4_1">Focusrite Midi</option>
+                            <option value="midi_t4_2">KeyStation 49</option>
+                            <option value="midi_t4_3">KeyStepPro</option>
+                            <option value="midi_t4_4">MicroFreaks</option>
+                        </select>
+                        <label for="midi_channel_t4">MIDI Channel</label>
+                        <select id="midi_channel_t4" name="midi_channel_t4">
+                            <option>--SELECT MIDI CHANNEL--</option>
+                            <option value="ch_t4_1">1</option>
+                            <option value="ch_t4_2">2</option>
+                            <option value="ch_t4_3">3</option>
+                            <option value="ch_t4_4">4</option>
+                            <option value="ch_t4_5">5</option>
+                            <option value="ch_t4_6">6</option>
+                            <option value="ch_t4_7">7</option>
+                            <option value="ch_t4_8">8</option>
+                            <option value="ch_t4_9">9</option>
+                            <option value="ch_t4_10">10</option>
+                            <option value="ch_t4_11">11</option>
+                            <option value="ch_t4_12">12</option>
+                            <option value="ch_t4_13">13</option>
+                            <option value="ch_t4_14">14</option>
+                            <option value="ch_t4_15">15</option>
+                            <option value="ch_t4_16">16</option>
+                        </select>
+                        <input type="checkbox" id="mute_t4" name="mute_t4">
+                        <label for="mute_t4">M</label>
+                        <input type="checkbox" id="solo_t4" name="solo_t4">
+                        <label for="solo_t4">S</label>
+                        <div class="dbMeter"></div>
+                        <svg id='settings_t4' xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <title>Click Here to change settings on synth</title>
+                            <path
+                                d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
+                        </svg>
+                        <div id="pan_t4"></div>
+                        <svg id="rec_t4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <title>Click here to record this loop</title>
+                            <circle cx="12" cy="12" r="12" />
+                        </svg>
+                        <p>TRACK 4</p>
+                    </div>
+
                 </div>
                 <div id="seq_t4">
                     <div id="t4_n1">

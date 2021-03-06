@@ -839,6 +839,7 @@ main#compose #tracks > div[id^="t"] {
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
   border-radius: 0.75rem;
   overflow: hidden;
+  position: relative;
 }
 
 main#compose #tracks > div[id^="t"] .controls {
@@ -884,6 +885,7 @@ main#compose #tracks > div[id^="t"] .controls > div input[type="checkbox"] {
 }
 
 main#compose #tracks > div[id^="t"] .controls > div input[type="checkbox"] + label {
+  cursor: pointer;
   display: block;
   background-color: #650076;
   width: 2rem;
@@ -906,13 +908,19 @@ main#compose #tracks > div[id^="t"] .controls > div .track-name {
   line-height: 0;
   text-indent: 0;
   position: absolute;
-  bottom: -2rem;
+  bottom: -3rem;
+}
+
+main#compose #tracks > div[id^="t"] .controls > div div[id^="pan"] {
+  display: none;
 }
 
 main#compose #tracks > div[id^="t"] .controls > div svg {
+  cursor: pointer;
   -webkit-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.555));
           filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.555));
   display: inline-block;
+  margin: 1rem;
 }
 
 main#compose #tracks > div[id^="t"] div[id^="seq"] {
@@ -938,6 +946,7 @@ main#compose #tracks > div[id^="t"] div[id^="seq"] > div input {
 }
 
 main#compose #tracks > div[id^="t"] div[id^="seq"] > div input + label {
+  cursor: pointer;
   display: block;
   width: 100%;
   height: 100%;
@@ -956,6 +965,21 @@ main#compose #tracks > div[id^="t"] div[id^="seq"] > div input + label:nth-of-ty
 main#compose #tracks > div[id^="t"] div[id^="seq"] > div input:checked + label {
   background-color: #f7f9f5 !important;
   border: 1px solid #383838 !important;
+}
+
+main#compose #tracks > div[id^="t"] .next-page,
+main#compose #tracks > div[id^="t"] .previous-page {
+  fill: #383838;
+  position: absolute;
+  right: 0.8rem;
+  top: 1.5rem;
+  width: 1.5rem;
+}
+
+main#compose #tracks > div[id^="t"] .previous-page {
+  top: 3.7rem;
+  -webkit-transform: rotateZ(180deg);
+          transform: rotateZ(180deg);
 }
 
 main#compose #tracks div#t1 {
@@ -1021,6 +1045,11 @@ main#compose #tracks div#t1 div[id^="seq"] > div:nth-of-type(2n) input + label {
   background-color: var(--tdark);
 }
 
+main#compose #tracks div#t1 .next-page:hover,
+main#compose #tracks div#t1 .previous-page:hover {
+  fill: var(--tdark);
+}
+
 main#compose #tracks div#t2 {
   --tmain: #09812a;
   --tlight: #0ec642;
@@ -1049,6 +1078,11 @@ main#compose #tracks div#t2 div[id^="seq"] > div input + label {
 
 main#compose #tracks div#t2 div[id^="seq"] > div:nth-of-type(2n) input + label {
   background-color: var(--tdark);
+}
+
+main#compose #tracks div#t2 .next-page:hover,
+main#compose #tracks div#t2 .previous-page:hover {
+  fill: var(--tdark);
 }
 
 main#compose #tracks div#t3 {
@@ -1081,6 +1115,11 @@ main#compose #tracks div#t3 div[id^="seq"] > div:nth-of-type(2n) input + label {
   background-color: var(--tdark);
 }
 
+main#compose #tracks div#t3 .next-page:hover,
+main#compose #tracks div#t3 .previous-page:hover {
+  fill: var(--tdark);
+}
+
 main#compose #tracks div#t4 {
   --tmain: #2e2bc4;
   --tlight: #7c7cee;
@@ -1109,5 +1148,10 @@ main#compose #tracks div#t4 div[id^="seq"] > div input + label {
 
 main#compose #tracks div#t4 div[id^="seq"] > div:nth-of-type(2n) input + label {
   background-color: var(--tdark);
+}
+
+main#compose #tracks div#t4 .next-page:hover,
+main#compose #tracks div#t4 .previous-page:hover {
+  fill: var(--tdark);
 }
 /*# sourceMappingURL=main.css.map */

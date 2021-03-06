@@ -1177,8 +1177,12 @@ main#compose #tracks div#t4 .previous-page:hover {
 
 /* REGULAR SCREEN*/
 @media only screen and (min-width: 750px) and (max-width: 1199px) {
-  body > main {
-    --test: #aaa;
+  body > main#discover > section {
+    width: 60%;
+  }
+  body > main#discover > section ul li {
+    margin: 0.5rem;
+    width: calc(30% - 0.5rem);
   }
   body > footer > section ul {
     width: 100% !important;
@@ -1263,6 +1267,16 @@ main#compose #tracks div#t4 .previous-page:hover {
   }
   body > main#contact {
     display: block;
+  }
+  body > main#discover > section {
+    width: 100%;
+  }
+  body > main#discover > section ul li {
+    margin: 0.2rem;
+    width: calc(30% - 0.2rem);
+  }
+  body > main#discover > section ul li a {
+    font-size: 1.28rem !important;
   }
   body > footer img {
     width: 3.5rem !important;

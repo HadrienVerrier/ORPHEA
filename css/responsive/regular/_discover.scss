@@ -1,0 +1,11 @@
+&#discover {
+	> section {
+		width: 60%;
+		ul {
+			li {
+				margin: 0.5rem;
+				width: calc(30% - 0.5rem);
+			}
+		}
+	}
+}

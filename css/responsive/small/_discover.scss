@@ -1,0 +1,14 @@
+&#discover {
+	> section {
+		width: 100%;
+		ul {
+			li {
+				margin: 0.2rem;
+				width: calc(30% - 0.2rem);
+				a {
+					font-size: $regular * 0.8 !important;
+				}
+			}
+		}
+	}
+}

@@ -23,7 +23,7 @@
 @media only screen and (min-width: $regularScreen) and (max-width: $largeScreen - 1) {
 	body {
 		> main {
-			--test: #aaa;
+			@import "regular/_discover.scss";
 		}
 		> footer {
 			> section {
@@ -91,6 +91,8 @@
 			@import "small/_login.scss";
 
 			@import "small/_contact.scss";
+
+			@import "small/_discover.scss";
 		}
 		> footer {
 			img {

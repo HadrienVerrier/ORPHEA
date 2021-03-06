@@ -1,0 +1,22 @@
+&#dashboard {
+	header {
+		li {
+			font-size: $regular * 0.8;
+			line-height: $regular * 0.8 * 4;
+			svg {
+				width: 1.5rem;
+				vertical-align: middle;
+				position: relative;
+				top: -0.2rem;
+			}
+		}
+	}
+	> section {
+		display: block !important;
+
+		article {
+			margin-bottom: 2rem;
+			height: 20rem;
+		}
+	}
+}

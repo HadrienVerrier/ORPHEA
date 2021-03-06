@@ -1184,6 +1184,9 @@ main#compose #tracks div#t4 .previous-page:hover {
     margin: 0.5rem;
     width: calc(30% - 0.5rem);
   }
+  body > main#dashboard article {
+    width: 85%;
+  }
   body > footer > section ul {
     width: 100% !important;
     margin: 0 !important;
@@ -1278,6 +1281,23 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#discover > section ul li a {
     font-size: 1.28rem !important;
   }
+  body > main#dashboard header li {
+    font-size: 1.28rem;
+    line-height: 5.12rem;
+  }
+  body > main#dashboard header li svg {
+    width: 1.5rem;
+    vertical-align: middle;
+    position: relative;
+    top: -0.2rem;
+  }
+  body > main#dashboard > section {
+    display: block !important;
+  }
+  body > main#dashboard > section article {
+    margin-bottom: 2rem;
+    height: 20rem;
+  }
   body > footer img {
     width: 3.5rem !important;
     height: 3.5rem !important;
@@ -1362,6 +1382,23 @@ main#compose #tracks div#t4 .previous-page:hover {
   }
   body > main#contact {
     display: block;
+  }
+  body > main#dashboard header li {
+    font-size: 1.28rem;
+    line-height: 5.12rem;
+  }
+  body > main#dashboard header li svg {
+    width: 1.5rem;
+    vertical-align: middle;
+    position: relative;
+    top: -0.2rem;
+  }
+  body > main#dashboard > section {
+    display: block !important;
+  }
+  body > main#dashboard > section article {
+    margin-bottom: 2rem;
+    height: 20rem;
   }
   body > footer img {
     width: 3.5rem !important;

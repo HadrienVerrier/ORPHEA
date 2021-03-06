@@ -24,6 +24,7 @@
 	body {
 		> main {
 			@import "regular/_discover.scss";
+			@import "regular/_dashboard.scss";
 		}
 		> footer {
 			> section {
@@ -93,6 +94,8 @@
 			@import "small/_contact.scss";
 
 			@import "small/_discover.scss";
+
+			@import "small/_dashboard.scss";
 		}
 		> footer {
 			img {
@@ -161,6 +164,8 @@
 			@import "small/_login.scss";
 
 			@import "small/_contact.scss";
+
+			@import "small/_dashboard.scss";
 		}
 		> footer {
 			img {

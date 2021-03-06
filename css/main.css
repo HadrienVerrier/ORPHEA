@@ -1159,7 +1159,6 @@ main#compose #tracks div#t4 .previous-page:hover {
 /**************/
 /**RESPONSIVE**/
 /**************/
-/**MAIN**/
 /* LARGE SCREEN*/
 @media only screen and (min-width: 1200px) {
   /*HEADER*/
@@ -1177,11 +1176,14 @@ main#compose #tracks div#t4 .previous-page:hover {
 }
 
 /* REGULAR SCREEN*/
-/*SMARTPHONE*/
-@media only screen and (max-width: 750px) {
-  body {
-    min-width: 30rem;
+@media only screen and (min-width: 750px) and (max-width: 1199px) {
+  body > main {
+    --test: #aaa;
   }
+}
+
+/*SMALL SCREEN*/
+@media only screen and (min-width: 481px) and (max-width: 749px) {
   body > header div#logo {
     left: -1rem;
   }
@@ -1201,19 +1203,10 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > header nav li:first-of-type, body > header nav li:nth-of-type(2) {
     display: none;
   }
-  body > main {
-    /*INDEX*/
-    /*ABOUT*/
-    /*LOGIN*/
-  }
   body > main#index > section:not(#video) {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     gap: 2rem;
-  }
-  body > main#index > section:not(#video) article:nth-of-type(2),
-  body > main#index > section:not(#video) article:nth-of-type(3) {
-    display: none;
   }
   body > main#index #video-container {
     min-width: unset;
@@ -1238,11 +1231,33 @@ main#compose #tracks div#t4 .previous-page:hover {
     border-bottom: 2px solid #b900d7;
     margin-bottom: 3rem;
   }
+  body > footer li {
+    display: block !important;
+    margin-bottom: 0.5rem !important;
+  }
   body > footer select {
     -webkit-transform: scale(0.7);
             transform: scale(0.7);
-    position: relative;
-    left: 2rem;
+  }
+}
+
+/*SMARTPHONE*/
+@media only screen and (max-width: 480px) {
+  body {
+    min-width: 30rem;
+  }
+  > main#index > section:not(#video) {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  > main#index #video-container {
+    min-width: unset;
+    min-height: unset;
+  }
+  > main#index > section:not(#video) article:nth-of-type(2),
+  > main#index > section:not(#video) article:nth-of-type(3) {
+    display: none;
   }
 }
 /*# sourceMappingURL=main.css.map */

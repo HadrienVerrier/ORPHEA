@@ -1,16 +1,8 @@
 &#index {
 	> section:not(#video) {
-		grid-template-columns: 1fr;
-		gap: 2rem;
-
 		article:nth-of-type(2),
 		article:nth-of-type(3) {
 			display: none;
 		}
-	}
-
-	#video-container {
-		min-width: unset;
-		min-height: unset;
 	}
 }

@@ -1,5 +1,3 @@
-/**MAIN**/
-
 /* LARGE SCREEN*/
 @media only screen and (min-width: $largeScreen) {
 	/*HEADER*/
@@ -22,17 +20,17 @@
 	}
 }
 /* REGULAR SCREEN*/
-@media only screen and (min-width: $regularScreen) {
+@media only screen and (min-width: $regularScreen) and (max-width: $largeScreen - 1) {
 	body {
 		> main {
+			--test: #aaa;
 		}
 	}
 }
 
-/*SMARTPHONE*/
-@media only screen and (max-width: $smartphoneScreen) {
+/*SMALL SCREEN*/
+@media only screen and (min-width: $smallScreen + 1) and (max-width: $regularScreen - 1) {
 	body {
-		min-width: 30rem;
 		> header {
 			div#logo {
 				left: -1rem;
@@ -57,21 +55,32 @@
 			}
 		}
 		> main {
-			/*INDEX*/
-			@import "smartphone/_index.scss";
+			@import "small/_index.scss";
 
-			/*ABOUT*/
-			@import "smartphone/_about.scss";
+			@import "small/_about.scss";
 
-			/*LOGIN*/
-			@import "smartphone/_login.scss";
+			@import "small/_login.scss";
 		}
 		> footer {
+			li {
+				display: block !important;
+				margin-bottom: 0.5rem !important;
+			}
 			select {
 				transform: scale(0.7);
-				position: relative;
-				left: 2rem;
 			}
 		}
+	}
+}
+
+/*SMARTPHONE*/
+@media only screen and (max-width: $smallScreen) {
+	body {
+		min-width: 30rem;
+	}
+	> main {
+		@import "small/_index.scss";
+
+		@import "smartphone/_index.scss";
 	}
 }

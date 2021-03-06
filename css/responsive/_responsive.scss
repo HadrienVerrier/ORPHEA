@@ -18,15 +18,27 @@
 			margin: 4rem auto 4rem auto;
 			width: 85%;
 			min-height: calc(100vh - #{$footerH} - #{$headerH} - 8rem);
+
+			/***INDEX***/
+
+			@import "large/_index.scss";
 		}
 	}
 }
 /* REGULAR SCREEN*/
 @media only screen and (min-width: $regularScreen) {
+	body {
+		> main {
+			@import "regular/_index.scss";
+		}
+	}
 }
 /* TABLETT */
 @media only screen and (min-width: $tablettScreen) {
 	body {
+		> main {
+			@import "tablett/_index.scss";
+		}
 		> footer {
 			> section {
 				ul {
@@ -47,16 +59,17 @@
 
 /*SMARTPHONE*/
 @media only screen and (max-width: $smartphoneScreen) {
-	footer {
-		img {
-			display: none;
+	body {
+		> main {
+			@import "smartphone/_index.scss";
 		}
-		section {
-			width: 40%;
+		> footer {
+			img {
+				display: none;
+			}
+			section {
+				width: 40%;
+			}
 		}
 	}
 }
-
-/***INDEX***/
-
-@import "_index.scss";

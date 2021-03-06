@@ -1180,28 +1180,58 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main {
     --test: #aaa;
   }
+  body > footer > section ul {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  body > footer > section ul li {
+    margin: 0 0.5rem !important;
+  }
+  body > footer > section ul li select {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 0.96rem;
+  }
+  body > footer > section:first-of-type {
+    padding-left: 2rem;
+  }
+  body > footer > section:last-of-type {
+    padding-right: 2rem;
+  }
 }
 
 /*SMALL SCREEN*/
-@media only screen and (min-width: 481px) and (max-width: 749px) {
+@media only screen and (min-width: 391px) and (max-width: 749px) {
   body > header div#logo {
-    left: -1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 40%;
   }
   body > header div#logo img {
     width: 4rem;
     height: 4rem;
+    margin: 0;
   }
   body > header div#logo h1 {
     font-size: 3.2rem;
   }
   body > header nav {
-    right: 0.5rem;
+    text-align: center;
+    width: 90%;
+    top: 75%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
   body > header nav li {
-    margin: 0 0.5rem;
-  }
-  body > header nav li:first-of-type, body > header nav li:nth-of-type(2) {
-    display: none;
+    margin: 0 !important;
+    width: 20%;
+    float: none !important;
+    display: inline-block !important;
+    font-size: 1.28rem !important;
   }
   body > main#index > section:not(#video) {
     -ms-grid-columns: 1fr;
@@ -1231,33 +1261,92 @@ main#compose #tracks div#t4 .previous-page:hover {
     border-bottom: 2px solid #b900d7;
     margin-bottom: 3rem;
   }
-  body > footer li {
-    display: block !important;
-    margin-bottom: 0.5rem !important;
+  body > footer img {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
   }
-  body > footer select {
-    -webkit-transform: scale(0.7);
-            transform: scale(0.7);
+  body > footer > section ul {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  body > footer > section ul li {
+    display: block;
+    margin: 0.5rem 0.5rem !important;
+  }
+  body > footer > section ul li select {
+    display: inline-block;
+    max-width: 100%;
+    max-width: 10rem;
+    font-size: 0.96rem;
+  }
+  body > footer > section:first-of-type {
+    padding-left: 2rem;
+  }
+  body > footer > section:last-of-type {
+    padding-right: 2rem;
   }
 }
 
 /*SMARTPHONE*/
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 390px) {
   body {
     min-width: 30rem;
   }
-  > main#index > section:not(#video) {
+  body > header div#logo {
+    left: -1rem;
+  }
+  body > header div#logo img {
+    width: 4rem;
+    height: 4rem;
+  }
+  body > header div#logo h1 {
+    font-size: 3.2rem;
+  }
+  body > header nav {
+    right: 0.5rem;
+  }
+  body > header nav li {
+    margin: 0 0.5rem !important;
+  }
+  body > header nav li:first-of-type, body > header nav li:nth-of-type(2) {
+    display: none;
+  }
+  body > main#index > section:not(#video) {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     gap: 2rem;
   }
-  > main#index #video-container {
+  body > main#index #video-container {
     min-width: unset;
     min-height: unset;
   }
-  > main#index > section:not(#video) article:nth-of-type(2),
-  > main#index > section:not(#video) article:nth-of-type(3) {
+  body > main#index > section:not(#video) article:nth-of-type(2),
+  body > main#index > section:not(#video) article:nth-of-type(3) {
     display: none;
+  }
+  body > footer img {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+  }
+  body > footer > section ul {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  body > footer > section ul li {
+    display: block;
+    margin: 0.5rem 0.5rem !important;
+  }
+  body > footer > section ul li select {
+    display: inline-block;
+    max-width: 100%;
+    max-width: 10rem;
+    font-size: 0.96rem;
+  }
+  body > footer > section:first-of-type {
+    padding-left: 2rem;
+  }
+  body > footer > section:last-of-type {
+    padding-right: 2rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

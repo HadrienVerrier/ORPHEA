@@ -226,7 +226,6 @@ a {
 		color: $mainLight;
 	}
 }
-
 strong {
 	font-weight: bold;
 }
@@ -303,7 +302,6 @@ input[type="password"] {
 		}
 	}
 }
-
 input[type="submit"] + label {
 	width: 10rem;
 	margin: 2rem auto;
@@ -339,3 +337,9 @@ input[type="submit"] + label {
 
 /*COMPOSE*/
 @import "_compose.scss";
+
+/**************/
+/**RESPONSIVE**/
+/**************/
+
+@import "responsive/_responsive.scss";

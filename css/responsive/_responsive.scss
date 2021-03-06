@@ -1,0 +1,62 @@
+/**MAIN**/
+
+/* LARGE SCREEN*/
+@media only screen and (min-width: $largeScreen) {
+	/*HEADER*/
+	body {
+		> header {
+			div#logo {
+				img {
+					margin-left: 7rem;
+				}
+			}
+			nav {
+				right: 8rem;
+			}
+		}
+		> main {
+			margin: 4rem auto 4rem auto;
+			width: 85%;
+			min-height: calc(100vh - #{$footerH} - #{$headerH} - 8rem);
+		}
+	}
+}
+/* REGULAR SCREEN*/
+@media only screen and (min-width: $regularScreen) {
+}
+/* TABLETT */
+@media only screen and (min-width: $tablettScreen) {
+	body {
+		> footer {
+			> section {
+				ul {
+					li {
+						font-size: $regular * 0.5;
+						margin: 0 0.5rem;
+					}
+				}
+			}
+		}
+	}
+
+	select {
+		width: 100%;
+		font-size: $regular * 0.5;
+	}
+}
+
+/*SMARTPHONE*/
+@media only screen and (max-width: $smartphoneScreen) {
+	footer {
+		img {
+			display: none;
+		}
+		section {
+			width: 40%;
+		}
+	}
+}
+
+/***INDEX***/
+
+@import "_index.scss";

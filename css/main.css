@@ -1154,4 +1154,49 @@ main#compose #tracks div#t4 .next-page:hover,
 main#compose #tracks div#t4 .previous-page:hover {
   fill: var(--tdark);
 }
+
+/**************/
+/**RESPONSIVE**/
+/**************/
+/**MAIN**/
+/* LARGE SCREEN*/
+@media only screen and (min-width: 1200px) {
+  /*HEADER*/
+  body > header div#logo img {
+    margin-left: 7rem;
+  }
+  body > header nav {
+    right: 8rem;
+  }
+  body > main {
+    margin: 4rem auto 4rem auto;
+    width: 85%;
+    min-height: calc(100vh - 6rem - 10rem - 8rem);
+  }
+}
+
+/* REGULAR SCREEN*/
+/* TABLETT */
+@media only screen and (min-width: 600px) {
+  body > footer > section ul li {
+    font-size: 0.8rem;
+    margin: 0 0.5rem;
+  }
+  select {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+}
+
+/*SMARTPHONE*/
+@media only screen and (max-width: 599px) {
+  footer img {
+    display: none;
+  }
+  footer section {
+    width: 40%;
+  }
+}
+
+/***INDEX***/
 /*# sourceMappingURL=main.css.map */

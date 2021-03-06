@@ -795,6 +795,8 @@ main#member > section > article {
   background-color: #650076;
   padding: 1rem;
   border-radius: 1.5rem;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
 }
 
 /*COMPOSE*/
@@ -1298,6 +1300,22 @@ main#compose #tracks div#t4 .previous-page:hover {
     margin-bottom: 2rem;
     height: 20rem;
   }
+  body > main#member > header {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+  }
+  body > main#member > header section {
+    display: block;
+    margin: 1rem 0 0;
+  }
+  body > main#member > section {
+    margin-top: 1rem;
+    -ms-grid-columns: (50%)[2];
+        grid-template-columns: repeat(2, 50%);
+    position: relative;
+    left: -1rem;
+  }
   body > footer img {
     width: 3.5rem !important;
     height: 3.5rem !important;
@@ -1399,6 +1417,22 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#dashboard > section article {
     margin-bottom: 2rem;
     height: 20rem;
+  }
+  body > main#member > header {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+  }
+  body > main#member > header section {
+    display: block;
+    margin: 1rem 0 0;
+  }
+  body > main#member > section {
+    margin-top: 1rem;
+    display: block !important;
+  }
+  body > main#member > section article {
+    margin-bottom: 2rem;
   }
   body > footer img {
     width: 3.5rem !important;

@@ -1,0 +1,18 @@
+&#member {
+	> header {
+		text-align: center;
+		width: 100%;
+		margin: auto;
+		section {
+			display: block;
+			margin: 1rem 0 0;
+		}
+	}
+	> section {
+		margin-top: 1rem;
+		display: block !important;
+		article {
+			margin-bottom: 2rem;
+		}
+	}
+}

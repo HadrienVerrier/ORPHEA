@@ -41,6 +41,7 @@ main#member {
 			background-color: $main;
 			padding: 1rem;
 			border-radius: $borderRadius;
+			box-shadow: $shadow;
 
 			a {
 				@extend %pass_link;

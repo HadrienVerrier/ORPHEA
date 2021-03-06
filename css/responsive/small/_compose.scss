@@ -1,0 +1,15 @@
+&#compose {
+	#tracks {
+		> div[id^="t"] {
+			min-width: 50rem;
+
+			div[id^="seq"] {
+				width: 91% !important;
+			}
+		}
+	}
+	.next-page,
+	.previous-page {
+		right: 0.5rem !important;
+	}
+}

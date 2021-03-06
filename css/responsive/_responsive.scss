@@ -98,6 +98,8 @@
 			@import "small/_dashboard.scss";
 
 			@import "small/_member.scss";
+
+			@import "small/_compose.scss";
 		}
 		> footer {
 			img {
@@ -150,8 +152,8 @@
 				right: 0.5rem;
 				li {
 					margin: 0 0.5rem !important;
-					&:first-of-type,
-					&:nth-of-type(2) {
+					font-size: $regular * 0.7 !important;
+					&:first-of-type {
 						display: none;
 					}
 				}
@@ -168,6 +170,8 @@
 			@import "small/_contact.scss";
 
 			@import "small/_dashboard.scss";
+
+			@import "small/_discover.scss";
 
 			@import "smartphone/_member.scss";
 		}

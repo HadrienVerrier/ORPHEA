@@ -928,7 +928,7 @@ main#compose #tracks > div[id^="t"] .controls > div svg {
 
 main#compose #tracks > div[id^="t"] div[id^="seq"] {
   height: calc(90% - 1rem);
-  width: 95%;
+  width: 94%;
   position: relative;
   top: 1.5rem;
   display: -ms-grid;
@@ -1316,6 +1316,16 @@ main#compose #tracks div#t4 .previous-page:hover {
     position: relative;
     left: -1rem;
   }
+  body > main#compose #tracks > div[id^="t"] {
+    min-width: 50rem;
+  }
+  body > main#compose #tracks > div[id^="t"] div[id^="seq"] {
+    width: 91% !important;
+  }
+  body > main#compose .next-page,
+  body > main#compose .previous-page {
+    right: 0.5rem !important;
+  }
   body > footer img {
     width: 3.5rem !important;
     height: 3.5rem !important;
@@ -1362,8 +1372,9 @@ main#compose #tracks div#t4 .previous-page:hover {
   }
   body > header nav li {
     margin: 0 0.5rem !important;
+    font-size: 1.12rem !important;
   }
-  body > header nav li:first-of-type, body > header nav li:nth-of-type(2) {
+  body > header nav li:first-of-type {
     display: none;
   }
   body > main#index > section:not(#video) {
@@ -1417,6 +1428,16 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#dashboard > section article {
     margin-bottom: 2rem;
     height: 20rem;
+  }
+  body > main#discover > section {
+    width: 100%;
+  }
+  body > main#discover > section ul li {
+    margin: 0.2rem;
+    width: calc(30% - 0.2rem);
+  }
+  body > main#discover > section ul li a {
+    font-size: 1.28rem !important;
   }
   body > main#member > header {
     text-align: center;

@@ -1177,25 +1177,48 @@ main#compose #tracks div#t4 .previous-page:hover {
 }
 
 /* REGULAR SCREEN*/
-/* TABLETT */
-@media only screen and (min-width: 600px) {
-  body > footer > section ul li {
-    font-size: 0.8rem;
+/*SMARTPHONE*/
+@media only screen and (max-width: 750px) {
+  body {
+    min-width: 30rem;
+  }
+  body > header div#logo {
+    left: -1rem;
+  }
+  body > header div#logo img {
+    width: 4rem;
+    height: 4rem;
+  }
+  body > header div#logo h1 {
+    font-size: 3.2rem;
+  }
+  body > header nav {
+    right: 0.5rem;
+  }
+  body > header nav li {
     margin: 0 0.5rem;
   }
-  select {
-    width: 100%;
-    font-size: 0.8rem;
-  }
-}
-
-/*SMARTPHONE*/
-@media only screen and (max-width: 599px) {
-  body > footer img {
+  body > header nav li:first-of-type, body > header nav li:nth-of-type(2) {
     display: none;
   }
-  body > footer section {
-    width: 40%;
+  body > main#index > section:not(#video) {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  body > main#index > section:not(#video) article:nth-of-type(2),
+  body > main#index > section:not(#video) article:nth-of-type(3) {
+    display: none;
+  }
+  body > main#index #video-container {
+    min-width: unset;
+    min-height: unset;
+  }
+  body > footer select {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+    position: relative;
+    left: 2rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -33,42 +33,42 @@
 		}
 	}
 }
-/* TABLETT */
-@media only screen and (min-width: $tablettScreen) {
-	body {
-		> main {
-			@import "tablett/_index.scss";
-		}
-		> footer {
-			> section {
-				ul {
-					li {
-						font-size: $regular * 0.5;
-						margin: 0 0.5rem;
-					}
-				}
-			}
-		}
-	}
-
-	select {
-		width: 100%;
-		font-size: $regular * 0.5;
-	}
-}
 
 /*SMARTPHONE*/
 @media only screen and (max-width: $smartphoneScreen) {
 	body {
+		min-width: 30rem;
+		> header {
+			div#logo {
+				left: -1rem;
+
+				img {
+					width: 4rem;
+					height: 4rem;
+				}
+				h1 {
+					font-size: $regular * 2;
+				}
+			}
+			nav {
+				right: 0.5rem;
+				li {
+					margin: 0 0.5rem;
+					&:first-of-type,
+					&:nth-of-type(2) {
+						display: none;
+					}
+				}
+			}
+		}
 		> main {
 			@import "smartphone/_index.scss";
 		}
 		> footer {
-			img {
-				display: none;
-			}
-			section {
-				width: 40%;
+			select {
+				transform: scale(0.7);
+				position: relative;
+				left: 2rem;
 			}
 		}
 	}

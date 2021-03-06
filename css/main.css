@@ -1261,6 +1261,9 @@ main#compose #tracks div#t4 .previous-page:hover {
     border-bottom: 2px solid #b900d7;
     margin-bottom: 3rem;
   }
+  body > main#contact {
+    display: block;
+  }
   body > footer img {
     width: 3.5rem !important;
     height: 3.5rem !important;
@@ -1323,6 +1326,28 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#index > section:not(#video) article:nth-of-type(2),
   body > main#index > section:not(#video) article:nth-of-type(3) {
     display: none;
+  }
+  body > main#about section {
+    width: 80%;
+    margin: auto;
+  }
+  body > main#about ul li {
+    width: 80%;
+    margin: auto;
+  }
+  body > main#login {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  body > main#login::after {
+    display: none;
+  }
+  body > main#login > section:first-of-type {
+    border-bottom: 2px solid #b900d7;
+    margin-bottom: 3rem;
+  }
+  body > main#contact {
+    display: block;
   }
   body > footer img {
     width: 3.5rem !important;

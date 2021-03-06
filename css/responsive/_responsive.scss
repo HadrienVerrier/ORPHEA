@@ -89,6 +89,8 @@
 			@import "small/_about.scss";
 
 			@import "small/_login.scss";
+
+			@import "small/_contact.scss";
 		}
 		> footer {
 			img {
@@ -150,8 +152,13 @@
 		}
 		> main {
 			@import "small/_index.scss";
-
 			@import "smartphone/_index.scss";
+
+			@import "small/_about.scss";
+
+			@import "small/_login.scss";
+
+			@import "small/_contact.scss";
 		}
 		> footer {
 			img {

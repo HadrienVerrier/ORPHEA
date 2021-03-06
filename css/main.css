@@ -250,8 +250,10 @@ body > footer a:hover {
 
 .return-phone {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  top: 8rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: #650076;
   opacity: 0.9;
   z-index: 100;
@@ -1485,6 +1487,9 @@ main#compose #tracks div#t4 .previous-page:hover {
   }
   body > main#member > section article {
     margin-bottom: 2rem;
+  }
+  body > main#compose .return-phone {
+    display: unset !important;
   }
   body > footer img {
     width: 3.5rem !important;

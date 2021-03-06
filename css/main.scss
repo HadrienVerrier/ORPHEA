@@ -216,13 +216,16 @@ body {
 .return-phone {
 	@extend .hidden;
 	position: fixed;
-	width: 100vw;
-	height: 100vh;
+	top: 8rem;
+	left: 0;
+	width: 100%;
+	height: 100%;
 	background-color: $main;
 	opacity: 0.9;
 	z-index: 100;
 	> div {
 		@include center(true, true);
+
 		svg {
 			fill: $white;
 			display: block;

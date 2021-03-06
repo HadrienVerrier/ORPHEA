@@ -167,7 +167,7 @@ body > footer a:hover {
 /***************/
 /*****CLASS*****/
 /***************/
-.hidden {
+.hidden, .return-phone {
   display: none;
 }
 
@@ -246,6 +246,37 @@ body > footer a:hover {
   opacity: 1;
   -webkit-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
+}
+
+.return-phone {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #650076;
+  opacity: 0.9;
+  z-index: 100;
+}
+
+.return-phone > div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.return-phone > div svg {
+  fill: #f7f9f5;
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  margin: auto;
+}
+
+.return-phone > div p {
+  margin-top: 2rem;
+  text-align: center !important;
+  width: 100%;
 }
 
 /**************/

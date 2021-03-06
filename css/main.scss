@@ -213,6 +213,30 @@ body {
 		}
 	}
 }
+.return-phone {
+	@extend .hidden;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: $main;
+	opacity: 0.9;
+	z-index: 100;
+	> div {
+		@include center(true, true);
+		svg {
+			fill: $white;
+			display: block;
+			width: 5rem;
+			height: 5rem;
+			margin: auto;
+		}
+		p {
+			margin-top: 2rem;
+			text-align: center !important;
+			width: 100%;
+		}
+	}
+}
 /**************/
 /***GENERAL****/
 /**************/

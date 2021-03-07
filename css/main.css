@@ -405,9 +405,15 @@ input[type="submit"] + label {
 }
 
 #player-container #player-open {
-  height: 100%;
+  width: 2rem;
+  height: 2rem;
   position: absolute;
+  top: 3rem;
   right: 3rem;
+}
+
+#player-container #player-open:hover {
+  fill: #b900d7;
 }
 
 #player-container #search {
@@ -431,8 +437,8 @@ input[type="submit"] + label {
   height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 4fr 0.5fr;
-      grid-template-columns: 1fr 1fr 4fr 0.5fr;
+  -ms-grid-columns: 1fr 1fr 3fr 0.5fr;
+      grid-template-columns: 1fr 1fr 3fr 0.5fr;
 }
 
 #player-container.close #player #song-info {
@@ -503,15 +509,17 @@ input[type="submit"] + label {
 
 #player-container.close #player #timebar::before {
   content: " ";
+  display: block;
   width: 60%;
   position: absolute;
   height: 100%;
   background-color: #b900d7;
-  display: block;
 }
 
 #player-container.close #player #timebar::after {
   content: " ";
+  display: block;
+  cursor: pointer;
   width: 1.5rem;
   height: 1.5rem;
   -webkit-box-sizing: border-box;
@@ -524,7 +532,6 @@ input[type="submit"] + label {
   border-radius: 50%;
   border: 0.3rem solid #650076;
   background-color: #b900d7;
-  display: block;
 }
 
 #player-container.open {
@@ -1360,6 +1367,16 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#dashboard article {
     width: 85%;
   }
+  body > aside#player-container.close #player {
+    -ms-grid-columns: 1fr 1fr 2fr 0.5fr !important;
+        grid-template-columns: 1fr 1fr 2fr 0.5fr !important;
+  }
+  body > aside#player-container.close #player #player-controls svg {
+    width: 2rem;
+  }
+  body > aside#player-container.close #player #player-controls svg:not(:first-of-type) {
+    margin-left: 0.5rem;
+  }
   body > footer > section ul {
     width: 100% !important;
     margin: 0 !important;
@@ -1492,6 +1509,42 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#compose .next-page,
   body > main#compose .previous-page {
     right: 0.5rem !important;
+  }
+  body > aside#player-container.close #player {
+    -ms-grid-columns: 1fr 1fr 2fr 0.5fr !important;
+        grid-template-columns: 1fr 1fr 2fr 0.5fr !important;
+  }
+  body > aside#player-container.close #player #player-controls svg {
+    width: 2rem;
+  }
+  body > aside#player-container.close #player #player-controls svg:not(:first-of-type) {
+    margin-left: 0.5rem;
+  }
+  body > aside#player-container #player-open {
+    right: 2rem;
+    top: 5rem;
+  }
+  body > aside#player-container.close {
+    height: 10rem;
+  }
+  body > aside#player-container.close #player {
+    -ms-grid-columns: 1fr 1fr 0.5fr !important;
+        grid-template-columns: 1fr 1fr 0.5fr !important;
+    -ms-grid-rows: 2fr 6fr;
+        grid-template-rows: 2fr 6fr;
+  }
+  body > aside#player-container.close #timebar {
+    top: 0.2rem;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 4;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  body > aside#player-container.close #player-controls {
+    -ms-grid-column-align: center;
+        justify-self: center;
   }
   body > footer img {
     width: 3.5rem !important;
@@ -1629,6 +1682,48 @@ main#compose #tracks div#t4 .previous-page:hover {
   }
   body > main#compose .return-phone {
     display: unset !important;
+  }
+  body > aside#player-container.close #player {
+    -ms-grid-columns: 1fr 1fr 2fr 0.5fr !important;
+        grid-template-columns: 1fr 1fr 2fr 0.5fr !important;
+  }
+  body > aside#player-container.close #player #player-controls svg {
+    width: 2rem;
+  }
+  body > aside#player-container.close #player #player-controls svg:not(:first-of-type) {
+    margin-left: 0.5rem;
+  }
+  body > aside#player-container #player-open {
+    right: 2rem;
+    top: 5rem;
+  }
+  body > aside#player-container.close {
+    height: 10rem;
+  }
+  body > aside#player-container.close #player {
+    -ms-grid-columns: 1fr 1fr 0.5fr !important;
+        grid-template-columns: 1fr 1fr 0.5fr !important;
+    -ms-grid-rows: 2fr 6fr;
+        grid-template-rows: 2fr 6fr;
+  }
+  body > aside#player-container.close #timebar {
+    top: 0.2rem;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 4;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  body > aside#player-container.close #player-controls {
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  body > aside#player-container.close #song-info > div #current-song {
+    font-size: 1.12rem;
+  }
+  body > aside#player-container.close #player-controls svg:nth-of-type(5) {
+    display: none;
   }
   body > footer img {
     width: 3.5rem !important;

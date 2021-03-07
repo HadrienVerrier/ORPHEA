@@ -1,0 +1,18 @@
+&#player-container {
+	&.close {
+		#song-info {
+			> div {
+				#current-song {
+					font-size: $regular * 0.7;
+				}
+			}
+		}
+		#player-controls {
+			svg {
+				&:nth-of-type(5) {
+					display: none;
+				}
+			}
+		}
+	}
+}

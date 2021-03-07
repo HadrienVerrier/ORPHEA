@@ -7,9 +7,15 @@
 
 	z-index: 8;
 	#player-open {
-		height: 100%;
+		width: 2rem;
+		height: 2rem;
 		position: absolute;
+		top: 3rem;
 		right: 3rem;
+
+		&:hover {
+			fill: $mainLight;
+		}
 	}
 	#search {
 		display: none;
@@ -26,7 +32,7 @@
 		#player {
 			height: 100%;
 			display: grid;
-			grid-template-columns: 1fr 1fr 4fr 0.5fr;
+			grid-template-columns: 1fr 1fr 3fr 0.5fr;
 
 			#song-info {
 				align-self: center;
@@ -77,14 +83,16 @@
 
 				&::before {
 					content: " ";
+					display: block;
 					width: 60%;
 					position: absolute;
 					height: 100%;
 					background-color: $mainLight;
-					display: block;
 				}
 				&::after {
 					content: " ";
+					display: block;
+					cursor: pointer;
 					width: 1.5rem;
 					height: 1.5rem;
 					box-sizing: border-box;
@@ -92,11 +100,9 @@
 					top: 50%;
 					transform: translateY(-50%);
 					left: 60%;
-
 					border-radius: 50%;
 					border: 0.3rem solid $main;
 					background-color: $mainLight;
-					display: block;
 				}
 			}
 		}

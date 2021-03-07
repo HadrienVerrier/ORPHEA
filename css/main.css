@@ -400,13 +400,41 @@ input[type="submit"] + label {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 8rem;
   background-color: #2b1f2d;
   z-index: 8;
 }
 
+#player-container #player-open {
+  fill: #f7f9f5;
+  height: 100%;
+  position: absolute;
+  right: 3rem;
+}
+
+#player-container #player {
+  display: none;
+}
+
 #player-container #search {
   display: none;
+}
+
+#player-container.close {
+  height: 8rem;
+}
+
+#player-container.close #player-open {
+  -webkit-transform: rotateZ(-90deg);
+          transform: rotateZ(-90deg);
+}
+
+#player-container.open {
+  height: 50rem;
+}
+
+#player-container.open #player-open {
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
 }
 
 /*INDEX*/

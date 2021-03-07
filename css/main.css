@@ -3,12 +3,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 /*PLACEHOLDER ACTION*/
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
-body > header a, body > footer a, .button, #player-container.close #player #song-info > div #current-artist a, main#discover section article ul li a, main#dashboard > section article ul li a, main#member > section > article a {
+body > header a, body > footer a, .button, #player-container #player #song-info > div #current-artist a, main#discover section article ul li a, main#dashboard > section article ul li a, main#member > section > article a {
   color: #f7f9f5;
   font-style: normal;
 }
 
-body > header a:visited, body > footer a:visited, .button:visited, #player-container.close #player #song-info > div #current-artist a:visited, main#discover section article ul li a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
+body > header a:visited, body > footer a:visited, .button:visited, #player-container #player #song-info > div #current-artist a:visited, main#discover section article ul li a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
   color: #f7f9f5;
 }
 
@@ -402,9 +402,11 @@ input[type="submit"] + label {
   width: 100%;
   background-color: #2b1f2d;
   z-index: 8;
+  height: 8rem;
 }
 
 #player-container #player-open {
+  z-index: 7;
   width: 2rem;
   height: 2rem;
   position: absolute;
@@ -424,24 +426,20 @@ input[type="submit"] + label {
   fill: #f7f9f5;
 }
 
-#player-container.close {
-  height: 8rem;
-}
-
-#player-container.close #player-open {
+#player-container #player-open {
   -webkit-transform: rotateZ(-90deg);
           transform: rotateZ(-90deg);
 }
 
-#player-container.close #player {
-  height: 100%;
+#player-container #player {
+  position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 3fr 0.5fr;
       grid-template-columns: 1fr 1fr 3fr 0.5fr;
 }
 
-#player-container.close #player #song-info {
+#player-container #player #song-info {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -449,7 +447,7 @@ input[type="submit"] + label {
       justify-self: center;
 }
 
-#player-container.close #player #song-info > img {
+#player-container #player #song-info > img {
   width: 5rem;
   height: 5rem;
   -o-object-fit: cover;
@@ -457,43 +455,43 @@ input[type="submit"] + label {
   border-radius: 0.6rem;
 }
 
-#player-container.close #player #song-info > div {
+#player-container #player #song-info > div {
   display: inline-block;
   vertical-align: middle;
 }
 
-#player-container.close #player #song-info > div #current-song {
+#player-container #player #song-info > div #current-song {
   font-weight: bold;
 }
 
-#player-container.close #player #song-info > div #current-artist {
+#player-container #player #song-info > div #current-artist {
   font-size: 1.12rem;
 }
 
-#player-container.close #player #player-controls {
+#player-container #player #player-controls {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
 
-#player-container.close #player #player-controls svg {
+#player-container #player #player-controls svg {
   margin-left: 1rem;
 }
 
-#player-container.close #player #player-controls svg:not(:first-of-type) {
+#player-container #player #player-controls svg:not(:first-of-type) {
   margin-left: 1rem;
 }
 
-#player-container.close #player #player-controls svg:hover {
+#player-container #player #player-controls svg:hover {
   fill: #b900d7;
 }
 
-#player-container.close #player #player-controls #player-prev {
+#player-container #player #player-controls #player-prev {
   -webkit-transform: rotateZ(180deg);
           transform: rotateZ(180deg);
 }
 
-#player-container.close #player #timebar {
+#player-container #player #timebar {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -507,7 +505,7 @@ input[type="submit"] + label {
           box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.74);
 }
 
-#player-container.close #player #timebar::before {
+#player-container #player #timebar::before {
   content: " ";
   display: block;
   width: 60%;
@@ -516,7 +514,7 @@ input[type="submit"] + label {
   background-color: #b900d7;
 }
 
-#player-container.close #player #timebar::after {
+#player-container #player #timebar::after {
   content: " ";
   display: block;
   cursor: pointer;
@@ -534,15 +532,37 @@ input[type="submit"] + label {
   background-color: #b900d7;
 }
 
+#player-container.close #player {
+  height: 100%;
+}
+
 #player-container.open {
   opacity: 0.95;
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   height: 80vh;
 }
 
 #player-container.open #player-open {
   -webkit-transform: rotateZ(90deg);
           transform: rotateZ(90deg);
+}
+
+#player-container.open #player {
+  height: 8rem;
+}
+
+#player-container.open #player::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 95%;
+  height: 0.2rem;
+  background-color: #f7f9f5;
+  top: 8rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 /*INDEX*/
@@ -1367,14 +1387,14 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#dashboard article {
     width: 85%;
   }
-  body > aside#player-container.close #player {
+  body > aside#player-container #player {
     -ms-grid-columns: 1fr 1fr 2fr 0.5fr !important;
         grid-template-columns: 1fr 1fr 2fr 0.5fr !important;
   }
-  body > aside#player-container.close #player #player-controls svg {
+  body > aside#player-container #player #player-controls svg {
     width: 2rem;
   }
-  body > aside#player-container.close #player #player-controls svg:not(:first-of-type) {
+  body > aside#player-container #player #player-controls svg:not(:first-of-type) {
     margin-left: 0.5rem;
   }
   body > footer > section ul {
@@ -1510,30 +1530,30 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#compose .previous-page {
     right: 0.5rem !important;
   }
-  body > aside#player-container.close #player {
+  body > aside#player-container #player {
     -ms-grid-columns: 1fr 1fr 2fr 0.5fr !important;
         grid-template-columns: 1fr 1fr 2fr 0.5fr !important;
   }
-  body > aside#player-container.close #player #player-controls svg {
+  body > aside#player-container #player #player-controls svg {
     width: 2rem;
   }
-  body > aside#player-container.close #player #player-controls svg:not(:first-of-type) {
+  body > aside#player-container #player #player-controls svg:not(:first-of-type) {
     margin-left: 0.5rem;
+  }
+  body > aside#player-container {
+    height: 10rem;
   }
   body > aside#player-container #player-open {
     right: 2rem;
     top: 5rem;
   }
-  body > aside#player-container.close {
-    height: 10rem;
-  }
-  body > aside#player-container.close #player {
+  body > aside#player-container #player {
     -ms-grid-columns: 1fr 1fr 0.5fr !important;
         grid-template-columns: 1fr 1fr 0.5fr !important;
     -ms-grid-rows: 2fr 6fr;
         grid-template-rows: 2fr 6fr;
   }
-  body > aside#player-container.close #timebar {
+  body > aside#player-container #timebar {
     top: 0.2rem;
     -ms-grid-column: 1;
         grid-column-start: 1;
@@ -1542,9 +1562,15 @@ main#compose #tracks div#t4 .previous-page:hover {
         grid-row-start: 1;
     grid-row-end: 2;
   }
-  body > aside#player-container.close #player-controls {
+  body > aside#player-container #player-controls {
     -ms-grid-column-align: center;
         justify-self: center;
+  }
+  body > aside#player-container.open #player {
+    height: 10rem;
+  }
+  body > aside#player-container.open #player::before {
+    top: 10rem;
   }
   body > footer img {
     width: 3.5rem !important;
@@ -1683,30 +1709,30 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#compose .return-phone {
     display: unset !important;
   }
-  body > aside#player-container.close #player {
+  body > aside#player-container #player {
     -ms-grid-columns: 1fr 1fr 2fr 0.5fr !important;
         grid-template-columns: 1fr 1fr 2fr 0.5fr !important;
   }
-  body > aside#player-container.close #player #player-controls svg {
+  body > aside#player-container #player #player-controls svg {
     width: 2rem;
   }
-  body > aside#player-container.close #player #player-controls svg:not(:first-of-type) {
+  body > aside#player-container #player #player-controls svg:not(:first-of-type) {
     margin-left: 0.5rem;
+  }
+  body > aside#player-container {
+    height: 10rem;
   }
   body > aside#player-container #player-open {
     right: 2rem;
     top: 5rem;
   }
-  body > aside#player-container.close {
-    height: 10rem;
-  }
-  body > aside#player-container.close #player {
+  body > aside#player-container #player {
     -ms-grid-columns: 1fr 1fr 0.5fr !important;
         grid-template-columns: 1fr 1fr 0.5fr !important;
     -ms-grid-rows: 2fr 6fr;
         grid-template-rows: 2fr 6fr;
   }
-  body > aside#player-container.close #timebar {
+  body > aside#player-container #timebar {
     top: 0.2rem;
     -ms-grid-column: 1;
         grid-column-start: 1;
@@ -1715,14 +1741,20 @@ main#compose #tracks div#t4 .previous-page:hover {
         grid-row-start: 1;
     grid-row-end: 2;
   }
-  body > aside#player-container.close #player-controls {
+  body > aside#player-container #player-controls {
     -ms-grid-column-align: center;
         justify-self: center;
   }
-  body > aside#player-container.close #song-info > div #current-song {
+  body > aside#player-container.open #player {
+    height: 10rem;
+  }
+  body > aside#player-container.open #player::before {
+    top: 10rem;
+  }
+  body > aside#player-container #song-info > div #current-song {
     font-size: 1.12rem;
   }
-  body > aside#player-container.close #player-controls svg:nth-of-type(5) {
+  body > aside#player-container #player-controls svg:nth-of-type(5) {
     display: none;
   }
   body > footer img {

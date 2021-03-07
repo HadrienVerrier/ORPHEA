@@ -1,15 +1,13 @@
 &#player-container {
-	&.close {
-		#player {
-			grid-template-columns: 1fr 1fr 2fr 0.5fr !important;
+	#player {
+		grid-template-columns: 1fr 1fr 2fr 0.5fr !important;
 
-			#player-controls {
-				svg {
-					&:not(:first-of-type) {
-						margin-left: 0.5rem;
-					}
-					width: 2rem;
+		#player-controls {
+			svg {
+				&:not(:first-of-type) {
+					margin-left: 0.5rem;
 				}
+				width: 2rem;
 			}
 		}
 	}

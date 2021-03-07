@@ -395,6 +395,17 @@ input[type="submit"] + label {
 /************/
 /*PLAYER*/
 #player-container {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8rem;
+  background-color: #2b1f2d;
+  z-index: 8;
+}
+
+#player-container #search {
   display: none;
 }
 
@@ -453,16 +464,17 @@ main#index > section:not(#video) article p {
 
 /*DISCOVER*/
 main#discover section {
-  width: 50%;
+  width: 100%;
   margin: 4rem 0 2rem 0;
   text-align: justify;
 }
 
 main#discover section article {
+  width: 80%;
   background-color: #650076;
   border-radius: 1.5rem;
   padding: 2rem;
-  margin: 3rem 0;
+  margin: 3rem auto;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
   position: relative;
@@ -511,8 +523,8 @@ main#discover section article ul li a svg {
 /*ABOUT*/
 main#about section {
   text-align: left;
-  width: 50%;
-  margin: 4rem 0 2rem 0;
+  width: 80%;
+  margin: 4rem auto 2rem auto;
 }
 
 main#about section:first-of-type {
@@ -527,6 +539,7 @@ main#about section ul li {
   text-align: left;
   list-style: circle;
   width: 80%;
+  margin: auto;
 }
 
 /*ABOUT*/
@@ -1208,17 +1221,13 @@ main#compose #tracks div#t4 .previous-page:hover {
     width: 85%;
     min-height: calc(100vh - 6rem - 10rem - 8rem);
   }
+  body > main#discover > section article {
+    max-width: 100rem;
+  }
 }
 
 /* REGULAR SCREEN*/
 @media only screen and (min-width: 750px) and (max-width: 1199px) {
-  body > main#discover > section {
-    width: 60%;
-  }
-  body > main#discover > section ul li {
-    margin: 0.5rem;
-    width: calc(30% - 0.5rem);
-  }
   body > main#dashboard article {
     width: 85%;
   }
@@ -1284,14 +1293,6 @@ main#compose #tracks div#t4 .previous-page:hover {
     min-width: unset;
     min-height: unset;
   }
-  body > main#about section {
-    width: 80%;
-    margin: auto;
-  }
-  body > main#about ul li {
-    width: 80%;
-    margin: auto;
-  }
   body > main#login {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -1308,6 +1309,10 @@ main#compose #tracks div#t4 .previous-page:hover {
   }
   body > main#discover > section {
     width: 100%;
+  }
+  body > main#discover > section img {
+    height: 6.4rem;
+    width: 6.4rem;
   }
   body > main#discover > section ul li {
     margin: 0.2rem;
@@ -1423,14 +1428,6 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#index > section:not(#video) article:nth-of-type(3) {
     display: none;
   }
-  body > main#about section {
-    width: 80%;
-    margin: auto;
-  }
-  body > main#about ul li {
-    width: 80%;
-    margin: auto;
-  }
   body > main#login {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -1465,12 +1462,25 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#discover > section {
     width: 100%;
   }
+  body > main#discover > section img {
+    height: 6.4rem;
+    width: 6.4rem;
+  }
   body > main#discover > section ul li {
     margin: 0.2rem;
     width: calc(30% - 0.2rem);
   }
   body > main#discover > section ul li a {
     font-size: 1.28rem !important;
+  }
+  body > main#discover > section img {
+    display: none;
+  }
+  body > main#discover > section p {
+    width: 100%;
+  }
+  body > main#discover > section svg {
+    display: none !important;
   }
   body > main#member > header {
     text-align: center;

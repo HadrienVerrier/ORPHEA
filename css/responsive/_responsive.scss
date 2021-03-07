@@ -16,6 +16,8 @@
 			margin: 4rem auto 4rem auto;
 			width: 85%;
 			min-height: calc(100vh - #{$footerH} - #{$headerH} - 8rem);
+
+			@import "large/_discover.scss";
 		}
 	}
 }
@@ -23,7 +25,6 @@
 @media only screen and (min-width: $regularScreen) and (max-width: $largeScreen - 1) {
 	body {
 		> main {
-			@import "regular/_discover.scss";
 			@import "regular/_dashboard.scss";
 		}
 		> footer {
@@ -86,8 +87,6 @@
 		}
 		> main {
 			@import "small/_index.scss";
-
-			@import "small/_about.scss";
 
 			@import "small/_login.scss";
 
@@ -163,8 +162,6 @@
 			@import "small/_index.scss";
 			@import "smartphone/_index.scss";
 
-			@import "small/_about.scss";
-
 			@import "small/_login.scss";
 
 			@import "small/_contact.scss";
@@ -172,6 +169,7 @@
 			@import "small/_dashboard.scss";
 
 			@import "small/_discover.scss";
+			@import "smartphone/_discover.scss";
 
 			@import "smartphone/_member.scss";
 

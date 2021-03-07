@@ -4,7 +4,9 @@
 	left: 0;
 	width: 100%;
 	background-color: $mainDark;
-
+	#search {
+		display: none;
+	}
 	z-index: 8;
 	#player-open {
 		z-index: 7;
@@ -17,9 +19,6 @@
 		&:hover {
 			fill: $mainLight;
 		}
-	}
-	#search {
-		display: none;
 	}
 	svg {
 		fill: $white;
@@ -133,6 +132,27 @@
 				top: 8rem;
 				left: 50%;
 				transform: translateX(-50%);
+			}
+		}
+
+		#search {
+			outline: 1px solid black;
+			margin: 1rem;
+			display: block;
+			#search-section {
+				input[type="text"] {
+					position: static;
+					display: inline-block;
+					width: 30rem;
+					& + label {
+						position: static;
+						display: inline-block;
+						vertical-align: middle;
+					}
+				}
+			}
+			#results {
+				display: none;
 			}
 		}
 	}

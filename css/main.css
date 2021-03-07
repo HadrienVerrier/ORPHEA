@@ -405,6 +405,10 @@ input[type="submit"] + label {
   height: 8rem;
 }
 
+#player-container #search {
+  display: none;
+}
+
 #player-container #player-open {
   z-index: 7;
   width: 2rem;
@@ -416,10 +420,6 @@ input[type="submit"] + label {
 
 #player-container #player-open:hover {
   fill: #b900d7;
-}
-
-#player-container #search {
-  display: none;
 }
 
 #player-container svg {
@@ -563,6 +563,28 @@ input[type="submit"] + label {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+#player-container.open #search {
+  outline: 1px solid black;
+  margin: 1rem;
+  display: block;
+}
+
+#player-container.open #search #search-section input[type="text"] {
+  position: static;
+  display: inline-block;
+  width: 30rem;
+}
+
+#player-container.open #search #search-section input[type="text"] + label {
+  position: static;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#player-container.open #search #results {
+  display: none;
 }
 
 /*INDEX*/

@@ -4,29 +4,108 @@
 	left: 0;
 	width: 100%;
 	background-color: $mainDark;
+
 	z-index: 8;
 	#player-open {
-		fill: $white;
-
 		height: 100%;
 		position: absolute;
 		right: 3rem;
 	}
-	#player {
-		display: none;
-	}
 	#search {
 		display: none;
 	}
+	svg {
+		fill: $white;
+	}
 	&.close {
 		height: 8rem;
+
 		#player-open {
 			transform: rotateZ(-90deg);
+		}
+		#player {
+			height: 100%;
+			display: grid;
+			grid-template-columns: 1fr 1fr 4fr 0.5fr;
+
+			#song-info {
+				align-self: center;
+				justify-self: center;
+				> img {
+					width: 5rem;
+					height: 5rem;
+					object-fit: cover;
+					border-radius: $borderRadius * 0.4;
+				}
+				> div {
+					display: inline-block;
+					vertical-align: middle;
+					#current-song {
+						font-weight: bold;
+					}
+					#current-artist {
+						a {
+							@extend %pass_link;
+						}
+						font-size: $regular * 0.7;
+					}
+				}
+			}
+			#player-controls {
+				align-self: center;
+				svg {
+					&:not(:first-of-type) {
+						margin-left: 1rem;
+					}
+					margin-left: 1rem;
+					&:hover {
+						fill: $mainLight;
+					}
+				}
+				#player-prev {
+					transform: rotateZ(180deg);
+				}
+			}
+			#timebar {
+				align-self: center;
+				justify-self: center;
+				position: relative;
+				width: 90%;
+				height: 0.4rem;
+				background-color: $background;
+				box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.74);
+
+				&::before {
+					content: " ";
+					width: 60%;
+					position: absolute;
+					height: 100%;
+					background-color: $mainLight;
+					display: block;
+				}
+				&::after {
+					content: " ";
+					width: 1.5rem;
+					height: 1.5rem;
+					box-sizing: border-box;
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					left: 60%;
+
+					border-radius: 50%;
+					border: 0.3rem solid $main;
+					background-color: $mainLight;
+					display: block;
+				}
+			}
 		}
 	}
 
 	&.open {
-		height: 50rem;
+		opacity: 0.95;
+		position: fixed;
+		height: 80vh;
 		#player-open {
 			transform: rotateZ(90deg);
 		}

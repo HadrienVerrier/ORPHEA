@@ -3,12 +3,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 /*PLACEHOLDER ACTION*/
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
-body > header a, body > footer a, .button, main#discover section article ul li a, main#dashboard > section article ul li a, main#member > section > article a {
+body > header a, body > footer a, .button, #player-container.close #player #song-info > div #current-artist a, main#discover section article ul li a, main#dashboard > section article ul li a, main#member > section > article a {
   color: #f7f9f5;
   font-style: normal;
 }
 
-body > header a:visited, body > footer a:visited, .button:visited, main#discover section article ul li a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
+body > header a:visited, body > footer a:visited, .button:visited, #player-container.close #player #song-info > div #current-artist a:visited, main#discover section article ul li a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
   color: #f7f9f5;
 }
 
@@ -405,18 +405,17 @@ input[type="submit"] + label {
 }
 
 #player-container #player-open {
-  fill: #f7f9f5;
   height: 100%;
   position: absolute;
   right: 3rem;
 }
 
-#player-container #player {
+#player-container #search {
   display: none;
 }
 
-#player-container #search {
-  display: none;
+#player-container svg {
+  fill: #f7f9f5;
 }
 
 #player-container.close {
@@ -428,8 +427,110 @@ input[type="submit"] + label {
           transform: rotateZ(-90deg);
 }
 
+#player-container.close #player {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 4fr 0.5fr;
+      grid-template-columns: 1fr 1fr 4fr 0.5fr;
+}
+
+#player-container.close #player #song-info {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+#player-container.close #player #song-info > img {
+  width: 5rem;
+  height: 5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.6rem;
+}
+
+#player-container.close #player #song-info > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#player-container.close #player #song-info > div #current-song {
+  font-weight: bold;
+}
+
+#player-container.close #player #song-info > div #current-artist {
+  font-size: 1.12rem;
+}
+
+#player-container.close #player #player-controls {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#player-container.close #player #player-controls svg {
+  margin-left: 1rem;
+}
+
+#player-container.close #player #player-controls svg:not(:first-of-type) {
+  margin-left: 1rem;
+}
+
+#player-container.close #player #player-controls svg:hover {
+  fill: #b900d7;
+}
+
+#player-container.close #player #player-controls #player-prev {
+  -webkit-transform: rotateZ(180deg);
+          transform: rotateZ(180deg);
+}
+
+#player-container.close #player #timebar {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  position: relative;
+  width: 90%;
+  height: 0.4rem;
+  background-color: #383838;
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.74);
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.74);
+}
+
+#player-container.close #player #timebar::before {
+  content: " ";
+  width: 60%;
+  position: absolute;
+  height: 100%;
+  background-color: #b900d7;
+  display: block;
+}
+
+#player-container.close #player #timebar::after {
+  content: " ";
+  width: 1.5rem;
+  height: 1.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 60%;
+  border-radius: 50%;
+  border: 0.3rem solid #650076;
+  background-color: #b900d7;
+  display: block;
+}
+
 #player-container.open {
-  height: 50rem;
+  opacity: 0.95;
+  position: fixed;
+  height: 80vh;
 }
 
 #player-container.open #player-open {

@@ -1,0 +1,32 @@
+&#player-container {
+	#player-open {
+		right: 2rem;
+		top: 5rem;
+	}
+
+	height: 10rem;
+	#player {
+		grid-template-columns: 1fr 1fr 0.5fr !important;
+		grid-template-rows: 2fr 6fr;
+	}
+	#timebar {
+		top: 0.2rem;
+		grid-column-start: 1;
+		grid-column-end: 4;
+		grid-row-start: 1;
+		grid-row-end: 2;
+	}
+	#player-controls {
+		justify-self: center;
+	}
+
+	&.open {
+		#player {
+			height: 10rem;
+
+			&::before {
+				top: 10rem;
+			}
+		}
+	}
+}

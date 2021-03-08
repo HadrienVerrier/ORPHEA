@@ -3,12 +3,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 /*PLACEHOLDER ACTION*/
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
-body > header a, body > footer a, .button, #player-container #player #song-info > div #current-artist a, main#discover section article ul li a, main#dashboard > section article ul li a, main#member > section > article a {
+body > header a, body > footer a, .button, #player-container #player #song-info > div #current-artist a, main#dashboard > section article ul li a, main#member > section > article a {
   color: #f7f9f5;
   font-style: normal;
 }
 
-body > header a:visited, body > footer a:visited, .button:visited, #player-container #player #song-info > div #current-artist a:visited, main#discover section article ul li a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
+body > header a:visited, body > footer a:visited, .button:visited, #player-container #player #song-info > div #current-artist a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
   color: #f7f9f5;
 }
 
@@ -638,64 +638,6 @@ main#index > section:not(#video) article h3 {
 main#index > section:not(#video) article p {
   margin: 2rem 1rem;
   text-indent: 2rem;
-}
-
-/*DISCOVER*/
-main#discover section {
-  width: 100%;
-  margin: 4rem 0 2rem 0;
-  text-align: justify;
-}
-
-main#discover section article {
-  width: 80%;
-  background-color: #650076;
-  border-radius: 1.5rem;
-  padding: 2rem;
-  margin: 3rem auto;
-  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
-          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
-  position: relative;
-}
-
-main#discover section article p {
-  width: 70%;
-  display: inline-block;
-}
-
-main#discover section article img {
-  border-radius: 100%;
-  width: 10rem;
-  height: 10rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  right: 4rem;
-}
-
-main#discover section article ul {
-  height: 5rem;
-}
-
-main#discover section article ul li {
-  margin: 1rem;
-  width: calc(30% - 1rem);
-  display: inline-block;
-}
-
-main#discover section article ul li a {
-  font-size: 1.76rem;
-}
-
-main#discover section article ul li a svg {
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  top: -0.2rem;
-  fill: #f7f9f5;
 }
 
 /*ABOUT*/
@@ -1399,9 +1341,6 @@ main#compose #tracks div#t4 .previous-page:hover {
     width: 85%;
     min-height: calc(100vh - 6rem - 10rem - 8rem);
   }
-  body > main#discover > section article {
-    max-width: 100rem;
-  }
 }
 
 /* REGULAR SCREEN*/
@@ -1494,20 +1433,6 @@ main#compose #tracks div#t4 .previous-page:hover {
   }
   body > main#contact {
     display: block;
-  }
-  body > main#discover > section {
-    width: 100%;
-  }
-  body > main#discover > section img {
-    height: 6.4rem;
-    width: 6.4rem;
-  }
-  body > main#discover > section ul li {
-    margin: 0.2rem;
-    width: calc(30% - 0.2rem);
-  }
-  body > main#discover > section ul li a {
-    font-size: 1.28rem !important;
   }
   body > main#dashboard header li {
     font-size: 1.28rem;
@@ -1688,29 +1613,6 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > main#dashboard > section article {
     margin-bottom: 2rem;
     height: 20rem;
-  }
-  body > main#discover > section {
-    width: 100%;
-  }
-  body > main#discover > section img {
-    height: 6.4rem;
-    width: 6.4rem;
-  }
-  body > main#discover > section ul li {
-    margin: 0.2rem;
-    width: calc(30% - 0.2rem);
-  }
-  body > main#discover > section ul li a {
-    font-size: 1.28rem !important;
-  }
-  body > main#discover > section img {
-    display: none;
-  }
-  body > main#discover > section p {
-    width: 100%;
-  }
-  body > main#discover > section svg {
-    display: none !important;
   }
   body > main#member > header {
     text-align: center;

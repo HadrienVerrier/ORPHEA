@@ -1,0 +1,11 @@
+&#index {
+	> section:not(#video) {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	#video-container {
+		min-width: unset;
+		min-height: unset;
+	}
+}

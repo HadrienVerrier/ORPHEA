@@ -655,12 +655,20 @@ input[type="submit"] + label {
 
 #player-container.open #search #results > section#songs ul li article .song-list-controls svg {
   display: block;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.5rem 0;
   -webkit-filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.5));
           filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.5));
 }
 
 #player-container.open #search #results > section#songs ul li article .song-list-controls svg:hover {
   fill: #b900d7;
+}
+
+#player-container.open #search #results > section#songs ul li article .song-list-controls svg:nth-of-type(2) {
+  position: relative;
+  top: -0.1rem;
 }
 
 /*INDEX*/

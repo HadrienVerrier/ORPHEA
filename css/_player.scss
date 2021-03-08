@@ -160,7 +160,7 @@
 				height: calc(100% - 3rem - 2rem);
 				margin-top: 1rem;
 				display: grid;
-				grid-template-columns: 2fr 1fr 1fr 3fr;
+				grid-template-columns: 1fr 0.75fr 0.5fr 2fr;
 				gap: 1rem;
 				> section {
 					overflow-y: auto;
@@ -174,8 +174,8 @@
 						border-bottom: 1px solid $white;
 						width: 25%;
 					}
-					ul {
-						li {
+					> ul {
+						> li {
 							article {
 								position: relative;
 								background-color: $white - 150;
@@ -183,6 +183,12 @@
 								margin: 1rem;
 								border-radius: $borderRadius * 0.8;
 								box-shadow: $shadow;
+							}
+
+							&:last-of-type {
+								@extend .button;
+								width: 10rem;
+								margin-bottom: 2rem;
 							}
 						}
 					}
@@ -216,7 +222,7 @@
 										@include center(true, false);
 										right: 1rem;
 										svg {
-											display: block;
+											display: inline-block;
 											width: 2rem;
 											height: 2rem;
 											margin: 0.5rem 0;
@@ -236,6 +242,77 @@
 					}
 
 					&#author {
+						ul {
+							li {
+								article {
+									img {
+										margin: auto;
+									}
+									svg {
+										vertical-align: middle;
+										display: inline-block;
+										filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.5));
+										&:hover {
+											fill: $mainLight;
+										}
+										&:first-of-type {
+											margin-left: 0.2rem;
+										}
+									}
+									> h6 {
+										margin-top: 0.5rem;
+										width: 100%;
+										text-align: center;
+									}
+									> section {
+										ul {
+											margin-top: 0.5rem;
+											display: grid;
+											grid-template-columns: 1fr 1fr;
+											gap: 0.2rem;
+											li {
+												color: $white;
+												text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.246);
+												background-color: $main;
+												font-size: $regular * 0.8;
+												text-align: center;
+												padding: 0.3rem 0.2rem;
+												border-radius: $borderRadius * 0.7;
+
+												&:hover {
+													background-color: $mainLight;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+					&#tags {
+						ul {
+							li {
+								h6 {
+									width: calc(100% - 2rem);
+								}
+								svg {
+									@include center(true, false);
+									right: 1rem;
+									width: 2rem;
+									height: 2rem;
+									filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.5));
+								}
+							}
+							a:hover {
+								h6 {
+									text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.37);
+								}
+								svg {
+									fill: $mainLight;
+								}
+							}
+						}
 					}
 				}
 			}

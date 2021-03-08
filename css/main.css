@@ -3,12 +3,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 /*PLACEHOLDER ACTION*/
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
-body > header a, body > footer a, .button, #player-container #player #song-info > div #current-artist a, #player-container.open #search a, main#dashboard > section article ul li a, main#member > section > article a {
+body > header a, body > footer a, .button, #player-container.open #search #results > section > ul > li:last-of-type, #player-container #player #song-info > div #current-artist a, #player-container.open #search a, main#dashboard > section article ul li a, main#member > section > article a {
   color: #f7f9f5;
   font-style: normal;
 }
 
-body > header a:visited, body > footer a:visited, .button:visited, #player-container #player #song-info > div #current-artist a:visited, #player-container.open #search a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
+body > header a:visited, body > footer a:visited, .button:visited, #player-container.open #search #results > section > ul > li:visited:last-of-type, #player-container #player #song-info > div #current-artist a:visited, #player-container.open #search a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
   color: #f7f9f5;
 }
 
@@ -171,7 +171,7 @@ body > footer a:hover {
   display: none;
 }
 
-.button {
+.button, #player-container.open #search #results > section > ul > li:last-of-type {
   display: block;
   width: 70%;
   height: 4rem;
@@ -187,11 +187,11 @@ body > footer a:hover {
   cursor: pointer;
 }
 
-.button:hover {
+.button:hover, #player-container.open #search #results > section > ul > li:hover:last-of-type {
   background-color: #e366f6;
 }
 
-.button a {
+.button a, #player-container.open #search #results > section > ul > li:last-of-type a {
   display: block;
   width: 100%;
 }
@@ -589,8 +589,8 @@ input[type="submit"] + label {
   margin-top: 1rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 1fr 1fr 3fr;
-      grid-template-columns: 2fr 1fr 1fr 3fr;
+  -ms-grid-columns: 1fr 0.75fr 0.5fr 2fr;
+      grid-template-columns: 1fr 0.75fr 0.5fr 2fr;
   gap: 1rem;
 }
 
@@ -610,7 +610,7 @@ input[type="submit"] + label {
   width: 25%;
 }
 
-#player-container.open #search #results > section ul li article {
+#player-container.open #search #results > section > ul > li article {
   position: relative;
   background-color: #61635f;
   padding: 0.9rem;
@@ -618,6 +618,11 @@ input[type="submit"] + label {
   border-radius: 1.2rem;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+}
+
+#player-container.open #search #results > section > ul > li:last-of-type {
+  width: 10rem;
+  margin-bottom: 2rem;
 }
 
 #player-container.open #search #results > section img {
@@ -654,7 +659,7 @@ input[type="submit"] + label {
 }
 
 #player-container.open #search #results > section#songs ul li article .song-list-controls svg {
-  display: block;
+  display: inline-block;
   width: 2rem;
   height: 2rem;
   margin: 0.5rem 0;
@@ -669,6 +674,78 @@ input[type="submit"] + label {
 #player-container.open #search #results > section#songs ul li article .song-list-controls svg:nth-of-type(2) {
   position: relative;
   top: -0.1rem;
+}
+
+#player-container.open #search #results > section#author ul li article img {
+  margin: auto;
+}
+
+#player-container.open #search #results > section#author ul li article svg {
+  vertical-align: middle;
+  display: inline-block;
+  -webkit-filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+#player-container.open #search #results > section#author ul li article svg:hover {
+  fill: #b900d7;
+}
+
+#player-container.open #search #results > section#author ul li article svg:first-of-type {
+  margin-left: 0.2rem;
+}
+
+#player-container.open #search #results > section#author ul li article > h6 {
+  margin-top: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+#player-container.open #search #results > section#author ul li article > section ul {
+  margin-top: 0.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 0.2rem;
+}
+
+#player-container.open #search #results > section#author ul li article > section ul li {
+  color: #f7f9f5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.246);
+  background-color: #650076;
+  font-size: 1.28rem;
+  text-align: center;
+  padding: 0.3rem 0.2rem;
+  border-radius: 1.05rem;
+}
+
+#player-container.open #search #results > section#author ul li article > section ul li:hover {
+  background-color: #b900d7;
+}
+
+#player-container.open #search #results > section#tags ul li h6 {
+  width: calc(100% - 2rem);
+}
+
+#player-container.open #search #results > section#tags ul li svg {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  -webkit-filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+#player-container.open #search #results > section#tags ul a:hover h6 {
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.37);
+}
+
+#player-container.open #search #results > section#tags ul a:hover svg {
+  fill: #b900d7;
 }
 
 /*INDEX*/

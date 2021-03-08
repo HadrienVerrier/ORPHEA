@@ -1,4 +1,5 @@
 #player-container {
+	height: 100%;
 	position: sticky;
 	bottom: 0;
 	left: 0;
@@ -112,7 +113,7 @@
 	}
 
 	&.open {
-		opacity: 0.95;
+		opacity: 0.99;
 		position: sticky;
 		height: 80vh;
 		#player-open {
@@ -136,8 +137,12 @@
 		}
 
 		#search {
-			outline: 1px solid black;
-			margin: 1rem;
+			a {
+				@extend %pass_link;
+			}
+			height: calc(100% - 10.5rem);
+
+			margin: 1.5rem 3rem;
 			display: block;
 			#search-section {
 				input[type="text"] {
@@ -152,7 +157,80 @@
 				}
 			}
 			#results {
-				display: none;
+				height: calc(100% - 3rem - 2rem);
+				margin-top: 1rem;
+				display: grid;
+				grid-template-columns: 2fr 1fr 1fr 3fr;
+				gap: 1rem;
+				> section {
+					overflow-y: auto;
+					background-color: $background;
+					box-shadow: $shadow;
+					border-radius: $borderRadius * 0.8;
+					h5 {
+						margin: auto;
+						text-align: center;
+						padding: 0.5rem 1rem;
+						border-bottom: 1px solid $white;
+						width: 25%;
+					}
+					ul {
+						li {
+							article {
+								position: relative;
+								background-color: $white - 150;
+								padding: 0.9rem;
+								margin: 1rem;
+								border-radius: $borderRadius * 0.8;
+								box-shadow: $shadow;
+							}
+						}
+					}
+					img {
+						width: 3.5rem;
+						height: 3.5rem;
+						object-fit: cover;
+						border-radius: $borderRadius * 0.3;
+					}
+					&#songs {
+						ul {
+							li {
+								article {
+									.song-list-info {
+										margin-left: 0.5rem;
+										width: calc(100% - 7.5rem);
+										display: inline-block;
+										vertical-align: middle;
+										p {
+											a {
+												font-style: italic;
+												font-size: $regular * 0.75;
+											}
+										}
+									}
+									> p {
+										margin: 1rem 0.5rem;
+										width: calc(100% - 3.5rem);
+									}
+									.song-list-controls {
+										@include center(true, false);
+										right: 1rem;
+										svg {
+											display: block;
+											filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.5));
+											&:hover {
+												fill: $mainLight;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+					&#author {
+					}
+				}
 			}
 		}
 	}

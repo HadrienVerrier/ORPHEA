@@ -3,12 +3,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 /*PLACEHOLDER ACTION*/
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
-body > header a, body > footer a, .button, #player-container #player #song-info > div #current-artist a, main#dashboard > section article ul li a, main#member > section > article a {
+body > header a, body > footer a, .button, #player-container #player #song-info > div #current-artist a, #player-container.open #search a, main#dashboard > section article ul li a, main#member > section > article a {
   color: #f7f9f5;
   font-style: normal;
 }
 
-body > header a:visited, body > footer a:visited, .button:visited, #player-container #player #song-info > div #current-artist a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
+body > header a:visited, body > footer a:visited, .button:visited, #player-container #player #song-info > div #current-artist a:visited, #player-container.open #search a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
   color: #f7f9f5;
 }
 
@@ -395,6 +395,7 @@ input[type="submit"] + label {
 /************/
 /*PLAYER*/
 #player-container {
+  height: 100%;
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
@@ -537,7 +538,7 @@ input[type="submit"] + label {
 }
 
 #player-container.open {
-  opacity: 0.95;
+  opacity: 0.99;
   position: -webkit-sticky;
   position: sticky;
   height: 80vh;
@@ -566,8 +567,8 @@ input[type="submit"] + label {
 }
 
 #player-container.open #search {
-  outline: 1px solid black;
-  margin: 1rem;
+  height: calc(100% - 10.5rem);
+  margin: 1.5rem 3rem;
   display: block;
 }
 
@@ -584,7 +585,82 @@ input[type="submit"] + label {
 }
 
 #player-container.open #search #results {
-  display: none;
+  height: calc(100% - 3rem - 2rem);
+  margin-top: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr 1fr 3fr;
+      grid-template-columns: 2fr 1fr 1fr 3fr;
+  gap: 1rem;
+}
+
+#player-container.open #search #results > section {
+  overflow-y: auto;
+  background-color: #383838;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  border-radius: 1.2rem;
+}
+
+#player-container.open #search #results > section h5 {
+  margin: auto;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #f7f9f5;
+  width: 25%;
+}
+
+#player-container.open #search #results > section ul li article {
+  position: relative;
+  background-color: #61635f;
+  padding: 0.9rem;
+  margin: 1rem;
+  border-radius: 1.2rem;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+}
+
+#player-container.open #search #results > section img {
+  width: 3.5rem;
+  height: 3.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.45rem;
+}
+
+#player-container.open #search #results > section#songs ul li article .song-list-info {
+  margin-left: 0.5rem;
+  width: calc(100% - 7.5rem);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#player-container.open #search #results > section#songs ul li article .song-list-info p a {
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+#player-container.open #search #results > section#songs ul li article > p {
+  margin: 1rem 0.5rem;
+  width: calc(100% - 3.5rem);
+}
+
+#player-container.open #search #results > section#songs ul li article .song-list-controls {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 1rem;
+}
+
+#player-container.open #search #results > section#songs ul li article .song-list-controls svg {
+  display: block;
+  -webkit-filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(2px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+#player-container.open #search #results > section#songs ul li article .song-list-controls svg:hover {
+  fill: #b900d7;
 }
 
 /*INDEX*/

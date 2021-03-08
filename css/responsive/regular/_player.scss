@@ -11,4 +11,42 @@
 			}
 		}
 	}
+
+	&.open {
+		#search {
+			min-height: calc(100% - 12rem);
+
+			#results {
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				grid-template-rows: 1fr 1fr;
+
+				> section {
+					&#songs {
+						grid-column-start: 1;
+						grid-column-end: 3;
+						grid-row-start: 1;
+						grid-row-end: 2;
+					}
+					&#author {
+						grid-column-start: 1;
+						grid-column-end: 2;
+						grid-row-start: 2;
+						grid-row-end: 3;
+					}
+					&#tags {
+						grid-column-start: 2;
+						grid-column-end: 3;
+						grid-row-start: 2;
+						grid-row-end: 3;
+					}
+					&#galaxy {
+						grid-column-start: 3;
+						grid-column-end: 5;
+						grid-row-start: 1;
+						grid-row-end: 3;
+					}
+				}
+			}
+		}
+	}
 }

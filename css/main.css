@@ -901,6 +901,7 @@ main#contact {
       grid-template-columns: 50% 50%;
   -ms-grid-rows: 33% 33% 33%;
       grid-template-rows: 33% 33% 33%;
+  gap: 4rem;
 }
 
 main#contact section {

@@ -1,0 +1,31 @@
+<footer>
+        <section>
+            <h4 class="hidden">{{f_link_title}}</h4>
+            <ul>
+                <li><a href="terms.html">{{f_terms}}</a></li>
+                <li><a href="#">{{f_cookie}}</a></li>
+                <li><a href="sitemap.html">{{f_sitemap}}</a></li>
+            </ul>
+        </section>
+        <a href="index.html" title="{{title_home_page}}">
+            <img src="ressources/images/logo_pattern/logo.png" alt="{{logo_alt}}" width="50">
+        </a>
+        <section>
+            <h4 class="hidden">{{f_other_title}}</h4>
+            <ul>
+                <li><a href="contact.html">{{f_contact_title}}</a></li>
+                <li><a href="bugtracker.html">{{f_report_title}}</a></li>
+                <!-- CHOOSE LANGUAGE-->
+                <li>
+                    <select>
+                    
+                        <option id="">LANGUAGE</option>
+                        {% for language in languages %}
+                        <option id="{{language.sn}}">{{language.fn}} &#127988 &#917607 &#917602 &#917605 &#917614 &#917607 &#917631
+                        </option>
+                        {% endfor %}
+                    </select>
+                </li>
+            </ul>
+        </section>
+    </footer>

@@ -583,9 +583,9 @@ input[type="submit"] + label {
   position: sticky;
   bottom: 0;
   width: 100%;
-  height: 10rem;
-  -webkit-box-shadow: inset 0 -100px 30px -100px rgba(0, 0, 0, 0.932);
-          box-shadow: inset 0 -100px 30px -100px rgba(0, 0, 0, 0.932);
+  height: 3rem;
+  -webkit-box-shadow: inset 0 -35px 15px -35px rgba(0, 0, 0, 0.932);
+          box-shadow: inset 0 -35px 15px -35px rgba(0, 0, 0, 0.932);
 }
 
 #player-container.open #search #search-section input[type="text"] {
@@ -1778,6 +1778,70 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > aside#player-container.open #player::before {
     top: 10rem;
   }
+  body > aside#player-container.open #search {
+    min-height: calc(100% - 15rem);
+    height: calc(100% - 12.5rem);
+  }
+  body > aside#player-container.open #search #results {
+    margin-top: 1rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr !important;
+        grid-template-rows: 1fr 1fr 1fr !important;
+  }
+  body > aside#player-container.open #search #results > section#songs {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 2;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  body > aside#player-container.open #search #results > section#songs article {
+    height: 6rem;
+  }
+  body > aside#player-container.open #search #results > section#songs article .song-list-info {
+    margin-left: 0rem;
+    width: calc(100% - 4rem);
+  }
+  body > aside#player-container.open #search #results > section#songs article .song-list-info p a {
+    width: 100%;
+    white-space: nowrap;
+  }
+  body > aside#player-container.open #search #results > section#songs article .song-list-controls {
+    top: unset !important;
+    bottom: -0;
+    left: 50%;
+    right: unset;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  body > aside#player-container.open #search #results > section#author {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 2;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  body > aside#player-container.open #search #results > section#tags {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 2;
+    -ms-grid-row: 3;
+        grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  body > aside#player-container.open #search #results > section#galaxy {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    grid-column-end: 3;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 4;
+  }
   body > footer img {
     width: 3.5rem !important;
     height: 3.5rem !important;
@@ -1975,11 +2039,87 @@ main#compose #tracks div#t4 .previous-page:hover {
   body > aside#player-container.open #player::before {
     top: 10rem;
   }
+  body > aside#player-container.open #search {
+    min-height: calc(100% - 15rem);
+    height: calc(100% - 12.5rem);
+  }
+  body > aside#player-container.open #search #results {
+    margin-top: 1rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr !important;
+        grid-template-rows: 1fr 1fr 1fr !important;
+  }
+  body > aside#player-container.open #search #results > section#songs {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 2;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  body > aside#player-container.open #search #results > section#songs article {
+    height: 6rem;
+  }
+  body > aside#player-container.open #search #results > section#songs article .song-list-info {
+    margin-left: 0rem;
+    width: calc(100% - 4rem);
+  }
+  body > aside#player-container.open #search #results > section#songs article .song-list-info p a {
+    width: 100%;
+    white-space: nowrap;
+  }
+  body > aside#player-container.open #search #results > section#songs article .song-list-controls {
+    top: unset !important;
+    bottom: -0;
+    left: 50%;
+    right: unset;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  body > aside#player-container.open #search #results > section#author {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 2;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  body > aside#player-container.open #search #results > section#tags {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 2;
+    -ms-grid-row: 3;
+        grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  body > aside#player-container.open #search #results > section#galaxy {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    grid-column-end: 3;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 4;
+  }
   body > aside#player-container #song-info > div #current-song {
     font-size: 1.12rem;
   }
   body > aside#player-container #player-controls svg:nth-of-type(5) {
     display: none;
+  }
+  body > aside#player-container.open #search {
+    min-height: calc(100% - 15rem);
+    height: calc(100% - 12.5rem);
+  }
+  body > aside#player-container.open #search #results {
+    margin-top: 1rem;
+    display: block;
+  }
+  body > aside#player-container.open #search #results > section {
+    display: block;
+    margin-bottom: 1.5rem;
   }
   body > footer img {
     width: 3.5rem !important;

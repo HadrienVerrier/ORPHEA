@@ -28,5 +28,65 @@
 				top: 10rem;
 			}
 		}
+		#search {
+			min-height: calc(100% - 15rem);
+			height: calc(100% - 12.5rem);
+			#results {
+				margin-top: 1rem;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: 1fr 1fr 1fr !important;
+				> section {
+					&#songs {
+						grid-column-start: 1;
+						grid-column-end: 2;
+						grid-row-start: 1;
+						grid-row-end: 2;
+
+						article {
+							height: 6rem;
+							.song-list-info {
+								margin-left: 0rem;
+								width: calc(100% - 4rem);
+
+								p {
+									a {
+										width: 100%;
+
+										white-space: nowrap;
+									}
+								}
+							}
+
+							.song-list-controls {
+								top: unset !important;
+								bottom: -0;
+								left: 50%;
+								right: unset;
+								transform: translateX(-50%);
+							}
+						}
+					}
+					&#author {
+						grid-column-start: 1;
+						grid-column-end: 2;
+						grid-row-start: 2;
+						grid-row-end: 3;
+					}
+					&#tags {
+						grid-column-start: 1;
+						grid-column-end: 2;
+						grid-row-start: 3;
+						grid-row-end: 4;
+					}
+					&#galaxy {
+						grid-column-start: 2;
+						grid-column-end: 3;
+						grid-row-start: 1;
+						grid-row-end: 4;
+					}
+				}
+			}
+		}
 	}
 }

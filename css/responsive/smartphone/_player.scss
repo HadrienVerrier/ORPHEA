@@ -13,4 +13,19 @@
 			}
 		}
 	}
+
+	&.open {
+		#search {
+			min-height: calc(100% - 15rem);
+			height: calc(100% - 12.5rem);
+			#results {
+				margin-top: 1rem;
+				display: block;
+				> section {
+					display: block;
+					margin-bottom: 1.5rem;
+				}
+			}
+		}
+	}
 }

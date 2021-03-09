@@ -1,14 +1,14 @@
 <?php
 require_once('php/function/page.php');
 $data = array(
-    'page' => 'index',
+    'page' => 'about',
     'doctype' => array(
         'lang' => 'fr',
         'description' => 'description',
         'keywords' => 'keywords',
-        'page_title' => 'Accueil'
+        'page_title' => 'About'
     )
 
 );
 
-trender($data["page"], false);
+trender($data['page'], false);

@@ -897,10 +897,10 @@ main#login #pass_forgot:hover {
 main#contact {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (50%)[2];
-      grid-template-columns: repeat(2, 50%);
-  -ms-grid-rows: (33%)[3];
-      grid-template-rows: repeat(3, 33%);
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  -ms-grid-rows: 33% 33% 33%;
+      grid-template-rows: 33% 33% 33%;
 }
 
 main#contact section {
@@ -1008,8 +1008,8 @@ main#dashboard header > ul {
   margin-top: 3rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (33%)[3];
-      grid-template-columns: repeat(3, 33%);
+  -ms-grid-columns: 33% 33% 33%;
+      grid-template-columns: 33% 33% 33%;
 }
 
 main#dashboard header > ul li {
@@ -1057,8 +1057,8 @@ main#dashboard > section {
   margin-top: 5rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (33%)[3];
-      grid-template-columns: repeat(3, 33%);
+  -ms-grid-columns: 33% 33% 33%;
+      grid-template-columns: 33% 33% 33%;
 }
 
 main#dashboard > section article {
@@ -1124,8 +1124,8 @@ main#member > section {
   margin-top: 5rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (33%)[3];
-      grid-template-columns: repeat(3, 33%);
+  -ms-grid-columns: 33% 33% 33%;
+      grid-template-columns: 33% 33% 33%;
   gap: 2rem;
 }
 
@@ -1276,15 +1276,15 @@ main#compose #tracks > div[id^="t"] div[id^="seq"] {
   top: 1.5rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: (12.5%)[8];
-      grid-template-rows: repeat(8, 12.5%);
+  -ms-grid-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+      grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
 }
 
 main#compose #tracks > div[id^="t"] div[id^="seq"] > div {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (6.25%)[16];
-      grid-template-columns: repeat(16, 6.25%);
+  -ms-grid-columns: 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25%;
+      grid-template-columns: 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25% 6.25%;
 }
 
 main#compose #tracks > div[id^="t"] div[id^="seq"] > div input {
@@ -1344,8 +1344,8 @@ main#compose #tracks div#t1 #drum_name {
   top: 1.5rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: (12.5%)[8];
-      grid-template-rows: repeat(8, 12.5%);
+  -ms-grid-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+      grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
 }
 
 main#compose #tracks div#t1 #drum_name p {
@@ -1680,8 +1680,8 @@ main#compose #tracks div#t4 .previous-page:hover {
   }
   body > main#member > section {
     margin-top: 1rem;
-    -ms-grid-columns: (50%)[2];
-        grid-template-columns: repeat(2, 50%);
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
     position: relative;
     left: -1rem;
   }

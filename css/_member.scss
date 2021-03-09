@@ -30,7 +30,7 @@ main#member {
 	> section {
 		margin-top: 5rem;
 		display: grid;
-		grid-template-columns: repeat(3, 33%);
+		grid-template-columns: 33% 33% 33%;
 		gap: 2rem;
 		> article {
 			justify-self: center;

@@ -6,7 +6,7 @@ main#dashboard {
 		> ul {
 			margin-top: 3rem;
 			display: grid;
-			grid-template-columns: repeat(3, 33%);
+			grid-template-columns: 33% 33% 33%;
 			li {
 				position: relative;
 				line-height: $regular * 3;
@@ -46,7 +46,7 @@ main#dashboard {
 	> section {
 		margin-top: 5rem;
 		display: grid;
-		grid-template-columns: repeat(3, 33%);
+		grid-template-columns: 33% 33% 33%;
 		article {
 			justify-self: center;
 			width: 90%;

@@ -84,6 +84,371 @@
             </form>
         </section>
     </main>
+    <aside id="player-container" class="close">
+        <svg id="player-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <title>Click here to open the player</title>
+            <path
+                d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.218 19l-1.782-1.75 5.25-5.25-5.25-5.25 1.782-1.75 6.968 7-6.968 7z" />
+        </svg>
+        <section id="player">
+
+            <h3 class="hidden">Player</h3>
+
+
+            <div id="song-info">
+                <img src="ressources/images/footage/degrade.jpg" alt="image du morceau">
+                <div>
+                    <p id="current-song">Song Name</p>
+                    <p id="current-artist"><a href="member.html?m=member">Artist Name</a></p>
+                </div>
+
+            </div>
+            <div id="player-controls">
+                <svg id="player-play" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <title>Play the song</title>
+                    <path
+                        d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                </svg>
+                <svg id="player-vol" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <title>Volume</title>
+                    <path
+                        d="M6 7l8-5v20l-8-5v-10zm-6 10h4v-10h-4v10zm20.264-13.264l-1.497 1.497c1.847 1.783 2.983 4.157 2.983 6.767 0 2.61-1.135 4.984-2.983 6.766l1.498 1.498c2.305-2.153 3.735-5.055 3.735-8.264s-1.43-6.11-3.736-8.264zm-.489 8.264c0-2.084-.915-3.967-2.384-5.391l-1.503 1.503c1.011 1.049 1.637 2.401 1.637 3.888 0 1.488-.623 2.841-1.634 3.891l1.503 1.503c1.468-1.424 2.381-3.309 2.381-5.394z" />
+                </svg>
+                <svg id="player-prev" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <title>Previous Song</title>
+                    <path
+                        d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 18h-2v-6l-9 6v-12l9 6v-6h2v12z" />
+                </svg>
+                <svg id="player-next" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <title>Next Song</title>
+                    <path
+                        d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 18h-2v-6l-9 6v-12l9 6v-6h2v12z" />
+                </svg>
+                <svg id="player-add" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <title>Add to my Galaxy</title>
+                    <path
+                        d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+                </svg>
+            </div>
+            <div id="timebar"></div>
+        </section>
+        <!-- SEARCHBAR -->
+        <section id="search">
+            <h3 class="hidden">Search Section</h3>
+            <div id="search-section">
+                <input title="Search a song, an artist, a genre..." type="text" name="searchbar" id="searchbar"
+                    placeholder="Search a song, an artist, a genre, etc..">
+                <label for="searchbar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <title>Search a song, an artist, a genre...</title>
+                        <path
+                            d="M23.111 20.058l-4.977-4.977c.965-1.52 1.523-3.322 1.523-5.251 0-5.42-4.409-9.83-9.829-9.83-5.42 0-9.828 4.41-9.828 9.83s4.408 9.83 9.829 9.83c1.834 0 3.552-.505 5.022-1.383l5.021 5.021c2.144 2.141 5.384-1.096 3.239-3.24zm-20.064-10.228c0-3.739 3.043-6.782 6.782-6.782s6.782 3.042 6.782 6.782-3.043 6.782-6.782 6.782-6.782-3.043-6.782-6.782zm2.01-1.764c1.984-4.599 8.664-4.066 9.922.749-2.534-2.974-6.993-3.294-9.922-.749z" />
+                    </svg></label>
+            </div>
+            <section id="results">
+                <h4 class="hidden">Search Results</h4>
+
+                <section id="songs">
+                    <h5>Songs</h5>
+                    <ul>
+                        <li>
+                            <article>
+                                <img src="ressources/images/footage/degrade.jpg" alt="image du morceau">
+                                <div class="song-list-info">
+                                    <h6>Songs 1 </h6>
+                                    <p><a href="member.html?m=HadrienVerrier">Hadrien Verrier</a></p>
+                                </div>
+
+                                <div class="song-list-controls">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Play Now</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg>
+                                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+                                        clip-rule="evenodd">
+                                        <title>Add after the current song</title>
+                                        <path
+                                            d="M20 15h4.071v2h-4.071v4.071h-2v-4.071h-4.071v-2h4.071v-4.071h2v4.071zm-8 6h-12v-2h12v2zm0-4.024h-12v-2h12v2zm0-3.976h-12v-2h12v2zm12-4h-24v-2h24v2zm0-4h-24v-2h24v2z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Add to my Galaxy</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+                                    </svg>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <img src="ressources/images/footage/degrade.jpg" alt="image du morceau">
+                                <div class="song-list-info">
+                                    <h6>Songs 2 </h6>
+                                    <p><a href="member.html?m=HadrienVerrier">Hadrien Verrier</a></p>
+                                </div>
+
+                                <div class="song-list-controls">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Play Now</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg>
+                                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+                                        clip-rule="evenodd">
+                                        <title>Add after the current song</title>
+                                        <path
+                                            d="M20 15h4.071v2h-4.071v4.071h-2v-4.071h-4.071v-2h4.071v-4.071h2v4.071zm-8 6h-12v-2h12v2zm0-4.024h-12v-2h12v2zm0-3.976h-12v-2h12v2zm12-4h-24v-2h24v2zm0-4h-24v-2h24v2z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Add to my Galaxy</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+                                    </svg>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <img src="ressources/images/footage/degrade.jpg" alt="image du morceau">
+                                <div class="song-list-info">
+                                    <h6>Songs 3 </h6>
+                                    <p><a href="member.html?m=HadrienVerrier">Hadrien Verrier</a></p>
+                                </div>
+
+                                <div class="song-list-controls">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Play Now</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg>
+                                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+                                        clip-rule="evenodd">
+                                        <title>Add after the current song</title>
+                                        <path
+                                            d="M20 15h4.071v2h-4.071v4.071h-2v-4.071h-4.071v-2h4.071v-4.071h2v4.071zm-8 6h-12v-2h12v2zm0-4.024h-12v-2h12v2zm0-3.976h-12v-2h12v2zm12-4h-24v-2h24v2zm0-4h-24v-2h24v2z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Add to my Galaxy</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+                                    </svg>
+                                </div>
+                            </article>
+                        </li>
+                        <li> <a href="search.html?q=HadrienVerrier">See more</a></li>
+                    </ul>
+                </section>
+                <section id="author">
+                    <h5>Authors</h5>
+                    <ul>
+                        <li>
+                            <article>
+                                <img src="ressources/images/footage/hadrien.jpg" alt="Avatar de Hadrien Verrier"
+                                    width="50">
+                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg></a>
+                                <a href="member.html?m=HadrienVerrier"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Click Here to have more info</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+                                    </svg></a>
+                                <h6>Hadrien Verrier</h6>
+
+                                <section>
+                                    <h6 class="hidden">Tags</h6>
+                                    <ul>
+                                        <li>EDM</li>
+                                        <li>Lo-fi</li>
+                                        <li>Funk</li>
+                                    </ul>
+                                </section>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <img src="ressources/images/footage/hadrien.jpg" alt="Avatar de Hadrien Verrier"
+                                    width="50">
+                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg></a>
+                                <a href="member.html?m=HadrienVerrier"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Click Here to have more info</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+                                    </svg></a>
+                                <h6>Hadrien Verrier</h6>
+
+                                <section>
+                                    <h6 class="hidden">Tags</h6>
+                                    <ul>
+                                        <li>EDM</li>
+                                        <li>Lo-fi</li>
+                                        <li>Funk</li>
+                                    </ul>
+                                </section>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <img src="ressources/images/footage/hadrien.jpg" alt="Avatar de Hadrien Verrier"
+                                    width="50">
+                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg></a>
+                                <a href="member.html?m=HadrienVerrier"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Click Here to have more info</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+                                    </svg></a>
+                                <h6>Hadrien Verrier</h6>
+
+                                <section>
+                                    <h6 class="hidden">Tags</h6>
+                                    <ul>
+                                        <li>EDM</li>
+                                        <li>Lo-fi</li>
+                                        <li>Funk</li>
+                                    </ul>
+                                </section>
+
+                            </article>
+                        </li>
+                        <li> <a href="search.html?q=HadrienVerrier">See more</a></li>
+                    </ul>
+                </section>
+                <section id="tags">
+                    <h5>Tags</h5>
+                    <ul>
+                        <li><a href="search.html?f=EDM">
+                                <article>
+                                    <h6>EDM</h6>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg>
+                                </article>
+                            </a></li>
+                        <li><a href="search.html?f=LOFI">
+                                <article>
+                                    <h6>lofi</h6>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg>
+                                </article>
+                            </a></li>
+                        <li><a href="search.html?f=Funk">
+                                <article>
+                                    <h6>Funk</h6>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg>
+                                </article>
+                            </a></li>
+                        <li> <a href="search.html?q=HadrienVerrier">See more</a></li>
+                    </ul>
+                </section>
+                <section id="galaxy">
+                    <h5>My galaxy</h5>
+                    <h5>Authors</h5>
+                    <ul>
+                        <li>
+                            <article>
+                                <img src="ressources/images/footage/hadrien.jpg" alt="Avatar de Hadrien Verrier"
+                                    width="50">
+                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg></a>
+                                <a href="member.html?m=HadrienVerrier"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Click Here to have more info</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+                                    </svg></a>
+                                <h6>Hadrien Verrier</h6>
+
+                                <section>
+                                    <h6 class="hidden">Tags</h6>
+                                    <ul>
+                                        <li>EDM</li>
+                                        <li>Lo-fi</li>
+                                        <li>Funk</li>
+                                    </ul>
+                                </section>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <img src="ressources/images/footage/hadrien.jpg" alt="Avatar de Hadrien Verrier"
+                                    width="50">
+                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg></a>
+                                <a href="member.html?m=HadrienVerrier"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Click Here to have more info</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+                                    </svg></a>
+                                <h6>Hadrien Verrier</h6>
+
+                                <section>
+                                    <h6 class="hidden">Tags</h6>
+                                    <ul>
+                                        <li>EDM</li>
+                                        <li>Lo-fi</li>
+                                        <li>Funk</li>
+                                    </ul>
+                                </section>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <img src="ressources/images/footage/hadrien.jpg" alt="Avatar de Hadrien Verrier"
+                                    width="50">
+                                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
+                                    </svg></a>
+                                <a href="member.html?m=HadrienVerrier"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24">
+                                        <title>Click Here to have more info</title>
+                                        <path
+                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
+                                    </svg></a>
+                                <h6>Hadrien Verrier</h6>
+
+                                <section>
+                                    <h6 class="hidden">Tags</h6>
+                                    <ul>
+                                        <li>EDM</li>
+                                        <li>Lo-fi</li>
+                                        <li>Funk</li>
+                                    </ul>
+                                </section>
+
+                            </article>
+                        </li>
+                        <li> <a href="search.html?q=HadrienVerrier">See more</a></li>
+                    </ul>
+                </section>
+            </section>
+        </section>
+    </aside>
     <footer>
         <section>
             <h4 class="hidden">INFOS LINKS</h4>

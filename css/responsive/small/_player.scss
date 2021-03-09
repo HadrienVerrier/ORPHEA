@@ -86,6 +86,17 @@
 						grid-row-end: 4;
 					}
 				}
+				&.empty {
+					display: block;
+					> section {
+						&#empty {
+							display: none;
+						}
+						&#galaxy {
+							margin-right: 1rem;
+						}
+					}
+				}
 			}
 		}
 	}

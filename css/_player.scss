@@ -332,6 +332,33 @@
 						}
 					}
 				}
+				#empty {
+					display: none;
+				}
+				&.empty {
+					section#empty {
+						display: block;
+						align-self: top;
+						padding: 3rem;
+						position: relative;
+						h5 {
+							border: 0px;
+							@include center(true, true);
+							top: 30%;
+							width: 90%;
+							text-align: center;
+							font-size: $regular * 1.5;
+						}
+					}
+					grid-template-columns: 1fr 3fr;
+					> section {
+						display: none;
+
+						&#galaxy {
+							display: block;
+						}
+					}
+				}
 			}
 		}
 	}

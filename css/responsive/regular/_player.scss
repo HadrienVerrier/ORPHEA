@@ -46,6 +46,18 @@
 						grid-row-end: 3;
 					}
 				}
+
+				&.empty {
+					grid-template-columns: 1fr 2fr;
+					> section {
+						&#galaxy {
+							grid-column-start: 2;
+							grid-column-end: 3;
+							grid-row-start: 1;
+							grid-row-end: 3;
+						}
+					}
+				}
 			}
 		}
 	}

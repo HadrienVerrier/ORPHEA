@@ -1,11 +1,65 @@
 <?php
+function getLanguage()
+{
+
+    if (isset($_POST['lang'])) {
+        $lang = $_POST['lang'];
+        $languages = request('SELECT L.language_sn FROM languages L', array(), false);
+
+        $arrayL = $languages->fetchAll(PDO::FETCH_COLUMN);
+        if (!in_array($lang, $arrayL)) {
+            $lang = 'en';
+        }
+        $_SESSION['lang'] = $lang;
+        setcookie('lang', $lang, time() + 60 * 60 * 24 * 30);
+
+        return $lang;
+    } elseif (isset($_COOKIE['lang'])) {
+        $lang = $_COOKIE['lang'];
+        $languages = request('SELECT L.language_sn FROM languages L', array(), false);
+
+        $arrayL = $languages->fetchAll(PDO::FETCH_COLUMN);
+        if (!in_array($lang, $arrayL)) {
+            $lang = 'en';
+        }
+        $_SESSION['lang'] = $lang;
+        setcookie('lang', $lang, time() + 60 * 60 * 24 * 30);
+
+        return $lang;
+    } elseif (isset($_SESSION['lang'])) {
+        $lang = $_SESSION['lang'];
+        $_SESSION['lang'] = $lang;
+        setcookie('lang', $lang, time() + 60 * 60 * 24 * 30);
+
+        return $lang;
+    } elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {        //CHECK BROWSER LANGUAGE TO SET LANGUAGE//
+        $lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'][0] . $_SERVER['HTTP_ACCEPT_LANGUAGE'][1];
+
+        $languages = request('SELECT L.language_sn FROM languages L', array(), false);
+
+        $arrayL = $languages->fetchAll(PDO::FETCH_COLUMN);
+        if (!in_array($lang, $arrayL)) {
+            $lang = 'en';
+        }
+        $_SESSION['lang'] = $lang;
+        setcookie('lang', $lang, time() + 60 * 60 * 24 * 30);
+
+        return $lang;
+    } else {
+        $lang = "en";
+        $_SESSION['lang'] = $lang;
+        setcookie('lang', $lang, time() + 60 * 60 * 24 * 30);
+        echo '5';
+        return $lang;
+    }
+}
 
 function trender($page, $main)
 {
     global $data;
     require_once $_SERVER["CONTEXT_DOCUMENT_ROOT"] . "/include/init_twig.php";
     if ($main) {
-        echo $twig->render($page . '.html.twig', array(''));
+        echo $twig->render($page . '.html.twig', $data);
     } else {
         echo $twig->render('page.html.twig', $data);
     }
@@ -14,8 +68,8 @@ function trender($page, $main)
 function createPage($page)
 {
     global $data, $request;
-    $lang = 'fr';
 
+    $lang = getLanguage();
 
     //GET ALL LANGUAGE POSSIBLE
     $languages = array();
@@ -29,6 +83,7 @@ function createPage($page)
     $results = request('SELECT P.page_name, T.page_title, T.description, T.keywords FROM pages_tl T LEFT JOIN languages L ON T.language = L.id_language RIGHT JOIN pages P ON T.page = P.id_page WHERE P.page_name = :page_name AND L.language_sn = :lang', array("page_name" => $page, 'lang' => $lang), true);
     extract($results);
     $request->closeCursor();
+
     //GET ALL DATA 
 
     //GET GLOBAL
@@ -68,10 +123,12 @@ function createPage($page)
             'contact_page' => $g_contact_page,
             'report_page' => $g_report_page
         ),
-        'soon' => $g_soon,
+
     );
+
+    $data['misc'] = getMiscData($lang);
+
     $data['main'] = getMainData($page, $lang);
-    // getMainData($page, $lang);
 }
 function getMainData($page, $lang)
 {
@@ -84,7 +141,7 @@ function getMainData($page, $lang)
     extract($results);
     switch ($page) {
         case 'index':
-
+            //RETURN RESULT
             return array(
                 'index_video_title' => $index_video_title,
                 'index_video_fail' => $index_video_fail,
@@ -101,7 +158,7 @@ function getMainData($page, $lang)
             );
             break;
         case 'about':
-
+            //SORT Q&A FOR TWIG 
             $qa = array();
             $i = 0;
             foreach ($results as $key => $value) {
@@ -114,7 +171,7 @@ function getMainData($page, $lang)
             for ($i = 0; $i < count($qa) / 2; $i++) {
                 $qa_['q' . ($i + 1)] = array('q' => array_values($qa[$i])[0], 'a' => array_values($qa[$i + 1])[0]);
             }
-            var_dump($qa_);
+            //RETURN RESULT
             return array(
                 'about_project_title' => $about_project_title,
                 'about_project_p' => $about_project_p,
@@ -125,4 +182,19 @@ function getMainData($page, $lang)
             );
             break;
     }
+}
+
+function getMiscData($lang)
+{
+    global $request;
+    //GET PAGE UNIQUE DATA
+    $rule = 'misc_%';
+    $results = request("SELECT T.variable_name, T.value FROM translations T LEFT JOIN languages L ON T.language = L.id_language WHERE L.language_sn = :lang AND T.variable_name LIKE :rule", array('lang' => $lang, 'rule' => $rule), false);
+    $results = $results->fetchAll(PDO::FETCH_KEY_PAIR);
+    $request->closeCursor();
+    extract($results);
+
+    return array(
+        'soon' => $misc_soon,
+    );
 }

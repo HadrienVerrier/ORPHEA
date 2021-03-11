@@ -4,38 +4,29 @@ $(document).ready(function () {
 	href = href[href.length - 1];
 	href = href.split(".");
 	href = href[0];
-
+	if (href == "") href = "index";
 	//MAKE HISTORY WORK WITH AJAX
 	$(window).bind("popstate", function () {
 		page(href);
 	});
 
 	//MAKE HEADER MENU WORK WITH AJAX
-	$("header nav ul p").on("click", function () {
-		page($(this).attr("data-href"));
+	$("body").on("click", "a", function (e) {
+		page($(this).attr("href"));
+		e.preventDefault();
 	});
 
 	//CHANGE LANGUAGE WITH AJAX
-	$("#language").on("change", function () {
-		$.ajax({
-			url: "php/function/changeLanguage.php",
-			type: "POST",
-			data: {
-				page: href,
-				lang: $("#language option:selected").attr("id"),
-			},
-
-			succes: function (data) {
-				console.log(data);
-			},
-			dataType: "json",
-		});
+	$("#lang").on("change", function () {
+		let lang = $("#lang option:selected").attr("id");
+		if (lang != "no_language") {
+			$("#lang-form").submit();
+		}
 	});
 });
 
 //FUNCTION TO LOAD MAIN DATA AND CHANGE WITH AJAX
 function page(pageName) {
-	// if (typeof async == undefined) async = true;
 	$.ajax({
 		async: true,
 		url: "php/function/pageAjax.php",
@@ -43,10 +34,22 @@ function page(pageName) {
 		data: { page: pageName },
 
 		success: function (data) {
-			$("main").html(data);
+			$("main").replaceWith(data);
 
-			history.pushState(pageName, pageName, pageName);
-			document.title = pageName + " - ORPHÉA";
+			history.pushState(null, null, pageName);
+
+			//GET DOCUMENT NAME
+			$.ajax({
+				async: true,
+				url: "php/function/getPageName.php",
+				type: "POST",
+				data: { page: pageName },
+
+				success: function (data) {
+					document.title = data + " - ORPHÉA";
+				},
+				dataType: "text",
+			});
 		},
 		dataType: "html",
 	});

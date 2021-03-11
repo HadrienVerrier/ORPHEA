@@ -8,8 +8,9 @@ require_once('php/function/database.php');
 
 //CREATE DB object
 db();
+
 //GET ALL DATA IN RIGHT LANGUAGE
-createPage('index');
+createPage('index', false);
 
 //RENDER WITH TWIG THE ALL PAGE
 trender($data["page"], false);

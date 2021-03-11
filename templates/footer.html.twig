@@ -1,27 +1,27 @@
 <footer>
         <section>
-            <h4 class="hidden">{{f_link_title}}</h4>
+            <h4 class="hidden">{{footer.link_title|upper}}</h4>
             <ul>
-                <li><a href="terms.html">{{f_terms}}</a></li>
-                <li><a href="#">{{f_cookie}}</a></li>
-                <li><a href="sitemap.html">{{f_sitemap}}</a></li>
+                <li><a href="terms.html">{{footer.terms_page|upper}}</a></li>
+                <li><a href="#">{{footer.cookie_page|upper}}</a></li>
+                <li><a href="sitemap.html">{{footer.sitemap_page|upper}}</a></li>
             </ul>
         </section>
-        <a href="index.html" title="{{title_home_page}}">
-            <img src="ressources/images/logo_pattern/logo.png" alt="{{logo_alt}}" width="50">
+        <a href="index.html" title="{{header.home_page_title}}">
+            <img src="ressources/images/logo_pattern/logo.png" alt="{{header.logo_alt}}" width="50">
         </a>
         <section>
-            <h4 class="hidden">{{f_other_title}}</h4>
+            <h4 class="hidden">{{footer.other_page|upper}}</h4>
             <ul>
-                <li><a href="contact.html">{{f_contact_title}}</a></li>
-                <li><a href="bugtracker.html">{{f_report_title}}</a></li>
+                <li><a href="contact.html">{{footer.contact_page|upper}}</a></li>
+                <li><a href="bugtracker.html">{{footer.report_page|upper}}</a></li>
                 <!-- CHOOSE LANGUAGE-->
                 <li>
-                    <select>
+                    <select id="language">
                     
-                        <option id="">LANGUAGE</option>
+                        <option id="no_language">LANGUAGE</option>
                         {% for language in languages %}
-                        <option id="{{language.sn}}">{{language.fn}} &#127988 &#917607 &#917602 &#917605 &#917614 &#917607 &#917631
+                        <option id="{{language.sn}}">{{language.fn|upper}} &#127988; &#917607; &#917602; &#917605; &#917614; &#917607; &#917631;
                         </option>
                         {% endfor %}
                     </select>

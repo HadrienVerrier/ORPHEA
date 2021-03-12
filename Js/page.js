@@ -5,17 +5,20 @@ $(document).ready(function () {
 	href = href.split(".");
 	href = href[0];
 	if (href == "") href = "index";
+
 	//MAKE HISTORY WORK WITH AJAX
 	$(window).bind("popstate", function () {
 		page(href);
 	});
 
-	//MAKE HEADER MENU WORK WITH AJAX
+	//MAKE ALL ANCHOR WORK WITH AJAX
 	$("body").on("click", "a", function (e) {
-		let href = $(this).attr("href").split(".");
-		href.pop();
-		href = href.toString();
-		page(href);
+		if (!$(this).hasClass("nr")) {
+			let href = $(this).attr("href").split(".");
+			href.pop();
+			href = href.toString();
+			page(href);
+		}
 		e.preventDefault();
 	});
 
@@ -26,9 +29,51 @@ $(document).ready(function () {
 			$("#lang-form").submit();
 		}
 	});
+
+	//CHECK COOKIE
+	$.ajax({
+		async: true,
+		url: "php/function/checkCookie.php",
+		type: "POST",
+		data: { type: "request" }, //REQUEST IF COOKIE WAS CHECKED
+		success: function (data) {
+			if (data == "false") {
+				$.ajax({
+					async: true,
+					url: "php/function/checkCookie.php",
+					type: "POST",
+					data: { type: "generate" },
+					success: function (data) {
+						//GENERATE POPUP
+						let response;
+						if (confirm("Voulez vous les cookies ? ")) {
+							response = "true";
+						} else {
+							response = "false";
+						}
+						$.ajax({
+							//SEND THE ANSWER TO
+							async: true,
+							url: "php/function/checkCookie.php",
+							type: "POST",
+							data: {
+								type: "validation",
+								response: response,
+							},
+
+							success: function (data) {
+								console.log("Cookie validé : " + data);
+							},
+						});
+					},
+					dataType: "html",
+				});
+			}
+		},
+	});
 });
 
-//FUNCTION TO LOAD MAIN DATA AND CHANGE WITH AJAX
+//LOAD MAIN DATA AND CHANGE WITH AJAX
 function page(pageName) {
 	$.ajax({
 		async: true,
@@ -56,4 +101,10 @@ function page(pageName) {
 		},
 		dataType: "html",
 	});
+}
+
+//GENERATE AND OPEN POP-UP
+
+function popUp(popName) {
+	return;
 }

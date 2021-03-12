@@ -11,7 +11,7 @@ function getLanguage()
             $lang = 'en';
         }
         $_SESSION['lang'] = $lang;
-        setcookie('lang', $lang, time() + 60 * 60 * 24 * 30);
+
 
         return $lang;
     } elseif (isset($_COOKIE['lang'])) {
@@ -23,13 +23,11 @@ function getLanguage()
             $lang = 'en';
         }
         $_SESSION['lang'] = $lang;
-        setcookie('lang', $lang, time() + 60 * 60 * 24 * 30);
 
         return $lang;
     } elseif (isset($_SESSION['lang'])) {
         $lang = $_SESSION['lang'];
         $_SESSION['lang'] = $lang;
-        setcookie('lang', $lang, time() + 60 * 60 * 24 * 30);
 
         return $lang;
     } elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {        //CHECK BROWSER LANGUAGE TO SET LANGUAGE//
@@ -42,16 +40,18 @@ function getLanguage()
             $lang = 'en';
         }
         $_SESSION['lang'] = $lang;
-        setcookie('lang', $lang, time() + 60 * 60 * 24 * 30);
 
         return $lang;
     } else {
         $lang = "en";
         $_SESSION['lang'] = $lang;
-        setcookie('lang', $lang, time() + 60 * 60 * 24 * 30);
         echo '5';
         return $lang;
     }
+}
+function getCookie()
+{
+    return isset($_COOKIE['cookie']) ? true : false;
 }
 
 function trender($page, $main)
@@ -67,8 +67,17 @@ function trender($page, $main)
 
 function createPage($page)
 {
-    global $data, $request;
+    global $data, $request, $cookie;
 
+    //CHECK COOKIE ACCESS
+
+    $cookie = getCookie();
+    $_SESSION['cookie'] = $cookie;
+
+    // var_dump($_SESSION['cookie']);
+    // var_dump($_SESSION['cookie_check']);
+
+    //GET LANG
     $lang = getLanguage();
 
     //GET ALL LANGUAGE POSSIBLE
@@ -244,4 +253,15 @@ function getMiscData($lang)
     return array(
         'soon' => $misc_soon,
     );
+}
+
+function setAllCookies()
+{
+    global $lang;
+    //SET GENERAL COOKIE
+    setcookie('cookie', 'true', time() + 60 * 60 * 24 * 30, '/');
+    $_SESSION['cookie'] = true;
+
+    //SET LANG COOKIE
+    setcookie('lang', $lang, time() + 60 * 60 * 24 * 30, '/');
 }

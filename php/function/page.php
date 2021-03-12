@@ -181,6 +181,29 @@ function getMainData($page, $lang)
                 'qa' => $qa_
             );
             break;
+        case 'login':
+            //RETURN RESULT
+            return array(
+                'login_login_title' => $login_login_title,
+                'login_login_p' => $login_login_p,
+                'login_login_username_pl' => $login_login_username_pl,
+                'login_login_username_l' => $login_login_username_l,
+                'login_login_password_pl' => $login_login_password_pl,
+                'login_login_password_l' => $login_login_password_l,
+                'login_login_remember' => $login_login_remember,
+                'login_login_forgot_title' => $login_login_forgot_title,
+                'login_login_forgot' => $login_login_forgot,
+                'login_login_submit' => $login_login_submit,
+                'login_signup_title' => $login_signup_title,
+                'login_signup_p' => $login_signup_p,
+                'login_signup_username_pl' => $login_signup_username_pl,
+                'login_signup_mail_l' => $login_signup_mail_l,
+                'login_signup_username_l' => $login_signup_username_l,
+                'login_signup_check_pl' => $login_signup_check_pl,
+                'login_signup_check_l' => $login_signup_check_l,
+                'login_signup_submit' => $login_signup_submit,
+            );
+            break;
     }
 }
 

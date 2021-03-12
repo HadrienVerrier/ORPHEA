@@ -3,7 +3,7 @@
 function db()
 {
     global $bdd;
-    require_once('php/settings/config.php');
+    require_once($_SERVER["CONTEXT_DOCUMENT_ROOT"] . 'php/settings/config.php');
     try {
         $bdd = new PDO('mysql:host=' . $host . ';dbname=' . $dbname . ';charset=' . $charset . '', $username, $password,  array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     } catch (Exception $e) {

@@ -12,7 +12,10 @@ $(document).ready(function () {
 
 	//MAKE HEADER MENU WORK WITH AJAX
 	$("body").on("click", "a", function (e) {
-		page($(this).attr("href"));
+		let href = $(this).attr("href").split(".");
+		href.pop();
+		href = href.toString();
+		page(href);
 		e.preventDefault();
 	});
 
@@ -36,7 +39,7 @@ function page(pageName) {
 		success: function (data) {
 			$("main").replaceWith(data);
 
-			history.pushState(null, null, pageName);
+			history.pushState(null, null, pageName + ".php");
 
 			//GET DOCUMENT NAME
 			$.ajax({

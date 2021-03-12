@@ -9,7 +9,7 @@ require_once($_SERVER["CONTEXT_DOCUMENT_ROOT"] . 'php/function/database.php');
 //CREATE DB OBJECT
 db();
 
-$lang = 'fr'; //TEMPORAIRE
+$lang = $_SESSION['lang']; //TEMPORAIRE
 
 //GET MISC MAIN DATA 
 $data['misc'] = getMiscData($lang);

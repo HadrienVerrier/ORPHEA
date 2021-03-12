@@ -3,11 +3,12 @@
 function db()
 {
     global $bdd;
+    require_once('php/settings/config.php');
     try {
-        $bdd = new PDO('mysql:host=localhost;dbname=pt2020-2021_verrier;charset=utf8', 'root', '',  array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO('mysql:host=' . $host . ';dbname=' . $dbname . ';charset=' . $charset . '', $username, $password,  array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     } catch (Exception $e) {
         // header('Location: error.php?error=' . serialize($e->getMessage()));
-        die('Erreur :' . $e->getMessage());
+        die('Error :' . $e->getMessage());
     }
 }
 

@@ -204,6 +204,30 @@ function getMainData($page, $lang)
                 'login_signup_submit' => $login_signup_submit,
             );
             break;
+        case 'contact':
+            //RETURN RESULT
+            return array(
+                'contact_title' => $contact_title,
+                'contact_p' => $contact_p,
+                'contact_name_pl' => $contact_name_pl,
+                'contact_name_l' => $contact_name_l,
+                'contact_subject_pl' => $contact_subject_pl,
+                'contact_subject_l' => $contact_subject_l,
+                'contact_message_pl' => $contact_message_pl,
+                'contact_message_l' => $contact_message_l,
+                'contact_message_submit' => $contact_message_submit,
+                'contact_mail' => $contact_mail,
+                'contact_mailto' => $contact_mailto,
+                'contact_mail_title' => $contact_mail_title,
+                'contact_sm_title' => $contact_sm_title,
+                'contact_sm_a1' => $contact_sm_a1,
+                'contact_sm_t1' => $contact_sm_t1,
+                'contact_sm_a2' => $contact_sm_a2,
+                'contact_sm_t2' => $contact_sm_t2,
+                'contact_sm_a3' => $contact_sm_a3,
+                'contact_sm_t3' => $contact_sm_t3,
+            );
+            break;
     }
 }
 

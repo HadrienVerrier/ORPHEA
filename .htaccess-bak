@@ -1,4 +1,21 @@
+# PROTECT HTACCESS
+<Files ~ "^.*\.([Hh][Tt][AaPp])">
+order allow,deny
+deny from all
+satisfy all
+</Files>
+
+# WRITE HTTPS AND WWW
 RewriteEngine On
-RewriteCond %{SERVER_PORT} 80
-RewriteCond %{REQUEST_URI} !
-RewriteRule ^(.*)$ https://www.orphea-project.com/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^orphea-project.com [NC]
+RewriteRule ^(.*)$ https://www.orphea-project.com/$1 [L,R=301]
+
+
+# CHARSET
+AddDefaultCharset UTF-8
+
+# HIDE REPERTORY
+Options All -Indexes
+
+# HIDE SERVER INFOS
+ServerSignature Off

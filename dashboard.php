@@ -2,4 +2,4 @@
 
 require_once('php/class/_page.php');
 
-new page('about');
+new page('dashboard');

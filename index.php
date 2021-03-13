@@ -1,22 +1,5 @@
 <?php
-//START PAGE SESSION
-session_start();
 
-//REQUIRE SOME FUNCTIONS
-require_once('php/function/page.php');
-require_once('php/function/database.php');
+require_once('php/class/_page.php');
 
-//CREATE DB object
-db();
-
-//CHECK IF COOKIE NEED TO BE UPDATE
-if (isset($_COOKIE['cookie'])) {
-    setAllCookies();
-}
-
-//GET ALL DATA IN RIGHT LANGUAGE
-createPage('index', false);
-
-
-//RENDER WITH TWIG THE ALL PAGE
-trender($data["page"], false);
+new page('index');

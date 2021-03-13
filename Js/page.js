@@ -162,7 +162,7 @@ function page(pageName) {
 
 		success: function (data) {
 			$("main").replaceWith(data);
-
+			window.scrollTo(0, 0);
 			history.pushState(null, null, pageName + ".php");
 
 			//GET DOCUMENT NAME

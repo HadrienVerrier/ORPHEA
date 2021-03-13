@@ -21,6 +21,8 @@ switch ($_POST['type']) {
         }
         break;
     case 'generate':
+        $data = array('type' => 'cookie');
+        trender('pop-up', true);
         return;
         break;
     case 'validation':

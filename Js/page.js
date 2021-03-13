@@ -45,25 +45,55 @@ $(document).ready(function () {
 					data: { type: "generate" },
 					success: function (data) {
 						//GENERATE POPUP
-						let response;
-						if (confirm("Voulez vous les cookies ? ")) {
-							response = "true";
-						} else {
-							response = "false";
-						}
-						$.ajax({
-							//SEND THE ANSWER TO
-							async: true,
-							url: "php/function/checkCookie.php",
-							type: "POST",
-							data: {
-								type: "validation",
-								response: response,
-							},
 
-							success: function (data) {
-								console.log("Cookie validé : " + data);
-							},
+						$("body").append('<section class="popup"></section>');
+						$(".popup").replaceWith(data);
+						$(".popup").fadeIn(300);
+						let response;
+						$(".popup p").on("click", function () {
+							if ($(this).attr("data-mode") == "true") {
+								response = "true";
+							} else if ($(this).attr("data-mode") == "false") {
+								response = "false";
+								document.cookie =
+									"lang=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+								document.cookie =
+									"cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+							}
+							$(".popup").fadeOut(200);
+							$.ajax({
+								//SEND THE ANSWER TO
+								async: true,
+								url: "php/function/checkCookie.php",
+								type: "POST",
+								data: {
+									type: "validation",
+									response: response,
+								},
+
+								success: function (data) {},
+							});
+						});
+						$(".popup svg").on("click", function () {
+							response = "false";
+							document.cookie =
+								"lang=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+							document.cookie =
+								"cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+							$(".popup").fadeOut(200);
+							$.ajax({
+								//SEND THE ANSWER TO
+								async: true,
+								url: "php/function/checkCookie.php",
+								type: "POST",
+								data: {
+									type: "validation",
+									response: response,
+								},
+
+								success: function (data) {},
+							});
 						});
 					},
 					dataType: "html",

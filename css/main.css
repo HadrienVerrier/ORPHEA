@@ -3,12 +3,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 /*PLACEHOLDER ACTION*/
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
-body > header a, body > footer a, .button, #player-container.open #search #results > section > ul > li:last-of-type, #player-container #player #song-info > div #current-artist a, #player-container.open #search a, main#dashboard > section article ul li a, main#member > section > article a {
+body > header a, body > footer a, .button, #player-container.open #search #results > section > ul > li:last-of-type, .popup a, #player-container #player #song-info > div #current-artist a, #player-container.open #search a, main#dashboard > section article ul li a, main#member > section > article a {
   color: #f7f9f5;
   font-style: normal;
 }
 
-body > header a:visited, body > footer a:visited, .button:visited, #player-container.open #search #results > section > ul > li:visited:last-of-type, #player-container #player #song-info > div #current-artist a:visited, #player-container.open #search a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
+body > header a:visited, body > footer a:visited, .button:visited, #player-container.open #search #results > section > ul > li:visited:last-of-type, .popup a:visited, #player-container #player #song-info > div #current-artist a:visited, #player-container.open #search a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
   color: #f7f9f5;
 }
 
@@ -279,6 +279,81 @@ body > footer a:hover {
   margin-top: 2rem;
   text-align: center !important;
   width: 100%;
+}
+
+.popup {
+  display: none;
+  z-index: 25;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #650076;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  border-radius: 1.05rem;
+  padding: 2rem;
+}
+
+.popup h4 {
+  width: 100%;
+  text-align: center;
+}
+
+.popup > div {
+  margin: 4rem 2rem;
+}
+
+.popup > div#cookie-form p {
+  display: inline-block;
+  cursor: pointer;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #1f9410;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  border-radius: 0.75rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.popup > div#cookie-form p:hover {
+  background-color: #18740d;
+}
+
+.popup > div#cookie-form p[data-mode="false"] {
+  background-color: red;
+}
+
+.popup > div#cookie-form p[data-mode="false"]:hover {
+  background-color: #990000;
+}
+
+.popup > div label[for="submit"] {
+  margin: 4rem auto;
+  width: 50%;
+}
+
+.popup a {
+  font-style: italic !important;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.popup svg {
+  fill: #f7f9f5;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.popup svg:hover {
+  fill: #e366f6;
 }
 
 /**************/

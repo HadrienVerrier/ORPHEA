@@ -240,6 +240,67 @@ body {
 		}
 	}
 }
+
+.popup {
+	display: none;
+	z-index: 25;
+	@include center(true, true);
+	background-color: $main;
+	box-shadow: $shadow;
+	border-radius: $borderRadius * 0.7;
+	padding: 2rem;
+	h4 {
+		width: 100%;
+		text-align: center;
+	}
+	> div {
+		margin: 4rem 2rem;
+
+		&#cookie-form {
+			p {
+				display: inline-block;
+				cursor: pointer;
+				margin: 1rem;
+				padding: 1rem;
+				background-color: $accept;
+				box-shadow: $shadow;
+				border-radius: $borderRadius * 0.5;
+				text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+				&:hover {
+					background-color: darken($accept, 7%);
+				}
+				&[data-mode="false"] {
+					background-color: $decline;
+					&:hover {
+						background-color: darken($decline, 20%);
+					}
+				}
+			}
+		}
+		label[for="submit"] {
+			margin: 4rem auto;
+			width: 50%;
+		}
+	}
+	a {
+		@extend %pass_link;
+		font-style: italic !important;
+		@include center(false, true);
+		bottom: 1rem;
+		text-align: center;
+		width: 100%;
+	}
+	svg {
+		fill: $white;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+
+		&:hover {
+			fill: $mainLightPlus;
+		}
+	}
+}
 /**************/
 /***GENERAL****/
 /**************/

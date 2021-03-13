@@ -74,9 +74,6 @@ function createPage($page)
     $cookie = getCookie();
     $_SESSION['cookie'] = $cookie;
 
-    // var_dump($_SESSION['cookie']);
-    // var_dump($_SESSION['cookie_check']);
-
     //GET LANG
     $lang = getLanguage();
 
@@ -235,6 +232,29 @@ function getMainData($page, $lang)
                 'contact_sm_t2' => $contact_sm_t2,
                 'contact_sm_a3' => $contact_sm_a3,
                 'contact_sm_t3' => $contact_sm_t3,
+            );
+            break;
+        case 'dashboard':
+            //RETURN RESULT
+            return array(
+                'dashboard_hello' => $dashboard_hello,
+                'dashboard_compose' => $dashboard_compose,
+                'dashboard_loop_title' => $dashboard_loop_title,
+                'dashboard_song_title' => $dashboard_song_title,
+                'dashboard_album_title' => $dashboard_album_title,
+                'dashboard_member_title' => $dashboard_member_title,
+                'dashboard_member_p' => $dashboard_member_p,
+                'dashboard_notif_title' => $dashboard_notif_title,
+                'dashboard_notif_p' => $dashboard_notif_p,
+                'dashboard_personnal_title' => $dashboard_personnal_title,
+                'dashboard_username_title' => $dashboard_username_title,
+                'dashboard_username' => $dashboard_username,
+                'dashboard_password_title' => $dashboard_password_title,
+                'dashboard_password' => $dashboard_password,
+                'dashboard_account_title' => $dashboard_account_title,
+                'dashboard_account' => $dashboard_account,
+                'dashboard_stats' => $dashboard_stats,
+                'dashboard_news' => $dashboard_news,
             );
             break;
     }

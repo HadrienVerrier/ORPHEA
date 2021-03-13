@@ -289,6 +289,7 @@ body > footer a:hover {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  position: fixed;
   background-color: #650076;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
@@ -299,6 +300,11 @@ body > footer a:hover {
 .popup h4 {
   width: 100%;
   text-align: center;
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: bolder;
+  font-size: 2.4rem;
+  border-bottom: 0.1rem #f7f9f5 solid;
+  padding-bottom: 1rem;
 }
 
 .popup > div {
@@ -1720,6 +1726,10 @@ main#compose #tracks div#t4 .previous-page:hover {
   }
   body > footer > section:last-of-type {
     padding-right: 2rem;
+  }
+  body .popup > div#cookie-form p {
+    display: block;
+    text-align: center;
   }
 }
 

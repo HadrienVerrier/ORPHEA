@@ -51,6 +51,17 @@
 				}
 			}
 		}
+
+		.popup {
+			> div {
+				&#cookie-form {
+					p {
+						display: block;
+						text-align: center;
+					}
+				}
+			}
+		}
 	}
 }
 

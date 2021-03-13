@@ -31,7 +31,7 @@ switch ($_POST['type']) {
 
             echo 'true';
         } else {
-            $_SESSION['cookie'] = false;
+            deleteAllCookies();
             echo 'false';
         }
         break;

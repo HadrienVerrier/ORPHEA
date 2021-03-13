@@ -265,3 +265,11 @@ function setAllCookies()
     //SET LANG COOKIE
     setcookie('lang', $lang, time() + 60 * 60 * 24 * 30, '/');
 }
+
+function deleteAllCookies()
+{
+    $_SESSION['cookie'] = false;
+    setcookie('cookie', 'true', time() - 3600, '/');
+
+    setcookie('lang', 'true', time() - 3600, '/');
+}

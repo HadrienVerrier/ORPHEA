@@ -55,10 +55,6 @@ $(document).ready(function () {
 								response = "true";
 							} else if ($(this).attr("data-mode") == "false") {
 								response = "false";
-								document.cookie =
-									"lang=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-								document.cookie =
-									"cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 							}
 							$(".popup").fadeOut(200);
 							$.ajax({
@@ -76,10 +72,6 @@ $(document).ready(function () {
 						});
 						$(".popup svg").on("click", function () {
 							response = "false";
-							document.cookie =
-								"lang=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-							document.cookie =
-								"cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 							$(".popup").fadeOut(200);
 							$.ajax({
@@ -100,6 +92,63 @@ $(document).ready(function () {
 				});
 			}
 		},
+	});
+
+	//COOKIE SETTINGS
+
+	$("footer section:nth-of-type(1) a.nr").on("click", function () {
+		$.ajax({
+			async: true,
+			url: "php/function/checkCookie.php",
+			type: "POST",
+			data: { type: "generate" },
+			success: function (data) {
+				//GENERATE POPUP
+
+				$("body").append('<section class="popup"></section>');
+				$(".popup").replaceWith(data);
+				$(".popup").fadeIn(300);
+				let response;
+				$(".popup p").on("click", function () {
+					if ($(this).attr("data-mode") == "true") {
+						response = "true";
+					} else if ($(this).attr("data-mode") == "false") {
+						response = "false";
+					}
+					$(".popup").fadeOut(200);
+					$.ajax({
+						//SEND THE ANSWER TO
+						async: true,
+						url: "php/function/checkCookie.php",
+						type: "POST",
+						data: {
+							type: "validation",
+							response: response,
+						},
+
+						success: function (data) {},
+					});
+				});
+				$(".popup svg").on("click", function () {
+					response = "false";
+
+					$(".popup").fadeOut(200);
+					$.ajax({
+						//SEND THE ANSWER TO
+						async: true,
+						url: "php/function/checkCookie.php",
+						type: "POST",
+						data: {
+							type: "validation",
+							response: response,
+						},
+
+						success: function (data) {},
+					});
+				});
+			},
+			dataType: "html",
+		});
 	});
 });
 

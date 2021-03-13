@@ -174,7 +174,6 @@ body > footer a:hover {
 .button, #player-container.open #search #results > section > ul > li:last-of-type {
   display: block;
   width: 70%;
-  height: 4rem;
   text-align: center;
   margin: auto;
   background-color: #b900d7;

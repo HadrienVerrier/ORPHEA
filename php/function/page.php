@@ -254,7 +254,29 @@ function getMiscData($lang)
         'soon' => $misc_soon,
     );
 }
-
+function getPopUpData($popup, $lang)
+{
+    global $request;
+    //GET PAGE UNIQUE DATA
+    $rule = $popup . '_%';
+    $results = request("SELECT T.variable_name, T.value FROM translations T LEFT JOIN languages L ON T.language = L.id_language WHERE L.language_sn = :lang AND T.variable_name LIKE :rule", array('lang' => $lang, 'rule' => $rule), false);
+    $results = $results->fetchAll(PDO::FETCH_KEY_PAIR);
+    $request->closeCursor();
+    extract($results);
+    switch ($popup) {
+        case 'cookie':
+            //RETURN RESULT
+            return array(
+                'type' => 'cookie',
+                'cookie_title' => $cookie_title,
+                'cookie_true' => $cookie_true,
+                'cookie_false' => $cookie_false,
+                'cookie_a' => $cookie_a,
+                'cookie_cross' => $cookie_cross,
+            );
+            break;
+    }
+}
 function setAllCookies()
 {
     global $lang;

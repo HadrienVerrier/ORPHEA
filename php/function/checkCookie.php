@@ -1,11 +1,22 @@
 <?php
+//START PAGE SESSION
 session_start();
-require_once('page.php');
+
+//REQUIRE SOME FUNCTIONS
+require_once(dirname(__FILE__, 3) . '/php/function/page.php');
+require_once(dirname(__FILE__, 3) . '/php/function/database.php');
+
+//CREATE DB OBJECT
+db();
+
+$lang = $_SESSION['lang'];
+
 
 switch ($_POST['type']) {
     case 'request':
         if ($_SESSION['cookie']) {
             $_SESSION['cookie_check'] = true;
+            setAllCookies();
             echo 'true';
             return;
         } else {
@@ -21,7 +32,8 @@ switch ($_POST['type']) {
         }
         break;
     case 'generate':
-        $data = array('type' => 'cookie');
+
+        $data = getPopUpData('cookie', $lang);
         trender('pop-up', true);
         return;
         break;

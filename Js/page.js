@@ -132,9 +132,3 @@ function page(pageName) {
 		dataType: "html",
 	});
 }
-
-//GENERATE AND OPEN POP-UP
-
-function popUp(popName) {
-	return;
-}

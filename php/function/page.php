@@ -57,7 +57,7 @@ function getCookie()
 function trender($page, $main)
 {
     global $data;
-    require_once $_SERVER["CONTEXT_DOCUMENT_ROOT"] . "/include/init_twig.php";
+    require_once dirname(__FILE__, 3) . "/include/init_twig.php";
     if ($main) {
         echo $twig->render($page . '.html.twig', $data);
     } else {

@@ -3,13 +3,13 @@
 session_start();
 
 //REQUIRE SOME FUNCTIONS
-require_once($_SERVER["CONTEXT_DOCUMENT_ROOT"] . 'php/function/page.php');
-require_once($_SERVER["CONTEXT_DOCUMENT_ROOT"] . 'php/function/database.php');
+require_once(dirname(__FILE__, 3) . '/php/function/page.php');
+require_once(dirname(__FILE__, 3) . '/php/function/database.php');
 
 //CREATE DB OBJECT
 db();
 
-$lang = 'fr'; //TEMPORAIRE
+$lang = $_SESSION['lang']; //TEMPORAIRE
 
 //GET PAGE TITLE IN RIGHT LANGUAGE
 

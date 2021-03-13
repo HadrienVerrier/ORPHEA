@@ -3,7 +3,7 @@
 function db()
 {
     global $bdd;
-    require_once($_SERVER["CONTEXT_DOCUMENT_ROOT"] . 'php/settings/config.php');
+    require_once(dirname(__FILE__, 3) . '/php/settings/config.php');
     try {
         $bdd = new PDO('mysql:host=' . $host . ';dbname=' . $dbname . ';charset=' . $charset . '', $username, $password,  array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     } catch (Exception $e) {
@@ -27,3 +27,27 @@ function request($sql, $prep, $fetch)
         return $request;
     }
 }
+
+$data = array(
+    'HTTP_HOST' => 'www.orphea-project.com',
+    'SCRIPT_NAME' => '/index.php',
+    'REQUEST_URI' => '/index.php',
+    'SCRIPT_FILENAME' => '/home/orpheab/www/index.php',
+    'SERVER_NAME' => 'www.orphea-project.com',
+    'HTTP_X_REMOTE_PROTO' => 'http',
+    'SCRIPT_URI' => 'http://www.orphea-project.com/index.php',
+    'SCRIPT_URL' => '/index.php',
+    'DOCUMENT_ROOT' => '/home/orpheab/www',
+    'PHP_SELF' => '/index.php',
+);
+
+$data2 = array(
+    'HTTP_HOST' => 'localhost',
+    'SCRIPT_NAME' => '/orphea/contact.php',
+    'REQUEST_URI' => '/orphea/contact.php',
+    'SCRIPT_FILENAME' => 'C:/Users/hadve/Google Drive/LP_IMAPP/PT - Projet Tuteure/ORPHEA/WEBSITE/contact.php',
+    'SERVER_NAME' => 'localhost',
+    'REQUEST_SCHEME' => 'http',
+    'DOCUMENT_ROOT' => 'C:/wamp64/www',
+    'PHP_SELF' => '/orphea/contact.php',
+);

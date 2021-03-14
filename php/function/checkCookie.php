@@ -9,6 +9,7 @@ require_once(dirname(__FILE__, 3) . '/php/function/database.php');
 //CREATE DB OBJECT
 db();
 
+//RIGHT LANGUAGE
 $lang = $_SESSION['lang'];
 
 

@@ -295,6 +295,14 @@ function getPopUpData($popup, $lang)
                 'cookie_cross' => $cookie_cross,
             );
             break;
+        case 'log':
+            //RETURN RESULT
+            return array(
+                'type' => 'log',
+                'log_title' => $log_title,
+                'log_cross' => $log_cross,
+            );
+            break;
     }
 }
 function setAllCookies()

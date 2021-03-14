@@ -83,8 +83,6 @@ $(document).ready(function () {
 									type: "validation",
 									response: response,
 								},
-
-								success: function (data) {},
 							});
 						});
 					},
@@ -95,7 +93,6 @@ $(document).ready(function () {
 	});
 
 	//COOKIE SETTINGS
-
 	$("footer section:nth-of-type(1) a.nr").on("click", function () {
 		$.ajax({
 			async: true,
@@ -150,6 +147,42 @@ $(document).ready(function () {
 			dataType: "html",
 		});
 	});
+
+	//LOGIN SEQUENCE
+	$("body").on(
+		"click",
+		"main#login div#login_form label[for='l_submit']",
+		function () {
+			let form = "main#login div#login_form";
+			if (
+				$(form + " input#l_username").val().length !== 0 &&
+				$(form + " input#l_password").val().length !== 0
+			) {
+				console.log("test");
+				$.ajax({
+					async: true,
+					url: "php/function/checkLoggin.php",
+					type: "POST",
+					data: {
+						nickname: $(form + " input#l_username").val(),
+						password: $(form + " input#l_password").val(),
+					},
+					success: function (data) {
+						console.log(data);
+						if (data === "success") {
+						} else {
+							$("body").append('<section class="popup"></section>');
+							$(".popup").replaceWith(data);
+							$(".popup").fadeIn(300);
+							$(".popup svg").on("click", function () {
+								$(".popup").fadeOut(100);
+							});
+						}
+					},
+				});
+			}
+		}
+	);
 });
 
 //LOAD MAIN DATA AND CHANGE WITH AJAX

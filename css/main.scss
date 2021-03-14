@@ -250,14 +250,17 @@ body {
 	box-shadow: $shadow;
 	border-radius: $borderRadius * 0.7;
 	padding: 2rem;
+	min-height: 8rem;
 	h4 {
-		width: 100%;
+		width: 70%;
+		line-height: $regular * 2;
 		text-align: center;
 		font-family: $fTitle;
 		font-weight: bolder;
 		font-size: $regular * 1.5;
 		border-bottom: 0.1rem $white solid;
 		padding-bottom: 1rem;
+		margin: auto;
 	}
 	> div {
 		margin: 4rem 2rem;

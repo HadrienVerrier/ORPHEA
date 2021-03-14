@@ -294,16 +294,19 @@ body > footer a:hover {
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
   border-radius: 1.05rem;
   padding: 2rem;
+  min-height: 8rem;
 }
 
 .popup h4 {
-  width: 100%;
+  width: 70%;
+  line-height: 3.2rem;
   text-align: center;
   font-family: "Big Shoulders Display", cursive;
   font-weight: bolder;
   font-size: 2.4rem;
   border-bottom: 0.1rem #f7f9f5 solid;
   padding-bottom: 1rem;
+  margin: auto;
 }
 
 .popup > div {

@@ -264,6 +264,7 @@ function getMainData($page, $lang)
         case 'dashboard':
             //RETURN RESULT
             return array(
+                'dashboard_member' => $_SESSION['username'],
                 'dashboard_hello' => $dashboard_hello,
                 'dashboard_compose' => $dashboard_compose,
                 'dashboard_loop_title' => $dashboard_loop_title,

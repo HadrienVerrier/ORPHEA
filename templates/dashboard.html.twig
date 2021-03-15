@@ -1,7 +1,8 @@
+{% apply spaceless %}
  <main id="dashboard">
 
         <header>
-            <h2>{{main.dashboard_hello|upper}} MEMBER_NAME</h2>
+            <h2>{{main.dashboard_hello|upper}} {{main.dashboard_member|upper}} !</h2>
             <ul>
                 <li class="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -77,4 +78,5 @@
                 <h3>{{main.dashboard_news|upper}}</h3>
             </article>
         </section>
-    </main>
+</main>
+{% endapply %}

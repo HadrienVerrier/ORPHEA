@@ -1,32 +1,42 @@
 <footer>
-        <section>
-            <h4 class="hidden">{{footer.link_title|upper}}</h4>
-            <ul>
-                <li><a href="terms.php">{{footer.terms_page|upper}}</a></li>
-                <li><a href="#" class="nr">{{footer.cookie_page|upper}}</a></li>
-                <li><a href="sitemap.php">{{footer.sitemap_page|upper}}</a></li>
-            </ul>
-        </section>
-        <a href="index.php" title="{{misc.home_page_title}}">
-            <img src="ressources/images/logo_pattern/logo.png" alt="{{misc.logo_alt}}" width="50">
-        </a>
-        <section>
-            <h4 class="hidden">{{footer.other_page|upper}}</h4>
-            <ul>
-                <li><a href="contact.php">{{footer.contact_page|upper}}</a></li>
-                <li><a href="bugtracker.php">{{footer.report_page|upper}}</a></li>
-                <!-- CHOOSE LANGUAGE-->
-                <li>
-                <form method="POST" action="#" id='lang-form'>
-                    <select name="lang" id="lang">
-                        <option id="no_language">LANGUAGE</option>
-                        {% for language in languages %}
-                            <option value="{{language.sn}}">{{language.fn|upper}} &#127988; &#917607; &#917602; &#917605; &#917614; &#917607; &#917631;
-                            </option>
-                        {% endfor %}
-                    </select>
-                    </form>
+    <section>
+        <h4 class="hidden">{{footer.link_title|upper}}</h4>
+        <ul>
+            <li>
+                <a href="terms.php">{{footer.terms_page|upper}}</a>
+            </li>
+            <li>
+                <a href="#" class="nr">{{footer.cookie_page|upper}}</a>
                 </li>
-            </ul>
-        </section>
-    </footer>
+            <li>
+                <a href="sitemap.php">{{footer.sitemap_page|upper}}</a>
+            </li>
+        </ul>
+    </section>
+    <a href="index.php" title="{{misc.home_page_title}}">
+        <img src="ressources/images/logo_pattern/logo.png" alt="{{misc.logo_alt}}" width="50">
+    </a>
+    <section>
+        <h4 class="hidden">{{footer.other_page|upper}}</h4>
+        <ul>
+            <li>
+                <a href="contact.php">{{footer.contact_page|upper}}</a>
+            </li>
+            <li>
+                <a href="bugtracker.php">{{footer.report_page|upper}}</a>
+            </li>
+            <!-- CHOOSE LANGUAGE-->
+            <li>
+            <form method="POST" action="#" id='lang-form'>
+                <select name="lang" id="lang">
+                    <option id="no_language">LANGUAGE</option>
+                    {% for language in languages %}
+                        <option value="{{language.sn}}">{{language.fn|upper}} &#127988; &#917607; &#917602; &#917605; &#917614; &#917607; &#917631;
+                        </option>
+                    {% endfor %}
+                </select>
+                </form>
+            </li>
+        </ul>
+    </section>
+</footer>

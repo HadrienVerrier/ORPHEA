@@ -170,7 +170,6 @@ $(document).ready(function () {
 						if (data === "success") {
 							page("dashboard");
 							console.log();
-							changeHeader(pageName + ".php");
 						} else {
 							$("body").append('<section class="popup"></section>');
 							$(".popup").replaceWith(data);
@@ -184,6 +183,54 @@ $(document).ready(function () {
 			}
 		}
 	);
+
+	//LOGOUT SEQUENCE
+	$("body").on("click", "header nav a.nr", function () {
+		$.ajax({
+			async: true,
+			url: "php/function/logout.php",
+			type: "POST",
+			data: { type: "generate" },
+			success: function (data) {
+				//GENERATE POPUP
+
+				$("body").append('<section class="popup"></section>');
+				$(".popup").replaceWith(data);
+				$(".popup").fadeIn(300);
+				let response;
+				$(".popup p").on("click", function () {
+					if ($(this).attr("data-mode") == "true") {
+						response = "true";
+					} else if ($(this).attr("data-mode") == "false") {
+						response = "false";
+					}
+					$(".popup").fadeOut(200);
+					$.ajax({
+						//SEND THE ANSWER TO
+						async: true,
+						url: "php/function/logout.php",
+						type: "POST",
+						data: {
+							type: "validation",
+							response: response,
+						},
+
+						success: function (data) {
+							if (data == "true") {
+								page("index");
+							}
+						},
+					});
+				});
+				$(".popup svg").on("click", function () {
+					response = "false";
+
+					$(".popup").fadeOut(200);
+				});
+			},
+			dataType: "html",
+		});
+	});
 });
 
 //LOAD MAIN DATA AND CHANGE WITH AJAX
@@ -221,6 +268,7 @@ function page(pageName) {
 	});
 }
 
+//CHANGE HEADER
 function changeHeader(pageName) {
 	//CHANGE HEADER :
 	$.ajax({

@@ -304,7 +304,7 @@ function getMiscData($lang)
         'loggin' => loggin(),
     );
 }
-function getHeaderData($lang, $current_page = null)
+function getHeaderData($lang, $current_page = null) //OPTIONAL PARAMETER FOR AJAX REQUEST
 {
     global $request;
     //GET PAGE UNIQUE DATA
@@ -360,6 +360,16 @@ function getPopUpData($popup, $lang)
                 'type' => 'log',
                 'log_title' => $log_title,
                 'log_cross' => $log_cross,
+            );
+            break;
+        case 'logout':
+            //RETURN RESULT
+            return array(
+                'type' => 'logout',
+                'logout_title' => $logout_title,
+                'logout_true' => $logout_true,
+                'logout_false' => $logout_false,
+                'logout_cross' => $logout_cross,
             );
             break;
     }

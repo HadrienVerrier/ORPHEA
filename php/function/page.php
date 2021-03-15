@@ -1,4 +1,45 @@
 <?php
+
+class page
+{
+
+    public function __construct($page)
+    {
+        global $data;
+
+        //REQUIRE SOME FUNCTIONS
+
+        require_once('php/function/database.php');
+
+        //CREATE DB object
+        db();
+
+        //CHECK IF COOKIE NEED TO BE UPDATE
+        if (isset($_COOKIE['cookie'])) {
+            setAllCookies();
+        }
+
+        //GET ALL DATA IN RIGHT LANGUAGE
+        createPage($page, false);
+
+
+        //RENDER WITH TWIG THE ALL PAGE
+        trender($data["page"], false);
+    }
+}
+
+//CHECK LOG
+
+function loggin()
+{
+    if (isset($_SESSION['username'])) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//LANGUAGE
 function getLanguage()
 {
 
@@ -49,11 +90,8 @@ function getLanguage()
         return $lang;
     }
 }
-function getCookie()
-{
-    return isset($_COOKIE['cookie']) ? true : false;
-}
 
+//TWIG
 function trender($page, $main)
 {
     global $data;
@@ -64,6 +102,8 @@ function trender($page, $main)
         echo $twig->render('page.html.twig', $data);
     }
 }
+
+//DATA
 
 function createPage($page)
 {
@@ -305,6 +345,14 @@ function getPopUpData($popup, $lang)
             break;
     }
 }
+
+
+//COOKIE
+function getCookie()
+{
+    return isset($_COOKIE['cookie']) ? true : false;
+}
+
 function setAllCookies()
 {
     global $lang;

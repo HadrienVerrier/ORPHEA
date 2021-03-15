@@ -2,6 +2,6 @@
 //START PAGE SESSION
 session_start();
 
-require_once('php/class/_page.php');
+require_once('php/function/page.php');
 
 new page('index');

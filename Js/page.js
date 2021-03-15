@@ -158,7 +158,6 @@ $(document).ready(function () {
 				$(form + " input#l_username").val().length !== 0 &&
 				$(form + " input#l_password").val().length !== 0
 			) {
-				console.log("test");
 				$.ajax({
 					async: true,
 					url: "php/function/checkLoggin.php",
@@ -168,8 +167,9 @@ $(document).ready(function () {
 						password: $(form + " input#l_password").val(),
 					},
 					success: function (data) {
-						console.log(data);
 						if (data === "success") {
+							console.log("success");
+							page("dashboard");
 						} else {
 							$("body").append('<section class="popup"></section>');
 							$(".popup").replaceWith(data);

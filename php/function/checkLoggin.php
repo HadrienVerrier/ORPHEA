@@ -26,7 +26,7 @@ if (isset($_POST['nickname']) && isset($_POST['password'])) {
             $request->closeCursor();
             if (password_verify($_POST['password'], $password_hash)) {
                 $_SESSION['username'] = $_POST['nickname'];
-                echo 'succes';
+                echo 'success';
             } else {
                 $data = getPopUpData('log', $lang);
                 trender('pop-up', true);

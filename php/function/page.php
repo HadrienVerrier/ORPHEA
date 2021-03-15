@@ -148,32 +148,19 @@ function createPage($page)
             'keywords' => $keywords,
             'page_title' => $page_title
         ),
-        'header' => array(
-            'home_page' => $g_home_page,
-            'home_page_title' => $g_home_page_title,
-            'about_page' => $g_about_page,
-            'about_page_title' => $g_about_page_title,
-            'login_page' => $g_login_page,
-            'login_page_title' => $g_login_page_title,
-            'logo_alt' => $g_logo_alt,
-            'background_alt' => $g_background_alt
-        ),
         'footer' => array(
             'link_title' => $g_link_title,
             'terms_page' => $g_terms_page,
             'cookie_page' => $g_cookie_page,
             'sitemap_page' => $g_sitemap_page,
-            'home_page_title' => $g_home_page_title,
-            'logo_alt' => $g_logo_alt,
             'other_page' => $g_other_page,
             'contact_page' => $g_contact_page,
             'report_page' => $g_report_page
         ),
 
     );
-
+    $data['header'] = getHeaderData($lang);
     $data['misc'] = getMiscData($lang);
-
     $data['main'] = getMainData($page, $lang);
 }
 function getMainData($page, $lang)
@@ -312,6 +299,38 @@ function getMiscData($lang)
 
     return array(
         'soon' => $misc_soon,
+        'home_page_title' => $misc_home_page_title,
+        'logo_alt' => $misc_logo_alt,
+        'loggin' => loggin(),
+    );
+}
+function getHeaderData($lang, $current_page = null)
+{
+    global $request;
+    //GET PAGE UNIQUE DATA
+    $rule = 'h_%';
+    $results = request("SELECT T.variable_name, T.value FROM translations T LEFT JOIN languages L ON T.language = L.id_language WHERE L.language_sn = :lang AND T.variable_name LIKE :rule", array('lang' => $lang, 'rule' => $rule), false);
+    $results = $results->fetchAll(PDO::FETCH_KEY_PAIR);
+    $request->closeCursor();
+    extract($results);
+
+    //STRONG ON SELECT PAGE
+    if ($current_page == null) {
+        $current_page = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 1);
+    }
+
+    return array(
+        'current' => $current_page,
+        'home_page' => $h_home_page,
+        'about_page' => $h_about_page,
+        'about_page_title' => $h_about_page_title,
+        'login_page' => $h_login_page,
+        'login_page_title' => $h_login_page_title,
+        'background_alt' => $h_background_alt,
+        'logout_page' => $h_logout_page,
+        'logout_page_title' => $h_logout_page_title,
+        'dashboard_page' => $h_dashboard_page,
+        'dashboard_page_title' => $h_dashboard_page_title,
     );
 }
 function getPopUpData($popup, $lang)

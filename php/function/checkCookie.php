@@ -10,8 +10,11 @@ require_once(dirname(__FILE__, 3) . '/php/function/database.php');
 db();
 
 //RIGHT LANGUAGE
-$lang = $_SESSION['lang'];
-
+if (isset($_SESSION['lang'])) {
+    $lang = $_SESSION['lang'];
+} else {
+    $lang = 'en';
+}
 
 switch ($_POST['type']) {
     case 'request':

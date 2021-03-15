@@ -1,17 +1,42 @@
 <header>
         <!-- LOGO-->
         <div id="logo">
-            <a href="index.php" title="{{header.home_page_title}}">
-                <img src="ressources/images/logo_pattern/logo.png" alt="{{header.logo_alt}}" width="100">
+            <a href="index.php" title="{{misc.home_page_title}}">
+                <img src="ressources/images/logo_pattern/logo.png" alt="{{misc.logo_alt}}" width="100">
                 <h1>ORPH&Eacute;A</h1>
             </a>
         </div>
         <!-- MENU-->
         <nav>
             <ul>
+            {% if header.current == 'index.php' %}
                 <li><a href="index.php" title="{{header.home_page_title}}"><strong>{{header.home_page|upper}}</strong></a></li>
-                <li><a href="about.php" title="{{header.about_page_title}}">{{header.about_page|upper}}</a></li>
-                <li><a href="login.php" title="{{header.login_page_title}}">{{header.login_page|upper}}</a></li>
+            {% else %}
+                <li><a href="index.php" title="{{header.home_page_title}}">{{header.home_page|upper}}</a></li>
+            {% endif %}
+
+            {% if header.current == 'about.php' %}
+                 <li><a href="about.php" title="{{header.about_page_title}}"><strong>{{header.about_page|upper}}</strong></a></li>
+            {% else %}
+                 <li><a href="about.php" title="{{header.about_page_title}}">{{header.about_page|upper}}</a></li>
+            {% endif %}
+
+            {% if misc.loggin %}
+                {% if header.current == 'dashboard.php' %}
+                        <li><a href="dashboard.php" title="{{header.dashboard_page_title}}"><strong>{{header.dashboard_page|upper}}</strong></a></li>
+                {% else %}
+                        <li><a href="dashboard.php" title="{{header.dashboard_page_title}}">{{header.dashboard_page|upper}}</a></li>
+                {% endif %}
+                
+                <li><a href="logout.php" class='nr' title="{{header.logout_page_title}}">{{header.logout_page|upper}}</a></li>
+            {% else %}
+                {% if header.current == 'login.php' %}
+                        <li><a href="login.php" title="{{header.login_page_title}}"><strong>{{header.login_page|upper}}</strong></a></li>
+                {% else %}
+                        <li><a href="login.php" title="{{header.login_page_title}}">{{header.login_page|upper}}</a></li>
+                {% endif %}
+                
+            {% endif %}
             </ul>
         </nav>
         <!--BACKGROUND PICTURE-->

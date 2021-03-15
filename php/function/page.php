@@ -347,7 +347,7 @@ function getPopUpData($popup, $lang)
         case 'cookie':
             //RETURN RESULT
             return array(
-                'type' => 'cookie',
+                'type' => $popup,
                 'cookie_title' => $cookie_title,
                 'cookie_true' => $cookie_true,
                 'cookie_false' => $cookie_false,
@@ -358,7 +358,7 @@ function getPopUpData($popup, $lang)
         case 'log':
             //RETURN RESULT
             return array(
-                'type' => 'log',
+                'type' => $popup,
                 'log_title' => $log_title,
                 'log_cross' => $log_cross,
             );
@@ -366,11 +366,59 @@ function getPopUpData($popup, $lang)
         case 'logout':
             //RETURN RESULT
             return array(
-                'type' => 'logout',
+                'type' => $popup,
                 'logout_title' => $logout_title,
                 'logout_true' => $logout_true,
                 'logout_false' => $logout_false,
                 'logout_cross' => $logout_cross,
+            );
+            break;
+        case 'exist_mail':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'exist_mail_title' => $exist_mail_title,
+                'exist_mail_cross' => $exist_mail_cross,
+            );
+            break;
+        case 'exist_username':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'exist_username_title' => $exist_username_title,
+                'exist_username_cross' => $exist_username_cross,
+            );
+            break;
+        case 'signup':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'signup_title' => $signup_title,
+                'signup_cross' => $signup_cross,
+            );
+            break;
+        case 'rules':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'rules_title' => $rules_title,
+                'rules_cross' => $rules_cross,
+            );
+            break;
+        case 'match':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'match_title' => $match_title,
+                'match_cross' => $match_cross,
+            );
+            break;
+        case 'mail':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'mail_title' => $mail_title,
+                'mail_cross' => $mail_cross,
             );
             break;
     }

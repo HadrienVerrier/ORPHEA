@@ -2,37 +2,37 @@
         <section>
             <h2>{{main.login_login_title|upper}}</h2>
             <p>{{main.login_login_p}}</p>
-            <div id="login_form">
+            <form id="login_form">
                 <input type="text" id="l_username" name="l_username" placeholder="{{main.login_login_username_pl}}"
                     required="required">
                 <label for="l_username">{{main.login_login_username_l}}</label>
                 <input type="password" id="l_password" name="l_password" placeholder="{{main.login_login_password_pl}}"
-                    required="required">
+                    required="required" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
                 <label for="l_password">{{main.login_login_password_l}}</label>
                 <input type="checkbox" id="remember" name="remember">
                 <label for="remember">{{main.login_login_remember}}</label>
                 <a id="pass_forgot" href="#" title="{{main.login_login_forgot_title}}">{{main.login_login_forgot}}</a>
                 <input type="submit" value="{{main.login_login_submit|upper}}" name="l_submit" id="l_submit" class="hidden">
                 <label class="button" for="l_submit">{{main.login_login_submit|upper}}</label>
-            </div>
+            </form>
         </section>
-        <section id="signup_form">
+        <section>
             <h2>{{main.login_signup_title|upper}}</h2>
             <p>{{main.login_signup_p}}</p>
-            <div>
-                <input type="text" id="email" name="email" placeholder="{{main.login_login_username_pl}}"
+            <form id='signup_form'>
+                <input type="mail" id="s_email" name="s_email" placeholder="{{main.login_login_username_pl}}"
                     required="required">
-                <label for="email">{{main.login_signup_mail_l}}</label>
+                <label for="s_email">{{main.login_signup_mail_l}}</label>
                 <input type="text" id="s_username" name="s_username" placeholder="{{main.login_signup_username_pl}}" required="required">
                 <label for="s_username">{{main.login_signup_username_l}}</label>
                 <input type="password" id="s_password" name="s_password" placeholder="{{main.login_login_password_pl}}"
-                    required="required">
+                    required="required" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
                 <label for="s_password">{{main.login_login_password_l}}</label>
                 <input type="password" id="s_c_password" name="s_c_password" placeholder="{{main.login_signup_check_pl}}"
-                    required="required">
+                    required="required" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
                 <label for="s_c_password">{{main.login_signup_check_l}}</label>
                 <input type="submit" value="{{main.login_signup_submit|upper}}" name="s_submit" id="s_submit" class="hidden">
                 <label class="button" for="s_submit">{{main.login_signup_submit|upper}}</label>
-            </div>
+            </form>
         </section>
     </main>

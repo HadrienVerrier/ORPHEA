@@ -1,3 +1,4 @@
+{# COOKIE SECTION #}
 {% if type == 'cookie' %}
 <section class="popup">
     <h4>{{cookie_title|upper}}</h4>
@@ -16,6 +17,8 @@
 </section>
 {% endif %}
 
+
+{# LOG INVALID #}
 {% if type == 'log' %}
 <section class="popup">
     <h4>{{log_title|upper}}</h4>
@@ -27,6 +30,8 @@
 </section>
 {% endif %}
 
+
+{# LOGOUT #}
 {% if type == 'logout' %}
 <section class="popup">
     <h4>{{logout_title|upper}}</h4>
@@ -38,6 +43,74 @@
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <title>{{logout_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}
+
+
+{# SIGNUP SECTION #}
+{% if type == 'exist_mail' %}
+<section class="popup">
+    <h4>{{exist_mail_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{exist_mail_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}
+
+{% if type == 'exist_username' %}
+<section class="popup">
+    <h4>{{exist_username_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{exist_username_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}
+
+{% if type == 'signup' %}
+<section class="popup">
+    <h4>{{signup_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{signup_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}
+
+{% if type == 'rules' %}
+<section class="popup">
+    <h4>{{rules_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{rules_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}
+
+{% if type == 'match' %}
+<section class="popup">
+    <h4>{{match_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{match_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}
+
+{% if type == 'mail' %}
+<section class="popup">
+    <h4>{{mail_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{mail_cross}}</title>
         <path
             d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
     </svg>

@@ -30,6 +30,13 @@ $(document).ready(function () {
 		}
 	});
 
+	//CLOSE POP UP KEYBOARD
+
+	$(document).on("keyup", "body", function (e) {
+		if (e.key == "Escape") {
+			$(".popup").fadeOut(200);
+		}
+	});
 	//CHECK COOKIE
 	$.ajax({
 		async: true,
@@ -148,12 +155,17 @@ $(document).ready(function () {
 		});
 	});
 
+	//USE HTML NATIVE VALIDATION
+	$(document).on("submit", "form", function (e) {
+		e.preventDefault();
+	});
+
 	//LOGIN SEQUENCE
 	$("body").on(
 		"click",
-		"main#login div#login_form label[for='l_submit']",
+		"main#login form#login_form label[for='l_submit']",
 		function () {
-			let form = "main#login div#login_form";
+			let form = "main#login form#login_form";
 			if (
 				$(form + " input#l_username").val().length !== 0 &&
 				$(form + " input#l_password").val().length !== 0
@@ -231,6 +243,42 @@ $(document).ready(function () {
 			dataType: "html",
 		});
 	});
+
+	//SIGNUP SEQUENCE
+	$("body").on(
+		"click",
+		'main#login form#signup_form label[for="s_submit"]',
+		function () {
+			let form = "main#login form#signup_form";
+			if (
+				$(form + " input#s_username").val().length !== 0 &&
+				$(form + " input#s_email").val().length !== 0 &&
+				$(form + " input#s_password").val().length !== 0 &&
+				$(form + " input#s_c_password").val().length !== 0
+			) {
+				$.ajax({
+					asyn: true,
+					url: "php/function/signup.php",
+					type: "POST",
+					data: {
+						username: $(form + " input#s_username").val(),
+						email: $(form + " input#s_email").val(),
+						password: $(form + " input#s_password").val(),
+						password_check: $(form + " input#s_c_password").val(),
+					},
+					success: function (data) {
+						$(".popup").remove();
+						$("body").append('<section class="popup"></section>');
+						$(".popup").replaceWith(data);
+						$(".popup").fadeIn(300);
+						$(".popup svg").on("click", function () {
+							$(".popup").fadeOut(200);
+						});
+					},
+				});
+			}
+		}
+	);
 });
 
 //LOAD MAIN DATA AND CHANGE WITH AJAX

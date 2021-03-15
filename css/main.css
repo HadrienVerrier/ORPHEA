@@ -417,6 +417,7 @@ select:focus {
 }
 
 input[type="text"],
+input[type="mail"],
 input[type="password"] {
   display: block;
   height: 3.5rem;
@@ -434,11 +435,13 @@ input[type="password"] {
 }
 
 input[type="text"]:hover,
+input[type="mail"]:hover,
 input[type="password"]:hover {
   background-color: white;
 }
 
 input[type="text"]:focus,
+input[type="mail"]:focus,
 input[type="password"]:focus {
   border-color: #aaa;
   -webkit-box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
@@ -447,6 +450,7 @@ input[type="password"]:focus {
 }
 
 input[type="text"] + label,
+input[type="mail"] + label,
 input[type="password"] + label {
   display: block;
   position: relative;
@@ -455,6 +459,7 @@ input[type="password"] + label {
 }
 
 input[type="text"]:required + label::after,
+input[type="mail"]:required + label::after,
 input[type="password"]:required + label::after {
   content: "*";
   position: relative;

@@ -375,17 +375,31 @@ body > footer a:hover {
   background-color: rgba(39, 39, 39, 0.548);
 }
 
-#loader img {
-  opacity: 1;
-  width: 33%;
-  height: 33%;
-  -o-object-fit: contain;
-     object-fit: contain;
+#loader div {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+#loader div h4 {
+  position: relative;
+  left: 0.5rem;
+  margin-top: 2rem;
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 4rem;
+  width: unset;
+  text-align: center;
+}
+
+#loader div img {
+  display: block;
+  margin: auto;
+  width: 33%;
+  height: 33%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 /**************/

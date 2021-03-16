@@ -320,13 +320,24 @@ body {
 	height: 100vh;
 	z-index: 25;
 	background-color: rgba(39, 39, 39, 0.548);
-
-	img {
-		opacity: 1;
-		width: 33%;
-		height: 33%;
-		object-fit: contain;
+	div {
 		@include center(true, true);
+		h4 {
+			position: relative;
+			left: 0.5rem;
+			margin-top: 2rem;
+			font-family: $fTitle;
+			font-size: $regular * 2.5;
+			width: unset;
+			text-align: center;
+		}
+		img {
+			display: block;
+			margin: auto;
+			width: 33%;
+			height: 33%;
+			object-fit: contain;
+		}
 	}
 }
 /**************/

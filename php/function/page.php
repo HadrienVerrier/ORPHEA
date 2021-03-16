@@ -236,6 +236,7 @@ function getMainData($page, $lang)
                 'login_signup_check_pl' => $login_signup_check_pl,
                 'login_signup_check_l' => $login_signup_check_l,
                 'login_signup_submit' => $login_signup_submit,
+                'login_password_tooltip' => $login_password_tooltip,
             );
             break;
         case 'contact':

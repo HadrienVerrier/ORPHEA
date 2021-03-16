@@ -26,10 +26,10 @@
                 <input type="text" id="s_username" name="s_username" placeholder="{{main.login_signup_username_pl}}" required="required">
                 <label for="s_username">{{main.login_signup_username_l}}</label>
                 <input type="password" id="s_password" name="s_password" placeholder="{{main.login_login_password_pl}}"
-                    required="required" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                    required="required" title="{{main.login_password_tooltip}}" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
                 <label for="s_password">{{main.login_login_password_l}}</label>
                 <input type="password" id="s_c_password" name="s_c_password" placeholder="{{main.login_signup_check_pl}}"
-                    required="required" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                    required="required" title="{{main.login_password_tooltip}}" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
                 <label for="s_c_password">{{main.login_signup_check_l}}</label>
                 <input type="submit" value="{{main.login_signup_submit|upper}}" name="s_submit" id="s_submit" class="hidden">
                 <label class="button" for="s_submit">{{main.login_signup_submit|upper}}</label>

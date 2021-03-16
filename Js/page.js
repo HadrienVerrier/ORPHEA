@@ -296,7 +296,7 @@ function page(pageName) {
 				$("main").replaceWith(data);
 				window.scrollTo(0, 0);
 				history.pushState(null, null, pageName + ".php");
-				changeHeader(pageName + ".php");
+				changeNav(pageName + ".php");
 
 				//GET DOCUMENT NAME
 				$.ajax({
@@ -317,15 +317,15 @@ function page(pageName) {
 }
 
 //CHANGE HEADER
-function changeHeader(pageName) {
+function changeNav(pageName) {
 	//CHANGE HEADER :
 	$.ajax({
 		async: true,
-		url: "php/function/changeHeader.php",
+		url: "php/function/changeNav.php",
 		type: "POST",
 		data: { pageName: pageName },
 		success: function (data) {
-			$("body > header").replaceWith(data);
+			$("body > header > nav").replaceWith(data);
 		},
 	});
 }

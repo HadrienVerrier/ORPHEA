@@ -160,6 +160,7 @@ function createPage($page)
 
     );
     $data['header'] = getHeaderData($lang);
+    $data['nav'] = getNavData($lang);
     $data['misc'] = getMiscData($lang);
     $data['main'] = getMainData($page, $lang);
 }
@@ -305,11 +306,26 @@ function getMiscData($lang)
         'loggin' => loggin(),
     );
 }
-function getHeaderData($lang, $current_page = null) //OPTIONAL PARAMETER FOR AJAX REQUEST
+function getHeaderData($lang)
 {
     global $request;
     //GET PAGE UNIQUE DATA
     $rule = 'h_%';
+    $results = request("SELECT T.variable_name, T.value FROM translations T LEFT JOIN languages L ON T.language = L.id_language WHERE L.language_sn = :lang AND T.variable_name LIKE :rule", array('lang' => $lang, 'rule' => $rule), false);
+    $results = $results->fetchAll(PDO::FETCH_KEY_PAIR);
+    $request->closeCursor();
+    extract($results);
+
+    return array(
+        'background_alt' => $h_background_alt,
+    );
+}
+
+function getNavData($lang, $current_page = null) //OPTIONAL PARAMETER FOR AJAX REQUEST
+{
+    global $request;
+    //GET PAGE UNIQUE DATA
+    $rule = 'n_%';
     $results = request("SELECT T.variable_name, T.value FROM translations T LEFT JOIN languages L ON T.language = L.id_language WHERE L.language_sn = :lang AND T.variable_name LIKE :rule", array('lang' => $lang, 'rule' => $rule), false);
     $results = $results->fetchAll(PDO::FETCH_KEY_PAIR);
     $request->closeCursor();
@@ -322,16 +338,15 @@ function getHeaderData($lang, $current_page = null) //OPTIONAL PARAMETER FOR AJA
 
     return array(
         'current' => $current_page,
-        'home_page' => $h_home_page,
-        'about_page' => $h_about_page,
-        'about_page_title' => $h_about_page_title,
-        'login_page' => $h_login_page,
-        'login_page_title' => $h_login_page_title,
-        'background_alt' => $h_background_alt,
-        'logout_page' => $h_logout_page,
-        'logout_page_title' => $h_logout_page_title,
-        'dashboard_page' => $h_dashboard_page,
-        'dashboard_page_title' => $h_dashboard_page_title,
+        'home_page' => $n_home_page,
+        'about_page' => $n_about_page,
+        'about_page_title' => $n_about_page_title,
+        'login_page' => $n_login_page,
+        'login_page_title' => $n_login_page_title,
+        'logout_page' => $n_logout_page,
+        'logout_page_title' => $n_logout_page_title,
+        'dashboard_page' => $n_dashboard_page,
+        'dashboard_page_title' => $n_dashboard_page_title,
     );
 }
 function getPopUpData($popup, $lang)
@@ -423,6 +438,7 @@ function getPopUpData($popup, $lang)
             break;
     }
 }
+
 
 
 //COOKIE

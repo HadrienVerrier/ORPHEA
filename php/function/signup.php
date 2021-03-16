@@ -52,6 +52,15 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['passwor
                             ),
                             false
                         );
+
+                        $dest =  $_POST['email'];
+                        $sujet = "ORPHEA - Mail Automatique, ne pas répondre...";
+                        $headers = "From: " . $from;
+                        $corps = "Salut c'est un test";
+
+                        // SEND MAIL
+                        mail($dest, $sujet, $corps, $headers);
+
                         $data = getPopUpData('signup', $lang);
                         trender('pop-up', true);
                     } else {

@@ -305,6 +305,7 @@ function getMiscData($lang)
         'home_page_title' => $misc_home_page_title,
         'logo_alt' => $misc_logo_alt,
         'loggin' => loggin(),
+        'loader' => $misc_loader,
     );
 }
 function getHeaderData($lang)

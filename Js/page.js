@@ -267,6 +267,7 @@ $(document).ready(function () {
 						password_check: $(form + " input#s_c_password").val(),
 					},
 					success: function (data) {
+						$("#loader").fadeOut(100);
 						$(".popup").remove();
 						$("body").append('<section class="popup"></section>');
 						$(".popup").replaceWith(data);
@@ -276,6 +277,7 @@ $(document).ready(function () {
 						});
 					},
 				});
+				$("#loader").fadeIn(200);
 			}
 		}
 	);

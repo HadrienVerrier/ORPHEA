@@ -364,6 +364,30 @@ body > footer a:hover {
   fill: #e366f6;
 }
 
+#loader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 25;
+  background-color: rgba(39, 39, 39, 0.548);
+}
+
+#loader img {
+  opacity: 1;
+  width: 33%;
+  height: 33%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
 /**************/
 /***GENERAL****/
 /**************/

@@ -441,8 +441,6 @@ function getPopUpData($popup, $lang)
     }
 }
 
-
-
 //COOKIE
 function getCookie()
 {

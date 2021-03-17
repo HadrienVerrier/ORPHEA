@@ -20,11 +20,6 @@ if (isset($_SESSION['lang'])) {
 
 //CHECK IF USERNAME EXIST
 
-$_POST['username'] = "HadV3";
-$_POST['email'] = 'verrier.hadrien.pro@gmail.com';
-$_POST['password'] = '0201Hb**';
-$_POST['password_check'] = '0201Hb**';
-
 if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password_check'])) {
 
     //CHECK IF THIS USER EXIST 
@@ -60,7 +55,6 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['passwor
                             ),
                             false
                         );
-
 
                         // SEND MAIL
                         sendMail($_POST['email'], $_POST['username'], 'signup', $lang);

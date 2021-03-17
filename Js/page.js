@@ -22,14 +22,6 @@ $(document).ready(function () {
 		e.preventDefault();
 	});
 
-	//CHANGE LANGUAGE WITH AJAX
-	$("#lang").on("change", function () {
-		let lang = $("#lang option:selected").attr("id");
-		if (lang != "no_language") {
-			$("#lang-form").submit();
-		}
-	});
-
 	//CLOSE POP UP KEYBOARD
 
 	$(document).on("keyup", "body", function (e) {
@@ -156,10 +148,17 @@ $(document).ready(function () {
 	});
 
 	//USE HTML NATIVE VALIDATION
-	$(document).on("submit", "form", function (e) {
+	$(document).on("submit", "main#login form", function (e) {
 		e.preventDefault();
 	});
 
+	//CHANGE LANGUAGE WITH AJAX
+	$("#lang").on("change", function () {
+		let lang = $("#lang option:selected").attr("id");
+		if (lang != "no_language") {
+			$("#lang-form").submit();
+		}
+	});
 	//LOGIN SEQUENCE
 	$("body").on(
 		"click",

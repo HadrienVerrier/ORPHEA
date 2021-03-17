@@ -473,6 +473,7 @@ function sendMail($dest, $user, $type, $lang)
     global $request, $from;
 
     $from = 'hadverrier@gmail.com';
+    // $from = 'no-reply@orphea-project.com';
     //GET PAGE UNIQUE DATA
     $rule = 'mail_' . $type . '_%';
     $results = request("SELECT T.variable_name, T.value FROM translations T LEFT JOIN languages L ON T.language = L.id_language WHERE L.language_sn = :lang AND T.variable_name LIKE :rule", array('lang' => $lang, 'rule' => $rule), false);

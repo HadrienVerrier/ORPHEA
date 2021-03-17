@@ -467,3 +467,27 @@ function deleteAllCookies()
 
     setcookie('lang', 'true', time() - 3600, '/');
 }
+
+//MAIL
+
+function sendMail($dest, $user, $type, $lang)
+{
+    global $request, $from;
+
+    $from = 'hadverrier@gmail.com';
+    //GET PAGE UNIQUE DATA
+    $rule = 'mail_' . $type . '_%';
+    $results = request("SELECT T.variable_name, T.value FROM translations T LEFT JOIN languages L ON T.language = L.id_language WHERE L.language_sn = :lang AND T.variable_name LIKE :rule", array('lang' => $lang, 'rule' => $rule), false);
+    $results = $results->fetchAll(PDO::FETCH_KEY_PAIR);
+    $request->closeCursor();
+    extract($results);
+
+    $headers = "From: " . $from;
+    $content = ${'mail_' . $type . '_content'};
+    $corps = $user . ", " . $content;
+    // echo $headers;
+    // echo '<br/><br/>';
+    // echo '<br/><br/>';
+    // echo $corps;
+    mail($dest, ${'mail_' . $type . '_object'}, $corps, $headers);
+}

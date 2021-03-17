@@ -7,6 +7,7 @@ session_start();
 require_once(dirname(__FILE__, 3) . '/php/function/page.php');
 require_once(dirname(__FILE__, 3) . '/php/function/database.php');
 
+
 //CREATE DB OBJECT
 db();
 
@@ -18,6 +19,11 @@ if (isset($_SESSION['lang'])) {
 }
 
 //CHECK IF USERNAME EXIST
+
+$_POST['username'] = "HadV3";
+$_POST['email'] = 'verrier.hadrien.pro@gmail.com';
+$_POST['password'] = '0201Hb**';
+$_POST['password_check'] = '0201Hb**';
 
 if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password_check'])) {
 
@@ -44,24 +50,20 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['passwor
                     //CHECK IF PASSWORD RESPECT RULES
                     if (preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$#", $_POST['password'])) {
 
-                        //CREATE ACCOUNT IN DB
-                        // request(
-                        //     'INSERT INTO `members` (`id_member`, `nickname`, `password`, `email`, `member_page`) VALUES (NULL, :username, :password, :mail, \'{"disposition": "defaults"}\')',
-                        //     array(
-                        //         'username' => htmlspecialchars($_POST['username']),
-                        //         'password' => password_hash($_POST['password'], PASSWORD_BCRYPT),
-                        //         'mail' => htmlspecialchars($_POST['email'])
-                        //     ),
-                        //     false
-                        // );
+                        // CREATE ACCOUNT IN DB
+                        request(
+                            'INSERT INTO `members` (`id_member`, `nickname`, `password`, `email`, `member_page`) VALUES (NULL, :username, :password, :mail, \'{"disposition": "defaults"}\')',
+                            array(
+                                'username' => htmlspecialchars($_POST['username']),
+                                'password' => password_hash($_POST['password'], PASSWORD_BCRYPT),
+                                'mail' => htmlspecialchars($_POST['email'])
+                            ),
+                            false
+                        );
 
-                        $dest =  $_POST['email'];
-                        $sujet = "ORPHEA - Mail Automatique, ne pas répondre...";
-                        $headers = "From: " . $from;
-                        $corps = "Salut c'est un test";
 
                         // SEND MAIL
-                        mail($dest, $sujet, $corps, $headers);
+                        sendMail($_POST['email'], $_POST['username'], 'signup', $lang);
 
                         $data = getPopUpData('signup', $lang);
                         trender('pop-up', true);

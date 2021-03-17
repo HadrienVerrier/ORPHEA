@@ -256,7 +256,7 @@ $(document).ready(function () {
 				$(form + " input#s_c_password").val().length !== 0
 			) {
 				$.ajax({
-					asyn: true,
+					async: true,
 					url: "php/function/signup.php",
 					type: "POST",
 					data: {
@@ -280,6 +280,69 @@ $(document).ready(function () {
 			}
 		}
 	);
+
+	///////////////
+	//UPDATE DATA//
+	///////////////
+
+	//USERNAME
+
+	$("body").on("click", "main#dashboard li#change-username", function (e) {
+		// e.preventDefault();
+		$("#loader").fadeIn(200);
+		$.ajax({
+			async: true,
+			url: "php/function/updateAccount.php",
+			type: "POST",
+			data: { type: "username" },
+			success: function (data) {
+				$("#loader").fadeOut(100);
+				$(".popup").remove();
+				$("body").append('<section class="popup"></section>');
+				$(".popup").replaceWith(data);
+				$(".popup").fadeIn(300);
+				$(".popup svg").on("click", function () {
+					$(".popup").fadeOut(200);
+					$.ajax({
+						async: true,
+						url: "php/function/updateAccount.php",
+						type: "POST",
+						data: { type: "pop" },
+					});
+				});
+				$("body").on(
+					"click",
+					".popup input[type='submit'] + label",
+					function () {
+						$(".popup").fadeOut(200);
+						$("#loader").fadeIn(200);
+						$.ajax({
+							async: true,
+							url: "php/function/updateAccount.php",
+							type: "POST",
+							data: {
+								type: "username",
+								current_username: $(".popup input#current_username").val(),
+								new_username: $(".popup input#new_username").val(),
+								password: $(".popup input#password").val(),
+							},
+							success: function (data) {
+								$("#loader").fadeOut(100);
+								$(".popup").remove();
+								$("body").append('<section class="popup"></section>');
+								$(".popup").replaceWith(data);
+								$(".popup").fadeIn(300);
+								page("dashboard");
+								$(".popup svg").on("click", function () {
+									$(".popup").fadeOut(200);
+								});
+							},
+						});
+					}
+				);
+			},
+		});
+	});
 });
 
 //LOAD MAIN DATA AND CHANGE WITH AJAX

@@ -58,7 +58,7 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['passwor
 
                         // SEND MAIL
                         sendMail($_POST['email'], $_POST['username'], 'signup', $lang);
-
+                        sleep(1);
                         $data = getPopUpData('signup', $lang);
                         trender('pop-up', true);
                     } else {

@@ -116,3 +116,43 @@
     </svg>
 </section>
 {% endif %}
+
+
+{# UPDATE ACCOUNT #}
+{% if type == 'update_username' %}
+<section class="popup">
+    <h4>{{update_username_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{update_username_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+    <div id="update-username-form">
+    <form action="#" method="POST">
+        <input type="text" id="current_username" name="current_username" placeholder="{{update_username_current_pl}}" required="required"/>
+        <label for="current_username">{{update_username_current_l|upper}}</label>
+        
+        <input type="text" id="new_username" name="new_username" placeholder="{{update_username_new_pl}}" required="required"/>
+        <label for="new_username">{{update_username_new_pl|upper}}</label>
+        
+        <input type="password" id="password" name="password" placeholder="{{update_username_password_pl}}" required="required"/>
+        <label for="password">{{update_username_password_l|upper}}</label>
+        
+        <input type="submit" value="{{update_username_submit|upper}}">
+        <label class="button" for="submit">{{update_username_submit|upper}}</label>
+        </form>
+    </div>
+   
+</section>
+{% endif %}
+
+{% if type == 'valid_update_username' %}
+<section class="popup">
+    <h4>{{valid_update_username_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{valid_update_username_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}

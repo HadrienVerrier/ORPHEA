@@ -438,6 +438,29 @@ function getPopUpData($popup, $lang)
                 'mail_cross' => $mail_cross,
             );
             break;
+        case 'update_username':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'update_username_title' => $update_username_title,
+                'update_username_cross' => $update_username_cross,
+                'update_username_current_pl' => $update_username_current_pl,
+                'update_username_current_l' => $update_username_current_l,
+                'update_username_new_pl' => $update_username_new_pl,
+                'update_username_new_l' => $update_username_new_l,
+                'update_username_password_pl' => $update_username_password_pl,
+                'update_username_password_l' => $update_username_password_l,
+                'update_username_submit' => $update_username_submit,
+            );
+            break;
+        case 'valid_update_username':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'valid_update_username_title' => $valid_update_username_title,
+                'valid_update_username_cross' => $valid_update_username_cross,
+            );
+            break;
     }
 }
 
@@ -472,8 +495,8 @@ function sendMail($dest, $user, $type, $lang)
 {
     global $request, $from;
 
-    $from = 'hadverrier@gmail.com';
-    // $from = 'no-reply@orphea-project.com';
+    // $from = 'hadverrier@gmail.com';
+    $from = 'no-reply@orphea-project.com';
     //GET PAGE UNIQUE DATA
     $rule = 'mail_' . $type . '_%';
     $results = request("SELECT T.variable_name, T.value FROM translations T LEFT JOIN languages L ON T.language = L.id_language WHERE L.language_sn = :lang AND T.variable_name LIKE :rule", array('lang' => $lang, 'rule' => $rule), false);

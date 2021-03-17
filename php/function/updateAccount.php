@@ -19,8 +19,13 @@ if (isset($_SESSION['lang'])) {
 }
 
 //UPDATE SWITCH 
+// $_SESSION['username'] = "HadV";
+// $_POST['type'] = 'username';
+// $_POST['current_username'] = 'HadV';
+// $_POST['new_username'] = 'HadVE';
+// $_POST['password'] = '0201Hb**';
 
-switch ($type) {
+switch ($_POST['type']) {
     case 'username':
         if (!isset($_SESSION['pop'])) {
             $_SESSION['pop'] = true;
@@ -29,7 +34,20 @@ switch ($type) {
             $data = getPopUpData('update_username', $lang);
             trender('pop-up', true);
         } else {
+            sleep(1);
             unset($_SESSION['pop']);
+
+            if ($_POST['current_username'] == $_SESSION['username']) {
+
+                $results = request("SELECT M.password FROM members M WHERE M.nickname = :username", array("username" => $_POST['current_username']), true);
+                if (password_verify($_POST['password'], $results['password'])) {
+                    $_SESSION['username'] = $_POST['new_username'];
+                    request("UPDATE members SET nickname = :new_username WHERE nickname = :username", array('new_username' => $_POST['new_username'], 'username' => $_POST['current_username']), false);
+                    $data = getPopUpData('valid_update_username', $lang);
+                    trender('pop-up', true);
+                }
+            } else {
+            }
         }
         break;
     case 'password':
@@ -53,5 +71,8 @@ switch ($type) {
         } else {
             unset($_SESSION['pop']);
         }
+        break;
+    case 'pop':
+        unset($_SESSION['pop']);
         break;
 }

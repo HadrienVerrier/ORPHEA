@@ -288,7 +288,6 @@ $(document).ready(function () {
 	//USERNAME
 
 	$("body").on("click", "main#dashboard li#change-username", function (e) {
-		// e.preventDefault();
 		$("#loader").fadeIn(200);
 		$.ajax({
 			async: true,
@@ -322,6 +321,63 @@ $(document).ready(function () {
 							type: "POST",
 							data: {
 								type: "username",
+								current_username: $(".popup input#current_username").val(),
+								new_username: $(".popup input#new_username").val(),
+								password: $(".popup input#password").val(),
+							},
+							success: function (data) {
+								$("#loader").fadeOut(100);
+								$(".popup").remove();
+								$("body").append('<section class="popup"></section>');
+								$(".popup").replaceWith(data);
+								$(".popup").fadeIn(300);
+								page("dashboard");
+								$(".popup svg").on("click", function () {
+									$(".popup").fadeOut(200);
+								});
+							},
+						});
+					}
+				);
+			},
+		});
+	});
+
+	//PASSWORD
+	$("body").on("click", "main#dashboard li#change-password", function (e) {
+		$("#loader").fadeIn(200);
+		$.ajax({
+			async: true,
+			url: "php/function/updateAccount.php",
+			type: "POST",
+			data: { type: "password" },
+			success: function (data) {
+				$("#loader").fadeOut(100);
+				$(".popup").remove();
+				$("body").append('<section class="popup"></section>');
+				$(".popup").replaceWith(data);
+				$(".popup").fadeIn(300);
+				$(".popup svg").on("click", function () {
+					$(".popup").fadeOut(200);
+					$.ajax({
+						async: true,
+						url: "php/function/updateAccount.php",
+						type: "POST",
+						data: { type: "pop" },
+					});
+				});
+				$("body").on(
+					"click",
+					".popup input[type='submit'] + label",
+					function () {
+						$(".popup").fadeOut(200);
+						$("#loader").fadeIn(200);
+						$.ajax({
+							async: true,
+							url: "php/function/updateAccount.php",
+							type: "POST",
+							data: {
+								type: "password",
 								current_username: $(".popup input#current_username").val(),
 								new_username: $(".popup input#new_username").val(),
 								password: $(".popup input#password").val(),

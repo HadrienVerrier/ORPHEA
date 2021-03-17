@@ -38,15 +38,19 @@ switch ($_POST['type']) {
             unset($_SESSION['pop']);
 
             if ($_POST['current_username'] == $_SESSION['username']) {
-
-                $results = request("SELECT M.password FROM members M WHERE M.nickname = :username", array("username" => $_POST['current_username']), true);
-                if (password_verify($_POST['password'], $results['password'])) {
-                    $_SESSION['username'] = $_POST['new_username'];
-                    request("UPDATE members SET nickname = :new_username WHERE nickname = :username", array('new_username' => $_POST['new_username'], 'username' => $_POST['current_username']), false);
-                    $data = getPopUpData('valid_update_username', $lang);
+                if (preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$#", $_POST['password'])) {
+                    $results = request("SELECT M.password FROM members M WHERE M.nickname = :username", array("username" => $_POST['current_username']), true);
+                    if (password_verify($_POST['password'], $results['password'])) {
+                        $_SESSION['username'] = $_POST['new_username'];
+                        request("UPDATE members SET nickname = :new_username WHERE nickname = :username", array('new_username' => $_POST['new_username'], 'username' => $_POST['current_username']), false);
+                        $data = getPopUpData('valid_update_username', $lang);
+                        trender('pop-up', true);
+                    }
+                } else {
+                    //PASSWORD IS NOT GOOD
+                    $data = getPopUpData('rules', $lang);
                     trender('pop-up', true);
                 }
-            } else {
             }
         }
         break;

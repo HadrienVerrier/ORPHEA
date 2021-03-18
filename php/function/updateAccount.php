@@ -19,11 +19,6 @@ if (isset($_SESSION['lang'])) {
 }
 
 //UPDATE SWITCH 
-// $_SESSION['username'] = "HadV";
-// $_POST['type'] = 'username';
-// $_POST['current_username'] = 'HadV';
-// $_POST['new_username'] = 'HadVE';
-// $_POST['password'] = '0201Hb**';
 
 switch ($_POST['type']) {
     case 'username':
@@ -39,10 +34,10 @@ switch ($_POST['type']) {
 
             if ($_POST['current_username'] == $_SESSION['username']) {
                 if (preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$#", $_POST['password'])) {
-                    $results = request("SELECT M.password FROM members M WHERE M.nickname = :username", array("username" => $_POST['current_username']), true);
+                    $results = request("SELECT M.password FROM members M WHERE M.nickname = :username", array("username" => htmlspecialchars($_POST['current_username'])), true);
                     if (password_verify($_POST['password'], $results['password'])) {
                         $_SESSION['username'] = $_POST['new_username'];
-                        request("UPDATE members SET nickname = :new_username WHERE nickname = :username", array('new_username' => $_POST['new_username'], 'username' => $_POST['current_username']), false);
+                        request("UPDATE members SET nickname = :new_username WHERE nickname = :username", array('new_username' => htmlspecialchars($_POST['new_username']), 'username' => htmlspecialchars($_POST['current_username'])), false);
                         $data = getPopUpData('valid_update_username', $lang);
                         trender('pop-up', true);
                     }
@@ -62,7 +57,31 @@ switch ($_POST['type']) {
             $data = getPopUpData('update_password', $lang);
             trender('pop-up', true);
         } else {
+            sleep(1);
             unset($_SESSION['pop']);
+
+            if ($_POST['username'] == $_SESSION['username']) {
+                if (preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$#", $_POST['old_password']) && preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$#", $_POST['new_password'])) {
+                    if ($_POST['new_password'] == $_POST['new_password_c']) {
+                        $results = request("SELECT M.password FROM members M WHERE M.nickname = :username", array("username" => htmlspecialchars($_POST['username'])), true);
+                        if (password_verify($_POST['old_password'], $results['password'])) {
+
+                            request("UPDATE members SET password = :password WHERE nickname = :username", array('password' => password_hash($_POST['new_password'], PASSWORD_BCRYPT), 'username' => htmlspecialchars($_POST['username'])), false);
+                            $data = getPopUpData('valid_update_password', $lang);
+                            trender('pop-up', true);
+                        }
+                    } else {
+                        sleep(1);
+                        //PASSWORD NOT MATCH
+                        $data = getPopUpData('match', $lang);
+                        trender('pop-up', true);
+                    }
+                } else {
+                    //PASSWORD IS NOT GOOD
+                    $data = getPopUpData('rules', $lang);
+                    trender('pop-up', true);
+                }
+            }
         }
         break;
     case 'delete':
@@ -73,7 +92,13 @@ switch ($_POST['type']) {
             $data = getPopUpData('delete_account', $lang);
             trender('pop-up', true);
         } else {
+            sleep(1);
+            request('DELETE FROM `members` WHERE `members`.`nickname` = :username ', array('username' => $_SESSION['username']), false);
             unset($_SESSION['pop']);
+            session_unset();
+            session_regenerate_id();
+            session_destroy();
+            echo 'success';
         }
         break;
     case 'pop':

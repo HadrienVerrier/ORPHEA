@@ -1,9 +1,7 @@
 $(document).ready(function () {
 	//HAVE CURRENT PAGE
 	let href = location.href.split("/");
-	href = href[href.length - 1];
-	href = href.split(".");
-	href = href[0];
+	href = href[href.length - 1].split(".")[0];
 	if (href == "") href = "index";
 
 	//MAKE HISTORY WORK WITH AJAX
@@ -29,6 +27,24 @@ $(document).ready(function () {
 			$(".popup").fadeOut(200);
 		}
 	});
+
+	//USE HTML NATIVE VALIDATION
+	$(document).on("submit", "main#login form, main#contact form", function (e) {
+		e.preventDefault();
+	});
+
+	//CHANGE LANGUAGE WITH AJAX
+	$("#lang").on("change", function () {
+		let lang = $("#lang option:selected").attr("id");
+		if (lang != "no_language") {
+			$("#lang-form").submit();
+		}
+	});
+
+	//////////////
+	////COOKIE////
+	//////////////
+
 	//CHECK COOKIE
 	$.ajax({
 		async: true,
@@ -147,18 +163,10 @@ $(document).ready(function () {
 		});
 	});
 
-	//USE HTML NATIVE VALIDATION
-	$(document).on("submit", "main#login form", function (e) {
-		e.preventDefault();
-	});
+	///////////////////////
+	//LOGIN LOGOUT SIGNUP//
+	///////////////////////
 
-	//CHANGE LANGUAGE WITH AJAX
-	$("#lang").on("change", function () {
-		let lang = $("#lang option:selected").attr("id");
-		if (lang != "no_language") {
-			$("#lang-form").submit();
-		}
-	});
 	//LOGIN SEQUENCE
 	$("body").on(
 		"click",
@@ -378,9 +386,10 @@ $(document).ready(function () {
 							type: "POST",
 							data: {
 								type: "password",
-								current_username: $(".popup input#current_username").val(),
-								new_username: $(".popup input#new_username").val(),
-								password: $(".popup input#password").val(),
+								username: $(".popup input#username").val(),
+								old_password: $(".popup input#old_password").val(),
+								new_password: $(".popup input#new_password").val(),
+								new_password_c: $(".popup input#new_password_c").val(),
 							},
 							success: function (data) {
 								$("#loader").fadeOut(100);
@@ -399,6 +408,103 @@ $(document).ready(function () {
 			},
 		});
 	});
+
+	//DELETE ACCOUNT
+	$("body").on("click", "main#dashboard li#delete-account", function (e) {
+		$("#loader").fadeIn(200);
+		$.ajax({
+			async: true,
+			url: "php/function/updateAccount.php",
+			type: "POST",
+			data: { type: "delete" },
+			success: function (data) {
+				$("#loader").fadeOut(100);
+				$(".popup").remove();
+				$("body").append('<section class="popup"></section>');
+				$(".popup").replaceWith(data);
+				$(".popup").fadeIn(300);
+				$(".popup svg").on("click", function () {
+					$(".popup").fadeOut(200);
+					$.ajax({
+						async: true,
+						url: "php/function/updateAccount.php",
+						type: "POST",
+						data: { type: "pop" },
+					});
+				});
+				$("body").on("click", ".popup p[data-mode='true']", function () {
+					$(".popup").fadeOut(200);
+					$("#loader").fadeIn(200);
+					$.ajax({
+						async: true,
+						url: "php/function/updateAccount.php",
+						type: "POST",
+						data: {
+							type: "delete",
+						},
+						success: function (data) {
+							window.location.assign("index.php");
+						},
+					});
+				});
+				$("body").on("click", ".popup p[data-mode='false']", function () {
+					$(".popup").fadeOut(200);
+					$.ajax({
+						async: true,
+						url: "php/function/updateAccount.php",
+						type: "POST",
+						data: {
+							type: "pop",
+						},
+					});
+				});
+			},
+		});
+	});
+
+	////////////////
+	//CONTACT FORM//
+	////////////////
+
+	$("body").on(
+		"click",
+		"main#contact input[type='submit']+label",
+		function (e) {
+			let form = "main#contact form";
+			if (
+				$(form + " input#identity").val().length !== 0 &&
+				$(form + " input#object").val().length !== 0 &&
+				$(form + " textarea#message").val().length !== 0
+			) {
+				e.preventDefault();
+				$("#loader").fadeIn(200);
+				$(form + " input#identity").val("");
+				$(form + " input#object").val("");
+				$(form + " textarea#message").val("");
+				$.ajax({
+					async: true,
+					url: "php/function/message.php",
+					type: "POST",
+					data: {
+						sender: $(form + " input#identity").val(),
+						object: $(form + " input#object").val(),
+						content: $(form + " textarea#message").val(),
+					},
+
+					success: function (data) {
+						$("#loader").fadeOut(100);
+						$(".popup").remove();
+						$("body").append('<section class="popup"></section>');
+						$(".popup").replaceWith(data);
+						$(".popup").fadeIn(300);
+						$(".popup svg").on("click", function () {
+							$(".popup").fadeOut(200);
+						});
+					},
+				});
+			}
+		}
+	);
 });
 
 //LOAD MAIN DATA AND CHANGE WITH AJAX

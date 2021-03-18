@@ -461,6 +461,50 @@ function getPopUpData($popup, $lang)
                 'valid_update_username_cross' => $valid_update_username_cross,
             );
             break;
+        case 'update_password':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'update_password_title' => $update_password_title,
+                'update_password_cross' => $update_password_cross,
+                'update_password_username_pl' => $update_password_username_pl,
+                'update_password_username_l' => $update_password_username_l,
+                'update_password_old_pl' => $update_password_old_pl,
+                'update_password_old_l' => $update_password_old_l,
+                'update_password_new_pl' => $update_password_new_pl,
+                'update_password_new_l' => $update_password_new_l,
+                'update_password_new_c_pl' => $update_password_new_c_pl,
+                'update_password_new_c_l' => $update_password_new_c_l,
+                'update_password_submit' => $update_password_submit,
+            );
+            break;
+        case 'valid_update_password':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'valid_update_password_title' => $valid_update_password_title,
+                'valid_update_password_cross' => $valid_update_password_cross,
+            );
+            break;
+        case 'delete_account':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'delete_account_title' => $delete_account_title,
+                'delete_account_cross' => $delete_account_cross,
+                'delete_account_true' => $delete_account_true,
+                'delete_account_false' => $delete_account_false,
+            );
+            break;
+        case 'contact_send':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'contact_send_title' => $contact_send_title,
+                'contact_send_cross' => $contact_send_cross,
+
+            );
+            break;
     }
 }
 

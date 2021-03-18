@@ -313,7 +313,7 @@ body > footer a:hover {
   margin: 4rem 2rem;
 }
 
-.popup > div#cookie-form p {
+.popup > div#cookie-form p, .popup > div#delete-account-form p {
   display: inline-block;
   cursor: pointer;
   margin: 1rem;
@@ -325,15 +325,15 @@ body > footer a:hover {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
-.popup > div#cookie-form p:hover {
+.popup > div#cookie-form p:hover, .popup > div#delete-account-form p:hover {
   background-color: #18740d;
 }
 
-.popup > div#cookie-form p[data-mode="false"] {
+.popup > div#cookie-form p[data-mode="false"], .popup > div#delete-account-form p[data-mode="false"] {
   background-color: red;
 }
 
-.popup > div#cookie-form p[data-mode="false"]:hover {
+.popup > div#cookie-form p[data-mode="false"]:hover, .popup > div#delete-account-form p[data-mode="false"]:hover {
   background-color: #990000;
 }
 

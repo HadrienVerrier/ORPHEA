@@ -119,6 +119,7 @@
 
 
 {# UPDATE ACCOUNT #}
+
 {% if type == 'update_username' %}
 <section class="popup">
     <h4>{{update_username_title|upper}}</h4>
@@ -151,6 +152,79 @@
     <h4>{{valid_update_username_title|upper}}</h4>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <title>{{valid_update_username_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}
+
+{% if type == 'update_password' %}
+<section class="popup">
+    <h4>{{update_password_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{update_password_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+    <div id="update-password-form">
+    <form action="#" method="POST">
+        <input type="text" id="username" name="username" placeholder="{{update_password_username_pl}}" required="required"/>
+        <label for="username">{{update_password_username_l|upper}}</label>
+        
+        <input type="password" id="old_password" name="old_password" placeholder="{{update_password_old_pl}}" required="required"/>
+        <label for="old_password">{{update_password_old_l|upper}}</label>
+        
+        <input type="password" id="new_password" name="new_password" placeholder="{{update_password_new_pl}}" required="required"/>
+        <label for="new_password">{{update_password_new_l|upper}}</label>
+
+        <input type="password" id="new_password_c" name="new_password_c" placeholder="{{update_password_new_c_pl}}" required="required"/>
+        <label for="new_password_c">{{update_password_new_c_l|upper}}</label>
+        
+        <input type="submit" value="{{update_password_submit|upper}}">
+        <label class="button" for="submit">{{update_password_submit|upper}}</label>
+        </form>
+    </div>
+   
+</section>
+{% endif %}
+
+{% if type == 'valid_update_password' %}
+<section class="popup">
+    <h4>{{valid_update_password_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{valid_update_password_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}
+
+{% if type == 'delete_account' %}
+<section class="popup">
+    <h4>{{delete_account_title|upper}}</h4>
+
+    <div id="delete-account-form">
+        <p data-mode="true">{{delete_account_true}}</p>
+    
+        <p data-mode="false">{{delete_account_false}}</p>
+    </div>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{delete_account_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}
+
+
+{# CONTACT FORM #}
+
+{% if type == 'contact_send' %}
+<section class="popup">
+    <h4>{{contact_send_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{contact_send_cross}}</title>
         <path
             d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
     </svg>

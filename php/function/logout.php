@@ -20,7 +20,7 @@ switch ($_POST['type']) {
     case 'generate':
         $data = getPopUpData('logout', $lang);
         trender('pop-up', true);
-        return;
+
         break;
     case 'validation':
         if ($_POST['response'] == 'true') {

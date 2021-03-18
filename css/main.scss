@@ -357,7 +357,9 @@ body {
 /**************/
 /***GENERAL****/
 /**************/
-
+::selection {
+	background-color: $mainLight;
+}
 a {
 	text-decoration: none;
 	font-style: italic;
@@ -400,7 +402,7 @@ select {
 	outline: none;
 }
 input[type="text"],
-input[type="mail"],
+input[type="email"],
 input[type="password"] {
 	display: block;
 	height: 3.5rem;

@@ -19,7 +19,21 @@ sleep(1);
 if (isset($_POST['resetPopup'])) {
     //RESET POPUP
     unset($_SESSION['pass_forgot']);
-} elseif (isset($_POST['f_password']) && isset($_POST['f_c_password'])) {
+} elseif (isset($_POST['f_password']) && isset($_POST['f_c_password']) && isset($_POST['f_email'])) {
+
+    if ($_POST['f_password'] == $_POST['f_c_password']) {
+        if (preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$#", $_POST['f_password'])) {
+            request("UPDATE members SET password = :password WHERE email = :email", array('password' => password_hash($_POST['f_password'], PASSWORD_BCRYPT), 'email' => htmlspecialchars($_POST['f_email'])), false);
+            header('Location:../../login.php');
+            exit();
+        } else {
+            $data = getPopUpData('rules', $lang);
+            trender('pop-up', true);
+        }
+    } else {
+        $data = getPopUpData('match', $lang);
+        trender('pop-up', true);
+    }
 } elseif (!isset($_SESSION['pass_forgot'])) {
     //PASSWORD FORGOT 
 

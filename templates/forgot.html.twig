@@ -2,7 +2,7 @@
         <section>
             <h2>{{main.forgot_title|upper}}</h2>
             <p>{{main.forgot_p}}</p>
-            <form id='signup_form' action="php/function/forgotPassword.php" type="POST">
+            <form id='signup_form' action="php/function/forgotPassword.php" method="POST">
                 <input type="password" id="f_password" name="f_password" placeholder="{{main.forgot_password_pl}}"
                     required="required" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
                 <label for="f_password">{{main.forgot_password_l}}</label>

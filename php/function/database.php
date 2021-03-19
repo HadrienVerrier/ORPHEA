@@ -2,7 +2,7 @@
 //GENERATE DB CONNEXION
 function db()
 {
-    global $bdd;
+    global $bdd, $host, $dbname, $charset, $username, $password;
     require_once(dirname(__FILE__, 3) . '/php/settings/config.php');
     try {
         $bdd = new PDO('mysql:host=' . $host . ';dbname=' . $dbname . ';charset=' . $charset . '', $username, $password,  array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));

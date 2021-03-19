@@ -1,0 +1,198 @@
+@import url("../css/reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+//DEFINED FONT
+$fTitle: "Big Shoulders Display", cursive;
+$fRegular: "Quicksand", sans-serif;
+$regular: 1.6rem;
+
+//COLORS
+$background: #383838;
+$white: #f7f9f5;
+$main: #650076;
+$mainLight: #b900d7;
+$mainLightPlus: #e366f6;
+$mainDark: #2b1f2d;
+
+//DIMENSION
+$borderRadius: 1.5rem;
+
+@mixin center($v, $h) {
+	position: absolute;
+	@if $v and not $h {
+		top: 50%;
+		transform: translateY(-50%);
+	} @else if $h and not $v {
+		left: 50%;
+		transform: translateX(-50%);
+	} @else if $h and $v {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+%pass_link {
+	color: $white;
+	font-style: normal;
+
+	&:visited {
+		color: $white;
+	}
+}
+
+html {
+	font-size: 62.5%;
+	width: 100%;
+	height: 100%;
+}
+body {
+	background-color: $background;
+	font-family: $fRegular;
+	font-size: $regular;
+	color: $white;
+
+	> header {
+		position: relative;
+		width: 100%;
+		height: 15rem;
+		div#logo {
+			@include center(true, true);
+			a {
+				text-decoration: none;
+				img {
+					margin: 1rem;
+					display: block;
+					width: 7.5rem;
+					height: 7.5rem;
+				}
+				h1 {
+					font-family: $fTitle;
+					font-size: $regular * 2.5;
+					font-weight: bolder;
+					display: block;
+				}
+			}
+		}
+		> img {
+			position: relative;
+
+			z-index: -1;
+			width: 100%;
+			min-height: 10rem;
+			height: 45vh;
+			object-fit: cover;
+		}
+		a {
+			@extend %pass_link;
+		}
+	}
+
+	> main {
+		> section {
+			width: 80%;
+			margin: 2rem auto;
+			background-color: $main;
+			padding: 1.5rem;
+			border-radius: $borderRadius * 0.8;
+			box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+			h2 {
+				font-family: $fTitle;
+				font-size: $regular * 1.8;
+				font-weight: bolder;
+				margin-bottom: 1rem;
+				text-align: center;
+			}
+			p {
+				width: 90%;
+				margin: auto;
+				margin-bottom: 1rem;
+				text-indent: 3rem;
+				line-height: $regular * 1.2;
+			}
+			ul {
+				li {
+					article {
+						padding: 1rem;
+						background-color: darken($main, 10%);
+						border-radius: $borderRadius;
+						box-shadow: inset 8px 8px 8px rgba(0, 0, 0, 0.5);
+
+						margin-bottom: 1rem;
+
+						h3 {
+							margin-top: 0.5rem;
+							font-family: $fTitle;
+							font-size: $regular * 1.5;
+							font-weight: bold;
+							margin: auto;
+							margin-bottom: 2rem;
+							text-align: center;
+							border-bottom: 1px solid $white;
+							width: 33%;
+							padding-bottom: 0.5rem;
+						}
+						ul {
+							width: 70%;
+							margin: auto;
+							li {
+								list-style: square;
+								margin-bottom: 1rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	> footer {
+		position: relative;
+		background-image: url("../ressources/images/logo_pattern/pattern_nb.png");
+		background-size: 7rem * 2;
+		height: 7rem;
+		width: 100%;
+		display: table;
+		> a {
+			display: table-cell;
+			width: 10%;
+			height: 100%;
+			text-align: center;
+			vertical-align: middle;
+		}
+	}
+}
+img {
+	max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+	header {
+		a {
+			img {
+				display: inline-block !important;
+				margin-left: 2rem;
+			}
+		}
+		h1 {
+			display: inline-block !important;
+			vertical-align: middle;
+		}
+	}
+	main {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+		section {
+			&:first-of-type {
+				grid-column-start: 1;
+				grid-column-end: 3;
+			}
+		}
+	}
+}
+@media screen and (min-width: 1024px) {
+	main {
+		max-width: 1200px;
+		margin: auto;
+	}
+}

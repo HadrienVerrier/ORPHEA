@@ -1,4 +1,18 @@
 $(document).ready(function () {
+	//UNSET ALL SESSION POP UP
+	$.ajax({
+		async: true,
+		url: "php/function/forgotPassword.php",
+		type: "POST",
+		data: { resetPopup: "true" },
+	});
+	$.ajax({
+		async: true,
+		url: "php/function/updateAccount.php",
+		type: "POST",
+		data: { type: "pop" },
+	});
+
 	//HAVE CURRENT PAGE
 	let href = location.href.split("/");
 	href = href[href.length - 1].split(".")[0];
@@ -25,6 +39,18 @@ $(document).ready(function () {
 	$(document).on("keyup", "body", function (e) {
 		if (e.key == "Escape") {
 			$(".popup").fadeOut(200);
+			$.ajax({
+				async: true,
+				url: "php/function/forgotPassword.php",
+				type: "POST",
+				data: { resetPopup: "true" },
+			});
+			$.ajax({
+				async: true,
+				url: "php/function/updateAccount.php",
+				type: "POST",
+				data: { type: "pop" },
+			});
 		}
 	});
 
@@ -289,6 +315,56 @@ $(document).ready(function () {
 		}
 	);
 
+	///////////////////
+	//FORGOT PASSWORD//
+	///////////////////
+
+	$("body").on("click", "main#login #pass_forgot", function () {
+		$("#loader").fadeIn(200);
+		$.ajax({
+			async: true,
+			url: "php/function/forgotPassword.php",
+			type: "POST",
+			success: function (data) {
+				$("#loader").fadeOut(100);
+				$(".popup").remove();
+				$("body").append('<section class="popup"></section>');
+				$(".popup").replaceWith(data);
+				$(".popup").fadeIn(300);
+				$(".popup svg").on("click", function () {
+					$(".popup").fadeOut(200);
+					$.ajax({
+						async: true,
+						url: "php/function/forgotPassword.php",
+						type: "POST",
+						data: { resetPopup: "true" },
+					});
+				});
+				$(".popup input[type='submit']+label").on("click", function (e) {
+					e.preventDefault();
+					$(".popup").fadeOut(200);
+					$("#loader").fadeIn(200);
+					$.ajax({
+						async: true,
+						url: "php/function/forgotPassword.php",
+						type: "POST",
+						data: { user_info: $(".popup input#user_info").val() },
+						success: function (data) {
+							$("#loader").fadeOut(100);
+							$(".popup").remove();
+							$("body").append('<section class="popup"></section>');
+							$(".popup").replaceWith(data);
+							$(".popup").fadeIn(300);
+							$(".popup svg").on("click", function () {
+								$(".popup").fadeOut(200);
+							});
+						},
+					});
+				});
+			},
+		});
+	});
+
 	///////////////
 	//UPDATE DATA//
 	///////////////
@@ -478,9 +554,7 @@ $(document).ready(function () {
 			) {
 				e.preventDefault();
 				$("#loader").fadeIn(200);
-				$(form + " input#identity").val("");
-				$(form + " input#object").val("");
-				$(form + " textarea#message").val("");
+
 				$.ajax({
 					async: true,
 					url: "php/function/message.php",
@@ -492,6 +566,9 @@ $(document).ready(function () {
 					},
 
 					success: function (data) {
+						$(form + " input#identity").val("");
+						$(form + " input#object").val("");
+						$(form + " textarea#message").val("");
 						$("#loader").fadeOut(100);
 						$(".popup").remove();
 						$("body").append('<section class="popup"></section>');

@@ -8,7 +8,7 @@
     
         <p data-mode="false">{{cookie_false}}</p>
     </div>
-    <a href="cookies-rules">{{cookie_a}}</a>
+    <a href="cookies-rules" class='nr'>{{cookie_a}}</a>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <title>{{cookie_cross}}</title>
         <path
@@ -225,6 +225,51 @@
     <h4>{{contact_send_title|upper}}</h4>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <title>{{contact_send_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}
+
+{# FORGOT ASK #}
+{% if type == 'forgot_password_ask' %}
+<section class="popup">
+    <h4>{{forgot_password_ask_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{forgot_password_ask_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+    <div id="forgot-password-form">
+    <form action="#" method="POST">
+        <input type="text" id="user_info" name="user_info" placeholder="{{forgot_password_ask_pl}}" required="required"/>
+        <label for="user_info">{{forgot_password_ask_l|upper}}</label>
+
+        <input type="submit" value="{{forgot_password_ask_submit|upper}}">
+        <label class="button" for="submit">{{forgot_password_ask_submit|upper}}</label>
+        </form>
+    </div> 
+</section>
+{% endif %}
+
+{# FORGOT OK #}
+{% if type == 'forgot_password_ok' %}
+<section class="popup">
+    <h4>{{forgot_password_ok_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{forgot_password_ok_cross}}</title>
+        <path
+            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
+    </svg>
+</section>
+{% endif %}
+
+{# FORGOT NO EXIST#}
+{% if type == 'forgot_password_no_exist' %}
+<section class="popup">
+    <h4>{{forgot_password_no_exist_title|upper}}</h4>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <title>{{forgot_password_no_exist_cross}}</title>
         <path
             d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
     </svg>

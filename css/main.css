@@ -183,6 +183,7 @@ body > footer a:hover {
   font-family: "Big Shoulders Display", cursive;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  padding: 1rem;
   cursor: pointer;
 }
 
@@ -1683,6 +1684,21 @@ main#compose #tracks div#t4 div[id^="seq"] > div:nth-of-type(2n) input + label {
 main#compose #tracks div#t4 .next-page:hover,
 main#compose #tracks div#t4 .previous-page:hover {
   fill: var(--tdark);
+}
+
+/*FORGOT*/
+main#forgot section {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+main#forgot section p {
+  margin-bottom: 5rem;
+}
+
+main#forgot section input {
+  margin: auto;
 }
 
 /**************/

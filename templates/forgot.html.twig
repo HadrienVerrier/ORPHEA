@@ -1,0 +1,17 @@
+<main id="forgot">
+        <section>
+            <h2>{{main.forgot_title|upper}}</h2>
+            <p>{{main.forgot_p}}</p>
+            <form id='signup_form' action="php/function/forgotPassword.php" type="POST">
+                <input type="password" id="f_password" name="f_password" placeholder="{{main.forgot_password_pl}}"
+                    required="required" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                <label for="f_password">{{main.forgot_password_l}}</label>
+                <input type="password" id="f_c_password" name="f_c_password" placeholder="{{main.forgot_check_pl}}"
+                    required="required" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                <label for="f_c_password">{{main.forgot_check_l}}</label>
+                <input type="hidden" name="f_email" id="f_email" value="{{misc.f_email}}"> 
+                <input type="submit" value="{{main.forgot_submit|upper}}" name="f_submit" id="f_submit" class="hidden">
+                <label class="button" for="f_submit">{{main.forgot_submit|upper}}</label>
+            </form>
+        </section>
+</main>

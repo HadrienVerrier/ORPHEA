@@ -287,6 +287,18 @@ function getMainData($page, $lang)
                 'dashboard_news' => $dashboard_news,
             );
             break;
+        case 'forgot':
+            //RETURN RESULT
+            return array(
+                'forgot_title' => $forgot_title,
+                'forgot_p' => $forgot_p,
+                'forgot_password_pl' => $forgot_password_pl,
+                'forgot_password_l' => $forgot_password_l,
+                'forgot_check_pl' => $forgot_check_pl,
+                'forgot_check_l' => $forgot_check_l,
+                'forgot_submit' => $forgot_submit,
+            );
+            break;
     }
 }
 
@@ -299,13 +311,16 @@ function getMiscData($lang)
     $results = $results->fetchAll(PDO::FETCH_KEY_PAIR);
     $request->closeCursor();
     extract($results);
-
+    if (!isset($_GET['email_forgot'])) {
+        $_GET['email_forgot'] = 'none';
+    }
     return array(
         'soon' => $misc_soon,
         'home_page_title' => $misc_home_page_title,
         'logo_alt' => $misc_logo_alt,
         'loggin' => loggin(),
         'loader' => $misc_loader,
+        'f_email' => $_GET['email_forgot'],
     );
 }
 function getHeaderData($lang)
@@ -505,6 +520,33 @@ function getPopUpData($popup, $lang)
 
             );
             break;
+        case 'forgot_password_ask':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'forgot_password_ask_title' => $forgot_password_ask_title,
+                'forgot_password_ask_cross' => $forgot_password_ask_cross,
+                'forgot_password_ask_pl' => $forgot_password_ask_pl,
+                'forgot_password_ask_l' => $forgot_password_ask_l,
+                'forgot_password_ask_submit' => $forgot_password_ask_submit,
+            );
+            break;
+        case 'forgot_password_ok':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'forgot_password_ok_title' => $forgot_password_ok_title,
+                'forgot_password_ok_cross' => $forgot_password_ok_cross,
+            );
+            break;
+        case 'forgot_password_no_exist':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'forgot_password_no_exist_title' => $forgot_password_no_exist_title,
+                'forgot_password_no_exist_cross' => $forgot_password_no_exist_cross,
+            );
+            break;
     }
 }
 
@@ -535,12 +577,12 @@ function deleteAllCookies()
 
 //MAIL
 
-function sendMail($dest, $user, $type, $lang)
+function sendMail($dest, $user, $type, $lang, $token = null)
 {
     global $request, $from;
 
-    // $from = 'hadverrier@gmail.com';
     $from = 'no-reply@orphea-project.com';
+
     //GET PAGE UNIQUE DATA
     $rule = 'mail_' . $type . '_%';
     $results = request("SELECT T.variable_name, T.value FROM translations T LEFT JOIN languages L ON T.language = L.id_language WHERE L.language_sn = :lang AND T.variable_name LIKE :rule", array('lang' => $lang, 'rule' => $rule), false);
@@ -550,10 +592,10 @@ function sendMail($dest, $user, $type, $lang)
 
     $headers = "From: " . $from;
     $content = ${'mail_' . $type . '_content'};
-    $corps = $user . ", " . $content;
-    // echo $headers;
-    // echo '<br/><br/>';
-    // echo '<br/><br/>';
-    // echo $corps;
+    $corps = $user . ", " . "\n" . "\n"   . $content;
+    if ($token !== null) {
+        $end = ${'mail_' . $type . '_end'};
+        $corps = $corps . "\n" . "\n" . $token . "\n" . "\n" . $end;
+    }
     mail($dest, ${'mail_' . $type . '_object'}, $corps, $headers);
 }

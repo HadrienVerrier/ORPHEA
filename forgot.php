@@ -12,7 +12,7 @@ if (isset($_GET['token']) && isset($_GET['email_forgot'])) {
     $result = request('SELECT M.password_date FROM members M WHERE M.password_token = :token AND M.email = :email', array('token' => htmlspecialchars($_GET['token']), 'email' => htmlspecialchars($_GET['email_forgot'])), true);
     if (isset($result['password_date'])) {
         $password_date = strtotime('+15 minutes', strtotime($result['password_date']));
-        $dateToday = strtotime('+1 hours', time());
+        $dateToday = strtotime(time());
         //FIND IF TOKEN WAS GENERATAD LESS THAN 15 MINUTES
         if ($password_date < $dateToday) {
             echo 'time out';

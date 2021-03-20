@@ -3,10 +3,10 @@
             <h2>{{main.login_login_title|upper}}</h2>
             <p>{{main.login_login_p}}</p>
             <form id="login_form">
-                <input type="text" id="l_username" name="l_username" placeholder="{{main.login_login_username_pl}}"
+                <input type="text" id="l_username" name="l_username" placeholder="{{main.login_login_username_pl}}" autocomplete="username email"
                     required="required">
                 <label for="l_username">{{main.login_login_username_l}}</label>
-                <input type="password" id="l_password" name="l_password" placeholder="{{main.login_login_password_pl}}"
+                <input type="password" id="l_password" name="l_password" placeholder="{{main.login_login_password_pl}}" autocomplete="current-password"
                     required="required" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
                 <label for="l_password">{{main.login_login_password_l}}</label>
                 {# <input type="checkbox" id="remember" name="remember">
@@ -23,13 +23,13 @@
                 <input type="email" id="s_email" name="s_email" placeholder="{{main.login_login_username_pl}}"
                     required="required">
                 <label for="s_email">{{main.login_signup_mail_l}}</label>
-                <input type="text" id="s_username" name="s_username" placeholder="{{main.login_signup_username_pl}}" required="required">
+                <input type="text" id="s_username" name="s_username" placeholder="{{main.login_signup_username_pl}}" required="required" autocomplete="name">
                 <label for="s_username">{{main.login_signup_username_l}}</label>
-                <input type="password" id="s_password" name="s_password" placeholder="{{main.login_login_password_pl}}"
+                <input type="password" id="s_password" name="s_password" placeholder="{{main.login_login_password_pl}}" autocomplete="new-password"
                     required="required" title="{{main.login_password_tooltip}}" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
                 <label for="s_password">{{main.login_login_password_l}}</label>
                 <input type="password" id="s_c_password" name="s_c_password" placeholder="{{main.login_signup_check_pl}}"
-                    required="required" title="{{main.login_password_tooltip}}" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                    required="required" title="{{main.login_password_tooltip}}" autocomplete="new-password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
                 <label for="s_c_password">{{main.login_signup_check_l}}</label>
                 <input type="submit" value="{{main.login_signup_submit|upper}}" name="s_submit" id="s_submit" class="hidden">
                 <label class="button" for="s_submit">{{main.login_signup_submit|upper}}</label>

@@ -365,6 +365,38 @@ $(document).ready(function () {
 		});
 	});
 
+	$("body").on(
+		"click",
+		'main#forgot input[type="submit"] + label',
+		function (e) {
+			e.preventDefault();
+			$("#loader").fadeIn(200);
+			$.ajax({
+				async: true,
+				url: "php/function/forgotPassword.php",
+				type: "POST",
+				data: {
+					f_password: $("input#f_password").val(),
+					f_c_password: $("input#f_c_password").val(),
+					f_email: $("input#f_email").val(),
+				},
+				success: function (data) {
+					if (data == "success") {
+						window.location = "login.php";
+					} else {
+						$("#loader").fadeOut(100);
+						$(".popup").remove();
+						$("body").append('<section class="popup"></section>');
+						$(".popup").replaceWith(data);
+						$(".popup").fadeIn(300);
+						$(".popup svg").on("click", function () {
+							$(".popup").fadeOut(200);
+						});
+					}
+				},
+			});
+		}
+	);
 	///////////////
 	//UPDATE DATA//
 	///////////////

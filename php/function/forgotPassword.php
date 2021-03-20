@@ -24,8 +24,7 @@ if (isset($_POST['resetPopup'])) {
     if ($_POST['f_password'] == $_POST['f_c_password']) {
         if (preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$#", $_POST['f_password'])) {
             request("UPDATE members SET password = :password WHERE email = :email", array('password' => password_hash($_POST['f_password'], PASSWORD_BCRYPT), 'email' => htmlspecialchars($_POST['f_email'])), false);
-            header('Location:../../login.php');
-            exit();
+            echo 'success';
         } else {
             $data = getPopUpData('rules', $lang);
             trender('pop-up', true);

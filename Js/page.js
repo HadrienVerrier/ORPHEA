@@ -87,9 +87,7 @@ $(document).ready(function () {
 					success: function (data) {
 						//GENERATE POPUP
 
-						$("body").append('<section class="popup"></section>');
-						$(".popup").replaceWith(data);
-						$(".popup").fadeIn(300);
+						popUp(data);
 						let response;
 						$(".popup p").on("click", function () {
 							if ($(this).attr("data-mode") == "true") {
@@ -143,9 +141,7 @@ $(document).ready(function () {
 			success: function (data) {
 				//GENERATE POPUP
 
-				$("body").append('<section class="popup"></section>');
-				$(".popup").replaceWith(data);
-				$(".popup").fadeIn(300);
+				popUp(data);
 				let response;
 				$(".popup p").on("click", function () {
 					if ($(this).attr("data-mode") == "true") {
@@ -214,11 +210,8 @@ $(document).ready(function () {
 					success: function (data) {
 						if (data === "success") {
 							page("dashboard");
-							console.log();
 						} else {
-							$("body").append('<section class="popup"></section>');
-							$(".popup").replaceWith(data);
-							$(".popup").fadeIn(300);
+							popUp(data);
 							$(".popup svg").on("click", function () {
 								$(".popup").fadeOut(100);
 							});
@@ -239,9 +232,7 @@ $(document).ready(function () {
 			success: function (data) {
 				//GENERATE POPUP
 
-				$("body").append('<section class="popup"></section>');
-				$(".popup").replaceWith(data);
-				$(".popup").fadeIn(300);
+				popUp(data);
 				let response;
 				$(".popup p").on("click", function () {
 					if ($(this).attr("data-mode") == "true") {
@@ -300,11 +291,7 @@ $(document).ready(function () {
 						password_check: $(form + " input#s_c_password").val(),
 					},
 					success: function (data) {
-						$("#loader").fadeOut(100);
-						$(".popup").remove();
-						$("body").append('<section class="popup"></section>');
-						$(".popup").replaceWith(data);
-						$(".popup").fadeIn(300);
+						popUp(data);
 						$(".popup svg").on("click", function () {
 							$(".popup").fadeOut(200);
 						});
@@ -326,11 +313,7 @@ $(document).ready(function () {
 			url: "php/function/forgotPassword.php",
 			type: "POST",
 			success: function (data) {
-				$("#loader").fadeOut(100);
-				$(".popup").remove();
-				$("body").append('<section class="popup"></section>');
-				$(".popup").replaceWith(data);
-				$(".popup").fadeIn(300);
+				popUp(data);
 				$(".popup svg").on("click", function () {
 					$(".popup").fadeOut(200);
 					$.ajax({
@@ -350,11 +333,7 @@ $(document).ready(function () {
 						type: "POST",
 						data: { user_info: $(".popup input#user_info").val() },
 						success: function (data) {
-							$("#loader").fadeOut(100);
-							$(".popup").remove();
-							$("body").append('<section class="popup"></section>');
-							$(".popup").replaceWith(data);
-							$(".popup").fadeIn(300);
+							popUp(data);
 							$(".popup svg").on("click", function () {
 								$(".popup").fadeOut(200);
 							});
@@ -384,11 +363,7 @@ $(document).ready(function () {
 					if (data == "success") {
 						window.location = "login.php";
 					} else {
-						$("#loader").fadeOut(100);
-						$(".popup").remove();
-						$("body").append('<section class="popup"></section>');
-						$(".popup").replaceWith(data);
-						$(".popup").fadeIn(300);
+						popUp(data);
 						$(".popup svg").on("click", function () {
 							$(".popup").fadeOut(200);
 						});
@@ -411,11 +386,7 @@ $(document).ready(function () {
 			type: "POST",
 			data: { type: "username" },
 			success: function (data) {
-				$("#loader").fadeOut(100);
-				$(".popup").remove();
-				$("body").append('<section class="popup"></section>');
-				$(".popup").replaceWith(data);
-				$(".popup").fadeIn(300);
+				popUp(data);
 				$(".popup svg").on("click", function () {
 					$(".popup").fadeOut(200);
 					$.ajax({
@@ -442,11 +413,7 @@ $(document).ready(function () {
 								password: $(".popup input#password").val(),
 							},
 							success: function (data) {
-								$("#loader").fadeOut(100);
-								$(".popup").remove();
-								$("body").append('<section class="popup"></section>');
-								$(".popup").replaceWith(data);
-								$(".popup").fadeIn(300);
+								popUp(data);
 								page("dashboard");
 								$(".popup svg").on("click", function () {
 									$(".popup").fadeOut(200);
@@ -468,11 +435,7 @@ $(document).ready(function () {
 			type: "POST",
 			data: { type: "password" },
 			success: function (data) {
-				$("#loader").fadeOut(100);
-				$(".popup").remove();
-				$("body").append('<section class="popup"></section>');
-				$(".popup").replaceWith(data);
-				$(".popup").fadeIn(300);
+				popUp(data);
 				$(".popup svg").on("click", function () {
 					$(".popup").fadeOut(200);
 					$.ajax({
@@ -500,11 +463,7 @@ $(document).ready(function () {
 								new_password_c: $(".popup input#new_password_c").val(),
 							},
 							success: function (data) {
-								$("#loader").fadeOut(100);
-								$(".popup").remove();
-								$("body").append('<section class="popup"></section>');
-								$(".popup").replaceWith(data);
-								$(".popup").fadeIn(300);
+								popUp(data);
 								page("dashboard");
 								$(".popup svg").on("click", function () {
 									$(".popup").fadeOut(200);
@@ -526,11 +485,7 @@ $(document).ready(function () {
 			type: "POST",
 			data: { type: "delete" },
 			success: function (data) {
-				$("#loader").fadeOut(100);
-				$(".popup").remove();
-				$("body").append('<section class="popup"></section>');
-				$(".popup").replaceWith(data);
-				$(".popup").fadeIn(300);
+				popUp(data);
 				$(".popup svg").on("click", function () {
 					$(".popup").fadeOut(200);
 					$.ajax({
@@ -601,11 +556,7 @@ $(document).ready(function () {
 						$(form + " input#identity").val("");
 						$(form + " input#object").val("");
 						$(form + " textarea#message").val("");
-						$("#loader").fadeOut(100);
-						$(".popup").remove();
-						$("body").append('<section class="popup"></section>');
-						$(".popup").replaceWith(data);
-						$(".popup").fadeIn(300);
+						popUp(data);
 						$(".popup svg").on("click", function () {
 							$(".popup").fadeOut(200);
 						});
@@ -663,4 +614,12 @@ function changeNav(pageName) {
 			$("body > header > nav").replaceWith(data);
 		},
 	});
+}
+
+function popUp(data) {
+	$("#loader").fadeOut(100);
+	$(".popup").remove();
+	$("body").append('<section class="popup"></section>');
+	$(".popup").replaceWith(data);
+	$(".popup").fadeIn(300);
 }

@@ -1,0 +1,22 @@
+{% if not admin %}
+<main id="admin">
+    <section>
+        <h2>{{main.admin_title|upper}}</h2>
+        <p>{{main.admin_p}}</p>
+        <form id="login_form">
+            <input type="text" id="username" name="username" placeholder="{{main.admin_username_pl}}" autocomplete="username email"
+                required="required">
+            <label for="username">{{main.admin_username_l}}</label>
+            <input type="password" id="password" name="password" placeholder="{{main.admin_password_pl}}" autocomplete="current-password"
+                required="required" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+            <label for="password">{{main.admin_password_l}}</label>
+            <input type="submit" value="{{main.admin_submit|upper}}" name="submit" id="submit" class="hidden">
+            <label class="button" for="submit">{{main.admin_submit|upper}}</label>
+        </form>
+    </section>
+</main>
+{% elseif admin %}
+<main id="admin">
+   <p>Connecté</p>
+</main>
+{% endif %}

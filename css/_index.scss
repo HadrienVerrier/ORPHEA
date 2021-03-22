@@ -21,15 +21,16 @@ main#index {
 		grid-template-columns: 1fr 1fr 1fr;
 
 		article {
+			display: grid;
+			grid-template-rows: 5rem 6fr 1fr;
 			justify-self: center;
 			min-height: 30rem;
-			max-height: 50rem;
 			width: 65%;
 			padding: 1.5rem;
 			background-color: $main;
 			border-radius: $borderRadius;
 			box-shadow: $shadow;
-
+			padding-bottom: 6rem;
 			h3 {
 				text-align: center;
 				display: block;
@@ -40,8 +41,17 @@ main#index {
 			}
 
 			p {
-				margin: 2rem 1rem;
+				margin: 2rem 1rem 0.5rem;
 				text-indent: 2rem;
+
+				&:not(:first-of-type) {
+					margin-top: 0.5rem;
+					margin-bottom: 0.5rem;
+				}
+			}
+			a {
+				position: relative;
+				top: 1rem;
 			}
 		}
 	}

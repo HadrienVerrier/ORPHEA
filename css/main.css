@@ -975,16 +975,20 @@ main#index > section:not(#video) {
 }
 
 main#index > section:not(#video) article {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 5rem 6fr 1fr;
+      grid-template-rows: 5rem 6fr 1fr;
   -ms-grid-column-align: center;
       justify-self: center;
   min-height: 30rem;
-  max-height: 50rem;
   width: 65%;
   padding: 1.5rem;
   background-color: #650076;
   border-radius: 1.5rem;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  padding-bottom: 6rem;
 }
 
 main#index > section:not(#video) article h3 {
@@ -997,8 +1001,18 @@ main#index > section:not(#video) article h3 {
 }
 
 main#index > section:not(#video) article p {
-  margin: 2rem 1rem;
+  margin: 2rem 1rem 0.5rem;
   text-indent: 2rem;
+}
+
+main#index > section:not(#video) article p:not(:first-of-type) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+main#index > section:not(#video) article a {
+  position: relative;
+  top: 1rem;
 }
 
 /*ABOUT*/

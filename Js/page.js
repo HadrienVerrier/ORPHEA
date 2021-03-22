@@ -584,49 +584,55 @@ $(document).ready(function () {
 		},
 	});
 
-	$("body").on("click", "*[data-translate]", function (e) {
+	//TRANSLATION SEQUENCE
+	$("body").on("mousedown", "*[data-translate]", function (e) {
 		if (admin) {
-			e.preventDefault();
-			$("#loader").fadeIn(200);
-
-			$.ajax({
-				async: true,
-				url: "php/function/getTranslation.php",
-				type: "POST",
-				data: { request: $(this).attr("data-translate"), type: "request" },
-				success: function (data) {
-					popUp(data);
-					$(".popup svg").on("click", function () {
-						$(".popup").fadeOut(200);
-					});
-					$("body").on("click", '.popup label[for="submit"]', function (e) {
-						e.preventDefault();
-						$("#loader").fadeIn(200);
-						$(".popup").fadeOut(100);
-						var changes = {};
-						$(".popup textarea").each(function () {
-							changes[$(this).attr("name")] = {
-								variable_name: $(this).attr("data-trans"),
-								value: $(this).val(),
-								lang: $(this).attr("name"),
-							};
-						});
-						console.log(changes);
-						$.ajax({
-							async: true,
-							url: "php/function/getTranslation.php",
-							type: "POST",
-							data: {
-								type: "change",
-								changes: JSON.stringify(changes),
-							},
-							success: function (data) {
-								document.location.reload();
-							},
-						});
-					});
-				},
+			$(document.body).bind("contextmenu", function (e) {
+				return false;
 			});
+			if (e.which == 3) {
+				e.preventDefault();
+				$("#loader").fadeIn(200);
+
+				$.ajax({
+					async: true,
+					url: "php/function/getTranslation.php",
+					type: "POST",
+					data: { request: $(this).attr("data-translate"), type: "request" },
+					success: function (data) {
+						popUp(data);
+						$(".popup svg").on("click", function () {
+							$(".popup").fadeOut(200);
+						});
+						$("body").on("click", '.popup label[for="submit"]', function (e) {
+							e.preventDefault();
+							$("#loader").fadeIn(200);
+							$(".popup").fadeOut(100);
+							var changes = {};
+							$(".popup textarea").each(function () {
+								changes[$(this).attr("name")] = {
+									variable_name: $(this).attr("data-trans"),
+									value: $(this).val(),
+									lang: $(this).attr("name"),
+								};
+							});
+							console.log(changes);
+							$.ajax({
+								async: true,
+								url: "php/function/getTranslation.php",
+								type: "POST",
+								data: {
+									type: "change",
+									changes: JSON.stringify(changes),
+								},
+								success: function (data) {
+									document.location.reload();
+								},
+							});
+						});
+					},
+				});
+			}
 		}
 	});
 });

@@ -1,7 +1,7 @@
 <main id="contact">
         <section>
-            <h2>{{main.contact_title|upper}}</h2>
-            <p>{{main.contact_p}}</p>
+            <h2 data-translate="contact_title">{{main.contact_title|upper}}</h2>
+            <p data-translate="contact_p">{{main.contact_p}}</p>
             <form action="#" method="POST">
                 <input type="text" id="identity" name="identity" placeholder="{{main.contact_name_pl}}" maxlength="64"
                     required="required" />
@@ -17,7 +17,7 @@
             </form>
         </section>
         <section>
-            <h2>{{main.contact_mail|upper}}</h2>
+            <h2 data-translate="contact_mail">{{main.contact_mail|upper}}</h2>
             <a href="mailto:{{main.contact_mailto}}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <title>{{main.contact_mail_title}}</title>
@@ -26,10 +26,10 @@
                 </svg>
                 {{main.contact_mailto}}
             </a>
-            <p>{{main.contact_p}}</p>
+            <p data-translate="contact_p">{{main.contact_p}}</p>
         </section>
         <section>
-            <h2>{{main.contact_sm_title|upper}}</h2>
+            <h2 data-translate="contact_sm_title">{{main.contact_sm_title|upper}}</h2>
             <ul>
                 <li>
                     <a href="{{main.contact_sm_a1}}">

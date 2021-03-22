@@ -149,13 +149,13 @@ function createPage($page)
             'page_title' => $page_title
         ),
         'footer' => array(
-            'link_title' => $g_link_title,
-            'terms_page' => $g_terms_page,
-            'cookie_page' => $g_cookie_page,
-            'sitemap_page' => $g_sitemap_page,
-            'other_page' => $g_other_page,
-            'contact_page' => $g_contact_page,
-            'report_page' => $g_report_page
+            'g_link_title' => $g_link_title,
+            'g_terms_page' => $g_terms_page,
+            'g_cookie_page' => $g_cookie_page,
+            'g_sitemap_page' => $g_sitemap_page,
+            'g_other_page' => $g_other_page,
+            'g_contact_page' => $g_contact_page,
+            'g_report_page' => $g_report_page
         ),
 
     );
@@ -360,8 +360,8 @@ function getMiscData($lang)
     }
     return array(
         'soon' => $misc_soon,
-        'home_page_title' => $misc_home_page_title,
-        'logo_alt' => $misc_logo_alt,
+        'misc_home_page_title' => $misc_home_page_title,
+        'misc_logo_alt' => $misc_logo_alt,
         'loggin' => loggin(),
         'loader' => $misc_loader,
         'f_email' => $_GET['email_forgot'],
@@ -378,7 +378,7 @@ function getHeaderData($lang)
     extract($results);
 
     return array(
-        'background_alt' => $h_background_alt,
+        'h_background_alt' => $h_background_alt,
     );
 }
 
@@ -399,15 +399,15 @@ function getNavData($lang, $current_page = null) //OPTIONAL PARAMETER FOR AJAX R
 
     return array(
         'current' => $current_page,
-        'home_page' => $n_home_page,
-        'about_page' => $n_about_page,
-        'about_page_title' => $n_about_page_title,
-        'login_page' => $n_login_page,
-        'login_page_title' => $n_login_page_title,
-        'logout_page' => $n_logout_page,
-        'logout_page_title' => $n_logout_page_title,
-        'dashboard_page' => $n_dashboard_page,
-        'dashboard_page_title' => $n_dashboard_page_title,
+        'n_home_page' => $n_home_page,
+        'n_about_page' => $n_about_page,
+        'n_about_page_title' => $n_about_page_title,
+        'n_login_page' => $n_login_page,
+        'n_login_page_title' => $n_login_page_title,
+        'n_logout_page' => $n_logout_page,
+        'n_logout_page_title' => $n_logout_page_title,
+        'n_dashboard_page' => $n_dashboard_page,
+        'n_dashboard_page_title' => $n_dashboard_page_title,
     );
 }
 function getPopUpData($popup, $lang)

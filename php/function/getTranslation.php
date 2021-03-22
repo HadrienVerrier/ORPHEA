@@ -33,7 +33,6 @@ switch ($_POST['type']) {
     case 'change':
         $changes = json_decode($_POST['changes'], true);
         foreach ($changes as $change) {
-            // echo print_r($change);
             request('UPDATE translations T LEFT JOIN languages L ON T.language = L.id_language SET T.value = :value WHERE T.variable_name = :variable AND L.language_sn = :lang', array('value' => $change['value'], 'variable' => $change['variable_name'], 'lang' => $change['lang']), false);
         }
         echo 'success';

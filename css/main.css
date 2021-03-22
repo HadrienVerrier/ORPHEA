@@ -977,8 +977,8 @@ main#index > section:not(#video) {
 main#index > section:not(#video) article {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 5rem 6fr 1fr;
-      grid-template-rows: 5rem 6fr 1fr;
+  -ms-grid-rows: 5rem 2fr 1fr;
+      grid-template-rows: 5rem 2fr 1fr;
   -ms-grid-column-align: center;
       justify-self: center;
   min-height: 30rem;

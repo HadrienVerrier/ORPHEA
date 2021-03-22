@@ -1,9 +1,9 @@
-{% if not admin %}
+{% if main.admin == false %}
 <main id="admin">
     <section>
         <h2>{{main.admin_title|upper}}</h2>
         <p>{{main.admin_p}}</p>
-        <form id="login_form">
+        <form id="login_form" action="admin.php" method='POST'>
             <input type="text" id="username" name="username" placeholder="{{main.admin_username_pl}}" autocomplete="username email"
                 required="required">
             <label for="username">{{main.admin_username_l}}</label>
@@ -15,8 +15,22 @@
         </form>
     </section>
 </main>
-{% elseif admin %}
+{% endif %}
+
+{% if main.admin == true %}
 <main id="admin">
-   <p>Connecté</p>
+   <section>
+   <h2 class="hidden">{{main.admin_dashboard_p}}</h2>
+            <article>
+                <h3>{{main.admin_dashboard_personnal_title|upper}}</h3>
+                <ul>
+                    <li>
+                        <form action='admin.php' method='GET'>
+                            <input type="submit" value='Logout' name='logout' id="logout" class="button"> 
+                        </form>
+                    </li>
+                </ul>
+            </article>
+   </section>
 </main>
 {% endif %}

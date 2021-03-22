@@ -1701,6 +1701,21 @@ main#forgot section input {
   margin: auto;
 }
 
+/*ADMIN*/
+main#admin section {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+main#admin section p {
+  margin-bottom: 5rem;
+}
+
+main#admin section input {
+  margin: auto;
+}
+
 /**************/
 /**RESPONSIVE**/
 /**************/

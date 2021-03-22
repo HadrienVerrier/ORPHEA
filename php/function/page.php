@@ -299,6 +299,50 @@ function getMainData($page, $lang)
                 'forgot_submit' => $forgot_submit,
             );
             break;
+        case 'admin':
+            if (isset($_GET['logout'])) {
+                unset($_SESSION['admin']);
+                header('Location:index.php');
+            }
+            if (isset($_SESSION['admin'])) {
+                $main =  array(
+                    "admin" => true,
+
+                );
+                //CONNECTED
+
+            } else {
+                if (isset($_POST['username']) && isset($_POST['password'])) {
+                    //WANT TO CONNECT
+
+                    $results = request('SELECT A.username, A.password FROM admin A WHERE A.username = :username', array('username' => htmlspecialchars($_POST['username'])), true);
+                    if (!empty($results)) {
+                        if (password_verify($_POST['password'], $results['password'])) {
+                            $_SESSION['admin'] = true;
+                            header('Location:admin.php');
+                        } else {
+                            header('Location:admin.php');
+                        }
+                    } else {
+                        header('Location:admin.php');
+                    }
+                } else {
+                    //NO CONNECTED
+                    $main =  array(
+                        "admin" => false,
+                        'admin_title' => $admin_title,
+                        'admin_p' => $admin_p,
+                        'admin_username_pl' => $admin_username_pl,
+                        'admin_username_l' => $admin_username_l,
+                        'admin_password_pl' => $admin_password_pl,
+                        'admin_password_l' => $admin_password_l,
+                        'admin_submit' => $admin_submit,
+                    );
+                }
+            }
+            //RETURN DATA
+            return $main;
+            break;
     }
 }
 
@@ -545,6 +589,16 @@ function getPopUpData($popup, $lang)
                 'type' => $popup,
                 'forgot_password_no_exist_title' => $forgot_password_no_exist_title,
                 'forgot_password_no_exist_cross' => $forgot_password_no_exist_cross,
+            );
+            break;
+        case 'translation':
+
+            return array(
+                'type' => $popup,
+                'translates' => $GLOBALS['translates'],
+                'translation_title' => $translation_title,
+                'translation_cross' => $translation_cross,
+                'translation_submit' => $translation_submit,
             );
             break;
     }

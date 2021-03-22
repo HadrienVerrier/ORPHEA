@@ -616,7 +616,6 @@ $(document).ready(function () {
 									lang: $(this).attr("name"),
 								};
 							});
-							console.log(changes);
 							$.ajax({
 								async: true,
 								url: "php/function/getTranslation.php",

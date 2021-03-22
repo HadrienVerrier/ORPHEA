@@ -5,6 +5,7 @@ deny from all
 satisfy all
 </Files>
 
+
 # WRITE HTTPS AND WWW
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^orphea-project.com [NC]
@@ -19,3 +20,4 @@ Options All -Indexes
 
 # HIDE SERVER INFOS
 ServerSignature Off
+

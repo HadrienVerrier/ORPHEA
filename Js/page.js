@@ -653,7 +653,7 @@ function page(pageName) {
 				window.scrollTo(0, 0);
 				history.pushState(null, null, pageName + ".php");
 				changeNav(pageName + ".php");
-
+				$("footer form").attr("action", pageName + ".php");
 				//GET DOCUMENT NAME
 				$.ajax({
 					async: true,

@@ -193,17 +193,17 @@ function getMainData($page, $lang)
             break;
         case 'about':
             //SORT Q&A FOR TWIG 
+            $j = 0;
             $qa = array();
-            $i = 0;
             foreach ($results as $key => $value) {
                 if (preg_match('/(about_qa_q)/', $key)) {
-                    $qa[$i] = array($key => $value);
-                    $i++;
+                    array_push($qa, array($key => $value));
                 }
             }
             $qa_ = array();
             for ($i = 0; $i < count($qa) / 2; $i++) {
-                $qa_['q' . ($i + 1)] = array('q' => array_values($qa[$i])[0], 'a' => array_values($qa[$i + 1])[0]);
+                $qa_['q' . ($i + 1)] = array('q' => array_values($qa[$i + $j])[0], 'a' => array_values($qa[$i + $j + 1])[0]);
+                $j++;
             }
             //RETURN RESULT
             return array(

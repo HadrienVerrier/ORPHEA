@@ -25,13 +25,15 @@ $(document).ready(function () {
 
 	//MAKE ALL ANCHOR WORK WITH AJAX
 	$("body").on("click", "a", function (e) {
-		if (!$(this).hasClass("nr")) {
+		if (!$(this).hasClass("nr") && !$(this).hasClass("oa")) {
+			e.preventDefault();
 			let href = $(this).attr("href").split(".");
 			href.pop();
 			href = href.toString();
 			page(href);
+		} else if (!$(this).hasClass("oa")) {
+			e.preventDefault();
 		}
-		e.preventDefault();
 	});
 
 	//CLOSE POP UP KEYBOARD

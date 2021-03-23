@@ -14,15 +14,15 @@
 
     {% if misc.loggin %}
         {% if nav.current == 'dashboard.php' %}
-                <li><a href="data-translate="n_dashboard_page" dashboard.php" title="{{nav.n_dashboard_page_title}}"><strong>{{nav.n_dashboard_page|upper}}</strong></a></li>
+                <li><a href="dashboard.php" data-translate="n_dashboard_page"  title="{{nav.n_dashboard_page_title}}"><strong>{{nav.n_dashboard_page|upper}}</strong></a></li>
         {% else %}
                 <li><a data-translate="n_dashboard_page" href="dashboard.php" title="{{nav.n_dashboard_page_title}}">{{nav.n_dashboard_page|upper}}</a></li>
         {% endif %}
         
-        <li><a href="logout.data-translate="n_logout_page" php" class='nr' title="{{nav.n_logout_page_title}}">{{nav.n_logout_page|upper}}</a></li>
+        <li><a href="logout.php" data-translate="n_logout_page"  class='nr' title="{{nav.n_logout_page_title}}">{{nav.n_logout_page|upper}}</a></li>
     {% else %}
         {% if nav.current == 'login.php' %}
-                <li><a href="data-translate="n_login_page" login.php" title="{{nav.n_login_page_title}}"><strong>{{nav.n_login_page|upper}}</strong></a></li>
+                <li><a href="login.php" data-translate="n_login_page"  title="{{nav.n_login_page_title}}"><strong>{{nav.n_login_page|upper}}</strong></a></li>
         {% else %}
                 <li><a data-translate="n_login_page" href="login.php" title="{{nav.n_login_page_title}}">{{nav.n_login_page|upper}}</a></li>
         {% endif %}

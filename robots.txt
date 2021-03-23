@@ -1,2 +1,5 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://www.orphea-project.com/sitemap.xml
+Sitemap: http://www.orphea-project.com/sitemap.xml

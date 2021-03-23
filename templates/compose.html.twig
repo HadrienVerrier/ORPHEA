@@ -4,95 +4,96 @@
                 <path
                     d="M12 0c-3.31 0-6.291 1.353-8.459 3.522l-2.48-2.48-1.061 7.341 7.437-.966-2.489-2.488c1.808-1.808 4.299-2.929 7.052-2.929 5.514 0 10 4.486 10 10s-4.486 10-10 10c-3.872 0-7.229-2.216-8.89-5.443l-1.717 1.046c2.012 3.803 6.005 6.397 10.607 6.397 6.627 0 12-5.373 12-12s-5.373-12-12-12z" />
             </svg>
-            <p>PLEASE GO TO LAPTOP OR SWITCH TO LANDSCAPE MODE</p>
+            <p>{{misc.misc_phone|upper}}</p>
         </div>
     </div>
     <header>
-        <h2>LOOP EDITION TOOLS</h2>
+        <h2>{{main.compose_loop_edition|upper}} </h2>
         <div id="loop-container">
-            <input type="text" id="l_name" name="l_name" placeholder="Your Loop name here" required="required">
-            <label for="l_name">LOOP NAME</label>
+            <input type="text" id="l_name" name="l_name" placeholder="{{main.compose_loop_name_pl}}" required="required">
+            <label for="l_name">{{main.compose_loop_name_l|upper}}</label>
         </div>
         <div id="bpm-container">
-            <input type="number" id="l_bpm" name="l_bpm" placeholder="Loop BPM" min="30" max="280" value="80" required="required">
-            <label for="l_bpm">BPM</label>
+            <input type="number" id="l_bpm" name="l_bpm" min="30" max="280" value="80" required="required">
+            <label for="l_bpm">{{main.compose_loop_bpm_l|upper}}</label>
         </div>
         <div>
-            <input type="text" id="tags" name="tags" placeholder="EMD, Trap, Rap, etc" required="required">
-            <label for="tags">Tags</label>
+            <input type="text" id="tags" name="tags" placeholder="{{main.compose_loop_tags_pl}}" required="required">
+            <label for="tags">{{main.compose_loop_tags_l|upper}}</label>
         </div>
         <div id='licence-container'>
             <select name="licence" id="licence" required="required">
-                <option value="">-- Choose Licence --</option>
-                <option value="ccby">CC-BY</option>
-                <option value="ccbync">CC-BY-NC</option>
-                <option value="ccbyncnd">CC-BY-NC-ND</option>
-                <option value="private">PRIVATE</option>
+                <option value="">-- {{compose_loop_licence_pl|upper}} --</option>
+                <option value="ccby" placeholder="">CC-BY</option>
+                <option value="ccbync" placeholder="">CC-BY-NC</option>
+                <option value="ccbyncnd" placeholder="">CC-BY-NC-ND</option>
+                <option value="private" placeholder="">PRIVATE</option>
             </select>
-            <label for="licence">Your licence</label>
+            <label for="licence">{{main.compose_loop_licence_l|upper}}</label>
         </div>
         <div id="export-container">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <title>Click here to save your loop</title>
+                <title>{{main.compose_loop_save}}</title>
                 <path
                     d="M14 3h2.997v5h-2.997v-5zm9 1v20h-22v-24h17.997l4.003 4zm-17 5h12v-7h-12v7zm14 4h-16v9h16v-9z" />
             </svg>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <title>Click Here to Delete your loop</title>
+                <title>{{main.compose_loop_delete}}</title>
                 <path
                     d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z" />
             </svg>
         </div>
     </header>
     <section id="transport_controls">
-        <h3 class="hidden">Transport Controls</h3>
+        <h3 class="hidden">{{main.compose_transport_title}}</h3>
         <svg id="play" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <title>Play</title>
+            <title>{{main.compose_transport_play}}</title>
             <path d="M3 22v-20l18 10-18 10z" />
         </svg>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <title>Stop</title>
+            <title>{{main.compose_transport_stop}}</title>
             <path d="M2 2h20v20h-20z" />
         </svg>
     </section>
     <div id="transport_mark"></div>
         <section id="tracks">
-            <h3 class="hidden">Your Tracks</h3>
+            <h3 class="hidden">{{main.compose_tracks_title}}</h3>
             {% for t in 1..4 %}
             <div id="t{{t}}">
                 <div class="controls">
                     <div>
                         <select id="midi_input_t{{t}}" name="midi_input_t{{t}}">
-                            <option value="">--SELECT MIDI DEVICE--</option>
+                            <option value="">-- {{main.compose_midi_device_pl|upper}} --</option>
                         </select>
-                        <label for="midi_input_t{{t}}">MIDI INPUT</label>
+                        <label for="midi_input_t{{t}}">{{main.compose_midi_device_l|upper}}</label>
                         <select id="midi_channel_t{{t}}" name="midi_channel_t{{t}}">
-                            <option value="">--SELECT MIDI CHANNEL--</option>
+                            <option value="">-- {{main.compose_midi_channel_pl|upper}} --</option>
                             {% for c in 1..16 %}
                             <option value="ch_t{{t}}_{{c}}">{{c}}</option>
                             {% endfor %}
                         </select>
-                        <label for="midi_channel_t{{t}}">MIDI CHANNEL</label>
+                        <label for="midi_channel_t{{t}}">{{main.compose_midi_channel_l|upper}}</label>
 
                         <input type="checkbox" id="mute_t{{t}}" name="mute_t{{t}}">
                         <label for="mute_t{{t}}">M</label>
                         <input type="checkbox" id="solo_t{{t}}" name="solo_t{{t}}">
                         <label for="solo_t{{t}}">S</label>
+                        
                         <div class="dbMeter" id="db_t{{t}}"></div>
 
                         <svg id='settings_t{{t}}' xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24">
-                            <title>Click Here to change settings on synth</title>
+                            <title>{{main.compose_track_settings}}</title>
                             <path
                                     d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" />
                         </svg>
                         <div id="pan_t{{t}}"></div>
                         <svg id="rec_t{{t}}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <title>Click here to record this loop</title>
+                            <title>{{main.compose_track_record}}</title>
                             <circle cx="12" cy="12" r="12" />
                         </svg>
 
-                        <p class="track-name">TRACK {{t}}</p>
+                        <p class="track-name">{{main.compose_track|upper}} {{t}}</p>
                     </div>
                 </div>
                 {% if loop.first %}

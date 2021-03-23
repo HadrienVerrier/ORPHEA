@@ -343,6 +343,33 @@ function getMainData($page, $lang)
             //RETURN DATA
             return $main;
             break;
+        case 'compose':
+            //RETURN RESULT
+            return array(
+                'compose_loop_edition' => $compose_loop_edition,
+                'compose_loop_name_pl' => $compose_loop_name_pl,
+                'compose_loop_name_l' => $compose_loop_name_l,
+                'compose_loop_bpm_l' => $compose_loop_bpm_l,
+                'compose_loop_tags_pl' => $compose_loop_tags_pl,
+                'compose_loop_tags_l' => $compose_loop_tags_l,
+                'compose_loop_licence_pl' => $compose_loop_licence_pl,
+                'compose_loop_licence_l' => $compose_loop_licence_l,
+                'compose_loop_save' => $compose_loop_save,
+                'compose_loop_delete' => $compose_loop_delete,
+                'compose_transport_title' => $compose_transport_title,
+                'compose_transport_play' => $compose_transport_play,
+                'compose_transport_stop' => $compose_transport_stop,
+                'compose_tracks_title' => $compose_tracks_title,
+                'compose_midi_device_pl' => $compose_midi_device_pl,
+                'compose_midi_device_l' => $compose_midi_device_l,
+                'compose_midi_channel_pl' => $compose_midi_channel_pl,
+                'compose_midi_channel_l' => $compose_midi_channel_l,
+                'compose_track_settings' => $compose_track_settings,
+                'compose_track_record' => $compose_track_record,
+                'compose_track' => $compose_track,
+
+            );
+            break;
     }
 }
 
@@ -365,6 +392,7 @@ function getMiscData($lang)
         'loggin' => loggin(),
         'loader' => $misc_loader,
         'f_email' => $_GET['email_forgot'],
+        'misc_phone' => $misc_phone
     );
 }
 function getHeaderData($lang)

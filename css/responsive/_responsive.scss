@@ -24,6 +24,7 @@
 	body {
 		> main {
 			@import "regular/_dashboard.scss";
+			@import "regular/_compose.scss";
 		}
 		> aside {
 			@import "regular/_player.scss";
@@ -109,6 +110,7 @@
 
 			@import "small/_member.scss";
 
+			@import "regular/_compose.scss";
 			@import "small/_compose.scss";
 		}
 		> aside {

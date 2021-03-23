@@ -1,0 +1,26 @@
+&#compose {
+	header {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+
+		#licence-container {
+			grid-row-start: 3;
+			grid-column-start: 1;
+			grid-column-end: 3;
+		}
+
+		#export-container {
+			grid-row-start: 3;
+			grid-column-start: 3;
+			grid-column-end: 5;
+		}
+
+		#bpm-container {
+			grid-column-start: 2;
+			grid-column-end: 4;
+		}
+	}
+	#transport_controls {
+		top: 18rem;
+	}
+}

@@ -454,6 +454,7 @@ select {
   background-color: #383838;
   color: #f7f9f5;
   border: 1px solid #aaa;
+  height: 3.5rem;
 }
 
 select:hover {
@@ -467,6 +468,26 @@ select:focus {
   outline: none;
 }
 
+select + label {
+  display: block;
+  position: relative;
+  top: -7.8rem;
+  font-size: 1.28rem;
+}
+
+select:required + label::after {
+  content: "*";
+  position: relative;
+  top: 2.2rem;
+  padding-left: 1rem;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  font-family: "Big Shoulders Display", cursive;
+  color: #e366f6;
+  font-size: 4rem;
+}
+
 *:focus-visible {
   border-color: #aaa;
   -webkit-box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
@@ -476,6 +497,7 @@ select:focus {
 
 input[type="text"],
 input[type="email"],
+input[type="number"],
 input[type="password"] {
   display: block;
   height: 3.5rem;
@@ -494,12 +516,14 @@ input[type="password"] {
 
 input[type="text"]:hover,
 input[type="email"]:hover,
+input[type="number"]:hover,
 input[type="password"]:hover {
   background-color: white;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
+input[type="number"]:focus,
 input[type="password"]:focus {
   border-color: #aaa;
   -webkit-box-shadow: 0 0 1px 3px rgba(236, 59, 252, 0.7);
@@ -509,6 +533,7 @@ input[type="password"]:focus {
 
 input[type="text"] + label,
 input[type="email"] + label,
+input[type="number"] + label,
 input[type="password"] + label {
   display: block;
   position: relative;
@@ -518,6 +543,7 @@ input[type="password"] + label {
 
 input[type="text"]:required + label::after,
 input[type="email"]:required + label::after,
+input[type="number"]:required + label::after,
 input[type="password"]:required + label::after {
   content: "*";
   position: relative;
@@ -1343,12 +1369,75 @@ main#member > section > article {
 }
 
 /*COMPOSE*/
+main#compose {
+  position: relative;
+}
+
 main#compose header {
-  display: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+  top: -2.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  justify-items: center;
+}
+
+main#compose header h2 {
+  text-align: center;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 6;
+}
+
+main#compose header svg {
+  fill: #f7f9f5;
+  -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.411));
+          filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.411));
+  margin-right: 2rem;
+}
+
+main#compose header svg:hover:first-of-type {
+  -webkit-transition: fill 0.1s;
+  transition: fill 0.1s;
+  fill: #1f9410;
+}
+
+main#compose header svg:hover:last-of-type {
+  -webkit-transition: fill 0.1s;
+  transition: fill 0.1s;
+  fill: red;
+}
+
+main#compose header select {
+  color: #383838;
+  background-color: #f7f9f5;
+}
+
+main#compose header p {
+  margin: 0;
+  text-indent: 0;
 }
 
 main#compose #transport_controls {
-  display: none;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 11rem;
+}
+
+main#compose #transport_controls svg {
+  fill: #f7f9f5;
+  -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.411));
+          filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.411));
+  margin-right: 2rem;
 }
 
 main#compose #transport_mark {
@@ -1509,8 +1598,8 @@ main#compose #tracks > div[id^="t"] div[id^="seq"] > div input + label:nth-of-ty
 }
 
 main#compose #tracks > div[id^="t"] div[id^="seq"] > div input:checked + label {
-  background-color: #f7f9f5 !important;
-  border: 1px solid #383838 !important;
+  position: relative;
+  background-color: #515151 !important;
 }
 
 main#compose #tracks > div[id^="t"] .next-page,
@@ -1587,6 +1676,20 @@ main#compose #tracks div#t1 div[id^="seq"] > div input + label {
   border: 1px solid var(--tlight);
 }
 
+main#compose #tracks div#t1 div[id^="seq"] > div input:checked + label::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.15rem;
+  background-color: var(--tmain);
+}
+
 main#compose #tracks div#t1 div[id^="seq"] > div:nth-of-type(2n) input + label {
   background-color: var(--tdark);
 }
@@ -1620,6 +1723,20 @@ main#compose #tracks div#t2 .controls > div svg {
 main#compose #tracks div#t2 div[id^="seq"] > div input + label {
   background-color: var(--tmain);
   border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t2 div[id^="seq"] > div input:checked + label::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.15rem;
+  background-color: var(--tmain);
 }
 
 main#compose #tracks div#t2 div[id^="seq"] > div:nth-of-type(2n) input + label {
@@ -1657,6 +1774,20 @@ main#compose #tracks div#t3 div[id^="seq"] > div input + label {
   border: 1px solid var(--tlight);
 }
 
+main#compose #tracks div#t3 div[id^="seq"] > div input:checked + label::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.15rem;
+  background-color: var(--tmain);
+}
+
 main#compose #tracks div#t3 div[id^="seq"] > div:nth-of-type(2n) input + label {
   background-color: var(--tdark);
 }
@@ -1690,6 +1821,20 @@ main#compose #tracks div#t4 .controls > div svg {
 main#compose #tracks div#t4 div[id^="seq"] > div input + label {
   background-color: var(--tmain);
   border: 1px solid var(--tlight);
+}
+
+main#compose #tracks div#t4 div[id^="seq"] > div input:checked + label::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.15rem;
+  background-color: var(--tmain);
 }
 
 main#compose #tracks div#t4 div[id^="seq"] > div:nth-of-type(2n) input + label {
@@ -1754,6 +1899,34 @@ main#admin section input {
 @media only screen and (min-width: 750px) and (max-width: 1199px) {
   body > main#dashboard article {
     width: 85%;
+  }
+  body > main#compose header {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+  }
+  body > main#compose header #licence-container {
+    -ms-grid-row: 3;
+        grid-row-start: 3;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  body > main#compose header #export-container {
+    -ms-grid-row: 3;
+        grid-row-start: 3;
+    -ms-grid-column: 3;
+        grid-column-start: 3;
+    grid-column-end: 5;
+  }
+  body > main#compose header #bpm-container {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    grid-column-end: 4;
+  }
+  body > main#compose #transport_controls {
+    top: 18rem;
   }
   body > aside#player-container #player {
     -ms-grid-columns: 1fr 1fr 2fr 0.5fr !important;
@@ -1930,6 +2103,34 @@ main#admin section input {
         grid-template-columns: 50% 50%;
     position: relative;
     left: -1rem;
+  }
+  body > main#compose header {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+  }
+  body > main#compose header #licence-container {
+    -ms-grid-row: 3;
+        grid-row-start: 3;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  body > main#compose header #export-container {
+    -ms-grid-row: 3;
+        grid-row-start: 3;
+    -ms-grid-column: 3;
+        grid-column-start: 3;
+    grid-column-end: 5;
+  }
+  body > main#compose header #bpm-container {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    grid-column-end: 4;
+  }
+  body > main#compose #transport_controls {
+    top: 18rem;
   }
   body > main#compose #tracks > div[id^="t"] {
     min-width: 50rem;

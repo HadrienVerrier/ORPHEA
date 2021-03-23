@@ -6,8 +6,12 @@
     {% include 'header.html.twig' %}
 
     {% include page ~ ".html.twig" %}
-        <!--PLAYER-->
-    {% include 'player.html.twig' %}
+
+    {% if nav.current != "compose.php" %}
+
+        {% include 'player.html.twig' %}
+        
+    {% endif %}
 
     {% include 'footer.html.twig' %}
 

@@ -427,11 +427,12 @@ body > footer a:hover {
 a {
   text-decoration: none;
   font-style: italic;
-  color: #e366f6;
+  color: #650076;
+  font-weight: bolder;
 }
 
 a:visited {
-  color: #b900d7;
+  color: #2b1f2d;
 }
 
 strong {

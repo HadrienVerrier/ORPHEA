@@ -364,10 +364,10 @@ body {
 a {
 	text-decoration: none;
 	font-style: italic;
-	color: $mainLightPlus;
-
+	color: $main;
+	font-weight: bolder;
 	&:visited {
-		color: $mainLight;
+		color: $mainDark;
 	}
 }
 strong {
@@ -485,7 +485,6 @@ input[type="submit"] + label {
 
 /*ADMIN*/
 @import "_admin.scss";
-
 
 /**************/
 /**RESPONSIVE**/

@@ -305,6 +305,13 @@ body {
 			margin: 4rem auto;
 			width: 50%;
 		}
+		&#pu-compose-form {
+			p {
+				border-radius: $borderRadius;
+				margin: 2rem;
+				height: 4rem;
+			}
+		}
 	}
 	a {
 		@extend %pass_link;
@@ -471,6 +478,33 @@ input[type="password"] {
 input[type="submit"] + label {
 	width: 10rem;
 	margin: 2rem auto;
+}
+
+/***************/
+/***ANIMATION***/
+/***************/
+
+@keyframes scroll {
+	0% {
+		left: 0;
+		transform: translate(0, 0);
+	}
+	50% {
+		left: 0;
+		transform: translate(0, 0);
+	}
+	85% {
+		left: -100%;
+		transform: translate(-100%, 0);
+	}
+	85.001% {
+		left: 100%;
+		transform: translate(0, 0);
+	}
+	100% {
+		left: 0;
+		transform: translate(0, 0);
+	}
 }
 
 /************/

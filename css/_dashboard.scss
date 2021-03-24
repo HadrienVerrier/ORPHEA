@@ -74,3 +74,131 @@ main#dashboard {
 		}
 	}
 }
+
+.popup.loop {
+	div#pu_loop {
+		div#loop_results {
+			background-color: $mainDark;
+			padding: 1rem;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+
+			article {
+				width: 12rem;
+				border-radius: $borderRadius * 0.5;
+				overflow: hidden;
+				position: relative;
+				margin: 0.5rem;
+				span {
+					white-space: nowrap;
+					overflow: hidden;
+					position: absolute;
+					animation-name: scroll;
+					animation-duration: 10s;
+					animation-timing-function: linear;
+					animation-iteration-count: infinite;
+				}
+				img {
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+				}
+				h6 {
+					width: calc(100% - 1rem);
+					position: absolute;
+					bottom: 3rem;
+					left: 0.5rem;
+					font-size: $regular * 0.9;
+				}
+				p {
+					width: calc(100% - 1rem);
+					text-indent: 0;
+					position: absolute;
+					bottom: 1.5rem;
+					left: 0.5rem;
+					font-size: $regular * 0.7;
+					font-style: italic;
+				}
+				.menu {
+					user-select: none;
+					position: absolute;
+					right: 1.5rem;
+					top: 1.5rem;
+
+					border-radius: $borderRadius * 0.5;
+					background-color: rgba(36, 36, 36, 0.795);
+					padding: 1rem;
+					li {
+						direction: rtl;
+						text-align: right;
+						cursor: pointer;
+						margin-bottom: 0.5rem;
+						&::before {
+							content: "\2022";
+							margin-left: 0.5rem;
+						}
+						&:hover {
+							text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+						}
+					}
+				}
+				.sub {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					border-radius: $borderRadius * 0.5;
+					background-color: rgba(36, 36, 36, 0.795);
+					padding: 1rem;
+
+					input[type="text"] {
+						position: relative;
+						top: 3rem;
+						left: 0.5rem;
+						width: 9rem;
+						height: 2.2rem;
+						& + label {
+							font-size: $regular * 0.6;
+							position: relative;
+							top: -3.5em;
+							left: 0.3rem;
+						}
+					}
+					label[for="submit"] {
+						font-size: $regular;
+						line-height: $regular / 1.5;
+						height: 1rem;
+						position: absolute;
+						bottom: 0rem;
+						left: 1.5rem;
+					}
+				}
+				svg {
+					user-select: none;
+					&.loop-play,
+					&.loop-edit {
+						@include center(true, false);
+						top: 45%;
+						right: 1.5rem;
+						width: 2.5rem;
+						height: 2.5rem;
+						transform: translate(0, -50%);
+						&.loop-edit {
+							right: unset;
+							left: 1.5rem;
+						}
+					}
+					&.loop-menu {
+						position: absolute;
+						top: 0.2rem;
+						right: 0.5rem;
+						width: 1.2rem;
+					}
+
+					&:hover {
+						fill: $background;
+					}
+				}
+			}
+		}
+	}
+}

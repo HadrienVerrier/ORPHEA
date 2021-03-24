@@ -354,6 +354,12 @@ body > footer a:hover {
   width: 50%;
 }
 
+.popup > div#pu-compose-form p {
+  border-radius: 1.5rem;
+  margin: 2rem;
+  height: 4rem;
+}
+
 .popup a {
   font-style: italic !important;
   position: absolute;
@@ -560,6 +566,64 @@ input[type="password"]:required + label::after {
 input[type="submit"] + label {
   width: 10rem;
   margin: 2rem auto;
+}
+
+/***************/
+/***ANIMATION***/
+/***************/
+@-webkit-keyframes scroll {
+  0% {
+    left: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  50% {
+    left: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  85% {
+    left: -100%;
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+  85.001% {
+    left: 100%;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    left: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@keyframes scroll {
+  0% {
+    left: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  50% {
+    left: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  85% {
+    left: -100%;
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+  85.001% {
+    left: 100%;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    left: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
 }
 
 /************/
@@ -1310,6 +1374,160 @@ main#dashboard > section article ul {
 main#dashboard > section article ul li a svg {
   fill: #f7f9f5;
   vertical-align: text-bottom;
+}
+
+.popup.loop div#pu_loop div#loop_results {
+  background-color: #2b1f2d;
+  padding: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.popup.loop div#pu_loop div#loop_results article {
+  width: 12rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  position: relative;
+  margin: 0.5rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article span {
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  -webkit-animation-name: scroll;
+          animation-name: scroll;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.popup.loop div#pu_loop div#loop_results article img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.popup.loop div#pu_loop div#loop_results article h6 {
+  width: calc(100% - 1rem);
+  position: absolute;
+  bottom: 3rem;
+  left: 0.5rem;
+  font-size: 1.44rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article p {
+  width: calc(100% - 1rem);
+  text-indent: 0;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0.5rem;
+  font-size: 1.12rem;
+  font-style: italic;
+}
+
+.popup.loop div#pu_loop div#loop_results article .menu {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  border-radius: 0.75rem;
+  background-color: rgba(36, 36, 36, 0.795);
+  padding: 1rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article .menu li {
+  direction: rtl;
+  text-align: right;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article .menu li::before {
+  content: "\2022";
+  margin-left: 0.5rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article .menu li:hover {
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.popup.loop div#pu_loop div#loop_results article .sub {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 0.75rem;
+  background-color: rgba(36, 36, 36, 0.795);
+  padding: 1rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article .sub input[type="text"] {
+  position: relative;
+  top: 3rem;
+  left: 0.5rem;
+  width: 9rem;
+  height: 2.2rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article .sub input[type="text"] + label {
+  font-size: 0.96rem;
+  position: relative;
+  top: -3.5em;
+  left: 0.3rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article .sub label[for="submit"] {
+  font-size: 1.6rem;
+  line-height: 1.06667rem;
+  height: 1rem;
+  position: absolute;
+  bottom: 0rem;
+  left: 1.5rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article svg {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.popup.loop div#pu_loop div#loop_results article svg.loop-play, .popup.loop div#pu_loop div#loop_results article svg.loop-edit {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 45%;
+  right: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.popup.loop div#pu_loop div#loop_results article svg.loop-play.loop-edit, .popup.loop div#pu_loop div#loop_results article svg.loop-edit.loop-edit {
+  right: unset;
+  left: 1.5rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article svg.loop-menu {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.5rem;
+  width: 1.2rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article svg:hover {
+  fill: #383838;
 }
 
 /*MEMBER PAGE*/

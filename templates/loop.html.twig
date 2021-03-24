@@ -1,0 +1,26 @@
+<article>
+	<h6 class="scroll">
+		<span>{{l.name}}</span>
+	</h6>
+	<p class="scroll">
+		<span>{{l.date|date('d/m/Y  -  H\\hm')}}</span>
+	</p>
+
+	<svg class="loop-play" title="{{pu_loop_play}}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z"/></svg>
+	<svg class="loop-edit" title={{pu_loop_edit}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.994 12.964l3.106 3.105-4.112.931 1.006-4.036zm9.994-3.764l-5.84 5.921-3.202-3.202 5.841-5.919 3.201 3.2z"/></svg>
+	<svg class="loop-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 18c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z"/></svg>
+
+	<ul class="menu hidden">
+		<li>{{pu_loop_rename}}</li>
+		<li>{{pu_loop_delete}}</li>
+		<li>{{pu_loop_duplicate}}</li>
+	</ul>
+	<div class="hidden sub">
+		<input class="hidden" autocomplete="off" type="text" name="loop_rename_in" value="" required="required">
+		<label class="hidden" for="loop_rename_in">{{pu_loop_rename_in|upper}}</label>
+		<input class="hidden" type="submit" name="submit">
+		<label class="button hidden" for="submit">{{pu_loop_rename_submit|upper}}</label>
+	</div>
+
+	<img alt="{{l.name}}" src="ressources/images/footage/degrade.jpg" width="50" height="50"/>
+</article>

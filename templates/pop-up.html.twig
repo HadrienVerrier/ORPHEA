@@ -1,297 +1,327 @@
 {# COOKIE SECTION #}
 {% if type == 'cookie' %}
-<section class="popup">
-    <h4>{{cookie_title|upper}}</h4>
+	<section class="popup">
+		<h4>{{cookie_title|upper}}</h4>
 
-    <div id="cookie-form">
-        <p data-mode="true">{{cookie_true}}</p>
-    
-        <p data-mode="false">{{cookie_false}}</p>
-    </div>
-    <a href="cookies-rules" class='nr'>{{cookie_a}}</a>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{cookie_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+		<div id="cookie-form">
+			<p data-mode="true">{{cookie_true}}</p>
+
+			<p data-mode="false">{{cookie_false}}</p>
+		</div>
+		<a href="cookies-rules" class='nr'>{{cookie_a}}</a>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{cookie_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 
 {# LOG INVALID #}
 {% if type == 'log' %}
-<section class="popup">
-    <h4>{{log_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{log_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{log_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{log_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 
 {# LOGOUT #}
 {% if type == 'logout' %}
-<section class="popup">
-    <h4>{{logout_title|upper}}</h4>
+	<section class="popup">
+		<h4>{{logout_title|upper}}</h4>
 
-    <div id="cookie-form">
-        <p data-mode="true">{{logout_true}}</p>
-    
-        <p data-mode="false">{{logout_false}}</p>
-    </div>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{logout_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+		<div id="cookie-form">
+			<p data-mode="true">{{logout_true}}</p>
+
+			<p data-mode="false">{{logout_false}}</p>
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{logout_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 
 {# SIGNUP SECTION #}
 {% if type == 'exist_mail' %}
-<section class="popup">
-    <h4>{{exist_mail_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{exist_mail_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{exist_mail_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{exist_mail_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 {% if type == 'exist_username' %}
-<section class="popup">
-    <h4>{{exist_username_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{exist_username_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{exist_username_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{exist_username_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 {% if type == 'signup' %}
-<section class="popup">
-    <h4>{{signup_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{signup_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{signup_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{signup_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 {% if type == 'rules' %}
-<section class="popup">
-    <h4>{{rules_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{rules_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{rules_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{rules_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 {% if type == 'match' %}
-<section class="popup">
-    <h4>{{match_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{match_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{match_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{match_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 {% if type == 'mail' %}
-<section class="popup">
-    <h4>{{mail_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{mail_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{mail_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{mail_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 
 {# UPDATE ACCOUNT #}
 
 {% if type == 'update_username' %}
-<section class="popup">
-    <h4>{{update_username_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{update_username_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-    <div id="update-username-form">
-    <form action="#" method="POST">
-        <input type="text" id="current_username" name="current_username" placeholder="{{update_username_current_pl}}" required="required"/>
-        <label for="current_username">{{update_username_current_l|upper}}</label>
-        
-        <input type="text" id="new_username" name="new_username" placeholder="{{update_username_new_pl}}" required="required"/>
-        <label for="new_username">{{update_username_new_pl|upper}}</label>
-        
-        <input type="password" id="password" name="password" placeholder="{{update_username_password_pl}}" required="required"/>
-        <label for="password">{{update_username_password_l|upper}}</label>
-        
-        <input type="submit" value="{{update_username_submit|upper}}">
-        <label class="button" for="submit">{{update_username_submit|upper}}</label>
-        </form>
-    </div>
-   
-</section>
+	<section class="popup">
+		<h4>{{update_username_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{update_username_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+		<div id="update-username-form">
+			<form action="#" method="POST">
+				<input type="text" id="current_username" name="current_username" placeholder="{{update_username_current_pl}}" required="required"/>
+				<label for="current_username">{{update_username_current_l|upper}}</label>
+
+				<input type="text" id="new_username" name="new_username" placeholder="{{update_username_new_pl}}" required="required"/>
+				<label for="new_username">{{update_username_new_pl|upper}}</label>
+
+				<input type="password" id="password" name="password" placeholder="{{update_username_password_pl}}" required="required"/>
+				<label for="password">{{update_username_password_l|upper}}</label>
+
+				<input type="submit" value="{{update_username_submit|upper}}">
+				<label class="button" for="submit">{{update_username_submit|upper}}</label>
+			</form>
+		</div>
+
+	</section>
 {% endif %}
 
 {% if type == 'valid_update_username' %}
-<section class="popup">
-    <h4>{{valid_update_username_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{valid_update_username_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{valid_update_username_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{valid_update_username_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 {% if type == 'update_password' %}
-<section class="popup">
-    <h4>{{update_password_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{update_password_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-    <div id="update-password-form">
-    <form action="#" method="POST">
-        <input type="text" id="username" name="username" placeholder="{{update_password_username_pl}}" required="required"/>
-        <label for="username">{{update_password_username_l|upper}}</label>
-        
-        <input type="password" id="old_password" name="old_password" placeholder="{{update_password_old_pl}}" required="required"/>
-        <label for="old_password">{{update_password_old_l|upper}}</label>
-        
-        <input type="password" id="new_password" name="new_password" placeholder="{{update_password_new_pl}}" required="required"/>
-        <label for="new_password">{{update_password_new_l|upper}}</label>
+	<section class="popup">
+		<h4>{{update_password_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{update_password_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+		<div id="update-password-form">
+			<form action="#" method="POST">
+				<input type="text" id="username" name="username" placeholder="{{update_password_username_pl}}" required="required"/>
+				<label for="username">{{update_password_username_l|upper}}</label>
 
-        <input type="password" id="new_password_c" name="new_password_c" placeholder="{{update_password_new_c_pl}}" required="required"/>
-        <label for="new_password_c">{{update_password_new_c_l|upper}}</label>
-        
-        <input type="submit" value="{{update_password_submit|upper}}">
-        <label class="button" for="submit">{{update_password_submit|upper}}</label>
-        </form>
-    </div>
-   
-</section>
+				<input type="password" id="old_password" name="old_password" placeholder="{{update_password_old_pl}}" required="required"/>
+				<label for="old_password">{{update_password_old_l|upper}}</label>
+
+				<input type="password" id="new_password" name="new_password" placeholder="{{update_password_new_pl}}" required="required"/>
+				<label for="new_password">{{update_password_new_l|upper}}</label>
+
+				<input type="password" id="new_password_c" name="new_password_c" placeholder="{{update_password_new_c_pl}}" required="required"/>
+				<label for="new_password_c">{{update_password_new_c_l|upper}}</label>
+
+				<input type="submit" value="{{update_password_submit|upper}}">
+				<label class="button" for="submit">{{update_password_submit|upper}}</label>
+			</form>
+		</div>
+
+	</section>
 {% endif %}
 
 {% if type == 'valid_update_password' %}
-<section class="popup">
-    <h4>{{valid_update_password_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{valid_update_password_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{valid_update_password_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{valid_update_password_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 {% if type == 'delete_account' %}
-<section class="popup">
-    <h4>{{delete_account_title|upper}}</h4>
+	<section class="popup">
+		<h4>{{delete_account_title|upper}}</h4>
 
-    <div id="delete-account-form">
-        <p data-mode="true">{{delete_account_true}}</p>
-    
-        <p data-mode="false">{{delete_account_false}}</p>
-    </div>
-    
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{delete_account_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+		<div id="delete-account-form">
+			<p data-mode="true">{{delete_account_true}}</p>
+
+			<p data-mode="false">{{delete_account_false}}</p>
+		</div>
+
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{delete_account_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 
 {# CONTACT FORM #}
 
 {% if type == 'contact_send' %}
-<section class="popup">
-    <h4>{{contact_send_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{contact_send_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{contact_send_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{contact_send_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 {# FORGOT ASK #}
 {% if type == 'forgot_password_ask' %}
-<section class="popup">
-    <h4>{{forgot_password_ask_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{forgot_password_ask_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-    <div id="forgot-password-form">
-    <form action="#" method="POST">
-        <input type="text" id="user_info" name="user_info" placeholder="{{forgot_password_ask_pl}}" required="required"/>
-        <label for="user_info">{{forgot_password_ask_l|upper}}</label>
+	<section class="popup">
+		<h4>{{forgot_password_ask_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{forgot_password_ask_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+		<div id="forgot-password-form">
+			<form action="#" method="POST">
+				<input type="text" id="user_info" name="user_info" placeholder="{{forgot_password_ask_pl}}" required="required"/>
+				<label for="user_info">{{forgot_password_ask_l|upper}}</label>
 
-        <input type="submit" value="{{forgot_password_ask_submit|upper}}">
-        <label class="button" for="submit">{{forgot_password_ask_submit|upper}}</label>
-        </form>
-    </div> 
-</section>
+				<input type="submit" value="{{forgot_password_ask_submit|upper}}">
+				<label class="button" for="submit">{{forgot_password_ask_submit|upper}}</label>
+			</form>
+		</div>
+	</section>
 {% endif %}
 
 {# FORGOT OK #}
 {% if type == 'forgot_password_ok' %}
-<section class="popup">
-    <h4>{{forgot_password_ok_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{forgot_password_ok_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{forgot_password_ok_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{forgot_password_ok_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 {# FORGOT NO EXIST#}
 {% if type == 'forgot_password_no_exist' %}
-<section class="popup">
-    <h4>{{forgot_password_no_exist_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{forgot_password_no_exist_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-</section>
+	<section class="popup">
+		<h4>{{forgot_password_no_exist_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{forgot_password_no_exist_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}
 
 {# TRANSLATION POP UP #}
 {% if type == 'translation' %}
-<section class="popup">
-    <h4>{{translation_title|upper}}</h4>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <title>{{translation_cross}}</title>
-        <path
-            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" />
-    </svg>
-    {% for translate in translates %}
-    <div>
-        <textarea id="{{translate.language_sn}}" data-trans='{{translate.variable_name}}' name='{{translate.language_sn}}' rows='10' required='required'>{{translate.value}}</textarea>
-        <label>{{translate.language_sn}}</label>
-    </div>
-    {% endfor %}
-    <input type="submit"  value="{{translation_submit|upper}}" id="submit" name="submit" class="hidden">
-    <label for="submit" class="button">{{translation_submit|upper}}</label>
-</section>
+	<section class="popup">
+		<h4>{{translation_title|upper}}</h4>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{translation_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+		{% for translate in translates %}
+			<div>
+				<textarea id="{{translate.language_sn}}" data-trans='{{translate.variable_name}}' name='{{translate.language_sn}}' rows='10' required='required'>{{translate.value}}</textarea>
+				<label>{{translate.language_sn}}</label>
+			</div>
+		{% endfor %}
+		<input type="submit" value="{{translation_submit|upper}}" id="submit" name="submit" class="hidden">
+		<label for="submit" class="button">{{translation_submit|upper}}</label>
+	</section>
+{% endif %}
+
+{# POP UP COMPOSE #}
+{% if type == 'pu_compose' %}
+	<section class="popup">
+		<h4>{{pu_compose_title|upper}}</h4>
+
+		<div id="pu-compose-form">
+
+			<p data-mode="loop" class="button">{{pu_compose_loop}}</p>
+
+			<p data-mode="song" class="disabled button" data-disabled="{{misc.soon|upper}}">{{pu_compose_song}}</p>
+
+			<p data-mode="album" class="disabled button" data-disabled="{{misc.soon|upper}}">{{pu_compose_album}}</p>
+
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{pu_compose_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
+{% endif %}
+
+{# POP UP COMPOSE #}
+{% if type == 'pu_loop' %}
+	<section class="popup loop">
+		<h4>{{pu_loop_title|upper}}</h4>
+
+		<div id="pu_loop">
+			<input type="text" id="loop_search" name="loop_search" placeholder="{{pu_loop_search_pl}}" required="required">
+			<label for="loop_search">{{pu_loop_search_l|upper}}</label>
+
+			{% if loops|length > 0 %}
+
+				<div id="loop_results">
+					{% for l in loops %}
+						{% include 'loop.html.twig' %}
+					{% endfor %}
+				</div>
+
+			{% endif %}
+			<input type="submit" name="new_loop" id"new_loop" value="{{pu_loop_submit|upper}}">
+			<label for="new_loop" class="button">{{pu_loop_submit|upper}}</label>
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{pu_loop_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
 {% endif %}

@@ -636,6 +636,116 @@ $(document).ready(function () {
 			}
 		}
 	});
+
+	///////////////////////
+	////DASHBOARD COMPO////
+	///////////////////////
+
+	$("body").on(
+		"click",
+		"main#dashboard header>ul>li:first-of-type",
+		function (e) {
+			$("#loader").fadeIn(200);
+			$.ajax({
+				async: true,
+				type: "POST",
+				url: "php/function/compose.php",
+				data: { type: "click" },
+				success: function (data) {
+					popUp(data);
+					$(".popup > svg").on("click", function () {
+						$(".popup").fadeOut(200);
+					});
+					$("body").on("click", ".popup p", function (e) {
+						$(".popup").fadeOut(100);
+						$("#loader").fadeIn(200);
+						$.ajax({
+							async: true,
+							type: "POST",
+							url: "php/function/compose.php",
+							data: { type: "return", mode: $(this).attr("data-mode") },
+							success: function (data) {
+								popUp(data);
+								$(".popup > svg").on("click", function () {
+									$(".popup").fadeOut(200);
+								});
+
+								$("body").on(
+									"click",
+									'.popup label[for="new_loop"]',
+									function () {
+										$(".popup").fadeOut(100);
+										$("#loader").fadeIn(200);
+
+										$.ajax({
+											async: true,
+											type: "POST",
+											url: "php/function/compose.php",
+											data: { type: "new", mode: "loop" },
+											success: function (data) {
+												switch (data) {
+													case "loop":
+														window.location.assign("compose.php");
+														break;
+												}
+											},
+										});
+									}
+								);
+							},
+						});
+					});
+				},
+			});
+		}
+	);
+
+	//TOGGLE SUBMENU
+	$("body").on("click", ".popup article .loop-menu", function () {
+		if ($(this).parent().find(".menu").hasClass("hidden")) {
+			$(this).parent().find(".menu").removeClass("hidden");
+		} else {
+			$(this).parent().find(".menu").addClass("hidden");
+		}
+	});
+
+	//RENAME LOOP
+	$("body").on("click", ".popup .menu li:first-of-type", function () {
+		$(this).parent().addClass("hidden");
+		let article = $(this).parent().parent();
+		let sub = $(article).find("div.sub");
+		var current_name = $(article).find("h6 span").html();
+		$(sub)
+			.find("input[name='loop_rename_in']")
+			.removeClass("hidden")
+			.val(current_name);
+		$(sub).find("label[for='loop_rename_in']").removeClass("hidden");
+		$(sub).find("label[for='submit']").removeClass("hidden");
+
+		$(sub).removeClass("hidden");
+
+		$("body").on("click", '.popup .sub label[for="submit"]', function () {
+			var new_name = $(this).parent().find('input[type="text"]').val();
+			article = $(this).parent().parent();
+			$(sub).addClass("hidden");
+
+			$.ajax({
+				async: true,
+				type: "POST",
+				url: "php/function/loop.php",
+				data: {
+					type: "rename",
+					new_name: new_name,
+					current_name: current_name,
+				},
+
+				success: function (data) {
+					console.log(data);
+					$(article).find("h6 span").text(data);
+				},
+			});
+		});
+	});
 });
 
 //LOAD MAIN DATA AND CHANGE WITH AJAX

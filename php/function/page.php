@@ -447,6 +447,7 @@ function getPopUpData($popup, $lang)
     $results = $results->fetchAll(PDO::FETCH_KEY_PAIR);
     $request->closeCursor();
     extract($results);
+    $misc = getMiscData($lang);
     switch ($popup) {
         case 'cookie':
             //RETURN RESULT
@@ -627,6 +628,44 @@ function getPopUpData($popup, $lang)
                 'translation_title' => $translation_title,
                 'translation_cross' => $translation_cross,
                 'translation_submit' => $translation_submit,
+            );
+            break;
+        case 'pu_compose':
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'misc' => $misc,
+                'pu_compose_title' => $pu_compose_title,
+                'pu_compose_loop' => $pu_compose_loop,
+                'pu_compose_song' => $pu_compose_song,
+                'pu_compose_album' => $pu_compose_album,
+                'pu_compose_cross' => $pu_compose_cross,
+
+            );
+            break;
+        case 'pu_loop':
+            //GET USER 25 FIRST LOOP
+
+            $results = request("SELECT L.name, L.date FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE M.nickname = :user ORDER BY L.date DESC LIMIT 25", array('user' => $_SESSION['username']), false);
+            $loops = $results->fetchAll();
+            $request->closeCursor();
+
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'pu_loop_title' => $pu_loop_title,
+                'pu_loop_cross' => $pu_loop_cross,
+                'pu_loop_search_l' => $pu_loop_search_l,
+                'pu_loop_search_pl' => $pu_loop_search_pl,
+                'pu_loop_submit' => $pu_loop_submit,
+                'pu_loop_play' => $pu_loop_play,
+                'pu_loop_edit' => $pu_loop_edit,
+                'pu_loop_rename' => $pu_loop_rename,
+                'pu_loop_delete' => $pu_loop_delete,
+                'pu_loop_duplicate' => $pu_loop_duplicate,
+                'pu_loop_rename_in' => $pu_loop_rename_in,
+                'pu_loop_rename_submit' => $pu_loop_rename_submit,
+                'loops' => $loops,
             );
             break;
     }

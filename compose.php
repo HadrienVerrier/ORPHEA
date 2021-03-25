@@ -10,5 +10,11 @@ if (!loggin()) {
     header('Location:login.php');
     exit();
 }
-
-new page('compose');
+if (isset($_GET['l'])) {
+    new page('compose');
+} else {
+    session_destroy();
+    session_regenerate_id();
+    header('Location:login.php');
+    exit();
+}

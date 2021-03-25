@@ -344,8 +344,19 @@ function getMainData($page, $lang)
             return $main;
             break;
         case 'compose':
+            $name = rawurldecode($_GET['l']);
+            //GET LOOP DATA 
+            $id = request('SELECT L.id_loop FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE L.name = :l_name AND M.nickname = :user', array('l_name' => $name, 'user' => $_SESSION['username']), true)['id_loop'];
+
+            $loop = request("SELECT L.name, L.settings, L.data, L.licence FROM loops L WHERE L.id_loop = :id", array('id' => $id), true);
+
+            if ($loop['settings'] == 'defaults' && $loop['data'] == 'defaults') {
+                $bpm = 80;
+            }
             //RETURN RESULT
             return array(
+                'compose_name' => $name,
+                'bpm' => $bpm,
                 'compose_loop_edition' => $compose_loop_edition,
                 'compose_loop_name_pl' => $compose_loop_name_pl,
                 'compose_loop_name_l' => $compose_loop_name_l,

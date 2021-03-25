@@ -40,7 +40,8 @@ switch ($_POST['type']) {
                 //CREATE LOOP
                 request("INSERT INTO `loops` (`id_loop`, `name`, `author`, `settings`, `data`, `licence`, `date`) VALUES (NULL, :loop_name, :id_user , 'defaults', 'defaults', 'PRIVATE', CURRENT_TIME)", array('loop_name' => $loop_name, 'id_user' => $id_user), false);
                 $request->closeCursor();
-                echo 'loop';
+                $data = array('mode' => 'loop', 'name' => $loop_name);
+                echo json_encode($data);
                 break;
         }
 

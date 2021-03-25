@@ -15,12 +15,13 @@ $(document).ready(function () {
 			url: "php/function/loop.php",
 			data: {
 				type: "rename",
-				new_name: new_name,
-				current_name: current_name,
+				new_name: $("#l_name").val(),
+				current_name: $("#l_name").attr("data-name"),
 			},
 
 			success: function (data) {
-				$(article).find("h6 span").text(data);
+				$("#l_name").val(data);
+				$("#l_name").attr("data-name", data);
 			},
 		});
 	});

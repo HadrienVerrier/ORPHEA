@@ -307,14 +307,13 @@
 			{% if loops|length > 0 %}
 				<input type="text" id="loop_search" name="loop_search" placeholder="{{pu_loop_search_pl}}" required="required">
 				<label for="loop_search">{{pu_loop_search_l|upper}}</label>
-
-
-				<div id="loop_results">
-					{% for l in loops %}
-						{% include 'loop.html.twig' %}
-					{% endfor %}
+				<div>
+					<div id="loop_results">
+						{% for l in loops %}
+							{% include 'loop.html.twig' %}
+						{% endfor %}
+					</div>
 				</div>
-
 			{% endif %}
 			<input type="submit" name="new_loop" id"new_loop" value="{{pu_loop_submit|upper}}">
 			<label for="new_loop" class="button">{{pu_loop_submit|upper}}</label>

@@ -784,6 +784,25 @@ $(document).ready(function () {
 			$(sub).find("div.l-delete").addClass("hidden");
 		});
 	});
+
+	$("body").on("click", ".popup .menu li:last-of-type", function () {
+		$(this).parent().addClass("hidden");
+		let article = $(this).parent().parent();
+
+		$.ajax({
+			async: true,
+			url: "php/function/loop.php",
+			type: "POST",
+			data: {
+				type: "duplicate",
+				name: article.find("h6 span").html(),
+			},
+			success: function (data) {
+				console.log(data);
+				$(".popup").replaceWith(data);
+			},
+		});
+	});
 });
 
 //LOAD MAIN DATA AND CHANGE WITH AJAX

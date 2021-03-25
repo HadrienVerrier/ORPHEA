@@ -15,12 +15,15 @@
 		<li>{{pu_loop_delete}}</li>
 		<li>{{pu_loop_duplicate}}</li>
 	</ul>
-	<div class="hidden sub">
+	<div
+		class="hidden sub">
+		<!-- RENAME LOOP -->
 		<input class="hidden" autocomplete="off" type="text" name="loop_rename_in" value="" required="required">
 		<label class="hidden" for="loop_rename_in">{{pu_loop_rename_in|upper}}</label>
 		<input class="hidden" type="submit" name="submit">
 		<label class="button hidden" for="submit">{{pu_loop_rename_submit|upper}}</label>
 
+		<!-- DELETE LOOP -->
 		<div class="l-delete hidden" data-select="true">{{pu_loop_delete_confirm}}</div>
 		<div class="l-delete hidden" data-select="false">{{pu_loop_delete_abort}}</div>
 

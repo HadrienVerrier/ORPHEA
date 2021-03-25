@@ -6,6 +6,11 @@ $(document).ready(function () {
 	var transport = main.find("#transportMark");
 	var tracks = main.find("#tracks");
 
+	//SAVE BUTTON
+	header.find("#export-container svg").on("click", function () {
+		saveSettings();
+	});
+
 	//CHANGE LOOP NAME
 	header.find("#l_name").on("change", function () {
 		$.ajax({

@@ -295,6 +295,7 @@ body > footer a:hover {
   border-radius: 1.05rem;
   padding: 2rem;
   min-height: 8rem;
+  max-height: 70vh;
 }
 
 .popup h4 {
@@ -1376,16 +1377,23 @@ main#dashboard > section article ul li a svg {
   vertical-align: text-bottom;
 }
 
-.popup.loop div#pu_loop div#loop_results {
+.popup.loop div#pu_loop > div {
+  margin-top: -2rem;
+  height: 20rem;
+  overflow-y: scroll;
+  border-radius: 0.9rem;
   background-color: #2b1f2d;
-  padding: 1rem;
+}
+
+.popup.loop div#pu_loop > div div#loop_results {
+  padding: 0.5rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.popup.loop div#pu_loop div#loop_results article {
+.popup.loop div#pu_loop > div div#loop_results article {
   width: 18rem;
   border-radius: 0.75rem;
   overflow: hidden;
@@ -1393,7 +1401,7 @@ main#dashboard > section article ul li a svg {
   margin: 0.5rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article span {
+.popup.loop div#pu_loop > div div#loop_results article span {
   white-space: nowrap;
   overflow: hidden;
   position: absolute;
@@ -1407,14 +1415,14 @@ main#dashboard > section article ul li a svg {
           animation-iteration-count: infinite;
 }
 
-.popup.loop div#pu_loop div#loop_results article img {
+.popup.loop div#pu_loop > div div#loop_results article img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.popup.loop div#pu_loop div#loop_results article h6 {
+.popup.loop div#pu_loop > div div#loop_results article h6 {
   width: calc(100% - 1rem);
   position: absolute;
   bottom: 3rem;
@@ -1422,7 +1430,7 @@ main#dashboard > section article ul li a svg {
   font-size: 1.44rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article p {
+.popup.loop div#pu_loop > div div#loop_results article p {
   width: calc(100% - 1rem);
   text-indent: 0;
   position: absolute;
@@ -1432,7 +1440,7 @@ main#dashboard > section article ul li a svg {
   font-style: italic;
 }
 
-.popup.loop div#pu_loop div#loop_results article .menu {
+.popup.loop div#pu_loop > div div#loop_results article .menu {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -1446,23 +1454,23 @@ main#dashboard > section article ul li a svg {
   padding: 1rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article .menu li {
+.popup.loop div#pu_loop > div div#loop_results article .menu li {
   direction: rtl;
   text-align: right;
   cursor: pointer;
   margin-bottom: 0.5rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article .menu li::before {
+.popup.loop div#pu_loop > div div#loop_results article .menu li::before {
   content: "\2022";
   margin-left: 0.5rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article .menu li:hover {
+.popup.loop div#pu_loop > div div#loop_results article .menu li:hover {
   text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.685);
 }
 
-.popup.loop div#pu_loop div#loop_results article .sub {
+.popup.loop div#pu_loop > div div#loop_results article .sub {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -1471,7 +1479,7 @@ main#dashboard > section article ul li a svg {
   padding: 1rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article .sub input[type="text"] {
+.popup.loop div#pu_loop > div div#loop_results article .sub input[type="text"] {
   position: relative;
   top: 3rem;
   left: 2rem;
@@ -1479,14 +1487,14 @@ main#dashboard > section article ul li a svg {
   height: 3rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article .sub input[type="text"] + label {
+.popup.loop div#pu_loop > div div#loop_results article .sub input[type="text"] + label {
   font-size: 1.28rem;
   position: relative;
   top: -3.3em;
   left: 2rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article .sub label[for="submit"] {
+.popup.loop div#pu_loop > div div#loop_results article .sub label[for="submit"] {
   font-size: 1.6rem;
   line-height: 1.6rem;
   height: 2rem;
@@ -1495,7 +1503,7 @@ main#dashboard > section article ul li a svg {
   left: 3rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article .sub div.l-delete {
+.popup.loop div#pu_loop > div div#loop_results article .sub div.l-delete {
   cursor: pointer;
   height: 3rem;
   position: absolute;
@@ -1511,27 +1519,27 @@ main#dashboard > section article ul li a svg {
   border-radius: 0.6rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article .sub div.l-delete:hover {
+.popup.loop div#pu_loop > div div#loop_results article .sub div.l-delete:hover {
   background-color: #0c3806;
 }
 
-.popup.loop div#pu_loop div#loop_results article .sub div.l-delete:first-of-type {
+.popup.loop div#pu_loop > div div#loop_results article .sub div.l-delete:first-of-type {
   top: 55%;
   background-color: red;
 }
 
-.popup.loop div#pu_loop div#loop_results article .sub div.l-delete:first-of-type:hover {
+.popup.loop div#pu_loop > div div#loop_results article .sub div.l-delete:first-of-type:hover {
   background-color: #990000;
 }
 
-.popup.loop div#pu_loop div#loop_results article svg {
+.popup.loop div#pu_loop > div div#loop_results article svg {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
 
-.popup.loop div#pu_loop div#loop_results article svg.loop-play, .popup.loop div#pu_loop div#loop_results article svg.loop-edit {
+.popup.loop div#pu_loop > div div#loop_results article svg.loop-play, .popup.loop div#pu_loop > div div#loop_results article svg.loop-edit {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -1544,19 +1552,19 @@ main#dashboard > section article ul li a svg {
           transform: translate(0, -50%);
 }
 
-.popup.loop div#pu_loop div#loop_results article svg.loop-play.loop-edit, .popup.loop div#pu_loop div#loop_results article svg.loop-edit.loop-edit {
+.popup.loop div#pu_loop > div div#loop_results article svg.loop-play.loop-edit, .popup.loop div#pu_loop > div div#loop_results article svg.loop-edit.loop-edit {
   right: unset;
   left: 2.5rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article svg.loop-menu {
+.popup.loop div#pu_loop > div div#loop_results article svg.loop-menu {
   position: absolute;
   top: 1rem;
   right: 0.5rem;
   width: 3rem;
 }
 
-.popup.loop div#pu_loop div#loop_results article svg:hover {
+.popup.loop div#pu_loop > div div#loop_results article svg:hover {
   fill: #383838;
 }
 

@@ -77,150 +77,156 @@ main#dashboard {
 
 .popup.loop {
 	div#pu_loop {
-		div#loop_results {
+		> div {
+			margin-top: -2rem;
+			height: 20rem;
+			overflow-y: scroll;
+			border-radius: $borderRadius * 0.6;
 			background-color: $mainDark;
-			padding: 1rem;
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr 1fr;
+			div#loop_results {
+				padding: 0.5rem;
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr;
 
-			article {
-				width: 18rem;
-				border-radius: $borderRadius * 0.5;
-				overflow: hidden;
-				position: relative;
-				margin: 0.5rem;
-				span {
-					white-space: nowrap;
+				article {
+					width: 18rem;
+					border-radius: $borderRadius * 0.5;
 					overflow: hidden;
-					position: absolute;
-					animation-name: scroll;
-					animation-duration: 10s;
-					animation-timing-function: linear;
-					animation-iteration-count: infinite;
-				}
-				img {
-					height: 100%;
-					width: 100%;
-					object-fit: cover;
-				}
-				h6 {
-					width: calc(100% - 1rem);
-					position: absolute;
-					bottom: 3rem;
-					left: 0.5rem;
-					font-size: $regular * 0.9;
-				}
-				p {
-					width: calc(100% - 1rem);
-					text-indent: 0;
-					position: absolute;
-					bottom: 1.5rem;
-					left: 0.5rem;
-					font-size: $regular * 0.7;
-					font-style: italic;
-				}
-				.menu {
-					user-select: none;
-					position: absolute;
-					right: 1.5rem;
-					top: 4rem;
-					width: calc(100% - 4.5rem);
-					border-radius: $borderRadius * 0.5;
-					background-color: rgba(36, 36, 36, 0.795);
-					padding: 1rem;
-					li {
-						direction: rtl;
-						text-align: right;
-						cursor: pointer;
-						margin-bottom: 0.5rem;
-						&::before {
-							content: "\2022";
-							margin-left: 0.5rem;
-						}
-						&:hover {
-							text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.685);
-						}
-					}
-				}
-				.sub {
-					width: 100%;
-					height: 100%;
-					position: absolute;
-					border-radius: $borderRadius * 0.5;
-					background-color: rgba(36, 36, 36, 0.795);
-					padding: 1rem;
-
-					input[type="text"] {
-						position: relative;
-						top: 3rem;
-						left: 2rem;
-						width: 11rem;
-						height: 3rem;
-						& + label {
-							font-size: $regular * 0.8;
-							position: relative;
-							top: -3.3em;
-							left: 2rem;
-						}
-					}
-					label[for="submit"] {
-						font-size: $regular;
-						line-height: $regular;
-						height: 2rem;
+					position: relative;
+					margin: 0.5rem;
+					span {
+						white-space: nowrap;
+						overflow: hidden;
 						position: absolute;
-						bottom: 0rem;
-						left: 3rem;
+						animation-name: scroll;
+						animation-duration: 10s;
+						animation-timing-function: linear;
+						animation-iteration-count: infinite;
 					}
-
-					div.l-delete {
-						cursor: pointer;
-						height: 3rem;
+					img {
+						height: 100%;
+						width: 100%;
+						object-fit: cover;
+					}
+					h6 {
+						width: calc(100% - 1rem);
 						position: absolute;
-						top: 30%;
-						left: 45%;
-						transform: translateX(-50%);
-						width: 80%;
-						text-align: center;
-						line-height: $regular * 1.7;
-						margin: auto;
-						background-color: $accept;
-						border-radius: $borderRadius * 0.4;
-						&:hover {
-							background-color: darken($accept, 20%);
-						}
-						&:first-of-type {
-							top: 55%;
-							background-color: $decline;
+						bottom: 3rem;
+						left: 0.5rem;
+						font-size: $regular * 0.9;
+					}
+					p {
+						width: calc(100% - 1rem);
+						text-indent: 0;
+						position: absolute;
+						bottom: 1.5rem;
+						left: 0.5rem;
+						font-size: $regular * 0.7;
+						font-style: italic;
+					}
+					.menu {
+						user-select: none;
+						position: absolute;
+						right: 1.5rem;
+						top: 4rem;
+						width: calc(100% - 4.5rem);
+						border-radius: $borderRadius * 0.5;
+						background-color: rgba(36, 36, 36, 0.795);
+						padding: 1rem;
+						li {
+							direction: rtl;
+							text-align: right;
+							cursor: pointer;
+							margin-bottom: 0.5rem;
+							&::before {
+								content: "\2022";
+								margin-left: 0.5rem;
+							}
 							&:hover {
-								background-color: darken($decline, 20%);
+								text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.685);
 							}
 						}
 					}
-				}
-				svg {
-					user-select: none;
-					&.loop-play,
-					&.loop-edit {
-						@include center(true, false);
-						top: 45%;
-						right: 2.5rem;
-						width: 4rem;
-						height: 4rem;
-						transform: translate(0, -50%);
-						&.loop-edit {
-							right: unset;
-							left: 2.5rem;
+					.sub {
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						border-radius: $borderRadius * 0.5;
+						background-color: rgba(36, 36, 36, 0.795);
+						padding: 1rem;
+
+						input[type="text"] {
+							position: relative;
+							top: 3rem;
+							left: 2rem;
+							width: 11rem;
+							height: 3rem;
+							& + label {
+								font-size: $regular * 0.8;
+								position: relative;
+								top: -3.3em;
+								left: 2rem;
+							}
+						}
+						label[for="submit"] {
+							font-size: $regular;
+							line-height: $regular;
+							height: 2rem;
+							position: absolute;
+							bottom: 0rem;
+							left: 3rem;
+						}
+
+						div.l-delete {
+							cursor: pointer;
+							height: 3rem;
+							position: absolute;
+							top: 30%;
+							left: 45%;
+							transform: translateX(-50%);
+							width: 80%;
+							text-align: center;
+							line-height: $regular * 1.7;
+							margin: auto;
+							background-color: $accept;
+							border-radius: $borderRadius * 0.4;
+							&:hover {
+								background-color: darken($accept, 20%);
+							}
+							&:first-of-type {
+								top: 55%;
+								background-color: $decline;
+								&:hover {
+									background-color: darken($decline, 20%);
+								}
+							}
 						}
 					}
-					&.loop-menu {
-						position: absolute;
-						top: 1rem;
-						right: 0.5rem;
-						width: 3rem;
-					}
+					svg {
+						user-select: none;
+						&.loop-play,
+						&.loop-edit {
+							@include center(true, false);
+							top: 45%;
+							right: 2.5rem;
+							width: 4rem;
+							height: 4rem;
+							transform: translate(0, -50%);
+							&.loop-edit {
+								right: unset;
+								left: 2.5rem;
+							}
+						}
+						&.loop-menu {
+							position: absolute;
+							top: 1rem;
+							right: 0.5rem;
+							width: 3rem;
+						}
 
-					&:hover {
-						fill: $background;
+						&:hover {
+							fill: $background;
+						}
 					}
 				}
 			}

@@ -251,6 +251,7 @@ body {
 	border-radius: $borderRadius * 0.7;
 	padding: 2rem;
 	min-height: 8rem;
+	max-height: 70vh;
 	h4 {
 		width: 70%;
 		line-height: $regular * 2;

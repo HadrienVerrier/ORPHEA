@@ -351,7 +351,9 @@ function getMainData($page, $lang)
             $loop = request("SELECT L.name, L.settings, L.data, L.licence FROM loops L WHERE L.id_loop = :id", array('id' => $id), true);
 
             if ($loop['settings'] == 'defaults' && $loop['data'] == 'defaults') {
-                $bpm = 80;
+                $settings = array('bpm' => 80);
+            } else {
+                $settings = json_decode($loop['settings']);
             }
 
             //GET LICENCE DATA 
@@ -365,7 +367,7 @@ function getMainData($page, $lang)
                 'actual_licence' => $loop['licence'],
                 'licences' => $licences,
                 'compose_name' => $name,
-                'bpm' => $bpm,
+                'settings' => $settings,
                 'compose_loop_edition' => $compose_loop_edition,
                 'compose_loop_name_pl' => $compose_loop_name_pl,
                 'compose_loop_name_l' => $compose_loop_name_l,

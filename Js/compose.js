@@ -42,9 +42,7 @@ $(document).ready(function () {
 				licence: $(this).val(),
 				name: header.find("#l_name").val(),
 			},
-			success: function (data) {
-				console.log(data);
-			},
+			success: function (data) {},
 		});
 	});
 
@@ -73,9 +71,7 @@ $(document).ready(function () {
 				type: "settings",
 				settings: JSON.stringify(settings),
 			},
-			success: function (data) {
-				console.log(data);
-			},
+			success: function (data) {},
 		});
 	}
 });

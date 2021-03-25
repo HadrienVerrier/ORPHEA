@@ -84,7 +84,7 @@ main#dashboard {
 			grid-template-columns: 1fr 1fr 1fr 1fr;
 
 			article {
-				width: 12rem;
+				width: 18rem;
 				border-radius: $borderRadius * 0.5;
 				overflow: hidden;
 				position: relative;
@@ -123,8 +123,8 @@ main#dashboard {
 					user-select: none;
 					position: absolute;
 					right: 1.5rem;
-					top: 1.5rem;
-
+					top: 4rem;
+					width: calc(100% - 4.5rem);
 					border-radius: $borderRadius * 0.5;
 					background-color: rgba(36, 36, 36, 0.795);
 					padding: 1rem;
@@ -138,7 +138,7 @@ main#dashboard {
 							margin-left: 0.5rem;
 						}
 						&:hover {
-							text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+							text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.685);
 						}
 					}
 				}
@@ -153,23 +153,48 @@ main#dashboard {
 					input[type="text"] {
 						position: relative;
 						top: 3rem;
-						left: 0.5rem;
-						width: 9rem;
-						height: 2.2rem;
+						left: 2rem;
+						width: 11rem;
+						height: 3rem;
 						& + label {
-							font-size: $regular * 0.6;
+							font-size: $regular * 0.8;
 							position: relative;
-							top: -3.5em;
-							left: 0.3rem;
+							top: -3.3em;
+							left: 2rem;
 						}
 					}
 					label[for="submit"] {
 						font-size: $regular;
-						line-height: $regular / 1.5;
-						height: 1rem;
+						line-height: $regular;
+						height: 2rem;
 						position: absolute;
 						bottom: 0rem;
-						left: 1.5rem;
+						left: 3rem;
+					}
+
+					div.l-delete {
+						cursor: pointer;
+						height: 3rem;
+						position: absolute;
+						top: 30%;
+						left: 45%;
+						transform: translateX(-50%);
+						width: 80%;
+						text-align: center;
+						line-height: $regular * 1.7;
+						margin: auto;
+						background-color: $accept;
+						border-radius: $borderRadius * 0.4;
+						&:hover {
+							background-color: darken($accept, 20%);
+						}
+						&:first-of-type {
+							top: 55%;
+							background-color: $decline;
+							&:hover {
+								background-color: darken($decline, 20%);
+							}
+						}
 					}
 				}
 				svg {
@@ -178,20 +203,20 @@ main#dashboard {
 					&.loop-edit {
 						@include center(true, false);
 						top: 45%;
-						right: 1.5rem;
-						width: 2.5rem;
-						height: 2.5rem;
+						right: 2.5rem;
+						width: 4rem;
+						height: 4rem;
 						transform: translate(0, -50%);
 						&.loop-edit {
 							right: unset;
-							left: 1.5rem;
+							left: 2.5rem;
 						}
 					}
 					&.loop-menu {
 						position: absolute;
-						top: 0.2rem;
+						top: 1rem;
 						right: 0.5rem;
-						width: 1.2rem;
+						width: 3rem;
 					}
 
 					&:hover {

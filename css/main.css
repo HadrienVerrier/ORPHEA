@@ -1386,7 +1386,7 @@ main#dashboard > section article ul li a svg {
 }
 
 .popup.loop div#pu_loop div#loop_results article {
-  width: 12rem;
+  width: 18rem;
   border-radius: 0.75rem;
   overflow: hidden;
   position: relative;
@@ -1439,7 +1439,8 @@ main#dashboard > section article ul li a svg {
           user-select: none;
   position: absolute;
   right: 1.5rem;
-  top: 1.5rem;
+  top: 4rem;
+  width: calc(100% - 4.5rem);
   border-radius: 0.75rem;
   background-color: rgba(36, 36, 36, 0.795);
   padding: 1rem;
@@ -1458,7 +1459,7 @@ main#dashboard > section article ul li a svg {
 }
 
 .popup.loop div#pu_loop div#loop_results article .menu li:hover {
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+  text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.685);
 }
 
 .popup.loop div#pu_loop div#loop_results article .sub {
@@ -1473,25 +1474,54 @@ main#dashboard > section article ul li a svg {
 .popup.loop div#pu_loop div#loop_results article .sub input[type="text"] {
   position: relative;
   top: 3rem;
-  left: 0.5rem;
-  width: 9rem;
-  height: 2.2rem;
+  left: 2rem;
+  width: 11rem;
+  height: 3rem;
 }
 
 .popup.loop div#pu_loop div#loop_results article .sub input[type="text"] + label {
-  font-size: 0.96rem;
+  font-size: 1.28rem;
   position: relative;
-  top: -3.5em;
-  left: 0.3rem;
+  top: -3.3em;
+  left: 2rem;
 }
 
 .popup.loop div#pu_loop div#loop_results article .sub label[for="submit"] {
   font-size: 1.6rem;
-  line-height: 1.06667rem;
-  height: 1rem;
+  line-height: 1.6rem;
+  height: 2rem;
   position: absolute;
   bottom: 0rem;
-  left: 1.5rem;
+  left: 3rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article .sub div.l-delete {
+  cursor: pointer;
+  height: 3rem;
+  position: absolute;
+  top: 30%;
+  left: 45%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+  line-height: 2.72rem;
+  margin: auto;
+  background-color: #1f9410;
+  border-radius: 0.6rem;
+}
+
+.popup.loop div#pu_loop div#loop_results article .sub div.l-delete:hover {
+  background-color: #0c3806;
+}
+
+.popup.loop div#pu_loop div#loop_results article .sub div.l-delete:first-of-type {
+  top: 55%;
+  background-color: red;
+}
+
+.popup.loop div#pu_loop div#loop_results article .sub div.l-delete:first-of-type:hover {
+  background-color: #990000;
 }
 
 .popup.loop div#pu_loop div#loop_results article svg {
@@ -1507,23 +1537,23 @@ main#dashboard > section article ul li a svg {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   top: 45%;
-  right: 1.5rem;
-  width: 2.5rem;
-  height: 2.5rem;
+  right: 2.5rem;
+  width: 4rem;
+  height: 4rem;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
 }
 
 .popup.loop div#pu_loop div#loop_results article svg.loop-play.loop-edit, .popup.loop div#pu_loop div#loop_results article svg.loop-edit.loop-edit {
   right: unset;
-  left: 1.5rem;
+  left: 2.5rem;
 }
 
 .popup.loop div#pu_loop div#loop_results article svg.loop-menu {
   position: absolute;
-  top: 0.2rem;
+  top: 1rem;
   right: 0.5rem;
-  width: 1.2rem;
+  width: 3rem;
 }
 
 .popup.loop div#pu_loop div#loop_results article svg:hover {

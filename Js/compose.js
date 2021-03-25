@@ -7,7 +7,6 @@ $(document).ready(function () {
 	var tracks = main.find("#tracks");
 
 	//CHANGE LOOP NAME
-
 	header.find("#l_name").on("change", function () {
 		$.ajax({
 			async: true,
@@ -43,4 +42,35 @@ $(document).ready(function () {
 			},
 		});
 	});
+
+	//CHANGE BPM
+	header.find("#l_bpm").on("change", function () {
+		saveSettings();
+	});
+
+	function saveSettings() {
+		let settings = {};
+
+		//GET BPM
+		let bpm = header.find("#l_bpm").val();
+
+		//ADD DATA
+		settings = {
+			bpm: bpm,
+		};
+
+		$.ajax({
+			async: true,
+			type: "POST",
+			url: "php/function/loop.php",
+			data: {
+				name: header.find("#l_name").val(),
+				type: "settings",
+				settings: JSON.stringify(settings),
+			},
+			success: function (data) {
+				console.log(data);
+			},
+		});
+	}
 });

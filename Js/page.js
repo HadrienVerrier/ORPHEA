@@ -823,75 +823,79 @@ $(document).ready(function () {
 		let name = $(this).parent().find("h6 span").html();
 		window.location.assign("compose.php?l=" + encodeURI(name));
 	});
-});
 
-//LOAD MAIN DATA AND CHANGE WITH AJAX
-function page(pageName) {
-	$.ajax({
-		async: true,
-		url: "php/function/pageAjax.php",
-		type: "POST",
-		data: { page: pageName },
+	///////////////
+	////FUNCTION///
+	///////////////
 
-		success: function (data) {
-			if (data == "failure") {
-				window.location = "index.php";
-			} else {
-				$("main").replaceWith(data);
-				window.scrollTo(0, 0);
-				history.pushState(null, null, pageName + ".php");
-				changeNav(pageName + ".php");
-				$("footer form").attr("action", pageName + ".php");
-				hidePausePlayer();
-				//GET DOCUMENT NAME
-				$.ajax({
-					async: true,
-					url: "php/function/getPageName.php",
-					type: "POST",
-					data: { page: pageName },
+	//LOAD MAIN DATA AND CHANGE WITH AJAX
+	function page(pageName) {
+		$.ajax({
+			async: true,
+			url: "php/function/pageAjax.php",
+			type: "POST",
+			data: { page: pageName },
 
-					success: function (data) {
-						document.title = data + " - ORPHÉA";
-					},
-					dataType: "text",
-				});
-			}
-		},
-		dataType: "html",
-	});
-}
+			success: function (data) {
+				if (data == "failure") {
+					window.location = "index.php";
+				} else {
+					$("main").replaceWith(data);
+					window.scrollTo(0, 0);
+					history.pushState(null, null, pageName + ".php");
+					changeNav(pageName + ".php");
+					$("footer form").attr("action", pageName + ".php");
+					hidePausePlayer();
+					//GET DOCUMENT NAME
+					$.ajax({
+						async: true,
+						url: "php/function/getPageName.php",
+						type: "POST",
+						data: { page: pageName },
 
-//CHANGE HEADER
-function changeNav(pageName) {
-	//CHANGE HEADER :
-	$.ajax({
-		async: true,
-		url: "php/function/changeNav.php",
-		type: "POST",
-		data: { pageName: pageName },
-		success: function (data) {
-			$("body > header > nav").replaceWith(data);
-		},
-	});
-}
-
-function popUp(data) {
-	$("#loader").fadeOut(100);
-	$(".popup").remove();
-	$("body").append('<section class="popup"></section>');
-	$(".popup").replaceWith(data);
-	$(".popup").fadeIn(300);
-}
-
-//HIDE LOOP SEARCH AND LOOP RESULT IF EMPTY
-function toogleSearchLoop() {
-	if ($("#loop_results").children().length == 0) {
-		$("#loop_results").hide();
-		$("#pu_loop #loop_search").hide();
-		$('#pu_loop label[for="loop_search"]').hide();
-	} else {
-		$("#loop_results").show();
-		$("#pu_loop #loop_search").show();
-		$('#pu_loop label[for="loop_search"]').show();
+						success: function (data) {
+							document.title = data + " - ORPHÉA";
+						},
+						dataType: "text",
+					});
+				}
+			},
+			dataType: "html",
+		});
 	}
-}
+
+	//CHANGE HEADER
+	function changeNav(pageName) {
+		//CHANGE HEADER :
+		$.ajax({
+			async: true,
+			url: "php/function/changeNav.php",
+			type: "POST",
+			data: { pageName: pageName },
+			success: function (data) {
+				$("body > header > nav").replaceWith(data);
+			},
+		});
+	}
+
+	function popUp(data) {
+		$("#loader").fadeOut(100);
+		$(".popup").remove();
+		$("body").append('<section class="popup"></section>');
+		$(".popup").replaceWith(data);
+		$(".popup").fadeIn(300);
+	}
+
+	//HIDE LOOP SEARCH AND LOOP RESULT IF EMPTY
+	function toogleSearchLoop() {
+		if ($("#loop_results").children().length == 0) {
+			$("#loop_results").hide();
+			$("#pu_loop #loop_search").hide();
+			$('#pu_loop label[for="loop_search"]').hide();
+		} else {
+			$("#loop_results").show();
+			$("#pu_loop #loop_search").show();
+			$('#pu_loop label[for="loop_search"]').show();
+		}
+	}
+});

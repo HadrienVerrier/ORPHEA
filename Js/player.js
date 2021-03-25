@@ -22,3 +22,17 @@ function togglePlayer() {
 		$("#player-container").removeClass("open").addClass("close");
 	}
 }
+
+//HIDE PLAYER ON COMPOSE PAGE
+
+function hidePausePlayer() {
+	let href = location.href.split("/");
+	href = href[href.length - 1].split(".")[0];
+	if (href == "") href = "index";
+
+	if (href == "compose") {
+		$("aside").hide();
+	} else {
+		$("aside").show();
+	}
+}

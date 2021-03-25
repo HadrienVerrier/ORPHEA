@@ -1,20 +1,15 @@
 {% include 'doctype.html.twig'%}
 <body>
 
-    {% include 'loader.html.twig' %}
-    
-    {% include 'header.html.twig' %}
+	{% include 'loader.html.twig' %}
 
-    {% include page ~ ".html.twig" %}
+	{% include 'header.html.twig' %}
 
-    {% if nav.current != "compose.php" %}
+	{% include page ~ ".html.twig" %}
 
-        {% include 'player.html.twig' %}
-        
-    {% endif %}
+	{% include 'player.html.twig' %}
 
-    {% include 'footer.html.twig' %}
+	{% include 'footer.html.twig' %}
 
-    
-</body>
-</html>
+
+</body></html>

@@ -12,7 +12,7 @@ $(document).ready(function () {
 		type: "POST",
 		data: { type: "pop" },
 	});
-
+	hidePausePlayer();
 	//HAVE CURRENT PAGE
 	let href = location.href.split("/");
 	href = href[href.length - 1].split(".")[0];
@@ -642,6 +642,7 @@ $(document).ready(function () {
 	////DASHBOARD COMPO////
 	///////////////////////
 
+	//CLICK ON COMPOSE
 	$("body").on(
 		"click",
 		"main#dashboard header>ul>li:first-of-type",
@@ -685,12 +686,15 @@ $(document).ready(function () {
 											url: "php/function/compose.php",
 											data: { type: "new", mode: "loop" },
 											success: function (data) {
-												switch (data) {
+												switch (data.mode) {
 													case "loop":
-														window.location.assign("compose.php");
+														window.location.assign(
+															"compose.php?l=" + encodeURI(data.name)
+														);
 														break;
 												}
 											},
+											dataType: "json",
 										});
 									}
 								);
@@ -710,6 +714,10 @@ $(document).ready(function () {
 			$(this).parent().find(".menu").addClass("hidden");
 		}
 	});
+
+	////////////
+	////LOOP////
+	////////////
 
 	//RENAME LOOP
 	$("body").on("click", ".popup .menu li:first-of-type", function () {
@@ -785,6 +793,7 @@ $(document).ready(function () {
 		});
 	});
 
+	//DUPLICATE LOOP
 	$("body").on("click", ".popup .menu li:last-of-type", function () {
 		$(this).parent().addClass("hidden");
 		let article = $(this).parent().parent();
@@ -802,6 +811,17 @@ $(document).ready(function () {
 				$(".popup").replaceWith(data);
 			},
 		});
+	});
+
+	//SEARCH IN LOOP
+	$("body").on("input", "#loop_search", function () {
+		console.log($(this).val());
+	});
+
+	//EDIT LOOP
+	$("body").on("click", ".popup .loop-edit", function () {
+		let name = $(this).parent().find("h6 span").html();
+		window.location.assign("compose.php?l=" + encodeURI(name));
 	});
 });
 
@@ -822,6 +842,7 @@ function page(pageName) {
 				history.pushState(null, null, pageName + ".php");
 				changeNav(pageName + ".php");
 				$("footer form").attr("action", pageName + ".php");
+				hidePausePlayer();
 				//GET DOCUMENT NAME
 				$.ajax({
 					async: true,

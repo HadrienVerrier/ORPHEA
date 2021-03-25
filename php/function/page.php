@@ -665,6 +665,8 @@ function getPopUpData($popup, $lang)
                 'pu_loop_duplicate' => $pu_loop_duplicate,
                 'pu_loop_rename_in' => $pu_loop_rename_in,
                 'pu_loop_rename_submit' => $pu_loop_rename_submit,
+                "pu_loop_delete_abort" => $pu_loop_delete_abort,
+                'pu_loop_delete_confirm' => $pu_loop_delete_confirm,
                 'loops' => $loops,
             );
             break;

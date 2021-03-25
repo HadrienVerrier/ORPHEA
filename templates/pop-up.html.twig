@@ -304,10 +304,10 @@
 		<h4>{{pu_loop_title|upper}}</h4>
 
 		<div id="pu_loop">
-			<input type="text" id="loop_search" name="loop_search" placeholder="{{pu_loop_search_pl}}" required="required">
-			<label for="loop_search">{{pu_loop_search_l|upper}}</label>
-
 			{% if loops|length > 0 %}
+				<input type="text" id="loop_search" name="loop_search" placeholder="{{pu_loop_search_pl}}" required="required">
+				<label for="loop_search">{{pu_loop_search_l|upper}}</label>
+
 
 				<div id="loop_results">
 					{% for l in loops %}

@@ -41,6 +41,7 @@ $(document).ready(function () {
 	$(document).on("keyup", "body", function (e) {
 		if (e.key == "Escape") {
 			$(".popup").fadeOut(200);
+			$(".popup").remove();
 			$.ajax({
 				async: true,
 				url: "php/function/forgotPassword.php",
@@ -654,10 +655,10 @@ $(document).ready(function () {
 				success: function (data) {
 					popUp(data);
 					$(".popup > svg").on("click", function () {
-						$(".popup").fadeOut(200);
+						$(".popup").fadeOut(200).remove();
 					});
 					$("body").on("click", ".popup p", function (e) {
-						$(".popup").fadeOut(100);
+						$(".popup").fadeOut(100).remove();
 						$("#loader").fadeIn(200);
 						$.ajax({
 							async: true,
@@ -666,15 +667,16 @@ $(document).ready(function () {
 							data: { type: "return", mode: $(this).attr("data-mode") },
 							success: function (data) {
 								popUp(data);
+								toogleSearchLoop();
 								$(".popup > svg").on("click", function () {
-									$(".popup").fadeOut(200);
+									$(".popup").fadeOut(200).remove();
 								});
 
 								$("body").on(
 									"click",
 									'.popup label[for="new_loop"]',
 									function () {
-										$(".popup").fadeOut(100);
+										$(".popup").fadeOut(100).remove();
 										$("#loader").fadeIn(200);
 
 										$.ajax({
@@ -728,7 +730,9 @@ $(document).ready(function () {
 			var new_name = $(this).parent().find('input[type="text"]').val();
 			article = $(this).parent().parent();
 			$(sub).addClass("hidden");
-
+			$(sub).find("input[name='loop_rename_in']").addClass("hidden");
+			$(sub).find("label[for='loop_rename_in']").addClass("hidden");
+			$(sub).find("label[for='submit']").addClass("hidden");
 			$.ajax({
 				async: true,
 				type: "POST",
@@ -740,10 +744,44 @@ $(document).ready(function () {
 				},
 
 				success: function (data) {
-					console.log(data);
 					$(article).find("h6 span").text(data);
 				},
 			});
+		});
+	});
+
+	//DELETE LOOP
+	$("body").on("click", ".popup .menu li:nth-of-type(2)", function () {
+		$(this).parent().addClass("hidden");
+		let article = $(this).parent().parent();
+		let sub = $(article).find("div.sub");
+		$(sub).find("div.l-delete").removeClass("hidden");
+		$(sub).find("input[name='loop_rename_in']").hide();
+		$(sub).find("label[for='loop_rename_in']").hide();
+		$(sub).find("label[for='submit']").hide();
+
+		$(sub).removeClass("hidden");
+
+		$(document).on("click", ".sub .l-delete", function () {
+			if ($(this).attr("data-select") == "true") {
+				$.ajax({
+					async: true,
+					url: "php/function/loop.php",
+					type: "POST",
+					data: {
+						type: "delete",
+						name: article.find("h6 span").html(),
+					},
+					success: function (data) {
+						if (data == "success") {
+							$(article).remove();
+							toogleSearchLoop();
+						}
+					},
+				});
+			}
+			$(sub).addClass("hidden");
+			$(sub).find("div.l-delete").addClass("hidden");
 		});
 	});
 });
@@ -803,4 +841,17 @@ function popUp(data) {
 	$("body").append('<section class="popup"></section>');
 	$(".popup").replaceWith(data);
 	$(".popup").fadeIn(300);
+}
+
+//HIDE LOOP SEARCH AND LOOP RESULT IF EMPTY
+function toogleSearchLoop() {
+	if ($("#loop_results").children().length == 0) {
+		$("#loop_results").hide();
+		$("#pu_loop #loop_search").hide();
+		$('#pu_loop label[for="loop_search"]').hide();
+	} else {
+		$("#loop_results").show();
+		$("#pu_loop #loop_search").show();
+		$('#pu_loop label[for="loop_search"]').show();
+	}
 }

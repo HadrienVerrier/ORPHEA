@@ -344,12 +344,14 @@ function getMainData($page, $lang)
             return $main;
             break;
         case 'compose':
+            //GET NAME
             $name = rawurldecode($_GET['l']);
             //GET LOOP DATA 
             $id = request('SELECT L.id_loop FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE L.name = :l_name AND M.nickname = :user', array('l_name' => $name, 'user' => $_SESSION['username']), true)['id_loop'];
-
+            //GET LOOP
             $loop = request("SELECT L.name, L.settings, L.data, L.licence FROM loops L WHERE L.id_loop = :id", array('id' => $id), true);
 
+            //DEFAULT SETTINGS AND DATA
             if ($loop['settings'] == 'defaults' && $loop['data'] == 'defaults') {
                 $settings = array('bpm' => 80);
             } else {
@@ -361,11 +363,16 @@ function getMainData($page, $lang)
             $licences = request('SELECT id_licence, link FROM licences', array(), false);
             $licences = $licences->fetchAll(PDO::FETCH_ASSOC);
 
+            //GET ALL TAGS
+
+            $tags = request('SELECT id_tag, tag_sn FROM tags', array(), false);
+            $tags = $tags->fetchAll(PDO::FETCH_ASSOC);
 
             //RETURN RESULT
             return array(
                 'actual_licence' => $loop['licence'],
                 'licences' => $licences,
+                'tags' => $tags,
                 'compose_name' => $name,
                 'settings' => $settings,
                 'compose_loop_edition' => $compose_loop_edition,

@@ -585,8 +585,8 @@ input[type="submit"] + label {
   }
   85% {
     left: -100%;
-    -webkit-transform: translate(-100%, 0);
-            transform: translate(-100%, 0);
+    -webkit-transform: translate(-15%, 0);
+            transform: translate(-15%, 0);
   }
   85.001% {
     left: 100%;
@@ -612,8 +612,8 @@ input[type="submit"] + label {
   }
   85% {
     left: -100%;
-    -webkit-transform: translate(-100%, 0);
-            transform: translate(-100%, 0);
+    -webkit-transform: translate(-15%, 0);
+            transform: translate(-15%, 0);
   }
   85.001% {
     left: 100%;
@@ -1380,7 +1380,7 @@ main#dashboard > section article ul li a svg {
 .popup.loop div#pu_loop > div {
   margin-top: -2rem;
   height: 20rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   border-radius: 0.9rem;
   background-color: #2b1f2d;
 }

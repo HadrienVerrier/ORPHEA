@@ -80,7 +80,7 @@ main#dashboard {
 		> div {
 			margin-top: -2rem;
 			height: 20rem;
-			overflow-y: scroll;
+			overflow-y: auto;
 			border-radius: $borderRadius * 0.6;
 			background-color: $mainDark;
 			div#loop_results {

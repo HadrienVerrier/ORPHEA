@@ -27,10 +27,15 @@
 				<option value="">--
 					{{main.compose_loop_licence_pl|upper}}
 					--</option>
-				<option value="ccby" placeholder="">CC-BY</option>
-				<option value="ccbync" placeholder="">CC-BY-NC</option>
-				<option value="ccbyncnd" placeholder="">CC-BY-NC-ND</option>
-				<option value="private" placeholder="">PRIVATE</option>
+				{% for licence in main.licences %}
+					{% if licence.id_licence == main.actual_licence %}
+						<option value="{{licence.id_licence}}" title="{{licence.link}}" selected="selected">{{licence.id_licence}}</option>
+					{% else %}
+						<option value="{{licence.id_licence}}" title="{{licence.link}}">{{licence.id_licence}}</option>
+					{% endif %}
+
+				{% endfor %}
+
 			</select>
 			<label for="licence">{{main.compose_loop_licence_l|upper}}</label>
 		</div>
@@ -39,10 +44,10 @@
 				<title>{{main.compose_loop_save}}</title>
 				<path d="M14 3h2.997v5h-2.997v-5zm9 1v20h-22v-24h17.997l4.003 4zm-17 5h12v-7h-12v7zm14 4h-16v9h16v-9z"/>
 			</svg>
-			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
-				<title>{{main.compose_loop_delete}}</title>
-				<path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
-			</svg>
+			{# <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+													<title>{{main.compose_loop_delete}}</title>
+													<path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
+												</svg> #}
 		</div>
 	</header>
 	<section id="transport_controls">

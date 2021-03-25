@@ -353,8 +353,17 @@ function getMainData($page, $lang)
             if ($loop['settings'] == 'defaults' && $loop['data'] == 'defaults') {
                 $bpm = 80;
             }
+
+            //GET LICENCE DATA 
+
+            $licences = request('SELECT id_licence, link FROM licences', array(), false);
+            $licences = $licences->fetchAll(PDO::FETCH_ASSOC);
+
+
             //RETURN RESULT
             return array(
+                'actual_licence' => $loop['licence'],
+                'licences' => $licences,
                 'compose_name' => $name,
                 'bpm' => $bpm,
                 'compose_loop_edition' => $compose_loop_edition,

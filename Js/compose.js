@@ -20,8 +20,26 @@ $(document).ready(function () {
 			},
 
 			success: function (data) {
+				history.pushState(null, null, "compose.php?l=" + encodeURI(data));
 				$("#l_name").val(data);
 				$("#l_name").attr("data-name", data);
+			},
+		});
+	});
+
+	//CHANGE LICENCE
+	header.find("#licence").on("change", function () {
+		$.ajax({
+			async: true,
+			url: "php/function/loop.php",
+			type: "POST",
+			data: {
+				type: "licence",
+				licence: $(this).val(),
+				name: header.find("#l_name").val(),
+			},
+			success: function (data) {
+				console.log(data);
 			},
 		});
 	});

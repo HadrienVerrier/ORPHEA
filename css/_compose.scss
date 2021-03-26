@@ -40,6 +40,44 @@ main#compose {
 			margin: 0;
 			text-indent: 0;
 		}
+
+		#tags-container {
+			position: relative;
+			> div {
+				position: absolute;
+				top: 3.4rem;
+				width: 110%;
+				background-color: rgba(255, 255, 255, 0.9);
+				z-index: 10;
+				padding: 1rem;
+				border-radius: $borderRadius * 0.7;
+				border-top-left-radius: $borderRadius * 0.2;
+				color: $background;
+				font-weight: bolder;
+				> div {
+					cursor: pointer;
+					padding: 0.5rem;
+					margin-bottom: 0.5rem;
+					border-radius: $borderRadius * 0.4;
+					&:hover {
+						background-color: lightgrey;
+					}
+					svg {
+						vertical-align: middle;
+						margin: 0;
+						height: 1.5rem;
+						position: relative;
+						top: -0.1rem;
+						&.added {
+							fill: darken($accept, 10%);
+						}
+						&.subbed {
+							fill: darken($decline, 10%);
+						}
+					}
+				}
+			}
+		}
 	}
 	#transport_controls {
 		@include center(false, true);

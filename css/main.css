@@ -1681,6 +1681,50 @@ main#compose header p {
   text-indent: 0;
 }
 
+main#compose header #tags-container {
+  position: relative;
+}
+
+main#compose header #tags-container > div {
+  position: absolute;
+  top: 3.4rem;
+  width: 110%;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 10;
+  padding: 1rem;
+  border-radius: 1.05rem;
+  border-top-left-radius: 0.3rem;
+  color: #383838;
+  font-weight: bolder;
+}
+
+main#compose header #tags-container > div > div {
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.6rem;
+}
+
+main#compose header #tags-container > div > div:hover {
+  background-color: lightgrey;
+}
+
+main#compose header #tags-container > div > div svg {
+  vertical-align: middle;
+  margin: 0;
+  height: 1.5rem;
+  position: relative;
+  top: -0.1rem;
+}
+
+main#compose header #tags-container > div > div svg.added {
+  fill: #15660b;
+}
+
+main#compose header #tags-container > div > div svg.subbed {
+  fill: #cc0000;
+}
+
 main#compose #transport_controls {
   position: absolute;
   left: 50%;

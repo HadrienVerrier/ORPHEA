@@ -18,17 +18,20 @@
 			<input type="number" id="l_bpm" name="l_bpm" min="30" max="280" value="{{main.settings.bpm}}" required="required">
 			<label for="l_bpm">{{main.compose_loop_bpm_l|upper}}</label>
 		</div>
-		<div>
-			<input type="text" id="tags" name="tags" placeholder="{{main.compose_loop_tags_pl}}" required="required">
-			<label for="tags">{{main.compose_loop_tags_l|upper}}</label>
-			<div>
+		<div id="tags-container">
+			<input type="text" id="tags_s" name="tags_s" placeholder="{{main.compose_loop_tags_pl}}" required="required">
+			<label for="tags_s">{{main.compose_loop_tags_l|upper}}</label>
+			<div class="hidden" id="tags-sub">
 				{% for tag in main.tags %}
 					<div id="{{tag.id_tag}}">
-						<svg class="added" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg>
-						<svg class="subbed hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-12v-2h12v2z"/></svg>
+						<svg class="added hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg>
+						<svg class="subbed" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-12v-2h12v2z"/></svg>
 						<span>{{tag.tag_sn}}</span>
 					</div>
 				{% endfor %}
+					<div id="no-tag">
+						<span>No tags match...</span>
+					</div>
 			</div>
 		</div>
 		<div id='licence-container'>

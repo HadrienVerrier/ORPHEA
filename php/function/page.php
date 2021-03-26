@@ -365,7 +365,7 @@ function getMainData($page, $lang)
 
             //GET ALL TAGS
 
-            $tags = request('SELECT id_tag, tag_sn FROM tags', array(), false);
+            $tags = request('SELECT id_tag, tag_sn FROM tags ORDER BY tag_sn ASC', array(), false);
             $tags = $tags->fetchAll(PDO::FETCH_ASSOC);
 
             //RETURN RESULT

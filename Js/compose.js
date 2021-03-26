@@ -51,6 +51,74 @@ $(document).ready(function () {
 		saveSettings();
 	});
 
+	//ADD AND REMOVE TAGS
+	header.find("#tags_s").on("click", function (e) {
+		e.stopPropagation();
+		$(this).parent().find("div.hidden").removeClass("hidden");
+
+		//CLICK ON TAG
+
+		$(this)
+			.parent()
+			.find("#tags-sub div")
+			.on("click", function () {
+				let elm = $(this);
+				let tag = elm.attr("id");
+				if (elm.find("svg.added").hasClass("hidden")) {
+					//ADD TAG
+					elm.find("svg.added").removeClass("hidden");
+					elm.find("svg.subbed").addClass("hidden");
+				} else {
+					//REMOVE TAG
+					elm.find("svg.subbed").removeClass("hidden");
+					elm.find("svg.added").addClass("hidden");
+				}
+			});
+	});
+
+	//SEARCH BAR TAG
+
+	var list = [];
+	if (header.find("#tags_s").val().length == 0) {
+		$("#no-tag").hide();
+	}
+
+	$("#tags-sub div").each(function () {
+		list[$(this).attr("id")] = $(this).find("span").html();
+	});
+
+	header.find("#tags_s").on("input", function () {
+		if (header.find("#tags_s").val().length == 0) {
+			$("#no-tag").hide();
+		} else {
+			$("#no-tag").show();
+		}
+
+		let val = $(this).val();
+		let regex = new RegExp(val, "i");
+		$(list).each(function (index) {
+			if (index != 0) {
+				if (regex.test(list[index])) {
+					$("#" + index).show();
+				} else {
+					$("#" + index).hide();
+				}
+			}
+		});
+	});
+
+	// header.on("click", function (e) {
+	// 	console.log(e.target.nodeName);
+	// 	e.stopPropagation();
+	// 	if (
+	// 		$(e.target).not("input") ||
+	// 		$(e.target).not("span") ||
+	// 		$(e.target).not("div") ||
+	// 		$(e.target).not("svg")
+	// 	) {
+	// 		header.find("#tags-container > div").addClass("hidden");
+	// 	}
+	// });
 	function saveSettings() {
 		let settings = {};
 

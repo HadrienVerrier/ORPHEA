@@ -1659,18 +1659,6 @@ main#compose header svg {
   margin-right: 2rem;
 }
 
-main#compose header svg:hover:first-of-type {
-  -webkit-transition: fill 0.1s;
-  transition: fill 0.1s;
-  fill: #1f9410;
-}
-
-main#compose header svg:hover:last-of-type {
-  -webkit-transition: fill 0.1s;
-  transition: fill 0.1s;
-  fill: red;
-}
-
 main#compose header select {
   color: #383838;
   background-color: #f7f9f5;
@@ -1723,6 +1711,26 @@ main#compose header #tags-container > div > div svg.added {
 
 main#compose header #tags-container > div > div svg.subbed {
   fill: #cc0000;
+}
+
+main#compose header #licence-container {
+  position: relative;
+}
+
+main#compose header #licence-container a {
+  position: absolute;
+  top: 0.5rem;
+  right: -5.5rem;
+}
+
+main#compose header #licence-container a svg:hover {
+  fill: #b900d7;
+}
+
+main#compose header #export-container svg:hover {
+  -webkit-transition: fill 0.1s;
+  transition: fill 0.1s;
+  fill: #1f9410;
 }
 
 main#compose #transport_controls {

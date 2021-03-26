@@ -421,7 +421,8 @@ function getMiscData($lang)
         'loggin' => loggin(),
         'loader' => $misc_loader,
         'f_email' => $_GET['email_forgot'],
-        'misc_phone' => $misc_phone
+        'misc_phone' => $misc_phone,
+        'lang' => $_SESSION['lang'],
     );
 }
 function getHeaderData($lang)

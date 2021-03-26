@@ -57,7 +57,8 @@ $(document).ready(function () {
 		$(this).parent().find("div.hidden").removeClass("hidden");
 
 		//CLICK ON TAG
-
+		let tags = [];
+		let arrVoid = true;
 		$(this)
 			.parent()
 			.find("#tags-sub div")
@@ -68,11 +69,36 @@ $(document).ready(function () {
 					//ADD TAG
 					elm.find("svg.added").removeClass("hidden");
 					elm.find("svg.subbed").addClass("hidden");
+					tags.push(tag);
 				} else {
 					//REMOVE TAG
 					elm.find("svg.subbed").removeClass("hidden");
 					elm.find("svg.added").addClass("hidden");
+					tags = jQuery.grep(tags, function (value) {
+						return value != tag;
+					});
 				}
+				if (tags.length == 0) {
+					arrVoid = true;
+				} else {
+					arrVoid = false;
+				}
+				console.log(tags);
+				console.log(arrVoid);
+				$.ajax({
+					async: true,
+					url: "php/function/loop.php",
+					type: "POST",
+					data: {
+						type: "tags",
+						tags: tags,
+						name: header.find("#l_name").val(),
+						arrVoid: arrVoid,
+					},
+					success: function (data) {
+						console.log(data);
+					},
+				});
 			});
 	});
 
@@ -107,18 +133,12 @@ $(document).ready(function () {
 		});
 	});
 
-	// header.on("click", function (e) {
-	// 	console.log(e.target.nodeName);
-	// 	e.stopPropagation();
-	// 	if (
-	// 		$(e.target).not("input") ||
-	// 		$(e.target).not("span") ||
-	// 		$(e.target).not("div") ||
-	// 		$(e.target).not("svg")
-	// 	) {
-	// 		header.find("#tags-container > div").addClass("hidden");
-	// 	}
-	// });
+	header.on("click", function (e) {
+		let targ = $(e.target);
+		if (!targ.closest("#tags-container").length) {
+			header.find("#tags-container > div").addClass("hidden");
+		}
+	});
 	function saveSettings() {
 		let settings = {};
 

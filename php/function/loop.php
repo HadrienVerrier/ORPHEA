@@ -105,4 +105,20 @@ switch ($_POST['type']) {
         request('UPDATE loops SET settings = :settings WHERE id_loop = :id', array('settings' => $_POST['settings'], 'id' => $id), false);
         echo 'success';
         break;
+    case 'tags':
+        //GET LOOP ID
+        $id = request('SELECT L.id_loop FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE L.name = :l_name AND M.nickname = :user', array('l_name' => $_POST['name'], 'user' => $_SESSION['username']), true)['id_loop'];
+        if ($_POST['arrVoid'] !== 'true') {
+            //DELETE CURRENT TAGS
+            request('DELETE FROM loops_x_tags WHERE id_loop = :id', array('id' => $id), false);
+
+            foreach ($_POST['tags'] as $tag) {
+                request('INSERT INTO loops_x_tags (id_tag, id_loop) VALUES (:tag, :loop)', array('tag' => $tag, 'loop' => $id), false);
+            }
+        } else {
+            //DELETE CURRENT TAGS
+            request('DELETE FROM loops_x_tags WHERE id_loop = :id', array('id' => $id), false);
+        }
+        echo ('success');
+        break;
 }

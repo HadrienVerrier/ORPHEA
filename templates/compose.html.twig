@@ -19,9 +19,10 @@
 			<label for="l_bpm">{{main.compose_loop_bpm_l|upper}}</label>
 		</div>
 		<div id="tags-container">
+	
 			<input type="text" id="tags_s" name="tags_s" placeholder="{{main.compose_loop_tags_pl}}" required="required">
 			<label for="tags_s">{{main.compose_loop_tags_l|upper}}</label>
-			<div class="hidden" id="tags-sub">
+			<div class="hidden" id="tags-sub" data-actual='{{main.c_tags|json_encode|raw}}'>
 				{% for tag in main.tags %}
 					<div id="{{tag.id_tag}}">
 						<svg class="added hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg>

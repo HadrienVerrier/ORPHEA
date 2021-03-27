@@ -368,11 +368,16 @@ function getMainData($page, $lang)
             $tags = request('SELECT id_tag, tag_sn FROM tags ORDER BY tag_sn ASC', array(), false);
             $tags = $tags->fetchAll(PDO::FETCH_ASSOC);
 
+            //GET CURRENT TAGS
+
+            $c_tags = request('SELECT id_tag FROM loops_x_tags WHERE id_loop = :id', array('id' => $id), false);
+            $c_tags = $c_tags->fetchAll(PDO::FETCH_COLUMN);
             //RETURN RESULT
             return array(
                 'actual_licence' => $loop['licence'],
                 'licences' => $licences,
                 'tags' => $tags,
+                'c_tags' => $c_tags,
                 'compose_name' => $name,
                 'settings' => $settings,
                 'compose_loop_edition' => $compose_loop_edition,

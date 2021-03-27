@@ -6,6 +6,10 @@ $(document).ready(function () {
 	var transport = main.find("#transportMark");
 	var tracks = main.find("#tracks");
 
+	//////////////
+	////GENERAL///
+	//////////////
+
 	//SAVE BUTTON
 	header.find("#export-container svg").on("click", function () {
 		saveSettings();
@@ -61,7 +65,6 @@ $(document).ready(function () {
 		arrVoid = false;
 
 		tags.forEach((elm) => {
-			console.log(elm);
 			header.find("#" + elm + " svg.subbed").addClass("hidden");
 			header.find("#" + elm + " svg.added").removeClass("hidden");
 		});
@@ -98,7 +101,6 @@ $(document).ready(function () {
 				} else {
 					arrVoid = false;
 				}
-				console.log(tags);
 				$.ajax({
 					async: true,
 					url: "php/function/loop.php",
@@ -151,6 +153,37 @@ $(document).ready(function () {
 			header.find("#tags-container > div").addClass("hidden");
 		}
 	});
+
+	//////////////
+	/////MIDI/////
+	//////////////
+
+	WebMidi.enable(function (err) {
+		if (err) {
+			console.log("WebMidi could not be enabled.", err);
+		} else {
+			console.log("WebMidi enabled!");
+		}
+
+		// REACT WHEN NEW DEVICE BECOME AVAILABLE
+		WebMidi.addListener("connected", function (e) {
+			if (e.port.type == "input") {
+				findMidiDevice();
+			}
+		});
+
+		// REACT WHEN NEW DEVICE BECOME UNAVAILABLE
+		WebMidi.addListener("disconnected", function (e) {
+			if (e.port.type == "input") {
+				findMidiDevice();
+			}
+		});
+	}, true);
+
+	//////////////
+	///FUNCTION///
+	//////////////
+
 	function saveSettings() {
 		let settings = {};
 
@@ -173,5 +206,30 @@ $(document).ready(function () {
 			},
 			success: function (data) {},
 		});
+	}
+
+	function findMidiDevice() {
+		let selects = tracks.find(".controls select:first-of-type");
+		let keep = selects.children().first();
+		selects.empty();
+		selects.append(keep);
+		WebMidi.inputs.forEach((input) => {
+			let o = new Option(input.name, input.id);
+			$(o).html(input.name);
+			selects.append(o);
+		});
+		return;
+
+		// let mySelect = document.querySelector("#miniMoon select");
+		// let options = document.querySelector("#miniMoon select").options;
+		// for (let i = options.length - 1; i > 0; i--) {
+		// 	options[i] = null;
+		// }
+		// WebMidi.inputs.forEach((input) => {
+		// 	let option = document.createElement("option");
+		// 	option.text = input.name;
+		// 	option.id = input.id;
+		// 	mySelect.options.add(option, 1);
+		// });
 	}
 });

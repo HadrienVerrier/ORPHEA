@@ -1749,13 +1749,12 @@ main#compose #transport_controls svg {
 }
 
 main#compose #transport_mark {
-  opacity: 0;
   position: absolute;
   width: 0.4rem;
-  height: calc(100% + 4rem);
+  height: 100%;
   background-color: #e366f6;
   left: 20rem;
-  top: -2rem;
+  top: 15rem;
   z-index: 5;
 }
 
@@ -2236,6 +2235,9 @@ main#admin section input {
   body > main#compose #transport_controls {
     top: 18rem;
   }
+  body > main#compose #transport_mark {
+    top: 22rem;
+  }
   body > aside#player-container #player {
     -ms-grid-columns: 1fr 1fr 2fr 0.5fr !important;
         grid-template-columns: 1fr 1fr 2fr 0.5fr !important;
@@ -2439,6 +2441,9 @@ main#admin section input {
   }
   body > main#compose #transport_controls {
     top: 18rem;
+  }
+  body > main#compose #transport_mark {
+    top: 22rem;
   }
   body > main#compose #tracks > div[id^="t"] {
     min-width: 50rem;

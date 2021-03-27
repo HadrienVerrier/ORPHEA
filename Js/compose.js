@@ -2,7 +2,7 @@
 var main = $("body main#compose");
 var header = main.find("header");
 var transportControls = main.find("#transport_controls");
-var transport = main.find("#transportMark");
+var transport = main.find("#transport_mark");
 var tracks = main.find("#tracks");
 
 //////////////
@@ -186,8 +186,10 @@ WebMidi.enable(function (err) {
 //PLAY/PAUSE
 
 transportControls.find("#play").on("click", function () {
-	console.log("test");
 	sequencer();
+	transport.removeClass("hidden");
+	var width = $("#seq_t1").width();
+	transportA(width);
 });
 
 //////////////
@@ -202,16 +204,13 @@ $(".d_click").on("click", function () {
 
 t1.find("#seq_t1 label").on("click", function () {
 	t1.find("#seq_t1 input").each(function () {
-		let n = $(this).attr("id").split("_")[1];
+		let arr = $(this).attr("id").split("_");
 
-		data.track_1[n][$(this).attr("id")] = $(this).prop("checked");
+		data[arr[0]][arr[1]][arr[2]] = $(this).prop("checked");
 	});
 	// CHANGE ACTUAL CLICK
-	n = $(this).attr("for").split("_")[1];
-	data.track_1[n][$(this).attr("for")] = $(this).prev().prop("checked")
-		? false
-		: true;
-	console.log(data.track_1["n1"]);
+	arr = $(this).attr("for").split("_");
+	data[arr[0]][arr[1]][arr[2]] = $(this).prev().prop("checked") ? false : true;
 });
 
 //////////////
@@ -257,4 +256,25 @@ function findMidiDevice() {
 
 function playD(elm) {
 	if (!firstContext) drums[elm.attr("data-sample")].start();
+}
+
+function transportA(width) {
+	transport.animate(
+		{
+			left: "+=" + width,
+		},
+		5000,
+		"linear",
+		function () {
+			transport.animate(
+				{
+					left: "-=" + width,
+				},
+				0,
+				function () {
+					transportA(width);
+				}
+			);
+		}
+	);
 }

@@ -1,38 +1,27 @@
 $(document).ready(function () {;//TONE CONTEXT
-Tone.Destination.mute = true;
+let seqRun = false;
 let firstContext = true;
+
 $(".gVol").on("click", function () {
+	Tone.start();
 	if (firstContext) {
 		firstContext = false;
 		console.log("Audio Context Start");
 		const context = new Tone.Context({ latencyHint: "interactive" });
 		Tone.setContext(context);
 		Tone.context.lookAhead = 0;
+		Tone.Destination.mute = true;
 	}
 	gMute();
 });
 
-//SEQUENCER
+/////////////
+//SAVE DATA//
+/////////////
 
-let step;
-
-function sequencer() {
-	let index = 0;
-	let stepNumber = 16;
-	let stepNote = stepNumber.toString() + "n";
-	Tone.Transport.scheduleRepeat(repeat, stepNote);
-
-	function repeat(time) {
-		step = index % stepNumber;
-		console.log(step);
-		index++;
-	}
-	Tone.Transport.start();
-}
-
-//SAVE DATA
+//INIT
 let data = {
-	track_1: {
+	t1: {
 		n1: {},
 		n2: {},
 		n3: {},
@@ -43,6 +32,59 @@ let data = {
 		n8: {},
 	},
 };
+
+//SEQUENCER
+
+let step;
+
+function sequencer() {
+	seqRun = true;
+	let index = 0;
+	let stepNumber = 16;
+	let stepNote = stepNumber.toString() + "n";
+
+	Tone.Transport.scheduleRepeat(repeat, stepNote);
+
+	function repeat(time) {
+		step = index % stepNumber;
+		index++;
+		//DRUMS
+
+		$.each(data.t1, function (i, n) {
+			$.each(n, function (key, value) {
+				if (key == step + 1 && value) {
+					switch (i) {
+						case "n1":
+							kick.start(time);
+							break;
+						case "n2":
+							snare.start(time);
+							break;
+						case "n3":
+							HHC.start(time);
+							break;
+						case "n4":
+							HHO.start(time);
+							break;
+						case "n5":
+							tomL.start(time);
+							break;
+						case "n6":
+							tomM.start(time);
+							break;
+						case "n7":
+							tomH.start(time);
+							break;
+						case "n8":
+							claps.start(time);
+							break;
+					}
+				}
+			});
+		});
+	}
+	Tone.Transport.start();
+}
 
 //FUNCTION
 function gMute() {
@@ -1011,7 +1053,7 @@ function hidePausePlayer() {
 var main = $("body main#compose");
 var header = main.find("header");
 var transportControls = main.find("#transport_controls");
-var transport = main.find("#transportMark");
+var transport = main.find("#transport_mark");
 var tracks = main.find("#tracks");
 
 //////////////
@@ -1195,8 +1237,10 @@ WebMidi.enable(function (err) {
 //PLAY/PAUSE
 
 transportControls.find("#play").on("click", function () {
-	console.log("test");
 	sequencer();
+	transport.removeClass("hidden");
+	var width = $("#seq_t1").width();
+	transportA(width);
 });
 
 //////////////
@@ -1211,16 +1255,13 @@ $(".d_click").on("click", function () {
 
 t1.find("#seq_t1 label").on("click", function () {
 	t1.find("#seq_t1 input").each(function () {
-		let n = $(this).attr("id").split("_")[1];
+		let arr = $(this).attr("id").split("_");
 
-		data.track_1[n][$(this).attr("id")] = $(this).prop("checked");
+		data[arr[0]][arr[1]][arr[2]] = $(this).prop("checked");
 	});
 	// CHANGE ACTUAL CLICK
-	n = $(this).attr("for").split("_")[1];
-	data.track_1[n][$(this).attr("for")] = $(this).prev().prop("checked")
-		? false
-		: true;
-	console.log(data.track_1["n1"]);
+	arr = $(this).attr("for").split("_");
+	data[arr[0]][arr[1]][arr[2]] = $(this).prev().prop("checked") ? false : true;
 });
 
 //////////////
@@ -1266,6 +1307,27 @@ function findMidiDevice() {
 
 function playD(elm) {
 	if (!firstContext) drums[elm.attr("data-sample")].start();
+}
+
+function transportA(width) {
+	transport.animate(
+		{
+			left: "+=" + width,
+		},
+		5000,
+		"linear",
+		function () {
+			transport.animate(
+				{
+					left: "-=" + width,
+				},
+				0,
+				function () {
+					transportA(width);
+				}
+			);
+		}
+	);
 }
 ;console.clear();
 

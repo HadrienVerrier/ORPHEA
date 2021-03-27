@@ -12,6 +12,39 @@ $(".gVol").on("click", function () {
 	gMute();
 });
 
+//SEQUENCER
+
+let step;
+
+function sequencer() {
+	let index = 0;
+	let stepNumber = 16;
+	let stepNote = stepNumber.toString() + "n";
+	Tone.Transport.scheduleRepeat(repeat, stepNote);
+
+	function repeat(time) {
+		step = index % stepNumber;
+		console.log(step);
+		index++;
+	}
+	Tone.Transport.start();
+}
+
+//SAVE DATA
+let data = {
+	track_1: {
+		n1: {},
+		n2: {},
+		n3: {},
+		n4: {},
+		n5: {},
+		n6: {},
+		n7: {},
+		n8: {},
+	},
+};
+
+//FUNCTION
 function gMute() {
 	if (Tone.Destination.mute) {
 		Tone.Destination.mute = false;

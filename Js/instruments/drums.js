@@ -28,3 +28,5 @@ claps.chain(clapsPV, Tone.Destination);
 tomH.chain(tomHPV, Tone.Destination);
 tomM.chain(tomMPV, Tone.Destination);
 tomL.chain(tomLPV, Tone.Destination);
+
+let drums = { kick, snare, HHC, HHO, claps, tomH, tomM, tomL };

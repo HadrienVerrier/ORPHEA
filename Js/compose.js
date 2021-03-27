@@ -179,16 +179,41 @@ WebMidi.enable(function (err) {
 	});
 }, true);
 
+///////////////////
+/////SEQUENCER/////
+///////////////////
+
+//PLAY/PAUSE
+
+transportControls.find("#play").on("click", function () {
+	console.log("test");
+	sequencer();
+});
+
 //////////////
 ////BEATS/////
 //////////////
 
 let t1 = tracks.find("#t1");
 
-$("#d_n1").on("click", function () {
-	console.log("test");
-	kick.start();
+$(".d_click").on("click", function () {
+	playD($(this));
 });
+
+t1.find("#seq_t1 label").on("click", function () {
+	t1.find("#seq_t1 input").each(function () {
+		let n = $(this).attr("id").split("_")[1];
+
+		data.track_1[n][$(this).attr("id")] = $(this).prop("checked");
+	});
+	// CHANGE ACTUAL CLICK
+	n = $(this).attr("for").split("_")[1];
+	data.track_1[n][$(this).attr("for")] = $(this).prev().prop("checked")
+		? false
+		: true;
+	console.log(data.track_1["n1"]);
+});
+
 //////////////
 ///FUNCTION///
 //////////////
@@ -228,4 +253,8 @@ function findMidiDevice() {
 		selects.append(o);
 	});
 	return;
+}
+
+function playD(elm) {
+	if (!firstContext) drums[elm.attr("data-sample")].start();
 }

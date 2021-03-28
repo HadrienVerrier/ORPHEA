@@ -91,7 +91,7 @@ header.find("#tags_s").on("click", function (e) {
 				//REMOVE TAG
 				elm.find("svg.subbed").removeClass("hidden");
 				elm.find("svg.added").addClass("hidden");
-				tags = jQuery.grep(tags, function (value) {
+				tags = $.grep(tags, function (value) {
 					return value != tag;
 				});
 			}
@@ -203,14 +203,46 @@ $(".d_click").on("click", function () {
 });
 
 t1.find("#seq_t1 label").on("click", function () {
-	t1.find("#seq_t1 input").each(function () {
-		let arr = $(this).attr("id").split("_");
+	//SET DATA
+	let id = $(this).attr("for");
+	let arr = id.split("_");
+	let tn = arr[0];
+	let nn = arr[1];
+	let idn = arr[2];
+	let midi = data[tn][nn].midi;
+	let q = (idn - 1) % 4;
+	let b = Math.floor((idn - 1) / 4);
+	let m = Math.floor((idn - 1) / 16);
 
-		data[arr[0]][arr[1]][arr[2]] = $(this).prop("checked");
-	});
-	// CHANGE ACTUAL CLICK
-	arr = $(this).attr("for").split("_");
-	data[arr[0]][arr[1]][arr[2]] = $(this).prev().prop("checked") ? false : true;
+	//CREATE SEQUENCE PART
+
+	let sequ = {
+		time: m + ":" + b + ":" + q,
+		note: midi,
+		velocity: 1,
+	};
+	if ($(this).prev().prop("checked") ? false : true) {
+		//UPDATE DATA
+		data[tn][nn].id[idn] = id;
+
+		data[tn][nn].seq[idn] = sequ;
+
+		drumPart.add(sequ);
+	} else {
+		drumPart._events.forEach((event) => {
+			const t = Tone.Time(sequ.time).toTicks();
+			if (event.startOffset == t && event.value.note == sequ.note) {
+				drumPart._events.delete(event);
+				event.dispose();
+			}
+		});
+
+		delete data[tn][nn].id[idn];
+		data[tn][nn].seq[idn] = $.grep(data[tn][nn].seq[idn], function (value) {
+			return value != sequ;
+		});
+	}
+	console.log(drumPart._events);
 });
 
 //////////////

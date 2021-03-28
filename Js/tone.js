@@ -22,68 +22,29 @@ $(".gVol").on("click", function () {
 //INIT
 let data = {
 	t1: {
-		n1: {},
-		n2: {},
-		n3: {},
-		n4: {},
-		n5: {},
-		n6: {},
-		n7: {},
-		n8: {},
+		n1: { seq: [], id: {}, midi: "C2" },
+		n2: { seq: [], id: {}, midi: "D2" },
+		n3: { seq: [], id: {}, midi: "Gb2" },
+		n4: { seq: [], id: {}, midi: "Bb2" },
+		n5: { seq: [], id: {}, midi: "F2" },
+		n6: { seq: [], id: {}, midi: "A2" },
+		n7: { seq: [], id: {}, midi: "C3" },
+		n8: { seq: [], id: {}, midi: "Eb2" },
 	},
 };
 
 //SEQUENCER
 
-let step;
+Tone.Transport.bpm.value = 120;
+Tone.Transport.timeSignature = 4;
 
 function sequencer() {
-	seqRun = true;
-	let index = 0;
-	let stepNumber = 16;
-	let stepNote = stepNumber.toString() + "n";
-
-	Tone.Transport.scheduleRepeat(repeat, stepNote);
-
-	function repeat(time) {
-		step = index % stepNumber;
-		index++;
-		//DRUMS
-
-		$.each(data.t1, function (i, n) {
-			$.each(n, function (key, value) {
-				if (key == step + 1 && value) {
-					switch (i) {
-						case "n1":
-							kick.start(time);
-							break;
-						case "n2":
-							snare.start(time);
-							break;
-						case "n3":
-							HHC.start(time);
-							break;
-						case "n4":
-							HHO.start(time);
-							break;
-						case "n5":
-							tomL.start(time);
-							break;
-						case "n6":
-							tomM.start(time);
-							break;
-						case "n7":
-							tomH.start(time);
-							break;
-						case "n8":
-							claps.start(time);
-							break;
-					}
-				}
-			});
-		});
-	}
 	Tone.Transport.start();
+	drumPart.start();
+
+	// Tone.Transport.scheduleRepeat((time) => {
+	// 	console.log(drumPart._events);
+	// }, "8n");
 }
 
 //FUNCTION

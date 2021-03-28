@@ -22,68 +22,29 @@ $(".gVol").on("click", function () {
 //INIT
 let data = {
 	t1: {
-		n1: {},
-		n2: {},
-		n3: {},
-		n4: {},
-		n5: {},
-		n6: {},
-		n7: {},
-		n8: {},
+		n1: { seq: [], id: {}, midi: "C2" },
+		n2: { seq: [], id: {}, midi: "D2" },
+		n3: { seq: [], id: {}, midi: "Gb2" },
+		n4: { seq: [], id: {}, midi: "Bb2" },
+		n5: { seq: [], id: {}, midi: "F2" },
+		n6: { seq: [], id: {}, midi: "A2" },
+		n7: { seq: [], id: {}, midi: "C3" },
+		n8: { seq: [], id: {}, midi: "Eb2" },
 	},
 };
 
 //SEQUENCER
 
-let step;
+Tone.Transport.bpm.value = 120;
+Tone.Transport.timeSignature = 4;
 
 function sequencer() {
-	seqRun = true;
-	let index = 0;
-	let stepNumber = 16;
-	let stepNote = stepNumber.toString() + "n";
-
-	Tone.Transport.scheduleRepeat(repeat, stepNote);
-
-	function repeat(time) {
-		step = index % stepNumber;
-		index++;
-		//DRUMS
-
-		$.each(data.t1, function (i, n) {
-			$.each(n, function (key, value) {
-				if (key == step + 1 && value) {
-					switch (i) {
-						case "n1":
-							kick.start(time);
-							break;
-						case "n2":
-							snare.start(time);
-							break;
-						case "n3":
-							HHC.start(time);
-							break;
-						case "n4":
-							HHO.start(time);
-							break;
-						case "n5":
-							tomL.start(time);
-							break;
-						case "n6":
-							tomM.start(time);
-							break;
-						case "n7":
-							tomH.start(time);
-							break;
-						case "n8":
-							claps.start(time);
-							break;
-					}
-				}
-			});
-		});
-	}
 	Tone.Transport.start();
+	drumPart.start();
+
+	// Tone.Transport.scheduleRepeat((time) => {
+	// 	console.log(drumPart._events);
+	// }, "8n");
 }
 
 //FUNCTION
@@ -98,38 +59,24 @@ function gMute() {
 		$("#transport_controls").find("svg:nth-of-type(4)").removeClass("hidden");
 	}
 }
-;const kick = new Tone.Player("./ressources/samples/drums/kick/909.wav");
-const snare = new Tone.Player("./ressources/samples/drums/snare/909.wav");
-const HHC = new Tone.Player("./ressources/samples/drums/HHC/909.wav");
-const HHO = new Tone.Player("./ressources/samples/drums/HHO/909.wav");
-const claps = new Tone.Player("./ressources/samples/drums/claps/909.wav");
-const tomH = new Tone.Player("./ressources/samples/drums/tomH/909.wav");
-const tomM = new Tone.Player("./ressources/samples/drums/tomM/909.wav");
-const tomL = new Tone.Player("./ressources/samples/drums/tomL/909.wav");
+;const drumKit = new Tone.Sampler({
+	urls: {
+		C2: "./ressources/samples/drums/kick/909.wav",
+		D2: "./ressources/samples/drums/snare/909.wav",
+		Eb2: "./ressources/samples/drums/claps/909.wav",
+		F2: "./ressources/samples/drums/tomL/909.wav",
+		Gb2: "./ressources/samples/drums/HHC/909.wav",
+		A2: "./ressources/samples/drums/tomM/909.wav",
+		Bb2: "./ressources/samples/drums/HHO/909.wav",
+		C3: "./ressources/samples/drums/tomH/909.wav",
+	},
+}).toDestination();
 
-//CREATE VOL AND PAN
-
-let kickPV = new Tone.PanVol(0, 0);
-let snarePV = new Tone.PanVol(0, 0);
-let HHCPV = new Tone.PanVol(0, 0);
-let HHOPV = new Tone.PanVol(0, 0);
-let clapsPV = new Tone.PanVol(0, 0);
-let tomHPV = new Tone.PanVol(0, 0);
-let tomMPV = new Tone.PanVol(0, 0);
-let tomLPV = new Tone.PanVol(0, 0);
-
-//CONNECT PLAYER TO PANVOL
-
-kick.chain(kickPV, Tone.Destination);
-snare.chain(snarePV, Tone.Destination);
-HHC.chain(HHCPV, Tone.Destination);
-HHO.chain(HHOPV, Tone.Destination);
-claps.chain(clapsPV, Tone.Destination);
-tomH.chain(tomHPV, Tone.Destination);
-tomM.chain(tomMPV, Tone.Destination);
-tomL.chain(tomLPV, Tone.Destination);
-
-let drums = { kick, snare, HHC, HHO, claps, tomH, tomM, tomL };
+const drumPart = new Tone.Part((time, value) => {
+	drumKit.triggerAttackRelease(value.note, "16n", time, value.velocity);
+});
+drumPart.loop = true;
+drumPart.loopEnd = "1:0:0";
 ;//UNSET ALL SESSION POP UP
 $.ajax({
 	async: true,
@@ -1142,7 +1089,7 @@ header.find("#tags_s").on("click", function (e) {
 				//REMOVE TAG
 				elm.find("svg.subbed").removeClass("hidden");
 				elm.find("svg.added").addClass("hidden");
-				tags = jQuery.grep(tags, function (value) {
+				tags = $.grep(tags, function (value) {
 					return value != tag;
 				});
 			}
@@ -1254,14 +1201,46 @@ $(".d_click").on("click", function () {
 });
 
 t1.find("#seq_t1 label").on("click", function () {
-	t1.find("#seq_t1 input").each(function () {
-		let arr = $(this).attr("id").split("_");
+	//SET DATA
+	let id = $(this).attr("for");
+	let arr = id.split("_");
+	let tn = arr[0];
+	let nn = arr[1];
+	let idn = arr[2];
+	let midi = data[tn][nn].midi;
+	let q = (idn - 1) % 4;
+	let b = Math.floor((idn - 1) / 4);
+	let m = Math.floor((idn - 1) / 16);
 
-		data[arr[0]][arr[1]][arr[2]] = $(this).prop("checked");
-	});
-	// CHANGE ACTUAL CLICK
-	arr = $(this).attr("for").split("_");
-	data[arr[0]][arr[1]][arr[2]] = $(this).prev().prop("checked") ? false : true;
+	//CREATE SEQUENCE PART
+
+	let sequ = {
+		time: m + ":" + b + ":" + q,
+		note: midi,
+		velocity: 1,
+	};
+	if ($(this).prev().prop("checked") ? false : true) {
+		//UPDATE DATA
+		data[tn][nn].id[idn] = id;
+
+		data[tn][nn].seq[idn] = sequ;
+
+		drumPart.add(sequ);
+	} else {
+		drumPart._events.forEach((event) => {
+			const t = Tone.Time(sequ.time).toTicks();
+			if (event.startOffset == t && event.value.note == sequ.note) {
+				drumPart._events.delete(event);
+				event.dispose();
+			}
+		});
+
+		delete data[tn][nn].id[idn];
+		data[tn][nn].seq[idn] = $.grep(data[tn][nn].seq[idn], function (value) {
+			return value != sequ;
+		});
+	}
+	console.log(drumPart._events);
 });
 
 //////////////

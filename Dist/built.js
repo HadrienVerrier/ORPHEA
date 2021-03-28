@@ -37,14 +37,10 @@ let data = {
 
 Tone.Transport.bpm.value = 120;
 Tone.Transport.timeSignature = 4;
-
+Tone.Transport.swing = 0;
 function sequencer() {
 	Tone.Transport.start();
 	drumPart.start();
-
-	// Tone.Transport.scheduleRepeat((time) => {
-	// 	console.log(drumPart._events);
-	// }, "8n");
 }
 
 //FUNCTION
@@ -75,7 +71,9 @@ function gMute() {
 const drumPart = new Tone.Part((time, value) => {
 	drumKit.triggerAttackRelease(value.note, "16n", time, value.velocity);
 });
+
 drumPart.loop = true;
+drumPart.swing = 0;
 drumPart.loopEnd = "1:0:0";
 ;//UNSET ALL SESSION POP UP
 $.ajax({

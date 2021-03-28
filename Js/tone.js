@@ -37,14 +37,10 @@ let data = {
 
 Tone.Transport.bpm.value = 120;
 Tone.Transport.timeSignature = 4;
-
+Tone.Transport.swing = 0;
 function sequencer() {
 	Tone.Transport.start();
 	drumPart.start();
-
-	// Tone.Transport.scheduleRepeat((time) => {
-	// 	console.log(drumPart._events);
-	// }, "8n");
 }
 
 //FUNCTION

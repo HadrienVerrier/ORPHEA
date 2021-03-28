@@ -14,5 +14,7 @@ const drumKit = new Tone.Sampler({
 const drumPart = new Tone.Part((time, value) => {
 	drumKit.triggerAttackRelease(value.note, "16n", time, value.velocity);
 });
+
 drumPart.loop = true;
+drumPart.swing = 0;
 drumPart.loopEnd = "1:0:0";

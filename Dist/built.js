@@ -1067,6 +1067,7 @@ header.find("#licence").on("change", function () {
 
 //CHANGE BPM
 header.find("#l_bpm").on("change", function () {
+	Tone.Transport.bpm.value = $(this).val();
 	saveSettings();
 });
 
@@ -1311,12 +1312,9 @@ $("#l_bpm").val(settings.bpm);
 function saveSettings() {
 	let settings = {};
 
-	//GET BPM
-	let bpm = header.find("#l_bpm").val();
-
 	//ADD DATA
 	settings = {
-		bpm: bpm,
+		bpm: Tone.Transport.bpm.value,
 		timeSignature: Tone.Transport.timeSignature,
 		swing: Tone.Transport.swing,
 	};
@@ -1360,11 +1358,12 @@ function findMidiDevice() {
 	});
 	return;
 }
+
 let width = $("#seq_t1").width();
 $(window).resize(function () {
 	width = $("#seq_t1").width();
 });
-
+let bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 function transportA(state) {
 	if (state == "run") {
 		transport.stop();
@@ -1373,11 +1372,13 @@ function transportA(state) {
 			{
 				left: "+=" + width,
 			},
-			2000,
+			bpmSpeed,
 			"linear"
 		);
 		Tone.Transport.scheduleRepeat(
 			() => {
+				bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
+				console.log(bpmSpeed);
 				transport.stop();
 				transport.css({
 					left: "20rem",
@@ -1386,7 +1387,7 @@ function transportA(state) {
 					{
 						left: "+=" + width,
 					},
-					2000,
+					bpmSpeed,
 					"linear"
 				);
 			},

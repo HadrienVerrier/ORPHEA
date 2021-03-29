@@ -22,13 +22,14 @@ if (isset($_POST['nickname']) && isset($_POST['password'])) {
 
     $nickname = request('SELECT COUNT(nickname) AS nb FROM members WHERE nickname = :nickname OR email = :nickname', array('nickname' => htmlspecialchars($_POST['nickname'])), true)['nb'];
     $request->closeCursor();
-    if ($nickname > 0 && $nickname < 2) {
+    if ($nickname == 1) {
         //CHECK PASSWORD 
         if (preg_match("#^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$#", $_POST['password'])) {
             $password_hash = request('SELECT M.password FROM members M WHERE M.nickname = :nickname OR email = :nickname', array('nickname' => $_POST['nickname']), true)['password'];
             $request->closeCursor();
             if (password_verify($_POST['password'], $password_hash)) {
-                $_SESSION['username'] = $_POST['nickname'];
+                $nickname = request('SELECT nickname FROM members WHERE nickname = :nickname OR email = :nickname', array('nickname' => htmlspecialchars($_POST['nickname'])), true)['nickname'];
+                $_SESSION['username'] = $nickname;
                 echo 'success';
             } else {
                 $data = getPopUpData('log', $lang);

@@ -12,8 +12,9 @@ $.ajax({
 	data: { type: "pop" },
 });
 hidePausePlayer();
+
 //HAVE CURRENT PAGE
-let href = location.href.split("/");
+href = location.href.split("/");
 href = href[href.length - 1].split(".")[0];
 if (href == "") href = "index";
 

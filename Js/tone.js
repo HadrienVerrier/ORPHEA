@@ -25,13 +25,10 @@ function sequencer() {
 	if (Tone.Transport.state == "stopped") {
 		Tone.Transport.start();
 		drumPart.start();
-		console.log(Tone.Transport.state);
 	} else if (Tone.Transport.state == "paused") {
 		Tone.Transport.start();
-		console.log(Tone.Transport.state);
 	} else {
 		Tone.Transport.pause();
-		console.log(Tone.Transport.state);
 	}
 
 	Tone.Transport.scheduleRepeat(animPlay, "8n");
@@ -42,7 +39,6 @@ function sequencer() {
 function createToneContext() {
 	if (firstContext) {
 		firstContext = false;
-		console.log("Audio Context Start");
 		const context = new Tone.Context({ latencyHint: "interactive" });
 		Tone.setContext(context);
 		Tone.context.lookAhead = 0;

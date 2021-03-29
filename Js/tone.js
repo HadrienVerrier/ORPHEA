@@ -1,8 +1,13 @@
 //TONE CONTEXT
 let firstContext = true;
 
-//START AUDIO
+//IMPORT DATA & SETTINGS
+let data = $("[data-data-song]");
+data = JSON.parse($(data).attr("data-data-song"));
+let settings = $("[data-settings]");
+settings = JSON.parse($(settings).attr("data-settings"));
 
+//START AUDIO
 $(document).on("click", async () => {
 	if (typeof context === "undefined") {
 		await Tone.start();
@@ -10,29 +15,11 @@ $(document).on("click", async () => {
 	}
 });
 
-/////////////
-//SAVE DATA//
-/////////////
-
-//INIT
-let data = {
-	t1: {
-		n1: { seq: [], id: {}, midi: "C2" },
-		n2: { seq: [], id: {}, midi: "D2" },
-		n3: { seq: [], id: {}, midi: "Gb2" },
-		n4: { seq: [], id: {}, midi: "Bb2" },
-		n5: { seq: [], id: {}, midi: "F2" },
-		n6: { seq: [], id: {}, midi: "A2" },
-		n7: { seq: [], id: {}, midi: "C3" },
-		n8: { seq: [], id: {}, midi: "Eb2" },
-	},
-};
-
 //SEQUENCER
 
-Tone.Transport.bpm.value = 120;
-Tone.Transport.timeSignature = 4;
-Tone.Transport.swing = 0;
+Tone.Transport.bpm.value = settings.bpm;
+Tone.Transport.timeSignature = settings.timeSignature;
+Tone.Transport.swing = settings.swing;
 let gPlayState = true;
 function sequencer() {
 	if (Tone.Transport.state == "stopped") {

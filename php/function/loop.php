@@ -105,6 +105,15 @@ switch ($_POST['type']) {
         request('UPDATE loops SET settings = :settings WHERE id_loop = :id', array('settings' => $_POST['settings'], 'id' => $id), false);
         echo 'success';
         break;
+    case 'data':
+
+        //GET LOOP ID
+        $id = request('SELECT L.id_loop FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE L.name = :l_name AND M.nickname = :user', array('l_name' => $_POST['name'], 'user' => $_SESSION['username']), true)['id_loop'];
+
+        //UPDATE DATA
+        request('UPDATE loops SET `data` = :data WHERE id_loop = :id', array('data' => $_POST['data'], 'id' => $id), false);
+        echo 'success';
+        break;
     case 'tags':
         //GET LOOP ID
         $id = request('SELECT L.id_loop FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE L.name = :l_name AND M.nickname = :user', array('l_name' => $_POST['name'], 'user' => $_SESSION['username']), true)['id_loop'];

@@ -352,10 +352,24 @@ function getMainData($page, $lang)
             $loop = request("SELECT L.name, L.settings, L.data, L.licence FROM loops L WHERE L.id_loop = :id", array('id' => $id), true);
 
             //DEFAULT SETTINGS AND DATA
-            if ($loop['settings'] == 'defaults' && $loop['data'] == 'defaults') {
-                $settings = array('bpm' => 80);
+            if ($loop['settings'] == 'defaults') {
+                $settings = '{
+                    "bpm" : "120",
+                    "timeSignature" : "4",
+                    "swing" : "0"
+                }';
             } else {
-                $settings = json_decode($loop['settings']);
+                $settings = $loop['settings'];
+            }
+            if ($loop['data'] == 'defaults') {
+                $data_song = '{
+                    "t1":{"n1":{"seq":[],"id":{}, "midi": "C2" },"n2":{"seq":[],"id":{}, "midi": "D2"},"n3":{"seq":[],"id":{}, "midi": "Gb2"},"n4":{"seq":[],"id":{}, "midi": "Bb2"},"n5":{"seq":[],"id":{}, "midi": "F2"},"n6":{"seq":[],"id":{}, "midi": "A2"},"n7":{"seq":[],"id":{}, "midi": "C3"},"n8":{"seq":[],"id":{}, "midi": "Eb2"}},
+                    "t2":{"n1":{"seq":[],"id":{}},"n2":{"seq":[],"id":{}},"n3":{"seq":[],"id":{}},"n4":{"seq":[],"id":{}},"n5":{"seq":[],"id":{}},"n6":{"seq":[],"id":{}},"n7":{"seq":[],"id":{}},"n8":{"seq":[],"id":{}}},
+                    "t3":{"n1":{"seq":[],"id":{}},"n2":{"seq":[],"id":{}},"n3":{"seq":[],"id":{}},"n4":{"seq":[],"id":{}},"n5":{"seq":[],"id":{}},"n6":{"seq":[],"id":{}},"n7":{"seq":[],"id":{}},"n8":{"seq":[],"id":{}}},
+                    "t4":{"n1":{"seq":[],"id":{}},"n2":{"seq":[],"id":{}},"n3":{"seq":[],"id":{}},"n4":{"seq":[],"id":{}},"n5":{"seq":[],"id":{}},"n6":{"seq":[],"id":{}},"n7":{"seq":[],"id":{}},"n8":{"seq":[],"id":{}}}
+                    }';
+            } else {
+                $data_song = $loop['data'];
             }
 
             //GET LICENCE DATA 
@@ -380,6 +394,7 @@ function getMainData($page, $lang)
                 'c_tags' => $c_tags,
                 'compose_name' => $name,
                 'settings' => $settings,
+                'data' => $data_song,
                 'compose_loop_edition' => $compose_loop_edition,
                 'compose_loop_name_pl' => $compose_loop_name_pl,
                 'compose_loop_name_l' => $compose_loop_name_l,

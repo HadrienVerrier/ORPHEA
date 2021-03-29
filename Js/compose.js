@@ -9,10 +9,12 @@ var tracks = main.find("#tracks");
 ////GENERAL///
 //////////////
 
-//SAVE BUTTON
+//SAVE BUTTON AND AUTO
 header.find("#export-container svg").on("click", function () {
 	saveSettings();
 });
+
+setInterval(saveSettings, 5000);
 
 //CHANGE LOOP NAME
 header.find("#l_name").on("change", function () {
@@ -54,10 +56,10 @@ header.find("#l_bpm").on("change", function () {
 	saveSettings();
 });
 
+//GET CURRENT TAGS
 let tags = [];
 let arrVoid = true;
 
-//GET CURRENT TAGS
 let actual = JSON.parse(header.find("#tags-sub").attr("data-actual"));
 if (actual.length !== 0) {
 	tags = tags.concat(actual);
@@ -159,9 +161,9 @@ header.on("click", function (e) {
 
 WebMidi.enable(function (err) {
 	if (err) {
-		console.log("WebMidi could not be enabled.", err);
+		// console.log("WebMidi could not be enabled.", err);
 	} else {
-		console.log("WebMidi enabled!");
+		// console.log("WebMidi enabled!");
 	}
 
 	// REACT WHEN NEW DEVICE BECOME AVAILABLE
@@ -185,7 +187,7 @@ WebMidi.enable(function (err) {
 		tracks.find("#midi_channel_t1").on("change", function () {
 			t1Input.removeListener("noteon");
 			t1Channel = parseFloat($(this).val().split("_")[2]);
-			console.log(t1Channel);
+
 			t1Input.addListener("noteon", t1Channel, (e) => {
 				note = e.note.name + e.note.octave;
 				drumKit.triggerAttackRelease(note, "16n", "+0", e.velocity);
@@ -269,13 +271,25 @@ t1.find("#seq_t1 label").on("click", function () {
 		});
 
 		delete data[tn][nn].id[idn];
-		data[tn][nn].seq[idn] = $.grep(data[tn][nn].seq[idn], function (value) {
-			return value != sequ;
-		});
+
+		delete data[tn][nn].seq[idn];
 	}
-	console.log(drumPart._events);
 });
 
+//CHECK MARK DEPENDS DATA
+$.each(data.t1, function (ni, n) {
+	$.each(n.seq, function (i, s) {
+		if (s) drumPart.add(s);
+	});
+	$.each(n.id, function (i, d) {
+		if (d) {
+			$("#" + d).prop("checked", true);
+		}
+	});
+});
+
+//SET VISUAL VALUE
+$("#l_bpm").val(settings.bpm);
 //////////////
 ///FUNCTION///
 //////////////
@@ -289,6 +303,8 @@ function saveSettings() {
 	//ADD DATA
 	settings = {
 		bpm: bpm,
+		timeSignature: Tone.Transport.timeSignature,
+		swing: Tone.Transport.swing,
 	};
 
 	$.ajax({
@@ -299,6 +315,20 @@ function saveSettings() {
 			name: header.find("#l_name").val(),
 			type: "settings",
 			settings: JSON.stringify(settings),
+		},
+		success: function (data) {},
+	});
+
+	//SAVE DATA
+
+	$.ajax({
+		async: true,
+		type: "POST",
+		url: "php/function/loop.php",
+		data: {
+			name: header.find("#l_name").val(),
+			type: "data",
+			data: JSON.stringify(data),
 		},
 		success: function (data) {},
 	});

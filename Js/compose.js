@@ -346,12 +346,15 @@ function findMidiDevice() {
 	});
 	return;
 }
+let width = $("#seq_t1").width();
+$(window).resize(function () {
+	width = $("#seq_t1").width();
+});
 
 function transportA(state) {
 	if (state == "run") {
 		transport.stop();
 	} else {
-		let width = $("#seq_t1").width();
 		transport.animate(
 			{
 				left: "+=" + width,

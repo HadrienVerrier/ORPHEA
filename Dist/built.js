@@ -1245,6 +1245,14 @@ transportControls.find(".gPlay").on("click", async () => {
 	}
 });
 
+//STOP
+transportControls.find("#stop").on("click", function () {
+	Tone.Transport.stop();
+	transport.stop();
+	transport.css({
+		left: "20rem",
+	});
+});
 //MUTE
 
 $(".gVol").on("click", function () {
@@ -1342,31 +1350,32 @@ function findMidiDevice() {
 
 function transportA(state) {
 	if (state == "run") {
-		transport.animate(
-			{
-				left: "20rem",
-			},
-			0
-		);
+		transport.stop();
 	} else {
 		let width = $("#seq_t1").width();
 		transport.animate(
 			{
 				left: "+=" + width,
 			},
-			5000,
-			"linear",
-			function () {
+			2000,
+			"linear"
+		);
+		Tone.Transport.scheduleRepeat(
+			() => {
+				transport.stop();
+				transport.css({
+					left: "20rem",
+				});
 				transport.animate(
 					{
-						left: "-=" + width,
+						left: "+=" + width,
 					},
-					0,
-					function () {
-						transportA();
-					}
+					2000,
+					"linear"
 				);
-			}
+			},
+			"1m",
+			"1m"
 		);
 	}
 }

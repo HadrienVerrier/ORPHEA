@@ -242,6 +242,9 @@ if (href == "compose") {
 			"#" + $(this).attr("for")
 		).prop("checked");
 	});
+
+	//SOLO TRACK
+
 	//////////////
 	////BEATS/////
 	//////////////
@@ -277,7 +280,10 @@ if (href == "compose") {
 		} else {
 			drumPart._events.forEach((event) => {
 				const t = Tone.Time(sequ.time).toTicks();
-				if (event.startOffset == t && event.value.note == sequ.note) {
+				if (
+					Math.ceil(event.startOffset) == t &&
+					event.value.note == sequ.note
+				) {
 					drumPart._events.delete(event);
 					event.dispose();
 				}

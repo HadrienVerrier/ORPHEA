@@ -1400,7 +1400,6 @@ function hidePausePlayer() {
 			Tone.Transport.scheduleRepeat(
 				() => {
 					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
-					console.log(bpmSpeed);
 					transport.stop();
 					transport.css({
 						left: "20rem",

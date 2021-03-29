@@ -10,6 +10,7 @@ const drumKit = new Tone.Sampler({
 		C3: "./ressources/samples/drums/tomH/909.wav",
 	},
 }).toDestination();
+// drumKit.sync();
 
 const drumPart = new Tone.Part((time, value) => {
 	drumKit.triggerAttackRelease(value.note, "16n", time, value.velocity);

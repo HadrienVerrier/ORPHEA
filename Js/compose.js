@@ -177,6 +177,21 @@ WebMidi.enable(function (err) {
 			findMidiDevice();
 		}
 	});
+
+	//TRACK 1
+	let t1Channel;
+	tracks.find("#midi_input_t1").on("change", function () {
+		let t1Input = WebMidi.inputs[$(this).val().split("-")[1]];
+		tracks.find("#midi_channel_t1").on("change", function () {
+			t1Input.removeListener("noteon");
+			t1Channel = parseFloat($(this).val().split("_")[2]);
+			console.log(t1Channel);
+			t1Input.addListener("noteon", t1Channel, (e) => {
+				note = e.note.name + e.note.octave;
+				drumKit.triggerAttackRelease(note, "16n", "+0", e.velocity);
+			});
+		});
+	});
 }, true);
 
 ///////////////////
@@ -185,22 +200,30 @@ WebMidi.enable(function (err) {
 
 //PLAY/PAUSE
 
-transportControls.find("#play").on("click", function () {
-	sequencer();
-	transport.removeClass("hidden");
-	var width = $("#seq_t1").width();
-	transportA(width);
+transportControls.find(".gPlay").on("click", async () => {
+	if (typeof context === "undefined") {
+		await Tone.start();
+		createToneContext();
+		sequencer();
+		transport.removeClass("hidden");
+		Tone.Transport.state !== "started" ? transportA("run") : transportA("stop");
+	} else {
+		sequencer();
+		transport.removeClass("hidden");
+		Tone.Transport.state !== "started" ? transportA("run") : transportA("stop");
+	}
 });
 
+//MUTE
+
+$(".gVol").on("click", function () {
+	gMute();
+});
 //////////////
 ////BEATS/////
 //////////////
 
 let t1 = tracks.find("#t1");
-
-$(".d_click").on("click", function () {
-	playD($(this));
-});
 
 t1.find("#seq_t1 label").on("click", function () {
 	//SET DATA
@@ -286,27 +309,33 @@ function findMidiDevice() {
 	return;
 }
 
-function playD(elm) {
-	if (!firstContext) drums[elm.attr("data-sample")].start();
-}
-
-function transportA(width) {
-	transport.animate(
-		{
-			left: "+=" + width,
-		},
-		5000,
-		"linear",
-		function () {
-			transport.animate(
-				{
-					left: "-=" + width,
-				},
-				0,
-				function () {
-					transportA(width);
-				}
-			);
-		}
-	);
+function transportA(state) {
+	if (state == "run") {
+		transport.animate(
+			{
+				left: "20rem",
+			},
+			0
+		);
+	} else {
+		let width = $("#seq_t1").width();
+		transport.animate(
+			{
+				left: "+=" + width,
+			},
+			5000,
+			"linear",
+			function () {
+				transport.animate(
+					{
+						left: "-=" + width,
+					},
+					0,
+					function () {
+						transportA();
+					}
+				);
+			}
+		);
+	}
 }

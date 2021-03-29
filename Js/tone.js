@@ -1,18 +1,13 @@
 //TONE CONTEXT
-let seqRun = false;
 let firstContext = true;
 
-$(".gVol").on("click", function () {
-	Tone.start();
-	if (firstContext) {
-		firstContext = false;
-		console.log("Audio Context Start");
-		const context = new Tone.Context({ latencyHint: "interactive" });
-		Tone.setContext(context);
-		Tone.context.lookAhead = 0;
-		Tone.Destination.mute = true;
+//START AUDIO
+
+$(document).on("click", async () => {
+	if (typeof context === "undefined") {
+		await Tone.start();
+		createToneContext();
 	}
-	gMute();
 });
 
 /////////////
@@ -38,20 +33,59 @@ let data = {
 Tone.Transport.bpm.value = 120;
 Tone.Transport.timeSignature = 4;
 Tone.Transport.swing = 0;
+let gPlayState = true;
 function sequencer() {
-	Tone.Transport.start();
-	drumPart.start();
+	if (Tone.Transport.state == "stopped") {
+		Tone.Transport.start();
+		drumPart.start();
+		console.log(Tone.Transport.state);
+	} else if (Tone.Transport.state == "paused") {
+		Tone.Transport.start();
+		console.log(Tone.Transport.state);
+	} else {
+		Tone.Transport.pause();
+		console.log(Tone.Transport.state);
+	}
+
+	Tone.Transport.scheduleRepeat(animPlay, "8n");
 }
 
 //FUNCTION
+
+function createToneContext() {
+	if (firstContext) {
+		firstContext = false;
+		console.log("Audio Context Start");
+		const context = new Tone.Context({ latencyHint: "interactive" });
+		Tone.setContext(context);
+		Tone.context.lookAhead = 0;
+		Tone.Destination.mute = true;
+	}
+}
 function gMute() {
 	if (Tone.Destination.mute) {
 		Tone.Destination.mute = false;
-		$("#transport_controls").find("svg:nth-of-type(4)").addClass("hidden");
-		$("#transport_controls").find("svg:nth-of-type(3)").removeClass("hidden");
+		$("#mute").addClass("hidden");
+		$("#noMute").removeClass("hidden");
 	} else {
 		Tone.Destination.mute = true;
-		$("#transport_controls").find("svg:nth-of-type(3)").addClass("hidden");
-		$("#transport_controls").find("svg:nth-of-type(4)").removeClass("hidden");
+		$("#noMute").addClass("hidden");
+		$("#mute").removeClass("hidden");
+	}
+}
+
+function animPlay() {
+	if (gPlayState) {
+		gPlayState = false;
+		$(".gPlay").css({
+			fill: "purple",
+			transition: "0.05s",
+		});
+	} else {
+		gPlayState = true;
+		$(".gPlay").css({
+			fill: "white",
+			transition: "0.05s",
+		});
 	}
 }

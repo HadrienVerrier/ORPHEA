@@ -50,6 +50,19 @@ function sequencer() {
 	Tone.Transport.scheduleRepeat(animPlay, "8n");
 }
 
+//CREATE TRACK
+
+let master = new Tone.Channel().toDestination();
+
+let bus1 = new Tone.Channel().connect(master);
+let bus2 = new Tone.Channel().connect(master);
+let bus3 = new Tone.Channel().connect(master);
+let bus4 = new Tone.Channel().connect(master);
+
+let channels = {
+	master: master,
+	tracks: { t1: bus1, t2: bus2, t3: bus3, t4: bus4 },
+};
 //FUNCTION
 
 function createToneContext() {

@@ -9,7 +9,7 @@ const drumKit = new Tone.Sampler({
 		Bb2: "./ressources/samples/drums/HHO/909.wav",
 		C3: "./ressources/samples/drums/tomH/909.wav",
 	},
-}).toDestination();
+}).connect(bus1);
 // drumKit.sync();
 
 const drumPart = new Tone.Part((time, value) => {

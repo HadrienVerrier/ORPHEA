@@ -50,6 +50,19 @@ function sequencer() {
 	Tone.Transport.scheduleRepeat(animPlay, "8n");
 }
 
+//CREATE TRACK
+
+let master = new Tone.Channel().toDestination();
+
+let bus1 = new Tone.Channel().connect(master);
+let bus2 = new Tone.Channel().connect(master);
+let bus3 = new Tone.Channel().connect(master);
+let bus4 = new Tone.Channel().connect(master);
+
+let channels = {
+	master: master,
+	tracks: { t1: bus1, t2: bus2, t3: bus3, t4: bus4 },
+};
 //FUNCTION
 
 function createToneContext() {
@@ -99,7 +112,7 @@ function animPlay() {
 		Bb2: "./ressources/samples/drums/HHO/909.wav",
 		C3: "./ressources/samples/drums/tomH/909.wav",
 	},
-}).toDestination();
+}).connect(bus1);
 // drumKit.sync();
 
 const drumPart = new Tone.Part((time, value) => {
@@ -1265,6 +1278,15 @@ function hidePausePlayer() {
 
 	$(".gVol").on("click", function () {
 		gMute();
+	});
+	//TRACK MUTE
+
+	$('label[for^="mute_t"]').on("click", function () {
+		if (!$("#" + $(this).attr("for")).prop("checked")) {
+			channels.tracks[$(this).attr("for").split("_")[1]].mute = true;
+		} else {
+			channels.tracks[$(this).attr("for").split("_")[1]].mute = false;
+		}
 	});
 	//////////////
 	////BEATS/////

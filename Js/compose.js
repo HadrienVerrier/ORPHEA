@@ -235,6 +235,15 @@ if (href == "compose") {
 	$(".gVol").on("click", function () {
 		gMute();
 	});
+	//TRACK MUTE
+
+	$('label[for^="mute_t"]').on("click", function () {
+		if (!$("#" + $(this).attr("for")).prop("checked")) {
+			channels.tracks[$(this).attr("for").split("_")[1]].mute = true;
+		} else {
+			channels.tracks[$(this).attr("for").split("_")[1]].mute = false;
+		}
+	});
 	//////////////
 	////BEATS/////
 	//////////////

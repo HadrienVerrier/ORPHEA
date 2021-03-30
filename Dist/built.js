@@ -1407,13 +1407,13 @@ function hidePausePlayer() {
 	//OPEN MENU ADD NOTE
 	var eX, eY, cNote, cOctave, cLabel;
 	$('div[id^="seq_t"] label').on("click", function (e) {
-		if (!$(this).prev().prop("checked")) {
-			cLabel = $(this);
-			e.preventDefault();
-			$("#note-menu").addClass("hidden");
-			$("#octave-menu").addClass("hidden");
-			$("#mod-menu").addClass("hidden");
-			if ($(this).parent().parent().attr("id") !== "seq_t1") {
+		if ($(this).parent().parent().attr("id") !== "seq_t1") {
+			if (!$(this).prev().prop("checked")) {
+				cLabel = $(this);
+				e.preventDefault();
+				$("#note-menu").addClass("hidden");
+				$("#octave-menu").addClass("hidden");
+				$("#mod-menu").addClass("hidden");
 				eX = e.pageX;
 				eY = e.pageY;
 				$(document).on("keyup", "body", function (e) {
@@ -1428,6 +1428,16 @@ function hidePausePlayer() {
 					left: eX,
 				});
 			}
+			$("#note-menu")
+				.find("li")
+				.on("mouseenter", function () {
+					synth1.triggerAttack($(this).html() + "4");
+				});
+			$("#note-menu")
+				.find("li")
+				.on("mouseleave", function () {
+					synth1.releaseAll();
+				});
 		}
 	});
 
@@ -1446,6 +1456,16 @@ function hidePausePlayer() {
 			top: eY,
 			left: eX,
 		});
+		$("#octave-menu")
+			.find("li")
+			.on("mouseenter", function () {
+				synth1.triggerAttack(cNote + $(this).html());
+			});
+		$("#octave-menu")
+			.find("li")
+			.on("mouseleave", function () {
+				synth1.releaseAll();
+			});
 	});
 
 	//CHOSE OCTAVE
@@ -1463,6 +1483,22 @@ function hidePausePlayer() {
 				$("#mod-menu").addClass("hidden");
 			}
 		});
+		$("#mod-menu")
+			.find("li")
+			.on("mouseenter", function () {
+				if ($(this).html() == "♭") {
+					synth1.triggerAttack(cNote + "b" + cOctave);
+				} else if ($(this).html() == "⦻") {
+					synth1.triggerAttack(cNote + cOctave);
+				} else if ($(this).html() == "#") {
+					synth1.triggerAttack(cNote + "#" + cOctave);
+				}
+			});
+		$("#mod-menu")
+			.find("li")
+			.on("mouseleave", function () {
+				synth1.releaseAll();
+			});
 	});
 
 	//CHOOSE MOD
@@ -1479,7 +1515,7 @@ function hidePausePlayer() {
 			cNote = cNote + cMod + cOctave;
 		}
 
-		synth1.triggerAttackRelease(cNote, "4n");
+		synth1.triggerAttackRelease(cNote, "16n");
 		$(cLabel).prev().prop("checked", true);
 	});
 

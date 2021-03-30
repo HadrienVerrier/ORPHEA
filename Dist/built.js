@@ -1399,24 +1399,26 @@ function hidePausePlayer() {
 	//OPEN MENU ADD NOTE
 	let eX, eY, cNote, cOctave, cLabel, cInput;
 	$('div[id^="seq_t"] label').on("click", function (e) {
-		cLabel = $(this);
-		e.preventDefault();
-		$("#note-menu").addClass("hidden");
-		$("#octave-menu").addClass("hidden");
-		if ($(this).parent().parent().attr("id") !== "seq_t1") {
-			eX = e.pageX;
-			eY = e.pageY;
-			$(document).on("keyup", "body", function (e) {
-				if (e.key == "Escape") {
-					$("#note-menu").addClass("hidden");
-				}
-			});
-			$("#note-menu").removeClass("hidden").css({
-				position: "absolute",
-				zIndex: 12,
-				top: eY,
-				left: eX,
-			});
+		if (!$(this).prev().prop("checked")) {
+			cLabel = $(this);
+			e.preventDefault();
+			$("#note-menu").addClass("hidden");
+			$("#octave-menu").addClass("hidden");
+			if ($(this).parent().parent().attr("id") !== "seq_t1") {
+				eX = e.pageX;
+				eY = e.pageY;
+				$(document).on("keyup", "body", function (e) {
+					if (e.key == "Escape") {
+						$("#note-menu").addClass("hidden");
+					}
+				});
+				$("#note-menu").removeClass("hidden").css({
+					position: "absolute",
+					zIndex: 12,
+					top: eY,
+					left: eX,
+				});
+			}
 		}
 	});
 

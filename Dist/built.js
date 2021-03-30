@@ -122,6 +122,29 @@ const drumPart = new Tone.Part((time, value) => {
 drumPart.loop = true;
 drumPart.swing = 0;
 drumPart.loopEnd = "1:0:0";
+;const synth1 = new Tone.PolySynth(Tone.MonoSynth, {
+	oscillator: {
+		type: "triangle",
+	},
+	enveloppe: {
+		attack: 0,
+		decay: 0,
+		sustain: 0,
+		release: 0,
+	},
+	filter: {
+		frequency: "1000",
+		gain: 0,
+		type: "lowpass",
+	},
+	filterEnveloppe: {
+		attack: 0,
+		decay: 0,
+		sustain: 0,
+		release: 0,
+	},
+	portamento: 0,
+}).connect(bus2);
 ;//UNSET ALL SESSION POP UP
 $.ajax({
 	async: true,
@@ -1240,6 +1263,23 @@ function hidePausePlayer() {
 				});
 			});
 		});
+		let t2Channel;
+		tracks.find("#midi_input_t2").on("change", function () {
+			let t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
+			tracks.find("#midi_channel_t2").on("change", function () {
+				t2Input.removeListener("noteon");
+				t2Channel = parseFloat($(this).val().split("_")[2]);
+
+				t2Input.addListener("noteon", t2Channel, (e) => {
+					note = e.note.name + e.note.octave;
+					synth1.triggerAttack(note, "+0", e.velocity);
+				});
+				t2Input.addListener("noteoff", t2Channel, (e) => {
+					note = e.note.name + e.note.octave;
+					synth1.triggerRelease(note, "+0");
+				});
+			});
+		});
 	}, true);
 
 	///////////////////
@@ -1353,6 +1393,70 @@ function hidePausePlayer() {
 
 	//SET VISUAL VALUE
 	$("#l_bpm").val(settings.bpm);
+
+	//SYNTHS
+
+	//OPEN MENU ADD NOTE
+	let eX, eY, cNote, cOctave, cLabel, cInput;
+	$('div[id^="seq_t"] label').on("click", function (e) {
+		cLabel = $(this);
+		e.preventDefault();
+		$("#note-menu").addClass("hidden");
+		$("#octave-menu").addClass("hidden");
+		if ($(this).parent().parent().attr("id") !== "seq_t1") {
+			eX = e.pageX;
+			eY = e.pageY;
+			$(document).on("keyup", "body", function (e) {
+				if (e.key == "Escape") {
+					$("#note-menu").addClass("hidden");
+				}
+			});
+			$("#note-menu").removeClass("hidden").css({
+				position: "absolute",
+				zIndex: 12,
+				top: eY,
+				left: eX,
+			});
+		}
+	});
+
+	//CHOOSE A NOTE
+	$("body").on("click", "#note-menu li", function () {
+		$(document).on("keyup", "body", function (e) {
+			if (e.key == "Escape") {
+				$("#octave-menu").addClass("hidden");
+			}
+		});
+		cNote = $(this).html();
+		$("#note-menu").addClass("hidden");
+		$("#octave-menu").removeClass("hidden").css({
+			position: "absolute",
+			zIndex: 12,
+			top: eY,
+			left: eX,
+		});
+	});
+
+	//CHOSE OCTAVE
+	$("body").on("click", "#octave-menu li", function () {
+		cOctave = $(this).html();
+		$("#octave-menu").addClass("hidden");
+		console.log("Note : " + cNote + cOctave);
+		$(cLabel).prev().prop("checked", true);
+	});
+
+	//HIDE MENU
+	$("body").on("click", function (e) {
+		if (
+			!$('div[id^="seq_t"]').is(e.target) &&
+			$('div[id^="seq_t"]').has(e.target).length === 0 &&
+			!$(".compose-menu").is(e.target) &&
+			$(".compose-menu").has(e.target).length === 0
+		) {
+			$("#note-menu").addClass("hidden");
+			$("#octave-menu").addClass("hidden");
+		}
+	});
 	//////////////
 	///FUNCTION///
 	//////////////

@@ -9,6 +9,7 @@ module.exports = function (grunt) {
 					"Js/JQStart.js",
 					"Js/tone.js",
 					"Js/instruments/drums.js",
+					"Js/instruments/synths.js",
 					"Js/page.js",
 					"Js/player.js",
 					"Js/compose.js",

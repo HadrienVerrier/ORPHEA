@@ -330,13 +330,14 @@ if (href == "compose") {
 	//SYNTHS
 
 	//OPEN MENU ADD NOTE
-	let eX, eY, cNote, cOctave, cLabel, cInput;
+	var eX, eY, cNote, cOctave, cLabel;
 	$('div[id^="seq_t"] label').on("click", function (e) {
 		if (!$(this).prev().prop("checked")) {
 			cLabel = $(this);
 			e.preventDefault();
 			$("#note-menu").addClass("hidden");
 			$("#octave-menu").addClass("hidden");
+			$("#mod-menu").addClass("hidden");
 			if ($(this).parent().parent().attr("id") !== "seq_t1") {
 				eX = e.pageX;
 				eY = e.pageY;
@@ -376,7 +377,34 @@ if (href == "compose") {
 	$("body").on("click", "#octave-menu li", function () {
 		cOctave = $(this).html();
 		$("#octave-menu").addClass("hidden");
-		console.log("Note : " + cNote + cOctave);
+		$("#mod-menu").removeClass("hidden").css({
+			position: "absolute",
+			zIndex: 12,
+			top: eY,
+			left: eX,
+		});
+		$(document).on("keyup", "body", function (e) {
+			if (e.key == "Escape") {
+				$("#mod-menu").addClass("hidden");
+			}
+		});
+	});
+
+	//CHOOSE MOD
+	$("body").on("click", "#mod-menu li", function () {
+		cMod = $(this).html();
+		if (cMod == "♭") {
+			cMod = "b";
+		}
+
+		$("#mod-menu").addClass("hidden");
+		if (cMod == "⦻") {
+			cNote = cNote + cOctave;
+		} else {
+			cNote = cNote + cMod + cOctave;
+		}
+
+		synth1.triggerAttackRelease(cNote, "4n");
 		$(cLabel).prev().prop("checked", true);
 	});
 

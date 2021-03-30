@@ -183,26 +183,34 @@ if (href == "compose") {
 		});
 
 		//TRACK 1
-		let t1Channel;
+		var t1Channel, t1Input;
 		tracks.find("#midi_input_t1").on("change", function () {
-			let t1Input = WebMidi.inputs[$(this).val().split("-")[1]];
-			tracks.find("#midi_channel_t1").on("change", function () {
-				t1Input.removeListener("noteon");
-				t1Channel = parseFloat($(this).val().split("_")[2]);
-
+			if (t1Input !== undefined) {
+				t1Input.removeListener();
+				t1Input = WebMidi.inputs[$(this).val().split("-")[1]];
 				t1Input.addListener("noteon", t1Channel, (e) => {
 					note = e.note.name + e.note.octave;
 					drumKit.triggerAttackRelease(note, "16n", "+0", e.velocity);
 				});
+			} else {
+				t1Input = WebMidi.inputs[$(this).val().split("-")[1]];
+			}
+		});
+
+		tracks.find("#midi_channel_t1").on("change", function () {
+			t1Input.removeListener();
+			t1Channel = parseFloat($(this).val().split("_")[2]);
+			t1Input.addListener("noteon", t1Channel, (e) => {
+				note = e.note.name + e.note.octave;
+				drumKit.triggerAttackRelease(note, "16n", "+0", e.velocity);
 			});
 		});
-		let t2Channel;
-		tracks.find("#midi_input_t2").on("change", function () {
-			let t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
-			tracks.find("#midi_channel_t2").on("change", function () {
-				t2Input.removeListener("noteon");
-				t2Channel = parseFloat($(this).val().split("_")[2]);
 
+		var t2Channel, t2Input;
+		tracks.find("#midi_input_t2").on("change", function () {
+			if (t2Input !== undefined) {
+				t2Input.removeListener();
+				t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
 				t2Input.addListener("noteon", t2Channel, (e) => {
 					note = e.note.name + e.note.octave;
 					synth1.triggerAttack(note, "+0", e.velocity);
@@ -211,6 +219,21 @@ if (href == "compose") {
 					note = e.note.name + e.note.octave;
 					synth1.triggerRelease(note, "+0");
 				});
+			} else {
+				t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
+			}
+		});
+
+		tracks.find("#midi_channel_t2").on("change", function () {
+			t2Input.removeListener();
+			t2Channel = parseFloat($(this).val().split("_")[2]);
+			t2Input.addListener("noteon", t2Channel, (e) => {
+				note = e.note.name + e.note.octave;
+				synth1.triggerAttack(note, "+0", e.velocity);
+			});
+			t2Input.addListener("noteoff", t2Channel, (e) => {
+				note = e.note.name + e.note.octave;
+				synth1.triggerRelease(note, "+0");
 			});
 		});
 	}, true);
@@ -439,9 +462,27 @@ if (href == "compose") {
 		} else {
 			cNote = cNote + cMod + cOctave;
 		}
-
-		synth1.triggerAttackRelease(cNote, "16n");
 		$(cLabel).prev().prop("checked", true);
+
+		//SET DATA
+		let id = $(cLabel).attr("for");
+		let arr = id.split("_");
+		let tn = arr[0];
+		let nn = arr[1];
+		let idn = arr[2];
+		let midi = cNote;
+
+		let q = (idn - 1) % 4;
+		let b = Math.floor((idn - 1) / 4);
+		let m = Math.floor((idn - 1) / 16);
+
+		//CREATE SEQUENCE PART
+
+		let sequ = {
+			time: m + ":" + b + ":" + q,
+			note: midi,
+			velocity: 1,
+		};
 	});
 
 	//HIDE MENU

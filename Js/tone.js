@@ -70,7 +70,7 @@ function createToneContext() {
 		firstContext = false;
 		const context = new Tone.Context({ latencyHint: "interactive" });
 		Tone.setContext(context);
-		Tone.context.lookAhead = 0;
+		Tone.context.lookAhead = 0.02;
 		Tone.Destination.mute = true;
 	}
 }

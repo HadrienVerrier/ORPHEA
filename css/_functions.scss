@@ -39,6 +39,11 @@
 		--tdark: #202170;
 	}
 }
+
+@mixin deg($number, $width, $child) {
+	transform: rotate((360deg / $number) * $child) translate($width)
+		rotate(-(360deg / $number) * $child);
+}
 %pass_link {
 	color: $white;
 	font-style: normal;

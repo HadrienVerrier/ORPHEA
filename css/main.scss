@@ -363,6 +363,42 @@ body {
 		}
 	}
 }
+
+.compose-menu {
+	ul {
+		position: relative;
+		width: $menuWidth;
+		height: $menuWidth;
+		padding: 0.65rem;
+		border-radius: 50%;
+		transform: translate(-75%, -75%);
+		li {
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			text-align: center;
+			line-height: $regular * 1;
+			width: 1.5rem;
+			height: 1.5rem;
+			background-color: $white;
+			color: $background;
+			padding: 1rem;
+			border-radius: $borderRadius * 0.3;
+			box-shadow: $shadow;
+			font-weight: bolder;
+			&:hover {
+				background-color: $mainLight;
+			}
+			@for $i from 1 through 7 {
+				&:nth-of-type(#{$i}) {
+					@include deg(7, $menuWidth, $i);
+				}
+			}
+		}
+	}
+}
+
 /**************/
 /***GENERAL****/
 /**************/

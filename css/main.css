@@ -421,6 +421,73 @@ body > footer a:hover {
      object-fit: contain;
 }
 
+.compose-menu ul {
+  position: relative;
+  width: 5.3rem;
+  height: 5.3rem;
+  padding: 0.65rem;
+  border-radius: 50%;
+  -webkit-transform: translate(-75%, -75%);
+          transform: translate(-75%, -75%);
+}
+
+.compose-menu ul li {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  line-height: 1.6rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #f7f9f5;
+  color: #383838;
+  padding: 1rem;
+  border-radius: 0.45rem;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+  font-weight: bolder;
+}
+
+.compose-menu ul li:hover {
+  background-color: #b900d7;
+}
+
+.compose-menu ul li:nth-of-type(1) {
+  -webkit-transform: rotate(51.42857deg) translate(5.3rem) rotate(-51.42857deg);
+          transform: rotate(51.42857deg) translate(5.3rem) rotate(-51.42857deg);
+}
+
+.compose-menu ul li:nth-of-type(2) {
+  -webkit-transform: rotate(102.85714deg) translate(5.3rem) rotate(-102.85714deg);
+          transform: rotate(102.85714deg) translate(5.3rem) rotate(-102.85714deg);
+}
+
+.compose-menu ul li:nth-of-type(3) {
+  -webkit-transform: rotate(154.28571deg) translate(5.3rem) rotate(-154.28571deg);
+          transform: rotate(154.28571deg) translate(5.3rem) rotate(-154.28571deg);
+}
+
+.compose-menu ul li:nth-of-type(4) {
+  -webkit-transform: rotate(205.71429deg) translate(5.3rem) rotate(-205.71429deg);
+          transform: rotate(205.71429deg) translate(5.3rem) rotate(-205.71429deg);
+}
+
+.compose-menu ul li:nth-of-type(5) {
+  -webkit-transform: rotate(257.14286deg) translate(5.3rem) rotate(-257.14286deg);
+          transform: rotate(257.14286deg) translate(5.3rem) rotate(-257.14286deg);
+}
+
+.compose-menu ul li:nth-of-type(6) {
+  -webkit-transform: rotate(308.57143deg) translate(5.3rem) rotate(-308.57143deg);
+          transform: rotate(308.57143deg) translate(5.3rem) rotate(-308.57143deg);
+}
+
+.compose-menu ul li:nth-of-type(7) {
+  -webkit-transform: rotate(360deg) translate(5.3rem) rotate(-360deg);
+          transform: rotate(360deg) translate(5.3rem) rotate(-360deg);
+}
+
 /**************/
 /***GENERAL****/
 /**************/

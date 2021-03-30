@@ -1,6 +1,20 @@
 {% include 'doctype.html.twig'%}
 <body>
-
+	<!-- COMPOSE SUB MENU -->
+	<div id='note-menu' class="compose-menu hidden">
+		<ul>
+		{% for letter in "A".."G" %}
+			<li>{{letter}}</li>
+		{% endfor %}
+		</ul>
+	</div>
+	<div id="octave-menu" class="compose-menu hidden">
+		<ul>
+		{% for number in 1..7 %}
+			<li>{{number}}</li>
+		{% endfor %}
+		</ul>
+	</div>
 	{% include 'loader.html.twig' %}
 
 	{% include 'header.html.twig' %}

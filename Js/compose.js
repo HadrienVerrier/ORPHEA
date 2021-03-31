@@ -344,13 +344,21 @@ if (href == "compose") {
 		$.each(t, function (ni, n) {
 			$.each(n.seq, function (i, s) {
 				if (s) {
-					console.log(it);
+					if (it !== "t1") {
+						$("label[for='" + s.id + "']").attr("data-note-value", s.note);
+					}
 					switch (it) {
 						case "t1":
 							drumPart.add(s);
 							break;
 						case "t2":
 							synth1Part.add(s);
+							break;
+						case "t3":
+							synth2Part.add(s);
+							break;
+						case "t4":
+							synth3Part.add(s);
 							break;
 					}
 				}
@@ -530,7 +538,7 @@ if (href == "compose") {
 		} else {
 			cNote = cNote + cMod + cOctave;
 		}
-		$(cLabel).prev().prop("checked", true);
+		$(cLabel).attr("data-note-value", cNote).prev().prop("checked", true);
 
 		//SET DATA
 		let id = $(cLabel).attr("for");

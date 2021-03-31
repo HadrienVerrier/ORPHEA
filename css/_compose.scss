@@ -225,6 +225,14 @@ main#compose {
 						&:checked + label {
 							position: relative;
 							background-color: $background + 25 !important;
+
+							&:not([for^="t1"])::after {
+								content: attr(data-note-value);
+								display: block;
+								@include center(true, true);
+								color: $white;
+								font-weight: bolder;
+							}
 						}
 					}
 				}

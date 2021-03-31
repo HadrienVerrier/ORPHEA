@@ -42,6 +42,8 @@ function sequencer() {
 		Tone.Transport.start();
 		drumPart.start();
 		synth1Part.start();
+		synth2Part.start();
+		synth3Part.start();
 	} else if (Tone.Transport.state == "paused") {
 		Tone.Transport.start();
 	} else {
@@ -52,7 +54,6 @@ function sequencer() {
 }
 
 //CREATE TRACK
-
 let master = new Tone.Channel().toDestination();
 
 let bus1 = new Tone.Channel().connect(master);
@@ -62,7 +63,12 @@ let bus4 = new Tone.Channel().connect(master);
 
 let channels = {
 	master: master,
-	tracks: { t1: bus1, t2: bus2, t3: bus3, t4: bus4 },
+	tracks: {
+		t1: { bus: bus1 },
+		t2: { bus: bus2 },
+		t3: { bus: bus3 },
+		t4: { bus: bus4 },
+	},
 };
 //FUNCTION
 
@@ -114,7 +120,6 @@ function animPlay() {
 		C3: "./ressources/samples/drums/tomH/909.wav",
 	},
 }).connect(bus1);
-// drumKit.sync();
 
 const drumPart = new Tone.Part((time, value) => {
 	drumKit.triggerAttackRelease(value.note, "16n", time, value.velocity);
@@ -123,6 +128,9 @@ const drumPart = new Tone.Part((time, value) => {
 drumPart.loop = true;
 drumPart.swing = 0;
 drumPart.loopEnd = "1:0:0";
+
+channels.tracks.t1.synth = drumKit;
+channels.tracks.t1.part = drumPart;
 ;const synth1 = new Tone.PolySynth(Tone.MonoSynth, {
 	oscillator: {
 		type: "triangle",
@@ -155,6 +163,83 @@ const synth1Part = new Tone.Part((time, value) => {
 synth1Part.loop = true;
 synth1Part.swing = 0;
 synth1Part.loopEnd = "1:0:0";
+
+channels.tracks.t2.synth = synth1;
+channels.tracks.t2.part = synth1Part;
+
+//SYNTH 2
+const synth2 = new Tone.PolySynth(Tone.MonoSynth, {
+	oscillator: {
+		type: "sine",
+	},
+	envelope: {
+		attack: 0,
+		decay: 0,
+		sustain: 1,
+		release: 0.2,
+	},
+	filter: {
+		frequency: "2000",
+		gain: 0,
+		type: "lowpass",
+	},
+	filterEnvelope: {
+		attack: 0,
+		decay: 0,
+		sustain: 1,
+		release: 0.2,
+	},
+	portamento: 0,
+}).connect(bus3);
+
+synth2.volume.value = -6;
+const synth2Part = new Tone.Part((time, value) => {
+	synth2.triggerAttackRelease(value.note, value.duration, time, value.velocity);
+});
+
+synth2Part.loop = true;
+synth2Part.swing = 0;
+synth2Part.loopEnd = "1:0:0";
+
+channels.tracks.t3.synth = synth2;
+channels.tracks.t3.part = synth2Part;
+
+//SYNTH 3
+const synth3 = new Tone.PolySynth(Tone.MonoSynth, {
+	oscillator: {
+		type: "square",
+	},
+	envelope: {
+		attack: 0,
+		decay: 0,
+		sustain: 1,
+		release: 0.2,
+	},
+	filter: {
+		frequency: "10000",
+		gain: 0,
+		type: "lowpass",
+	},
+	filterEnvelope: {
+		attack: 0,
+		decay: 0,
+		sustain: 1,
+		release: 0.2,
+	},
+	portamento: 0,
+}).connect(bus4);
+
+synth3.volume.value = -6;
+const synth3Part = new Tone.Part((time, value) => {
+	synth3.triggerAttackRelease(value.note, value.duration, time, value.velocity);
+});
+
+synth3Part.loop = true;
+synth3Part.swing = 0;
+synth3Part.loopEnd = "1:0:0";
+
+channels.tracks.t4.synth = synth3;
+channels.tracks.t4.part = synth3Part;
 ;//UNSET ALL SESSION POP UP
 $.ajax({
 	async: true,
@@ -1240,9 +1325,9 @@ function hidePausePlayer() {
 
 	WebMidi.enable(function (err) {
 		if (err) {
-			// console.log("WebMidi could not be enabled.", err);
+			console.log("WebMidi could not be enabled.", err);
 		} else {
-			// console.log("WebMidi enabled!");
+			console.log("WebMidi enabled!");
 		}
 
 		// REACT WHEN NEW DEVICE BECOME AVAILABLE
@@ -1359,7 +1444,7 @@ function hidePausePlayer() {
 	//TRACK MUTE
 
 	$('label[for^="mute_t"]').on("click", function () {
-		channels.tracks[$(this).attr("for").split("_")[1]].mute = !$(
+		channels.tracks[$(this).attr("for").split("_")[1]].bus.mute = !$(
 			"#" + $(this).attr("for")
 		).prop("checked");
 	});
@@ -1421,15 +1506,11 @@ function hidePausePlayer() {
 		$.each(t, function (ni, n) {
 			$.each(n.seq, function (i, s) {
 				if (s) {
-					console.log(it);
-					switch (it) {
-						case "t1":
-							drumPart.add(s);
-							break;
-						case "t2":
-							synth1Part.add(s);
-							break;
+					if (it !== "t1") {
+						$("label[for='" + s.id + "']").attr("data-note-value", s.note);
 					}
+
+					channels.tracks[it].part.add(s);
 				}
 			});
 			$.each(n.id, function (i, d) {
@@ -1490,41 +1571,35 @@ function hidePausePlayer() {
 					duration: duration,
 					id: id,
 				};
-				switch (tn.split("")[1]) {
-					case "2":
-						synth1Part._events.forEach((event) => {
-							const t = Tone.Time(sequ.time).toTicks();
-							if (
-								Math.ceil(event.startOffset) == t &&
-								event.value.id == sequ.id
-							) {
-								synth1Part._events.delete(event);
-								event.dispose();
-							}
-						});
-						delete data[tn][nn].id[idn];
+				channels.tracks[tn].part._events.forEach((event) => {
+					const t = Tone.Time(sequ.time).toTicks();
+					if (Math.ceil(event.startOffset) == t && event.value.id == sequ.id) {
+						channels.tracks[tn].part._events.delete(event);
+						event.dispose();
+					}
+				});
+				delete data[tn][nn].id[idn];
 
-						delete data[tn][nn].seq[idn];
-						console.clear();
-						console.log("sequence supprimée :");
-						console.log(sequ);
-						console.log("sequence restante :");
-						synth1Part._events.forEach((event) => {
-							console.log(event.value);
-						});
-						break;
-				}
+				delete data[tn][nn].seq[idn];
+
+				channels.tracks[tn].part._events.forEach((event) => {
+					console.log(event.value);
+				});
 			}
 			if (Tone.Transport.state !== "started") {
 				$("#note-menu")
 					.find("li")
 					.on("mouseenter", function () {
-						synth1.triggerAttack($(this).html() + "4");
+						channels.tracks[
+							$(cLabel).attr("for").split("_")[0]
+						].synth.triggerAttack($(this).html() + "4");
 					});
 				$("#note-menu")
 					.find("li")
 					.on("mouseleave", function () {
-						synth1.releaseAll();
+						channels.tracks[
+							$(cLabel).attr("for").split("_")[0]
+						].synth.releaseAll();
 					});
 			}
 		}
@@ -1549,12 +1624,16 @@ function hidePausePlayer() {
 			$("#octave-menu")
 				.find("li")
 				.on("mouseenter", function () {
-					synth1.triggerAttack(cNote + $(this).html());
+					channels.tracks[
+						$(cLabel).attr("for").split("_")[0]
+					].synth.triggerAttack(cNote + $(this).html());
 				});
 			$("#octave-menu")
 				.find("li")
 				.on("mouseleave", function () {
-					synth1.releaseAll();
+					channels.tracks[
+						$(cLabel).attr("for").split("_")[0]
+					].synth.releaseAll();
 				});
 		}
 	});
@@ -1579,17 +1658,25 @@ function hidePausePlayer() {
 				.find("li")
 				.on("mouseenter", function () {
 					if ($(this).html() == "♭") {
-						synth1.triggerAttack(cNote + "b" + cOctave);
+						channels.tracks[
+							$(cLabel).attr("for").split("_")[0]
+						].synth.triggerAttack(cNote + "b" + cOctave);
 					} else if ($(this).html() == "⦻") {
-						synth1.triggerAttack(cNote + cOctave);
+						channels.tracks[
+							$(cLabel).attr("for").split("_")[0]
+						].synth.triggerAttack(cNote + cOctave);
 					} else if ($(this).html() == "#") {
-						synth1.triggerAttack(cNote + "#" + cOctave);
+						channels.tracks[
+							$(cLabel).attr("for").split("_")[0]
+						].synth.triggerAttack(cNote + "#" + cOctave);
 					}
 				});
 			$("#mod-menu")
 				.find("li")
 				.on("mouseleave", function () {
-					synth1.releaseAll();
+					channels.tracks[
+						$(cLabel).attr("for").split("_")[0]
+					].synth.releaseAll();
 				});
 		}
 	});
@@ -1607,7 +1694,7 @@ function hidePausePlayer() {
 		} else {
 			cNote = cNote + cMod + cOctave;
 		}
-		$(cLabel).prev().prop("checked", true);
+		$(cLabel).attr("data-note-value", cNote).prev().prop("checked", true);
 
 		//SET DATA
 		let id = $(cLabel).attr("for");
@@ -1632,13 +1719,7 @@ function hidePausePlayer() {
 		};
 		data[tn][nn].id[idn] = id;
 		data[tn][nn].seq[idn] = sequ;
-
-		switch (tn.split("")[1]) {
-			case "2":
-				synth1Part.add(sequ);
-				console.log(synth1Part._events);
-				break;
-		}
+		channels.tracks[tn].part.add(sequ);
 	});
 
 	//HIDE MENU
@@ -1745,6 +1826,6 @@ function hidePausePlayer() {
 		}
 	}
 }
-;console.clear();
+;// console.clear();
 
 });

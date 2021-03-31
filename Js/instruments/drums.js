@@ -10,7 +10,6 @@ const drumKit = new Tone.Sampler({
 		C3: "./ressources/samples/drums/tomH/909.wav",
 	},
 }).connect(bus1);
-// drumKit.sync();
 
 const drumPart = new Tone.Part((time, value) => {
 	drumKit.triggerAttackRelease(value.note, "16n", time, value.velocity);
@@ -19,3 +18,6 @@ const drumPart = new Tone.Part((time, value) => {
 drumPart.loop = true;
 drumPart.swing = 0;
 drumPart.loopEnd = "1:0:0";
+
+channels.tracks.t1.synth = drumKit;
+channels.tracks.t1.part = drumPart;

@@ -42,6 +42,8 @@ function sequencer() {
 		Tone.Transport.start();
 		drumPart.start();
 		synth1Part.start();
+		synth2Part.start();
+		synth3Part.start();
 	} else if (Tone.Transport.state == "paused") {
 		Tone.Transport.start();
 	} else {
@@ -52,7 +54,6 @@ function sequencer() {
 }
 
 //CREATE TRACK
-
 let master = new Tone.Channel().toDestination();
 
 let bus1 = new Tone.Channel().connect(master);
@@ -62,7 +63,12 @@ let bus4 = new Tone.Channel().connect(master);
 
 let channels = {
 	master: master,
-	tracks: { t1: bus1, t2: bus2, t3: bus3, t4: bus4 },
+	tracks: {
+		t1: { bus: bus1 },
+		t2: { bus: bus2 },
+		t3: { bus: bus3 },
+		t4: { bus: bus4 },
+	},
 };
 //FUNCTION
 

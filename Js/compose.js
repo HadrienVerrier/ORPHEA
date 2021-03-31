@@ -163,9 +163,9 @@ if (href == "compose") {
 
 	WebMidi.enable(function (err) {
 		if (err) {
-			// console.log("WebMidi could not be enabled.", err);
+			console.log("WebMidi could not be enabled.", err);
 		} else {
-			// console.log("WebMidi enabled!");
+			console.log("WebMidi enabled!");
 		}
 
 		// REACT WHEN NEW DEVICE BECOME AVAILABLE
@@ -282,7 +282,7 @@ if (href == "compose") {
 	//TRACK MUTE
 
 	$('label[for^="mute_t"]').on("click", function () {
-		channels.tracks[$(this).attr("for").split("_")[1]].mute = !$(
+		channels.tracks[$(this).attr("for").split("_")[1]].bus.mute = !$(
 			"#" + $(this).attr("for")
 		).prop("checked");
 	});
@@ -347,20 +347,8 @@ if (href == "compose") {
 					if (it !== "t1") {
 						$("label[for='" + s.id + "']").attr("data-note-value", s.note);
 					}
-					switch (it) {
-						case "t1":
-							drumPart.add(s);
-							break;
-						case "t2":
-							synth1Part.add(s);
-							break;
-						case "t3":
-							synth2Part.add(s);
-							break;
-						case "t4":
-							synth3Part.add(s);
-							break;
-					}
+
+					channels.tracks[it].part.add(s);
 				}
 			});
 			$.each(n.id, function (i, d) {
@@ -421,41 +409,35 @@ if (href == "compose") {
 					duration: duration,
 					id: id,
 				};
-				switch (tn.split("")[1]) {
-					case "2":
-						synth1Part._events.forEach((event) => {
-							const t = Tone.Time(sequ.time).toTicks();
-							if (
-								Math.ceil(event.startOffset) == t &&
-								event.value.id == sequ.id
-							) {
-								synth1Part._events.delete(event);
-								event.dispose();
-							}
-						});
-						delete data[tn][nn].id[idn];
+				channels.tracks[tn].part._events.forEach((event) => {
+					const t = Tone.Time(sequ.time).toTicks();
+					if (Math.ceil(event.startOffset) == t && event.value.id == sequ.id) {
+						channels.tracks[tn].part._events.delete(event);
+						event.dispose();
+					}
+				});
+				delete data[tn][nn].id[idn];
 
-						delete data[tn][nn].seq[idn];
-						console.clear();
-						console.log("sequence supprimée :");
-						console.log(sequ);
-						console.log("sequence restante :");
-						synth1Part._events.forEach((event) => {
-							console.log(event.value);
-						});
-						break;
-				}
+				delete data[tn][nn].seq[idn];
+
+				channels.tracks[tn].part._events.forEach((event) => {
+					console.log(event.value);
+				});
 			}
 			if (Tone.Transport.state !== "started") {
 				$("#note-menu")
 					.find("li")
 					.on("mouseenter", function () {
-						synth1.triggerAttack($(this).html() + "4");
+						channels.tracks[
+							$(cLabel).attr("for").split("_")[0]
+						].synth.triggerAttack($(this).html() + "4");
 					});
 				$("#note-menu")
 					.find("li")
 					.on("mouseleave", function () {
-						synth1.releaseAll();
+						channels.tracks[
+							$(cLabel).attr("for").split("_")[0]
+						].synth.releaseAll();
 					});
 			}
 		}
@@ -480,12 +462,16 @@ if (href == "compose") {
 			$("#octave-menu")
 				.find("li")
 				.on("mouseenter", function () {
-					synth1.triggerAttack(cNote + $(this).html());
+					channels.tracks[
+						$(cLabel).attr("for").split("_")[0]
+					].synth.triggerAttack(cNote + $(this).html());
 				});
 			$("#octave-menu")
 				.find("li")
 				.on("mouseleave", function () {
-					synth1.releaseAll();
+					channels.tracks[
+						$(cLabel).attr("for").split("_")[0]
+					].synth.releaseAll();
 				});
 		}
 	});
@@ -510,17 +496,25 @@ if (href == "compose") {
 				.find("li")
 				.on("mouseenter", function () {
 					if ($(this).html() == "♭") {
-						synth1.triggerAttack(cNote + "b" + cOctave);
+						channels.tracks[
+							$(cLabel).attr("for").split("_")[0]
+						].synth.triggerAttack(cNote + "b" + cOctave);
 					} else if ($(this).html() == "⦻") {
-						synth1.triggerAttack(cNote + cOctave);
+						channels.tracks[
+							$(cLabel).attr("for").split("_")[0]
+						].synth.triggerAttack(cNote + cOctave);
 					} else if ($(this).html() == "#") {
-						synth1.triggerAttack(cNote + "#" + cOctave);
+						channels.tracks[
+							$(cLabel).attr("for").split("_")[0]
+						].synth.triggerAttack(cNote + "#" + cOctave);
 					}
 				});
 			$("#mod-menu")
 				.find("li")
 				.on("mouseleave", function () {
-					synth1.releaseAll();
+					channels.tracks[
+						$(cLabel).attr("for").split("_")[0]
+					].synth.releaseAll();
 				});
 		}
 	});
@@ -563,13 +557,7 @@ if (href == "compose") {
 		};
 		data[tn][nn].id[idn] = id;
 		data[tn][nn].seq[idn] = sequ;
-
-		switch (tn.split("")[1]) {
-			case "2":
-				synth1Part.add(sequ);
-				console.log(synth1Part._events);
-				break;
-		}
+		channels.tracks[tn].part.add(sequ);
 	});
 
 	//HIDE MENU

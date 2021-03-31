@@ -27,7 +27,7 @@
             </li>
             <!-- CHOOSE LANGUAGE-->
             <li>
-            <form method="POST" action="{{nav.current}}" id='lang-form'>
+            <form method="GET" action="{{nav.current}}" id='lang-form'>
                 <select name="lang" id="lang">
                     <option id="no_language">LANGUAGE &#127988; &#917607; &#917602; &#917605; &#917614; &#917607; &#917631;</option>
                     {% for language in languages %}

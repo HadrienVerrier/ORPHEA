@@ -43,8 +43,8 @@ function loggin()
 function getLanguage()
 {
 
-    if (isset($_POST['lang'])) {
-        $lang = $_POST['lang'];
+    if (isset($_GET['lang'])) {
+        $lang = $_GET['lang'];
         $languages = request('SELECT L.language_sn FROM languages L', array(), false);
 
         $arrayL = $languages->fetchAll(PDO::FETCH_COLUMN);

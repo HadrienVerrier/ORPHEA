@@ -41,6 +41,7 @@ function sequencer() {
 	if (Tone.Transport.state == "stopped") {
 		Tone.Transport.start();
 		drumPart.start();
+		synth1Part.start();
 	} else if (Tone.Transport.state == "paused") {
 		Tone.Transport.start();
 	} else {

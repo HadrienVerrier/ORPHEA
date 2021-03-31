@@ -41,6 +41,7 @@ function sequencer() {
 	if (Tone.Transport.state == "stopped") {
 		Tone.Transport.start();
 		drumPart.start();
+		synth1Part.start();
 	} else if (Tone.Transport.state == "paused") {
 		Tone.Transport.start();
 	} else {
@@ -1412,14 +1413,26 @@ function hidePausePlayer() {
 	});
 
 	//CHECK MARK DEPENDS DATA
-	$.each(data.t1, function (ni, n) {
-		$.each(n.seq, function (i, s) {
-			if (s) drumPart.add(s);
-		});
-		$.each(n.id, function (i, d) {
-			if (d) {
-				$("#" + d).prop("checked", true);
-			}
+	$.each(data, function (it, t) {
+		$.each(t, function (ni, n) {
+			$.each(n.seq, function (i, s) {
+				if (s) {
+					console.log(it);
+					switch (it) {
+						case "t1":
+							drumPart.add(s);
+							break;
+						case "t2":
+							synth1Part.add(s);
+							break;
+					}
+				}
+			});
+			$.each(n.id, function (i, d) {
+				if (d) {
+					$("#" + d).prop("checked", true);
+				}
+			});
 		});
 	});
 
@@ -1432,8 +1445,8 @@ function hidePausePlayer() {
 	var eX, eY, cNote, cOctave, cLabel;
 	$('div[id^="seq_t"] label').on("click", function (e) {
 		if ($(this).parent().parent().attr("id") !== "seq_t1") {
+			cLabel = $(this);
 			if (!$(this).prev().prop("checked")) {
-				cLabel = $(this);
 				e.preventDefault();
 				$("#note-menu").addClass("hidden");
 				$("#octave-menu").addClass("hidden");
@@ -1451,17 +1464,65 @@ function hidePausePlayer() {
 					top: eY,
 					left: eX,
 				});
+			} else {
+				//SET DATA
+				let id = $(cLabel).attr("for");
+				let arr = id.split("_");
+				let tn = arr[0];
+				let nn = arr[1];
+				let idn = arr[2];
+				let midi = cNote;
+				let duration = "16n";
+				let q = (idn - 1) % 4;
+				let b = Math.floor((idn - 1) / 4);
+				let m = Math.floor((idn - 1) / 16);
+
+				//CREATE SEQUENCE PART
+
+				let sequ = {
+					time: m + ":" + b + ":" + q,
+					note: midi,
+					velocity: 1,
+					duration: duration,
+					id: id,
+				};
+				switch (tn.split("")[1]) {
+					case "2":
+						synth1Part._events.forEach((event) => {
+							const t = Tone.Time(sequ.time).toTicks();
+							if (
+								Math.ceil(event.startOffset) == t &&
+								event.value.id == sequ.id
+							) {
+								synth1Part._events.delete(event);
+								event.dispose();
+							}
+						});
+						delete data[tn][nn].id[idn];
+
+						delete data[tn][nn].seq[idn];
+						console.clear();
+						console.log("sequence supprimée :");
+						console.log(sequ);
+						console.log("sequence restante :");
+						synth1Part._events.forEach((event) => {
+							console.log(event.value);
+						});
+						break;
+				}
 			}
-			$("#note-menu")
-				.find("li")
-				.on("mouseenter", function () {
-					synth1.triggerAttack($(this).html() + "4");
-				});
-			$("#note-menu")
-				.find("li")
-				.on("mouseleave", function () {
-					synth1.releaseAll();
-				});
+			if (Tone.Transport.state !== "started") {
+				$("#note-menu")
+					.find("li")
+					.on("mouseenter", function () {
+						synth1.triggerAttack($(this).html() + "4");
+					});
+				$("#note-menu")
+					.find("li")
+					.on("mouseleave", function () {
+						synth1.releaseAll();
+					});
+			}
 		}
 	});
 
@@ -1480,16 +1541,18 @@ function hidePausePlayer() {
 			top: eY,
 			left: eX,
 		});
-		$("#octave-menu")
-			.find("li")
-			.on("mouseenter", function () {
-				synth1.triggerAttack(cNote + $(this).html());
-			});
-		$("#octave-menu")
-			.find("li")
-			.on("mouseleave", function () {
-				synth1.releaseAll();
-			});
+		if (Tone.Transport.state !== "started") {
+			$("#octave-menu")
+				.find("li")
+				.on("mouseenter", function () {
+					synth1.triggerAttack(cNote + $(this).html());
+				});
+			$("#octave-menu")
+				.find("li")
+				.on("mouseleave", function () {
+					synth1.releaseAll();
+				});
+		}
 	});
 
 	//CHOSE OCTAVE
@@ -1507,22 +1570,24 @@ function hidePausePlayer() {
 				$("#mod-menu").addClass("hidden");
 			}
 		});
-		$("#mod-menu")
-			.find("li")
-			.on("mouseenter", function () {
-				if ($(this).html() == "♭") {
-					synth1.triggerAttack(cNote + "b" + cOctave);
-				} else if ($(this).html() == "⦻") {
-					synth1.triggerAttack(cNote + cOctave);
-				} else if ($(this).html() == "#") {
-					synth1.triggerAttack(cNote + "#" + cOctave);
-				}
-			});
-		$("#mod-menu")
-			.find("li")
-			.on("mouseleave", function () {
-				synth1.releaseAll();
-			});
+		if (Tone.Transport.state !== "started") {
+			$("#mod-menu")
+				.find("li")
+				.on("mouseenter", function () {
+					if ($(this).html() == "♭") {
+						synth1.triggerAttack(cNote + "b" + cOctave);
+					} else if ($(this).html() == "⦻") {
+						synth1.triggerAttack(cNote + cOctave);
+					} else if ($(this).html() == "#") {
+						synth1.triggerAttack(cNote + "#" + cOctave);
+					}
+				});
+			$("#mod-menu")
+				.find("li")
+				.on("mouseleave", function () {
+					synth1.releaseAll();
+				});
+		}
 	});
 
 	//CHOOSE MOD
@@ -1547,7 +1612,7 @@ function hidePausePlayer() {
 		let nn = arr[1];
 		let idn = arr[2];
 		let midi = cNote;
-
+		let duration = "16n";
 		let q = (idn - 1) % 4;
 		let b = Math.floor((idn - 1) / 4);
 		let m = Math.floor((idn - 1) / 16);
@@ -1558,7 +1623,18 @@ function hidePausePlayer() {
 			time: m + ":" + b + ":" + q,
 			note: midi,
 			velocity: 1,
+			duration: duration,
+			id: id,
 		};
+		data[tn][nn].id[idn] = id;
+		data[tn][nn].seq[idn] = sequ;
+
+		switch (tn.split("")[1]) {
+			case "2":
+				synth1Part.add(sequ);
+				console.log(synth1Part._events);
+				break;
+		}
 	});
 
 	//HIDE MENU
@@ -1571,6 +1647,7 @@ function hidePausePlayer() {
 		) {
 			$("#note-menu").addClass("hidden");
 			$("#octave-menu").addClass("hidden");
+			synth1.releaseAll();
 		}
 	});
 	//////////////

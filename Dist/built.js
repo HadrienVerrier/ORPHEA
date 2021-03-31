@@ -1337,6 +1337,10 @@ function hidePausePlayer() {
 				? transportA("run")
 				: transportA("stop");
 		}
+
+		$("#note-menu li").off();
+		$("#octave-menu li").off();
+		$("#mod-menu li").off();
 	});
 
 	//STOP

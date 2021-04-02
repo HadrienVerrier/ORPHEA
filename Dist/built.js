@@ -1066,38 +1066,42 @@ $("body").on("click", ".popup #loop_results article .loop-play", function () {
 
 //LOAD MAIN DATA AND CHANGE WITH AJAX
 function page(pageName) {
-	$.ajax({
-		async: true,
-		url: "php/function/pageAjax.php",
-		type: "POST",
-		data: { page: pageName },
+	if (href == "compose") {
+		window.location = pageName + ".php";
+	} else {
+		$.ajax({
+			async: true,
+			url: "php/function/pageAjax.php",
+			type: "POST",
+			data: { page: pageName },
 
-		success: function (data) {
-			if (data == "failure") {
-				window.location = "index.php";
-			} else {
-				$("main").replaceWith(data);
-				window.scrollTo(0, 0);
-				history.pushState(null, null, pageName + ".php");
-				changeNav(pageName + ".php");
-				$("footer form").attr("action", pageName + ".php");
-				hidePausePlayer();
-				//GET DOCUMENT NAME
-				$.ajax({
-					async: true,
-					url: "php/function/getPageName.php",
-					type: "POST",
-					data: { page: pageName },
+			success: function (data) {
+				if (data == "failure") {
+					window.location = "index.php";
+				} else {
+					$("main").replaceWith(data);
+					window.scrollTo(0, 0);
+					history.pushState(null, null, pageName + ".php");
+					changeNav(pageName + ".php");
+					$("footer form").attr("action", pageName + ".php");
+					hidePausePlayer();
+					//GET DOCUMENT NAME
+					$.ajax({
+						async: true,
+						url: "php/function/getPageName.php",
+						type: "POST",
+						data: { page: pageName },
 
-					success: function (data) {
-						document.title = data + " - ORPHÉA";
-					},
-					dataType: "text",
-				});
-			}
-		},
-		dataType: "html",
-	});
+						success: function (data) {
+							document.title = data + " - ORPHÉA";
+						},
+						dataType: "text",
+					});
+				}
+			},
+			dataType: "html",
+		});
+	}
 }
 
 //CHANGE HEADER

@@ -188,7 +188,7 @@ body {
 		left: 0;
 		border-radius: $borderRadius;
 	}
-	&:before {
+	&::before {
 		content: attr(data-disabled);
 		display: block;
 		opacity: 0;
@@ -198,6 +198,9 @@ body {
 		font-family: $fRegular;
 		font-style: italic;
 		width: 80%;
+		white-space: nowrap;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
 		padding: 0.5rem;
 		border-radius: $borderRadius * 0.5;
 		text-align: center;

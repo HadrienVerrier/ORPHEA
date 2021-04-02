@@ -17,6 +17,12 @@
 		article {
 			margin-bottom: 2rem;
 			height: 20rem;
+			.button {
+				height: auto;
+				width: 70%;
+				font-size: $regular;
+				line-height: $regular;
+			}
 		}
 	}
 }

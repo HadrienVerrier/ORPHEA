@@ -84,16 +84,16 @@
 			background-color: $background;
 			box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.74);
 
-			&::before {
-				content: " ";
+			div {
 				display: block;
-				width: 60%;
+				left: 0;
+				width: 0;
 				position: absolute;
 				height: 100%;
 				background-color: $mainLight;
 			}
-			&::after {
-				content: " ";
+
+			span {
 				display: block;
 				cursor: pointer;
 				width: 1.5rem;
@@ -102,7 +102,7 @@
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
-				left: 60%;
+				left: 0;
 				border-radius: 50%;
 				border: 0.3rem solid $main;
 				background-color: $mainLight;

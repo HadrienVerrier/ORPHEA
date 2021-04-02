@@ -69,6 +69,12 @@
 /*SMALL SCREEN*/
 @media only screen and (min-width: $smallScreen + 1) and (max-width: $regularScreen - 1) {
 	body {
+		.disabled {
+			&::before {
+				font-size: 100%;
+				width: 80%;
+			}
+		}
 		> header {
 			div#logo {
 				@include center(true, true);

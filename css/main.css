@@ -216,7 +216,7 @@ body > footer a:hover {
   border-radius: 1.5rem;
 }
 
-.disabled:before {
+.disabled::before {
   content: attr(data-disabled);
   display: block;
   opacity: 0;
@@ -231,6 +231,9 @@ body > footer a:hover {
   font-family: "Quicksand", sans-serif;
   font-style: italic;
   width: 80%;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
   padding: 0.5rem;
   border-radius: 0.75rem;
   text-align: center;
@@ -813,17 +816,16 @@ input[type="submit"] + label {
           box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.74);
 }
 
-#player-container #player #timebar::before {
-  content: " ";
+#player-container #player #timebar div {
   display: block;
-  width: 60%;
+  left: 0;
+  width: 0;
   position: absolute;
   height: 100%;
   background-color: #b900d7;
 }
 
-#player-container #player #timebar::after {
-  content: " ";
+#player-container #player #timebar span {
   display: block;
   cursor: pointer;
   width: 1.5rem;
@@ -834,7 +836,7 @@ input[type="submit"] + label {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  left: 60%;
+  left: 0;
   border-radius: 50%;
   border: 0.3rem solid #650076;
   background-color: #b900d7;
@@ -2413,6 +2415,10 @@ main#admin section input {
 
 /*SMALL SCREEN*/
 @media only screen and (min-width: 391px) and (max-width: 749px) {
+  body .disabled::before {
+    font-size: 100%;
+    width: 80%;
+  }
   body > header div#logo {
     position: absolute;
     top: 50%;
@@ -2483,6 +2489,12 @@ main#admin section input {
   body > main#dashboard > section article {
     margin-bottom: 2rem;
     height: 20rem;
+  }
+  body > main#dashboard > section article .button, body > main#dashboard > section article #player-container.open #search #results > section > ul > li:last-of-type, #player-container.open #search body > main#dashboard > section article #results > section > ul > li:last-of-type {
+    height: auto;
+    width: 70%;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
   }
   body > main#member > header {
     text-align: center;
@@ -2803,6 +2815,12 @@ main#admin section input {
   body > main#dashboard > section article {
     margin-bottom: 2rem;
     height: 20rem;
+  }
+  body > main#dashboard > section article .button, body > main#dashboard > section article #player-container.open #search #results > section > ul > li:last-of-type, #player-container.open #search body > main#dashboard > section article #results > section > ul > li:last-of-type {
+    height: auto;
+    width: 70%;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
   }
   body > main#member > header {
     text-align: center;

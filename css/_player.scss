@@ -35,6 +35,9 @@
 		grid-template-columns: 1fr 1fr 3fr 0.5fr;
 
 		#song-info {
+			width: 15rem;
+			white-space: nowrap;
+			overflow-x: hidden;
 			align-self: center;
 			justify-self: center;
 			> img {

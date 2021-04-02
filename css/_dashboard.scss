@@ -79,7 +79,7 @@ main#dashboard {
 	div#pu_loop {
 		> div {
 			margin-top: -2rem;
-			height: 20rem;
+			height: 18rem;
 			overflow-y: auto;
 			border-radius: $borderRadius * 0.6;
 			background-color: $mainDark;
@@ -89,7 +89,7 @@ main#dashboard {
 				grid-template-columns: 1fr 1fr 1fr 1fr;
 
 				article {
-					width: 18rem;
+					width: 16rem;
 					border-radius: $borderRadius * 0.5;
 					overflow: hidden;
 					position: relative;
@@ -230,6 +230,9 @@ main#dashboard {
 					}
 				}
 			}
+		}
+		.button {
+			width: 80%;
 		}
 	}
 }

@@ -745,6 +745,9 @@ input[type="submit"] + label {
 }
 
 #player-container #player #song-info {
+  width: 15rem;
+  white-space: nowrap;
+  overflow-x: hidden;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -1446,7 +1449,7 @@ main#dashboard > section article ul li a svg {
 
 .popup.loop div#pu_loop > div {
   margin-top: -2rem;
-  height: 20rem;
+  height: 18rem;
   overflow-y: auto;
   border-radius: 0.9rem;
   background-color: #2b1f2d;
@@ -1461,7 +1464,7 @@ main#dashboard > section article ul li a svg {
 }
 
 .popup.loop div#pu_loop > div div#loop_results article {
-  width: 18rem;
+  width: 16rem;
   border-radius: 0.75rem;
   overflow: hidden;
   position: relative;
@@ -1633,6 +1636,10 @@ main#dashboard > section article ul li a svg {
 
 .popup.loop div#pu_loop > div div#loop_results article svg:hover {
   fill: #383838;
+}
+
+.popup.loop div#pu_loop .button, .popup.loop div#pu_loop #player-container.open #search #results > section > ul > li:last-of-type, #player-container.open #search .popup.loop div#pu_loop #results > section > ul > li:last-of-type {
+  width: 80%;
 }
 
 /*MEMBER PAGE*/

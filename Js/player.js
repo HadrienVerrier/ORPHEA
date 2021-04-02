@@ -77,3 +77,5 @@ function clearData() {
 		t.part.clear();
 	});
 }
+
+function transportP() {}

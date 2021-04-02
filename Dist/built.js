@@ -112,6 +112,10 @@ function animPlay() {
 		});
 	}
 }
+;const rev2 = new Tone.Reverb({
+	decay: 5,
+	wet: 0,
+}).connect(bus2);
 ;const drumKit = new Tone.Sampler({
 	urls: {
 		C2: "./ressources/samples/drums/kick/909.wav",
@@ -157,7 +161,7 @@ channels.tracks.t1.part = drumPart;
 		release: 0.2,
 	},
 	portamento: 0,
-}).connect(bus2);
+}).connect(rev2);
 
 synth1.volume.value = -6;
 const synth1Part = new Tone.Part((time, value) => {
@@ -1217,6 +1221,8 @@ function clearData() {
 		t.part.clear();
 	});
 }
+
+function transportP() {}
 ;if (href == "compose") {
 	//GENERAL INIT
 	var main = $("body main#compose");
@@ -1432,11 +1438,11 @@ function clearData() {
 				t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
 				t2Input.addListener("noteon", t2Channel, (e) => {
 					note = e.note.name + e.note.octave;
-					synth1.triggerAttack(note, "+0", e.velocity);
+					synth1.triggerAttack(note, Tone.context.currentTime, e.velocity);
 				});
 				t2Input.addListener("noteoff", t2Channel, (e) => {
 					note = e.note.name + e.note.octave;
-					synth1.triggerRelease(note, "+0");
+					synth1.triggerRelease(note, Tone.context.currentTime);
 				});
 			} else {
 				t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
@@ -1448,11 +1454,11 @@ function clearData() {
 			t2Channel = parseFloat($(this).val().split("_")[2]);
 			t2Input.addListener("noteon", t2Channel, (e) => {
 				note = e.note.name + e.note.octave;
-				synth1.triggerAttack(note, "+0", e.velocity);
+				synth1.triggerAttack(note, Tone.context.currentTime, e.velocity);
 			});
 			t2Input.addListener("noteoff", t2Channel, (e) => {
 				note = e.note.name + e.note.octave;
-				synth1.triggerRelease(note, "+0");
+				synth1.triggerRelease(note, Tone.context.currentTime);
 			});
 		});
 	}, true);

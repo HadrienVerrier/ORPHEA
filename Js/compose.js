@@ -213,11 +213,11 @@ if (href == "compose") {
 				t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
 				t2Input.addListener("noteon", t2Channel, (e) => {
 					note = e.note.name + e.note.octave;
-					synth1.triggerAttack(note, "+0", e.velocity);
+					synth1.triggerAttack(note, Tone.context.currentTime, e.velocity);
 				});
 				t2Input.addListener("noteoff", t2Channel, (e) => {
 					note = e.note.name + e.note.octave;
-					synth1.triggerRelease(note, "+0");
+					synth1.triggerRelease(note, Tone.context.currentTime);
 				});
 			} else {
 				t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
@@ -229,11 +229,11 @@ if (href == "compose") {
 			t2Channel = parseFloat($(this).val().split("_")[2]);
 			t2Input.addListener("noteon", t2Channel, (e) => {
 				note = e.note.name + e.note.octave;
-				synth1.triggerAttack(note, "+0", e.velocity);
+				synth1.triggerAttack(note, Tone.context.currentTime, e.velocity);
 			});
 			t2Input.addListener("noteoff", t2Channel, (e) => {
 				note = e.note.name + e.note.octave;
-				synth1.triggerRelease(note, "+0");
+				synth1.triggerRelease(note, Tone.context.currentTime);
 			});
 		});
 	}, true);

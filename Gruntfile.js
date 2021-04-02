@@ -8,6 +8,7 @@ module.exports = function (grunt) {
 				src: [
 					"Js/JQStart.js",
 					"Js/tone.js",
+					"Js/effects/reverbs.js",
 					"Js/instruments/drums.js",
 					"Js/instruments/synths.js",
 					"Js/page.js",

@@ -20,7 +20,7 @@ const synth1 = new Tone.PolySynth(Tone.MonoSynth, {
 		release: 0.2,
 	},
 	portamento: 0,
-}).connect(bus2);
+}).connect(rev2);
 
 synth1.volume.value = -6;
 const synth1Part = new Tone.Part((time, value) => {

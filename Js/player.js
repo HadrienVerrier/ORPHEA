@@ -49,6 +49,7 @@ function getLoop(id) {
 			setData(JSON.parse(data.data));
 			setInfos(data.name, data.nickname);
 			sequencer();
+			transportP();
 		},
 		dataType: "json",
 	});
@@ -78,4 +79,62 @@ function clearData() {
 	});
 }
 
-function transportP() {}
+let width = $("#timebar").width();
+$(window).resize(function () {
+	width = $("#timebar").width();
+});
+function transportP() {
+	let bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
+	//BAR
+	$("#timebar div").animate(
+		{
+			width: "100%",
+		},
+		bpmSpeed,
+		"linear"
+	);
+	Tone.Transport.scheduleRepeat(
+		() => {
+			bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
+			$("#timebar div").stop();
+			$("#timebar div").css({
+				width: "0%",
+			});
+			$("#timebar div").animate(
+				{
+					width: "100%",
+				},
+				bpmSpeed,
+				"linear"
+			);
+		},
+		"1m",
+		"1m"
+	);
+	//POINT
+	$("#timebar span").animate(
+		{
+			left: "100%",
+		},
+		bpmSpeed,
+		"linear"
+	);
+	Tone.Transport.scheduleRepeat(
+		() => {
+			bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
+			$("#timebar span").stop();
+			$("#timebar span").css({
+				left: "0%",
+			});
+			$("#timebar span").animate(
+				{
+					left: "100%",
+				},
+				bpmSpeed,
+				"linear"
+			);
+		},
+		"1m",
+		"1m"
+	);
+}

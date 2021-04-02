@@ -135,58 +135,61 @@ $.ajax({
 });
 
 //COOKIE SETTINGS
-$("footer section:nth-of-type(1) a.nr").on("click", function () {
-	$.ajax({
-		async: true,
-		url: "php/function/checkCookie.php",
-		type: "POST",
-		data: { type: "generate" },
-		success: function (data) {
-			//GENERATE POPUP
+$("footer section:nth-of-type(1) li:nth-of-type(2) a.nr").on(
+	"click",
+	function () {
+		$.ajax({
+			async: true,
+			url: "php/function/checkCookie.php",
+			type: "POST",
+			data: { type: "generate" },
+			success: function (data) {
+				//GENERATE POPUP
 
-			popUp(data);
-			let response;
-			$(".popup p").on("click", function () {
-				if ($(this).attr("data-mode") == "true") {
-					response = "true";
-				} else if ($(this).attr("data-mode") == "false") {
+				popUp(data);
+				let response;
+				$(".popup p").on("click", function () {
+					if ($(this).attr("data-mode") == "true") {
+						response = "true";
+					} else if ($(this).attr("data-mode") == "false") {
+						response = "false";
+					}
+					$(".popup").fadeOut(200);
+					$.ajax({
+						//SEND THE ANSWER TO
+						async: true,
+						url: "php/function/checkCookie.php",
+						type: "POST",
+						data: {
+							type: "validation",
+							response: response,
+						},
+
+						success: function (data) {},
+					});
+				});
+				$(".popup svg").on("click", function () {
 					response = "false";
-				}
-				$(".popup").fadeOut(200);
-				$.ajax({
-					//SEND THE ANSWER TO
-					async: true,
-					url: "php/function/checkCookie.php",
-					type: "POST",
-					data: {
-						type: "validation",
-						response: response,
-					},
 
-					success: function (data) {},
+					$(".popup").fadeOut(200);
+					$.ajax({
+						//SEND THE ANSWER TO
+						async: true,
+						url: "php/function/checkCookie.php",
+						type: "POST",
+						data: {
+							type: "validation",
+							response: response,
+						},
+
+						success: function (data) {},
+					});
 				});
-			});
-			$(".popup svg").on("click", function () {
-				response = "false";
-
-				$(".popup").fadeOut(200);
-				$.ajax({
-					//SEND THE ANSWER TO
-					async: true,
-					url: "php/function/checkCookie.php",
-					type: "POST",
-					data: {
-						type: "validation",
-						response: response,
-					},
-
-					success: function (data) {},
-				});
-			});
-		},
-		dataType: "html",
-	});
-});
+			},
+			dataType: "html",
+		});
+	}
+);
 
 ///////////////////////
 //LOGIN LOGOUT SIGNUP//

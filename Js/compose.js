@@ -184,21 +184,22 @@ if (href == "compose") {
 
 		//TRACK 1
 		var t1Channel, t1Input;
-		tracks.find("#midi_input_t1").on("change", function () {
+		tracks.find("#midi_input_t1").on("input", function () {
+			tracks
+				.find("#midi_channel_t1 option:first-of-type")
+				.prop("selected", true);
 			if (t1Input !== undefined) {
-				t1Input.removeListener();
-				t1Input = WebMidi.inputs[$(this).val().split("-")[1]];
-				t1Input.addListener("noteon", t1Channel, (e) => {
-					note = e.note.name + e.note.octave;
-					drumKit.triggerAttackRelease(note, "16n", "+0", e.velocity);
-				});
-			} else {
-				t1Input = WebMidi.inputs[$(this).val().split("-")[1]];
+				t1Input.removeListener("noteon", t1Channel);
+				t1Input = undefined;
 			}
+			t1Input = WebMidi.inputs[$(this).val().split("-")[1]];
 		});
 
 		tracks.find("#midi_channel_t1").on("change", function () {
-			t1Input.removeListener();
+			if (t2Channel !== undefined) {
+				t2Input.removeListener("noteon", t2Channel);
+				t2Channel = undefined;
+			}
 			t1Channel = parseFloat($(this).val().split("_")[2]);
 			t1Input.addListener("noteon", t1Channel, (e) => {
 				note = e.note.name + e.note.octave;
@@ -207,25 +208,23 @@ if (href == "compose") {
 		});
 
 		var t2Channel, t2Input;
-		tracks.find("#midi_input_t2").on("change", function () {
+		tracks.find("#midi_input_t2").on("input", function () {
+			tracks
+				.find("#midi_channel_t2 option:first-of-type")
+				.prop("selected", true);
 			if (t2Input !== undefined) {
-				t2Input.removeListener();
-				t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
-				t2Input.addListener("noteon", t2Channel, (e) => {
-					note = e.note.name + e.note.octave;
-					synth1.triggerAttack(note, Tone.context.currentTime, e.velocity);
-				});
-				t2Input.addListener("noteoff", t2Channel, (e) => {
-					note = e.note.name + e.note.octave;
-					synth1.triggerRelease(note, Tone.context.currentTime);
-				});
-			} else {
-				t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
+				t2Input.removeListener("noteon", t2Channel);
+				t2Input.removeListener("noteoff", t2Channel);
+				t2Input = undefined;
 			}
+			t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
 		});
-
-		tracks.find("#midi_channel_t2").on("change", function () {
-			t2Input.removeListener();
+		tracks.find("#midi_channel_t2").on("input", function () {
+			if (t2Channel !== undefined) {
+				t2Input.removeListener("noteon", t2Channel);
+				t2Input.removeListener("noteoff", t2Channel);
+				t2Channel = undefined;
+			}
 			t2Channel = parseFloat($(this).val().split("_")[2]);
 			t2Input.addListener("noteon", t2Channel, (e) => {
 				note = e.note.name + e.note.octave;
@@ -234,6 +233,64 @@ if (href == "compose") {
 			t2Input.addListener("noteoff", t2Channel, (e) => {
 				note = e.note.name + e.note.octave;
 				synth1.triggerRelease(note, Tone.context.currentTime);
+			});
+		});
+
+		var t3Channel, t3Input;
+		tracks.find("#midi_input_t3").on("input", function () {
+			tracks
+				.find("#midi_channel_t3 option:first-of-type")
+				.prop("selected", true);
+			if (t3Input !== undefined) {
+				t3Input.removeListener("noteon", t3Channel);
+				t3Input.removeListener("noteoff", t3Channel);
+				t3Input = undefined;
+			}
+			t3Input = WebMidi.inputs[$(this).val().split("-")[1]];
+		});
+		tracks.find("#midi_channel_t3").on("input", function () {
+			if (t3Channel !== undefined) {
+				t3Input.removeListener("noteon", t3Channel);
+				t3Input.removeListener("noteoff", t3Channel);
+				t3Channel = undefined;
+			}
+			t3Channel = parseFloat($(this).val().split("_")[2]);
+			t3Input.addListener("noteon", t3Channel, (e) => {
+				note = e.note.name + e.note.octave;
+				synth2.triggerAttack(note, Tone.context.currentTime, e.velocity);
+			});
+			t3Input.addListener("noteoff", t3Channel, (e) => {
+				note = e.note.name + e.note.octave;
+				synth2.triggerRelease(note, Tone.context.currentTime);
+			});
+		});
+
+		var t4Channel, t4Input;
+		tracks.find("#midi_input_t4").on("input", function () {
+			tracks
+				.find("#midi_channel_t4 option:first-of-type")
+				.prop("selected", true);
+			if (t4Input !== undefined) {
+				t4Input.removeListener("noteon", t4Channel);
+				t4Input.removeListener("noteoff", t4Channel);
+				t4Input = undefined;
+			}
+			t4Input = WebMidi.inputs[$(this).val().split("-")[1]];
+		});
+		tracks.find("#midi_channel_t4").on("input", function () {
+			if (t4Channel !== undefined) {
+				t4Input.removeListener("noteon", t4Channel);
+				t4Input.removeListener("noteoff", t4Channel);
+				t4Channel = undefined;
+			}
+			t4Channel = parseFloat($(this).val().split("_")[2]);
+			t4Input.addListener("noteon", t4Channel, (e) => {
+				note = e.note.name + e.note.octave;
+				synth3.triggerAttack(note, Tone.context.currentTime, e.velocity);
+			});
+			t4Input.addListener("noteoff", t4Channel, (e) => {
+				note = e.note.name + e.note.octave;
+				synth3.triggerRelease(note, Tone.context.currentTime);
 			});
 		});
 	}, true);

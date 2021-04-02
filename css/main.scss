@@ -411,11 +411,8 @@ body {
 a {
 	text-decoration: none;
 	font-style: italic;
-	color: $main;
+	color: $mainLight;
 	font-weight: bolder;
-	&:visited {
-		color: $mainDark;
-	}
 }
 strong {
 	font-weight: bold;

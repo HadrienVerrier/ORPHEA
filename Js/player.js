@@ -34,3 +34,46 @@ function hidePausePlayer() {
 		$("aside").show();
 	}
 }
+
+//GET DATA FROM LOOP AND PLAY IT
+
+function getLoop(id) {
+	$.ajax({
+		async: true,
+		url: "php/function/loop.php",
+		type: "POST",
+		data: { type: "get", id: id },
+		success: function (data) {
+			clearData();
+			setSettings(JSON.parse(data.settings));
+			setData(JSON.parse(data.data));
+			setInfos(data.name, data.nickname);
+			sequencer();
+		},
+		dataType: "json",
+	});
+}
+
+function setData(data) {
+	$.each(data, function (it, t) {
+		$.each(t, function (ni, n) {
+			$.each(n.seq, function (i, s) {
+				if (s) {
+					channels.tracks[it].part.add(s);
+				}
+			});
+		});
+	});
+	return;
+}
+function setInfos(loopName, nickname) {
+	$("#player-container #song-info #current-song").html(loopName);
+	$("#player-container #song-info #current-artist").html(nickname);
+	return;
+}
+
+function clearData() {
+	$.each(channels.tracks, function (i, t) {
+		t.part.clear();
+	});
+}

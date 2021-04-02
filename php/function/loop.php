@@ -130,4 +130,8 @@ switch ($_POST['type']) {
         }
         echo ('success');
         break;
+    case 'get':
+        $data = request('SELECT L.name, L.settings, L.data, L.licence, M.nickname FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE L.id_loop = :id', array("id" => $_POST['id']), true);
+        echo json_encode($data);
+        break;
 }

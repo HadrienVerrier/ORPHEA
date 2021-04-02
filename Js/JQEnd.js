@@ -1,3 +1,3 @@
-// console.clear();
+console.clear();
 
 });

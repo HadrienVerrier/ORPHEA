@@ -33,9 +33,13 @@ $(document).on("click", async () => {
 
 //SEQUENCER
 
-Tone.Transport.bpm.value = settings.bpm;
-Tone.Transport.timeSignature = settings.timeSignature;
-Tone.Transport.swing = settings.swing;
+setSettings(settings);
+function setSettings(settings) {
+	Tone.Transport.bpm.value = settings.bpm;
+	Tone.Transport.timeSignature = settings.timeSignature;
+	Tone.Transport.swing = settings.swing;
+	return;
+}
 let gPlayState = true;
 function sequencer() {
 	if (Tone.Transport.state == "stopped") {
@@ -78,7 +82,7 @@ function createToneContext() {
 		const context = new Tone.Context({ latencyHint: "interactive" });
 		Tone.setContext(context);
 		Tone.context.lookAhead = 0.02;
-		Tone.Destination.mute = true;
+		Tone.Destination.mute = false;
 	}
 }
 function gMute() {

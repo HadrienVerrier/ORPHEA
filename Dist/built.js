@@ -33,9 +33,13 @@ $(document).on("click", async () => {
 
 //SEQUENCER
 
-Tone.Transport.bpm.value = settings.bpm;
-Tone.Transport.timeSignature = settings.timeSignature;
-Tone.Transport.swing = settings.swing;
+setSettings(settings);
+function setSettings(settings) {
+	Tone.Transport.bpm.value = settings.bpm;
+	Tone.Transport.timeSignature = settings.timeSignature;
+	Tone.Transport.swing = settings.swing;
+	return;
+}
 let gPlayState = true;
 function sequencer() {
 	if (Tone.Transport.state == "stopped") {
@@ -78,7 +82,7 @@ function createToneContext() {
 		const context = new Tone.Context({ latencyHint: "interactive" });
 		Tone.setContext(context);
 		Tone.context.lookAhead = 0.02;
-		Tone.Destination.mute = true;
+		Tone.Destination.mute = false;
 	}
 }
 function gMute() {
@@ -1050,6 +1054,12 @@ $("body").on("click", ".popup .loop-edit", function () {
 	window.location.assign("compose.php?l=" + encodeURI(name));
 });
 
+//PREVIEW LOOP IN PLAYER
+
+$("body").on("click", ".popup #loop_results article .loop-play", function () {
+	// console.log($(this).parent().attr("id").split("-")[1]);
+	getLoop($(this).parent().attr("id").split("-")[1]);
+});
 ///////////////
 ////FUNCTION///
 ///////////////
@@ -1159,6 +1169,49 @@ function hidePausePlayer() {
 	} else {
 		$("aside").show();
 	}
+}
+
+//GET DATA FROM LOOP AND PLAY IT
+
+function getLoop(id) {
+	$.ajax({
+		async: true,
+		url: "php/function/loop.php",
+		type: "POST",
+		data: { type: "get", id: id },
+		success: function (data) {
+			clearData();
+			setSettings(JSON.parse(data.settings));
+			setData(JSON.parse(data.data));
+			setInfos(data.name, data.nickname);
+			sequencer();
+		},
+		dataType: "json",
+	});
+}
+
+function setData(data) {
+	$.each(data, function (it, t) {
+		$.each(t, function (ni, n) {
+			$.each(n.seq, function (i, s) {
+				if (s) {
+					channels.tracks[it].part.add(s);
+				}
+			});
+		});
+	});
+	return;
+}
+function setInfos(loopName, nickname) {
+	$("#player-container #song-info #current-song").html(loopName);
+	$("#player-container #song-info #current-artist").html(nickname);
+	return;
+}
+
+function clearData() {
+	$.each(channels.tracks, function (i, t) {
+		t.part.clear();
+	});
 }
 ;if (href == "compose") {
 	//GENERAL INIT
@@ -1826,6 +1879,6 @@ function hidePausePlayer() {
 		}
 	}
 }
-;// console.clear();
+;console.clear();
 
 });

@@ -696,7 +696,7 @@ function getPopUpData($popup, $lang)
         case 'pu_loop':
             //GET USER 25 FIRST LOOP
 
-            $results = request("SELECT L.name, L.date FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE M.nickname = :user ORDER BY L.date DESC LIMIT 25", array('user' => $_SESSION['username']), false);
+            $results = request("SELECT L.name, L.date, L.id_loop FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE M.nickname = :user ORDER BY L.date DESC LIMIT 25", array('user' => $_SESSION['username']), false);
             $loops = $results->fetchAll();
             $request->closeCursor();
 

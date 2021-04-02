@@ -25,7 +25,12 @@
             <article>
                 <h3 data-translate="index_compose_title">{{main.index_compose_title|upper}}</h3>
                 <div><p data-translate="index_compose_p">{{main.index_compose_p|raw}}</p></div>
-                <a data-translate="index_compose_button" href="dashboard.php" class="button nr oa">{{main.index_compose_button|upper}}</a>
+                {% if misc.loggin %}
+                    <a data-translate="index_compose_button" href="dashboard.php" class="button">{{main.index_compose_button|upper}}</a>
+                {% else %}
+                    <a data-translate="index_compose_button" href="login.php" class="button">{{main.index_compose_button|upper}}</a>
+                {% endif %}
+               
             </article>
             <article class="disabled" data-disabled="{{misc.soon|upper}}">
                 <h3 data-translate="index_learn_title">{{main.index_learn_title|upper}}</h3>

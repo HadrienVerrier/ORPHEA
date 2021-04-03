@@ -157,6 +157,26 @@ if (href == "compose") {
 		}
 	});
 
+	//CHANGE STEP NUMBER
+
+	let step = settings.step;
+	$('#l_step option[value="' + step + '"]').prop("selected", true);
+	if (step == 16) {
+		$(".next-page").addClass("hidden");
+		$(".previous-page").addClass("hidden");
+	}
+
+	$("#l_step").on("change", function () {
+		step = $(this).val();
+		if (step == 16) {
+			$(".next-page").addClass("hidden");
+			$(".previous-page").addClass("hidden");
+		} else {
+			$(".next-page").removeClass("hidden");
+			$(".previous-page").removeClass("hidden");
+		}
+	});
+
 	//////////////
 	/////MIDI/////
 	//////////////
@@ -630,6 +650,7 @@ if (href == "compose") {
 			synth1.releaseAll();
 		}
 	});
+
 	//////////////
 	///FUNCTION///
 	//////////////
@@ -642,6 +663,7 @@ if (href == "compose") {
 			bpm: Tone.Transport.bpm.value,
 			timeSignature: Tone.Transport.timeSignature,
 			swing: Tone.Transport.swing,
+			step: $("#l_step").val(),
 		};
 
 		$.ajax({

@@ -41,6 +41,7 @@ function setSettings(settings) {
 	return;
 }
 let gPlayState = true;
+let eventID = undefined;
 function sequencer() {
 	if (Tone.Transport.state == "stopped") {
 		Tone.Transport.start();
@@ -53,8 +54,11 @@ function sequencer() {
 	} else {
 		Tone.Transport.pause();
 	}
+	if (eventID !== undefined) {
+		Tone.Transport.clear(eventID);
+	}
 
-	Tone.Transport.scheduleRepeat(animPlay, "8n");
+	eventID = Tone.Transport.scheduleRepeat(animPlay, "8n");
 }
 function stopSequencer() {
 	Tone.Transport.stop();
@@ -62,6 +66,9 @@ function stopSequencer() {
 	synth1Part.stop();
 	synth2Part.stop();
 	synth3Part.stop();
+	if (eventID !== undefined) {
+		Tone.Transport.clear(eventID);
+	}
 }
 //CREATE TRACK
 let master = new Tone.Channel().toDestination();

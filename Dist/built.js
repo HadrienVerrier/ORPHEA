@@ -41,6 +41,7 @@ function setSettings(settings) {
 	return;
 }
 let gPlayState = true;
+let eventID = undefined;
 function sequencer() {
 	if (Tone.Transport.state == "stopped") {
 		Tone.Transport.start();
@@ -53,8 +54,11 @@ function sequencer() {
 	} else {
 		Tone.Transport.pause();
 	}
+	if (eventID !== undefined) {
+		Tone.Transport.clear(eventID);
+	}
 
-	Tone.Transport.scheduleRepeat(animPlay, "8n");
+	eventID = Tone.Transport.scheduleRepeat(animPlay, "8n");
 }
 function stopSequencer() {
 	Tone.Transport.stop();
@@ -62,6 +66,9 @@ function stopSequencer() {
 	synth1Part.stop();
 	synth2Part.stop();
 	synth3Part.stop();
+	if (eventID !== undefined) {
+		Tone.Transport.clear(eventID);
+	}
 }
 //CREATE TRACK
 let master = new Tone.Channel().toDestination();
@@ -1507,7 +1514,7 @@ function transportP() {
 		}
 
 		pageTrack[track]++;
-
+		$(this).parent().find("span").html(pageTrack[track]);
 		$(this).parent().find('div[id^="seq_t"] input').prop("checked", false);
 		$.each(data, function (ti, t) {
 			if (ti == track) {
@@ -1530,7 +1537,13 @@ function transportP() {
 				});
 			}
 		});
-		console.log(pageTrack);
+		$.each(pageTrack, function (i, p) {
+			if (p !== (Tone.Transport.position.split(":")[0] % 4) + 1) {
+				$("#seq_" + i + " div[id^='transport_']").hide();
+			} else {
+				$("#seq_" + i + " div[id^='transport_']").show();
+			}
+		});
 	});
 	$(".previous-page").on("click", function () {
 		let track = $(this).parent().attr("id");
@@ -1538,6 +1551,7 @@ function transportP() {
 			pageTrack[track] = mesure + 1;
 		}
 		pageTrack[track]--;
+		$(this).parent().find("span").html(pageTrack[track]);
 		$(this).parent().find('div[id^="seq_t"] input').prop("checked", false);
 		$.each(data, function (ti, t) {
 			if (ti == track) {
@@ -1560,7 +1574,13 @@ function transportP() {
 				});
 			}
 		});
-		console.log(pageTrack);
+		$.each(pageTrack, function (i, p) {
+			if (p !== (Tone.Transport.position.split(":")[0] % 4) + 1) {
+				$("#seq_" + i + " div[id^='transport_']").hide();
+			} else {
+				$("#seq_" + i + " div[id^='transport_']").show();
+			}
+		});
 	});
 
 	//SET VISUAL VALUE
@@ -2107,35 +2127,43 @@ function transportP() {
 	$(window).resize(function () {
 		width = $("#seq_t1").width();
 	});
-	let bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000 * mesure;
+	let bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 	function transportA(state) {
+		console.log(transport);
 		if (state == "run") {
 			transport.stop();
 		} else {
 			transport.animate(
 				{
-					left: "+=" + width * mesure,
+					left: "+=" + width,
 				},
 				bpmSpeed,
 				"linear"
 			);
 			Tone.Transport.scheduleRepeat(
 				() => {
-					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000 * mesure;
+					$.each(pageTrack, function (i, p) {
+						if (p !== (Tone.Transport.position.split(":")[0] % 4) + 1) {
+							$("#seq_" + i + " div[id^='transport_']").hide();
+						} else {
+							$("#seq_" + i + " div[id^='transport_']").show();
+						}
+					});
+					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 					transport.stop();
 					transport.css({
 						left: "0",
 					});
 					transport.animate(
 						{
-							left: "+=" + width * mesure,
+							left: "+=" + width,
 						},
 						bpmSpeed,
 						"linear"
 					);
 				},
-				mesure + "m",
-				mesure + "m"
+				"1m",
+				"1m"
 			);
 		}
 	}

@@ -204,7 +204,7 @@ if (href == "compose") {
 		}
 
 		pageTrack[track]++;
-
+		$(this).parent().find("span").html(pageTrack[track]);
 		$(this).parent().find('div[id^="seq_t"] input').prop("checked", false);
 		$.each(data, function (ti, t) {
 			if (ti == track) {
@@ -227,7 +227,13 @@ if (href == "compose") {
 				});
 			}
 		});
-		console.log(pageTrack);
+		$.each(pageTrack, function (i, p) {
+			if (p !== (Tone.Transport.position.split(":")[0] % 4) + 1) {
+				$("#seq_" + i + " div[id^='transport_']").hide();
+			} else {
+				$("#seq_" + i + " div[id^='transport_']").show();
+			}
+		});
 	});
 	$(".previous-page").on("click", function () {
 		let track = $(this).parent().attr("id");
@@ -235,6 +241,7 @@ if (href == "compose") {
 			pageTrack[track] = mesure + 1;
 		}
 		pageTrack[track]--;
+		$(this).parent().find("span").html(pageTrack[track]);
 		$(this).parent().find('div[id^="seq_t"] input').prop("checked", false);
 		$.each(data, function (ti, t) {
 			if (ti == track) {
@@ -257,7 +264,13 @@ if (href == "compose") {
 				});
 			}
 		});
-		console.log(pageTrack);
+		$.each(pageTrack, function (i, p) {
+			if (p !== (Tone.Transport.position.split(":")[0] % 4) + 1) {
+				$("#seq_" + i + " div[id^='transport_']").hide();
+			} else {
+				$("#seq_" + i + " div[id^='transport_']").show();
+			}
+		});
 	});
 
 	//SET VISUAL VALUE
@@ -804,35 +817,43 @@ if (href == "compose") {
 	$(window).resize(function () {
 		width = $("#seq_t1").width();
 	});
-	let bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000 * mesure;
+	let bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 	function transportA(state) {
+		console.log(transport);
 		if (state == "run") {
 			transport.stop();
 		} else {
 			transport.animate(
 				{
-					left: "+=" + width * mesure,
+					left: "+=" + width,
 				},
 				bpmSpeed,
 				"linear"
 			);
 			Tone.Transport.scheduleRepeat(
 				() => {
-					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000 * mesure;
+					$.each(pageTrack, function (i, p) {
+						if (p !== (Tone.Transport.position.split(":")[0] % 4) + 1) {
+							$("#seq_" + i + " div[id^='transport_']").hide();
+						} else {
+							$("#seq_" + i + " div[id^='transport_']").show();
+						}
+					});
+					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 					transport.stop();
 					transport.css({
 						left: "0",
 					});
 					transport.animate(
 						{
-							left: "+=" + width * mesure,
+							left: "+=" + width,
 						},
 						bpmSpeed,
 						"linear"
 					);
 				},
-				mesure + "m",
-				mesure + "m"
+				"1m",
+				"1m"
 			);
 		}
 	}

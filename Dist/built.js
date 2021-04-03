@@ -1510,24 +1510,27 @@ function transportP() {
 
 		$(this).parent().find('div[id^="seq_t"] input').prop("checked", false);
 		$.each(data, function (ti, t) {
-			$.each(t, function (ni, n) {
-				$.each(n.seq, function (si, s) {
-					if (s) {
-						if (s.time.split(":")[0] == pageTrack[track] - 1) {
-							let timeSplit = s.time.split(":");
-							let p = parseInt(timeSplit[1]) * 4 + 1 + parseInt(timeSplit[2]);
-							$("#t" + ti.split("")[1] + "_" + ni + "_" + p).prop(
-								"checked",
-								true
-							);
-							$(
-								"label[for='t" + ti.split("")[1] + "_" + ni + "_" + p + "']"
-							).attr("data-note-value", s.note);
+			if (ti == track) {
+				$.each(t, function (ni, n) {
+					$.each(n.seq, function (si, s) {
+						if (s) {
+							if (s.time.split(":")[0] == pageTrack[track] - 1) {
+								let timeSplit = s.time.split(":");
+								let p = parseInt(timeSplit[1]) * 4 + 1 + parseInt(timeSplit[2]);
+								$("#t" + ti.split("")[1] + "_" + ni + "_" + p).prop(
+									"checked",
+									true
+								);
+								$(
+									"label[for='t" + ti.split("")[1] + "_" + ni + "_" + p + "']"
+								).attr("data-note-value", s.note);
+							}
 						}
-					}
+					});
 				});
-			});
+			}
 		});
+		console.log(pageTrack);
 	});
 	$(".previous-page").on("click", function () {
 		let track = $(this).parent().attr("id");
@@ -1537,24 +1540,27 @@ function transportP() {
 		pageTrack[track]--;
 		$(this).parent().find('div[id^="seq_t"] input').prop("checked", false);
 		$.each(data, function (ti, t) {
-			$.each(t, function (ni, n) {
-				$.each(n.seq, function (si, s) {
-					if (s) {
-						if (s.time.split(":")[0] == pageTrack[track] - 1) {
-							let timeSplit = s.time.split(":");
-							let p = parseInt(timeSplit[1]) * 4 + 1 + parseInt(timeSplit[2]);
-							$("#t" + ti.split("")[1] + "_" + ni + "_" + p).prop(
-								"checked",
-								true
-							);
-							$(
-								"label[for='t" + ti.split("")[1] + "_" + ni + "_" + p + "']"
-							).attr("data-note-value", s.note);
+			if (ti == track) {
+				$.each(t, function (ni, n) {
+					$.each(n.seq, function (si, s) {
+						if (s) {
+							if (s.time.split(":")[0] == pageTrack[track] - 1) {
+								let timeSplit = s.time.split(":");
+								let p = parseInt(timeSplit[1]) * 4 + 1 + parseInt(timeSplit[2]);
+								$("#t" + ti.split("")[1] + "_" + ni + "_" + p).prop(
+									"checked",
+									true
+								);
+								$(
+									"label[for='t" + ti.split("")[1] + "_" + ni + "_" + p + "']"
+								).attr("data-note-value", s.note);
+							}
 						}
-					}
+					});
 				});
-			});
+			}
 		});
+		console.log(pageTrack);
 	});
 
 	//SET VISUAL VALUE
@@ -1735,6 +1741,7 @@ function transportP() {
 	transportControls.find("#stop").on("click", function () {
 		stopSequencer();
 		transport.stop();
+		$("#l_step").attr("disabled", false);
 		state = "run";
 		transport.css({
 			left: "0",

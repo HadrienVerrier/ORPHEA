@@ -157,8 +157,14 @@ if (href == "compose") {
 		}
 	});
 
-	//CHANGE STEP NUMBER
+	//SET VISUAL VALUE
+	$("#l_bpm").val(settings.bpm);
 
+	////////
+	//STEP//
+	////////
+
+	//INIT
 	let step = settings.step;
 	var mesure = step / 16;
 	var pageTrack = { t1: 1, t2: 1, t3: 1, t4: 1 };
@@ -168,10 +174,13 @@ if (href == "compose") {
 	if (step == 16) {
 		$(".next-page").addClass("hidden");
 		$(".previous-page").addClass("hidden");
+		$('#tracks div[id^="t"] span').addClass("hidden");
+		$(".sync").addClass("hidden");
 	} else {
 		$(".next-page").removeClass("hidden");
 		$(".previous-page").removeClass("hidden");
 		$('#tracks div[id^="t"] span').removeClass("hidden");
+		$(".sync").removeClass("hidden");
 	}
 	pageTrack = { t1: 1, t2: 1, t3: 1, t4: 1 };
 	mesure = step / 16;
@@ -179,16 +188,19 @@ if (href == "compose") {
 		t.part.loopEnd = mesure + ":0:0";
 	});
 
+	//CHANGE VALUE
 	$("#l_step").on("change", function () {
 		step = $(this).val();
 		if (step == 16) {
 			$(".next-page").addClass("hidden");
 			$(".previous-page").addClass("hidden");
 			$('#tracks div[id^="t"] span').addClass("hidden");
+			$(".sync").addClass("hidden");
 		} else {
 			$(".next-page").removeClass("hidden");
 			$(".previous-page").removeClass("hidden");
 			$('#tracks div[id^="t"] span').removeClass("hidden");
+			$(".sync").removeClass("hidden");
 		}
 		pageTrack = { t1: 1, t2: 1, t3: 1, t4: 1 };
 		mesure = step / 16;
@@ -197,6 +209,7 @@ if (href == "compose") {
 		});
 	});
 
+	//CHANGE VIEW
 	$(".next-page").on("click", function () {
 		let track = $(this).parent().attr("id");
 		if (pageTrack[track] === mesure) {
@@ -273,9 +286,10 @@ if (href == "compose") {
 		});
 	});
 
-	//SET VISUAL VALUE
-	$("#l_bpm").val(settings.bpm);
-
+	//SYNC TRANSPORT
+	$(".sync").on("click", function () {
+		let t = $(this).parent().attr("id");
+	});
 	//////////////
 	/////MIDI/////
 	//////////////
@@ -451,6 +465,13 @@ if (href == "compose") {
 	transportControls.find("#stop").on("click", function () {
 		stopSequencer();
 		transport.stop();
+		$.each(pageTrack, function (i, p) {
+			if (p !== (Tone.Transport.position.split(":")[0] % 4) + 1) {
+				$("#seq_" + i + " div[id^='transport_']").hide();
+			} else {
+				$("#seq_" + i + " div[id^='transport_']").show();
+			}
+		});
 		$("#l_step").attr("disabled", false);
 		state = "run";
 		transport.css({

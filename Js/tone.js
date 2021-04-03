@@ -56,7 +56,13 @@ function sequencer() {
 
 	Tone.Transport.scheduleRepeat(animPlay, "8n");
 }
-
+function stopSequencer() {
+	Tone.Transport.stop();
+	drumPart.stop();
+	synth1Part.stop();
+	synth2Part.stop();
+	synth3Part.stop();
+}
 //CREATE TRACK
 let master = new Tone.Channel().toDestination();
 

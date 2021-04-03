@@ -56,7 +56,13 @@ function sequencer() {
 
 	Tone.Transport.scheduleRepeat(animPlay, "8n");
 }
-
+function stopSequencer() {
+	Tone.Transport.stop();
+	drumPart.stop();
+	synth1Part.stop();
+	synth2Part.stop();
+	synth3Part.stop();
+}
 //CREATE TRACK
 let master = new Tone.Channel().toDestination();
 
@@ -1300,7 +1306,7 @@ function transportP() {
 	var main = $("body main#compose");
 	var header = main.find("header");
 	var transportControls = main.find("#transport_controls");
-	var transport = main.find("#transport_mark");
+	var transport = main.find(".transport");
 	var tracks = main.find("#tracks");
 
 	//////////////
@@ -1642,10 +1648,11 @@ function transportP() {
 
 	//STOP
 	transportControls.find("#stop").on("click", function () {
-		Tone.Transport.stop();
+		stopSequencer();
 		transport.stop();
+		state = "run";
 		transport.css({
-			left: "20rem",
+			left: "0",
 		});
 	});
 	//MUTE
@@ -2024,7 +2031,7 @@ function transportP() {
 					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 					transport.stop();
 					transport.css({
-						left: "20rem",
+						left: "0",
 					});
 					transport.animate(
 						{

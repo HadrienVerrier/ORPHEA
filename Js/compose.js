@@ -3,7 +3,7 @@ if (href == "compose") {
 	var main = $("body main#compose");
 	var header = main.find("header");
 	var transportControls = main.find("#transport_controls");
-	var transport = main.find("#transport_mark");
+	var transport = main.find(".transport");
 	var tracks = main.find("#tracks");
 
 	//////////////
@@ -345,10 +345,11 @@ if (href == "compose") {
 
 	//STOP
 	transportControls.find("#stop").on("click", function () {
-		Tone.Transport.stop();
+		stopSequencer();
 		transport.stop();
+		state = "run";
 		transport.css({
-			left: "20rem",
+			left: "0",
 		});
 	});
 	//MUTE
@@ -727,7 +728,7 @@ if (href == "compose") {
 					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 					transport.stop();
 					transport.css({
-						left: "20rem",
+						left: "0",
 					});
 					transport.animate(
 						{

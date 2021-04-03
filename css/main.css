@@ -2010,6 +2010,21 @@ main#compose #tracks > div[id^="t"] .previous-page {
           transform: rotateZ(180deg);
 }
 
+main#compose #tracks > div[id^="t"] span {
+  right: 0.9rem;
+  top: 6rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: absolute;
+  font-size: 2.5rem;
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: bolder;
+  color: #383838;
+  text-align: center;
+}
+
 main#compose #tracks div#t1 {
   --tmain: #ffb502;
   --tlight: #f5ce6f;

@@ -145,6 +145,7 @@
 				{% endif %}
 				<div id="seq_t{{t}}">
 					<div id="transport_t{{t}}" class="hidden transport"></div>
+				
 					{% for n in 1..8 %}
 						<div id="t{{t}}_n{{n}}">
 							{% for s in 1..16 %}
@@ -160,6 +161,7 @@
 				<svg class="previous-page" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
 					<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.218 19l-1.782-1.75 5.25-5.25-5.25-5.25 1.782-1.75 6.968 7-6.968 7z"/>
 				</svg>
+				<span class="hidden">1</span>
 			</div>
 		{% endfor %}
 	</section>

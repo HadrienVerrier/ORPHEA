@@ -1474,6 +1474,7 @@ function transportP() {
 	} else {
 		$(".next-page").removeClass("hidden");
 		$(".previous-page").removeClass("hidden");
+		$('#tracks div[id^="t"] span').removeClass("hidden");
 	}
 	pageTrack = { t1: 1, t2: 1, t3: 1, t4: 1 };
 	mesure = step / 16;
@@ -1486,9 +1487,11 @@ function transportP() {
 		if (step == 16) {
 			$(".next-page").addClass("hidden");
 			$(".previous-page").addClass("hidden");
+			$('#tracks div[id^="t"] span').addClass("hidden");
 		} else {
 			$(".next-page").removeClass("hidden");
 			$(".previous-page").removeClass("hidden");
+			$('#tracks div[id^="t"] span').removeClass("hidden");
 		}
 		pageTrack = { t1: 1, t2: 1, t3: 1, t4: 1 };
 		mesure = step / 16;
@@ -1517,6 +1520,9 @@ function transportP() {
 								"checked",
 								true
 							);
+							$(
+								"label[for='t" + ti.split("")[1] + "_" + ni + "_" + p + "']"
+							).attr("data-note-value", s.note);
 						}
 					}
 				});
@@ -1541,6 +1547,9 @@ function transportP() {
 								"checked",
 								true
 							);
+							$(
+								"label[for='t" + ti.split("")[1] + "_" + ni + "_" + p + "']"
+							).attr("data-note-value", s.note);
 						}
 					}
 				});
@@ -1815,7 +1824,6 @@ function transportP() {
 
 			delete data[tn][nn].seq[Ridn];
 		}
-		console.log(data);
 	});
 
 	//SYNTHS
@@ -1865,7 +1873,7 @@ function transportP() {
 					note: midi,
 					velocity: 1,
 					duration: duration,
-					id: id,
+					id: rId,
 				};
 				channels.tracks[tn].part._events.forEach((event) => {
 					const t = Tone.Time(sequ.time).toTicks();
@@ -1878,9 +1886,7 @@ function transportP() {
 
 				delete data[tn][nn].seq[Ridn];
 
-				channels.tracks[tn].part._events.forEach((event) => {
-					console.log(event.value);
-				});
+				channels.tracks[tn].part._events.forEach((event) => {});
 			}
 			if (Tone.Transport.state !== "started") {
 				$("#note-menu")
@@ -2013,7 +2019,7 @@ function transportP() {
 			note: midi,
 			velocity: 1,
 			duration: duration,
-			id: id,
+			id: rId,
 		};
 		//UPDATE DATA
 		data[tn][nn].id[Ridn] = rId;
@@ -2094,28 +2100,28 @@ function transportP() {
 	$(window).resize(function () {
 		width = $("#seq_t1").width();
 	});
-	let bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
+	let bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000 * mesure;
 	function transportA(state) {
 		if (state == "run") {
 			transport.stop();
 		} else {
 			transport.animate(
 				{
-					left: "+=" + width,
+					left: "+=" + width * mesure,
 				},
 				bpmSpeed,
 				"linear"
 			);
 			Tone.Transport.scheduleRepeat(
 				() => {
-					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
+					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000 * mesure;
 					transport.stop();
 					transport.css({
 						left: "0",
 					});
 					transport.animate(
 						{
-							left: "+=" + width,
+							left: "+=" + width * mesure,
 						},
 						bpmSpeed,
 						"linear"
@@ -2127,6 +2133,6 @@ function transportP() {
 		}
 	}
 }
-;console.clear();
+;// console.clear();
 
 });

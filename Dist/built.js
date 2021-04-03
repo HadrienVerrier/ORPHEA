@@ -1463,11 +1463,23 @@ function transportP() {
 	//CHANGE STEP NUMBER
 
 	let step = settings.step;
+	var mesure = step / 16;
+	var pageTrack = { t1: 1, t2: 1, t3: 1, t4: 1 };
+
 	$('#l_step option[value="' + step + '"]').prop("selected", true);
+
 	if (step == 16) {
 		$(".next-page").addClass("hidden");
 		$(".previous-page").addClass("hidden");
+	} else {
+		$(".next-page").removeClass("hidden");
+		$(".previous-page").removeClass("hidden");
 	}
+	pageTrack = { t1: 1, t2: 1, t3: 1, t4: 1 };
+	mesure = step / 16;
+	$.each(channels.tracks, function (it, t) {
+		t.part.loopEnd = mesure + ":0:0";
+	});
 
 	$("#l_step").on("change", function () {
 		step = $(this).val();
@@ -1478,7 +1490,66 @@ function transportP() {
 			$(".next-page").removeClass("hidden");
 			$(".previous-page").removeClass("hidden");
 		}
+		pageTrack = { t1: 1, t2: 1, t3: 1, t4: 1 };
+		mesure = step / 16;
+		$.each(channels.tracks, function (it, t) {
+			t.part.loopEnd = mesure + ":0:0";
+		});
 	});
+
+	$(".next-page").on("click", function () {
+		let track = $(this).parent().attr("id");
+		if (pageTrack[track] === mesure) {
+			pageTrack[track] = 0;
+		}
+
+		pageTrack[track]++;
+
+		$(this).parent().find('div[id^="seq_t"] input').prop("checked", false);
+		$.each(data, function (ti, t) {
+			$.each(t, function (ni, n) {
+				$.each(n.seq, function (si, s) {
+					if (s) {
+						if (s.time.split(":")[0] == pageTrack[track] - 1) {
+							let timeSplit = s.time.split(":");
+							let p = parseInt(timeSplit[1]) * 4 + 1 + parseInt(timeSplit[2]);
+							$("#t" + ti.split("")[1] + "_" + ni + "_" + p).prop(
+								"checked",
+								true
+							);
+						}
+					}
+				});
+			});
+		});
+	});
+	$(".previous-page").on("click", function () {
+		let track = $(this).parent().attr("id");
+		if (pageTrack[track] === 1) {
+			pageTrack[track] = mesure + 1;
+		}
+		pageTrack[track]--;
+		$(this).parent().find('div[id^="seq_t"] input').prop("checked", false);
+		$.each(data, function (ti, t) {
+			$.each(t, function (ni, n) {
+				$.each(n.seq, function (si, s) {
+					if (s) {
+						if (s.time.split(":")[0] == pageTrack[track] - 1) {
+							let timeSplit = s.time.split(":");
+							let p = parseInt(timeSplit[1]) * 4 + 1 + parseInt(timeSplit[2]);
+							$("#t" + ti.split("")[1] + "_" + ni + "_" + p).prop(
+								"checked",
+								true
+							);
+						}
+					}
+				});
+			});
+		});
+	});
+
+	//SET VISUAL VALUE
+	$("#l_bpm").val(settings.bpm);
 
 	//////////////
 	/////MIDI/////
@@ -1644,6 +1715,11 @@ function transportP() {
 		$("#note-menu li").off();
 		$("#octave-menu li").off();
 		$("#mod-menu li").off();
+		if (Tone.Transport.state == "started") {
+			$("#l_step").attr("disabled", true);
+		} else {
+			$("#l_step").attr("disabled", false);
+		}
 	});
 
 	//STOP
@@ -1670,56 +1746,6 @@ function transportP() {
 
 	//SOLO TRACK
 
-	//////////////
-	////BEATS/////
-	//////////////
-
-	let t1 = tracks.find("#t1");
-
-	t1.find("#seq_t1 label").on("click", function () {
-		//SET DATA
-		let id = $(this).attr("for");
-		let arr = id.split("_");
-		let tn = arr[0];
-		let nn = arr[1];
-		let idn = arr[2];
-		let midi = data[tn][nn].midi;
-		let q = (idn - 1) % 4;
-		let b = Math.floor((idn - 1) / 4);
-		let m = Math.floor((idn - 1) / 16);
-
-		//CREATE SEQUENCE PART
-
-		let sequ = {
-			time: m + ":" + b + ":" + q,
-			note: midi,
-			velocity: 1,
-		};
-		if ($(this).prev().prop("checked") ? false : true) {
-			//UPDATE DATA
-			data[tn][nn].id[idn] = id;
-
-			data[tn][nn].seq[idn] = sequ;
-
-			drumPart.add(sequ);
-		} else {
-			drumPart._events.forEach((event) => {
-				const t = Tone.Time(sequ.time).toTicks();
-				if (
-					Math.ceil(event.startOffset) == t &&
-					event.value.note == sequ.note
-				) {
-					drumPart._events.delete(event);
-					event.dispose();
-				}
-			});
-
-			delete data[tn][nn].id[idn];
-
-			delete data[tn][nn].seq[idn];
-		}
-	});
-
 	//CHECK MARK DEPENDS DATA
 	$.each(data, function (it, t) {
 		$.each(t, function (ni, n) {
@@ -1739,9 +1765,58 @@ function transportP() {
 			});
 		});
 	});
+	let t1 = tracks.find("#t1");
+	//////////////
+	////BEATS/////
+	//////////////
 
-	//SET VISUAL VALUE
-	$("#l_bpm").val(settings.bpm);
+	t1.find("#seq_t1 label").on("click", function () {
+		//SET DATA
+		let id = $(this).attr("for");
+
+		let arr = id.split("_");
+		let tn = arr[0];
+		let nn = arr[1];
+		let idn = arr[2];
+		let Ridn = parseInt(arr[2]) + 16 * (pageTrack[tn] - 1);
+		let rId = tn + "_" + nn + "_" + Ridn;
+		let midi = data[tn][nn].midi;
+		let q = (idn - 1) % 4;
+		let b = Math.floor((idn - 1) / 4);
+		let m = Math.floor((idn - 1) / 16) + pageTrack[tn] - 1;
+		//CREATE SEQUENCE PART
+
+		let sequ = {
+			time: m + ":" + b + ":" + q,
+			note: midi,
+			velocity: 1,
+		};
+
+		if ($(this).prev().prop("checked") ? false : true) {
+			//UPDATE DATA
+			data[tn][nn].id[Ridn] = rId;
+
+			data[tn][nn].seq[Ridn] = sequ;
+
+			drumPart.add(sequ);
+		} else {
+			drumPart._events.forEach((event) => {
+				const t = Tone.Time(sequ.time).toTicks();
+				if (
+					Math.ceil(event.startOffset) == t &&
+					event.value.note == sequ.note
+				) {
+					drumPart._events.delete(event);
+					event.dispose();
+				}
+			});
+
+			delete data[tn][nn].id[Ridn];
+
+			delete data[tn][nn].seq[Ridn];
+		}
+		console.log(data);
+	});
 
 	//SYNTHS
 
@@ -1775,11 +1850,13 @@ function transportP() {
 				let tn = arr[0];
 				let nn = arr[1];
 				let idn = arr[2];
+				let Ridn = parseInt(arr[2]) + 16 * (pageTrack[tn] - 1);
+				let rId = tn + "_" + nn + "_" + Ridn;
 				let midi = cNote;
 				let duration = "16n";
 				let q = (idn - 1) % 4;
 				let b = Math.floor((idn - 1) / 4);
-				let m = Math.floor((idn - 1) / 16);
+				let m = Math.floor((idn - 1) / 16) + pageTrack[tn] - 1;
 
 				//CREATE SEQUENCE PART
 
@@ -1797,9 +1874,9 @@ function transportP() {
 						event.dispose();
 					}
 				});
-				delete data[tn][nn].id[idn];
+				delete data[tn][nn].id[Ridn];
 
-				delete data[tn][nn].seq[idn];
+				delete data[tn][nn].seq[Ridn];
 
 				channels.tracks[tn].part._events.forEach((event) => {
 					console.log(event.value);
@@ -1920,12 +1997,14 @@ function transportP() {
 		let arr = id.split("_");
 		let tn = arr[0];
 		let nn = arr[1];
+		let Ridn = parseInt(arr[2]) + 16 * (pageTrack[tn] - 1);
+		let rId = tn + "_" + nn + "_" + Ridn;
 		let idn = arr[2];
 		let midi = cNote;
 		let duration = "16n";
 		let q = (idn - 1) % 4;
 		let b = Math.floor((idn - 1) / 4);
-		let m = Math.floor((idn - 1) / 16);
+		let m = Math.floor((idn - 1) / 16) + pageTrack[tn] - 1;
 
 		//CREATE SEQUENCE PART
 
@@ -1936,8 +2015,9 @@ function transportP() {
 			duration: duration,
 			id: id,
 		};
-		data[tn][nn].id[idn] = id;
-		data[tn][nn].seq[idn] = sequ;
+		//UPDATE DATA
+		data[tn][nn].id[Ridn] = rId;
+		data[tn][nn].seq[Ridn] = sequ;
 		channels.tracks[tn].part.add(sequ);
 	});
 
@@ -2041,8 +2121,8 @@ function transportP() {
 						"linear"
 					);
 				},
-				"1m",
-				"1m"
+				mesure + "m",
+				mesure + "m"
 			);
 		}
 	}

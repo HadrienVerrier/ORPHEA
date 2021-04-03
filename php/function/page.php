@@ -356,7 +356,8 @@ function getMainData($page, $lang)
                 $settings = '{
                     "bpm" : "120",
                     "timeSignature" : "4",
-                    "swing" : "0"
+                    "swing" : "0",
+                    "step" : "16"
                 }';
             } else {
                 $settings = $loop['settings'];

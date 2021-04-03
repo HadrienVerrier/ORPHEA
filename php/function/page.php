@@ -399,6 +399,7 @@ function getMainData($page, $lang)
                 'compose_loop_name_pl' => $compose_loop_name_pl,
                 'compose_loop_name_l' => $compose_loop_name_l,
                 'compose_loop_bpm_l' => $compose_loop_bpm_l,
+                'compose_loop_step_l' => $compose_loop_step_l,
                 'compose_loop_tags_pl' => $compose_loop_tags_pl,
                 'compose_loop_tags_l' => $compose_loop_tags_l,
                 'compose_loop_licence_pl' => $compose_loop_licence_pl,

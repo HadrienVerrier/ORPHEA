@@ -1707,11 +1707,11 @@ main#compose header {
       -ms-user-select: none;
           user-select: none;
   position: relative;
-  top: -2.5rem;
+  top: -1.3rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   -ms-grid-rows: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
   justify-items: center;
@@ -1721,7 +1721,7 @@ main#compose header h2 {
   text-align: center;
   -ms-grid-column: 1;
       grid-column-start: 1;
-  grid-column-end: 6;
+  grid-column-end: 7;
 }
 
 main#compose header svg {
@@ -2314,7 +2314,7 @@ main#admin section input {
   body > main#compose header #bpm-container {
     -ms-grid-column: 2;
         grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-end: 3;
   }
   body > main#compose #transport_controls {
     top: 18rem;
@@ -2531,7 +2531,7 @@ main#admin section input {
   body > main#compose header #bpm-container {
     -ms-grid-column: 2;
         grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-end: 3;
   }
   body > main#compose #transport_controls {
     top: 18rem;

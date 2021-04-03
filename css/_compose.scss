@@ -3,16 +3,16 @@ main#compose {
 	header {
 		user-select: none;
 		position: relative;
-		top: -2.5rem;
+		top: -1.3rem;
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 		grid-template-rows: 1fr 1fr;
 		justify-items: center;
 
 		h2 {
 			text-align: center;
 			grid-column-start: 1;
-			grid-column-end: 6;
+			grid-column-end: 7;
 		}
 		svg {
 			fill: $white;

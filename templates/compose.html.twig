@@ -19,6 +19,15 @@
 			<input type="number" id="l_bpm" name="l_bpm" min="30" max="280" value="" required="required">
 			<label for="l_bpm">{{main.compose_loop_bpm_l|upper}}</label>
 		</div>
+		<div>
+			<select id="l_step" name="l_step" required="required">
+				<option value="16">16</option>
+				<option value="32">32</option>
+				<option value="48">48</option>
+				<option value="64">64</option>
+			</select>
+			<label for="l_step">{{main.compose_loop_step_l|upper}}</label>
+		</div>
 		<div id="tags-container">
 	
 			<input type="text" id="tags_s" name="tags_s" placeholder="{{main.compose_loop_tags_pl}}" required="required">

@@ -57,7 +57,7 @@ const synth2 = new Tone.PolySynth(Tone.MonoSynth, {
 		release: 0.2,
 	},
 	portamento: 0,
-}).connect(bus3);
+}).connect(rev3);
 
 synth2.volume.value = -6;
 const synth2Part = new Tone.Part((time, value) => {
@@ -94,7 +94,7 @@ const synth3 = new Tone.PolySynth(Tone.MonoSynth, {
 		release: 0.2,
 	},
 	portamento: 0,
-}).connect(bus4);
+}).connect(rev4);
 
 synth3.volume.value = -6;
 const synth3Part = new Tone.Part((time, value) => {

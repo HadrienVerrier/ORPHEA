@@ -113,9 +113,19 @@ function animPlay() {
 	}
 }
 ;const rev2 = new Tone.Reverb({
-	decay: 5,
-	wet: 1,
+	decay: 2,
+	wet: 0.5,
 }).connect(bus2);
+
+const rev3 = new Tone.Reverb({
+	decay: 2,
+	wet: 0.5,
+}).connect(bus3);
+
+const rev4 = new Tone.Reverb({
+	decay: 2,
+	wet: 0.5,
+}).connect(bus4);
 ;const drumKit = new Tone.Sampler({
 	urls: {
 		C2: "./ressources/samples/drums/kick/909.wav",
@@ -198,7 +208,7 @@ const synth2 = new Tone.PolySynth(Tone.MonoSynth, {
 		release: 0.2,
 	},
 	portamento: 0,
-}).connect(bus3);
+}).connect(rev3);
 
 synth2.volume.value = -6;
 const synth2Part = new Tone.Part((time, value) => {
@@ -235,7 +245,7 @@ const synth3 = new Tone.PolySynth(Tone.MonoSynth, {
 		release: 0.2,
 	},
 	portamento: 0,
-}).connect(bus4);
+}).connect(rev4);
 
 synth3.volume.value = -6;
 const synth3Part = new Tone.Part((time, value) => {

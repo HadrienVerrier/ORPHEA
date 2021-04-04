@@ -634,6 +634,7 @@ $("body").on(
 	"click",
 	"main#dashboard header>ul>li:first-of-type",
 	function (e) {
+		$(this).off();
 		$("#loader").fadeIn(200);
 		$.ajax({
 			async: true,
@@ -646,6 +647,7 @@ $("body").on(
 					$(".popup").fadeOut(200).remove();
 				});
 				$("body").on("click", ".popup p", function (e) {
+					$(this).off();
 					$(".popup").fadeOut(100).remove();
 					$("#loader").fadeIn(200);
 					$.ajax({

@@ -907,6 +907,7 @@ $("body").on(
 	"click",
 	"main#dashboard header>ul>li:first-of-type",
 	function (e) {
+		$(this).off();
 		$("#loader").fadeIn(200);
 		$.ajax({
 			async: true,
@@ -919,6 +920,7 @@ $("body").on(
 					$(".popup").fadeOut(200).remove();
 				});
 				$("body").on("click", ".popup p", function (e) {
+					$(this).off();
 					$(".popup").fadeOut(100).remove();
 					$("#loader").fadeIn(200);
 					$.ajax({
@@ -1880,6 +1882,53 @@ function transportP() {
 
 	//OPEN MENU ADD NOTE
 	var eX, eY, cNote, cOctave, cLabel;
+
+	//REPEAT SAME NOTE
+	$('div[id^="seq_t"] label').on("contextmenu", function (e) {
+		e.preventDefault();
+		// $(document.body).bind("contextmenu", function (e) {
+		// 	return false;
+		// });
+		if ($(this).parent().parent().attr("id") !== "seq_t1") {
+			if (!$(this).prev().prop("checked")) {
+				if (
+					cOctave !== undefined &&
+					cMod !== undefined &&
+					cNote !== undefined &&
+					cLabel !== undefined
+				) {
+					$(this).attr("data-note-value", cNote).prev().prop("checked", true);
+					console.log(true);
+					let id = $(this).attr("for");
+					let arr = id.split("_");
+					let tn = arr[0];
+					let nn = arr[1];
+					let Ridn = parseInt(arr[2]) + 16 * (pageTrack[tn] - 1);
+					let rId = tn + "_" + nn + "_" + Ridn;
+					let idn = arr[2];
+					let midi = cNote;
+					let duration = "16n";
+					let q = (idn - 1) % 4;
+					let b = Math.floor((idn - 1) / 4);
+					let m = Math.floor((idn - 1) / 16) + pageTrack[tn] - 1;
+
+					//CREATE SEQUENCE PART
+
+					let sequ = {
+						time: m + ":" + b + ":" + q,
+						note: midi,
+						velocity: 1,
+						duration: duration,
+						id: rId,
+					};
+					//UPDATE DATA
+					data[tn][nn].id[Ridn] = rId;
+					data[tn][nn].seq[Ridn] = sequ;
+					channels.tracks[tn].part.add(sequ);
+				}
+			}
+		}
+	});
 	$('div[id^="seq_t"] label').on("click", function (e) {
 		if ($(this).parent().parent().attr("id") !== "seq_t1") {
 			cLabel = $(this);

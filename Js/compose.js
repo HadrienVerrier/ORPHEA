@@ -773,11 +773,19 @@ if (href == "compose") {
 			!$('div[id^="seq_t"]').is(e.target) &&
 			$('div[id^="seq_t"]').has(e.target).length === 0 &&
 			!$(".compose-menu").is(e.target) &&
-			$(".compose-menu").has(e.target).length === 0
+			$(".compose-menu").has(e.target).length === 0 &&
+			!$(".sync").is(e.target) &&
+			$(".sync").has(e.target).length === 0 &&
+			!$(".next-page").is(e.target) &&
+			$(".next-page").has(e.target).length === 0 &&
+			!$(".previous-page").is(e.target) &&
+			$(".previous-page").has(e.target).length === 0
 		) {
 			$("#note-menu").addClass("hidden");
 			$("#octave-menu").addClass("hidden");
 			synth1.releaseAll();
+			synth2.releaseAll();
+			synth3.releaseAll();
 		}
 	});
 
@@ -854,7 +862,7 @@ if (href == "compose") {
 			);
 			Tone.Transport.scheduleRepeat(
 				() => {
-					$.each(pageTrack, function (i, p) {
+					$.each(pageTrack, async function (i, p) {
 						if (p !== (Tone.Transport.position.split(":")[0] % 4) + 1) {
 							$("#seq_" + i + " div[id^='transport_']").hide();
 						} else {

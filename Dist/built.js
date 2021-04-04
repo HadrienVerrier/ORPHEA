@@ -1898,7 +1898,6 @@ function transportP() {
 					cLabel !== undefined
 				) {
 					$(this).attr("data-note-value", cNote).prev().prop("checked", true);
-					console.log(true);
 					let id = $(this).attr("for");
 					let arr = id.split("_");
 					let tn = arr[0];
@@ -1929,6 +1928,8 @@ function transportP() {
 			}
 		}
 	});
+
+	//CLICK ON EMPTY LABEL
 	$('div[id^="seq_t"] label').on("click", function (e) {
 		if ($(this).parent().parent().attr("id") !== "seq_t1") {
 			cLabel = $(this);

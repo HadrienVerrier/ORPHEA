@@ -1893,6 +1893,9 @@ function transportP() {
 				$(document).on("keyup", "body", function (e) {
 					if (e.key == "Escape") {
 						$("#note-menu").addClass("hidden");
+						synth1.releaseAll();
+						synth2.releaseAll();
+						synth3.releaseAll();
 					}
 				});
 				$("#note-menu").removeClass("hidden").css({
@@ -1941,7 +1944,9 @@ function transportP() {
 			if (Tone.Transport.state !== "started") {
 				$("#note-menu")
 					.find("li")
+					.off()
 					.on("mouseenter", function () {
+						console.log("test");
 						channels.tracks[
 							$(cLabel).attr("for").split("_")[0]
 						].synth.triggerAttack($(this).html() + "4");
@@ -1962,6 +1967,9 @@ function transportP() {
 		$(document).on("keyup", "body", function (e) {
 			if (e.key == "Escape") {
 				$("#octave-menu").addClass("hidden");
+				synth1.releaseAll();
+				synth2.releaseAll();
+				synth3.releaseAll();
 			}
 		});
 		cNote = $(this).html();
@@ -1975,6 +1983,7 @@ function transportP() {
 		if (Tone.Transport.state !== "started") {
 			$("#octave-menu")
 				.find("li")
+				.off()
 				.on("mouseenter", function () {
 					channels.tracks[
 						$(cLabel).attr("for").split("_")[0]
@@ -2003,11 +2012,15 @@ function transportP() {
 		$(document).on("keyup", "body", function (e) {
 			if (e.key == "Escape") {
 				$("#mod-menu").addClass("hidden");
+				synth1.releaseAll();
+				synth2.releaseAll();
+				synth3.releaseAll();
 			}
 		});
 		if (Tone.Transport.state !== "started") {
 			$("#mod-menu")
 				.find("li")
+				.off()
 				.on("mouseenter", function () {
 					if ($(this).html() == "♭") {
 						channels.tracks[

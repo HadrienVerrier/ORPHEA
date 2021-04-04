@@ -2013,11 +2013,11 @@ main#compose #tracks > div[id^="t"] .previous-page {
 
 main#compose #tracks > div[id^="t"] .sync {
   top: 6rem;
-  right: 0.6rem;
 }
 
 main#compose #tracks > div[id^="t"] .sync svg {
   width: 1.6rem;
+  fill: #383838;
 }
 
 main#compose #tracks > div[id^="t"] span {
@@ -2113,13 +2113,16 @@ main#compose #tracks div#t1 div[id^="seq"] > div:nth-of-type(2n) input + label {
 }
 
 main#compose #tracks div#t1 .next-page:hover,
-main#compose #tracks div#t1 .previous-page:hover,
-main#compose #tracks div#t1 .sync:hover {
-  fill: var(--tdark);
+main#compose #tracks div#t1 .previous-page:hover {
+  fill: var(--tmain);
+}
+
+main#compose #tracks div#t1 .sync:hover svg {
+  fill: var(--tmain);
 }
 
 main#compose #tracks div#t1 input:checked + .sync svg {
-  fill: var(--tdark);
+  fill: var(--tmain);
 }
 
 main#compose #tracks div#t2 {
@@ -2167,13 +2170,16 @@ main#compose #tracks div#t2 div[id^="seq"] > div:nth-of-type(2n) input + label {
 }
 
 main#compose #tracks div#t2 .next-page:hover,
-main#compose #tracks div#t2 .previous-page:hover,
-main#compose #tracks div#t2 .sync:hover {
-  fill: var(--tdark);
+main#compose #tracks div#t2 .previous-page:hover {
+  fill: var(--tmain);
+}
+
+main#compose #tracks div#t2 .sync:hover svg {
+  fill: var(--tmain);
 }
 
 main#compose #tracks div#t2 input:checked + .sync svg {
-  fill: var(--tdark);
+  fill: var(--tmain);
 }
 
 main#compose #tracks div#t3 {
@@ -2221,13 +2227,16 @@ main#compose #tracks div#t3 div[id^="seq"] > div:nth-of-type(2n) input + label {
 }
 
 main#compose #tracks div#t3 .next-page:hover,
-main#compose #tracks div#t3 .previous-page:hover,
-main#compose #tracks div#t3 .sync:hover {
-  fill: var(--tdark);
+main#compose #tracks div#t3 .previous-page:hover {
+  fill: var(--tmain);
+}
+
+main#compose #tracks div#t3 .sync:hover svg {
+  fill: var(--tmain);
 }
 
 main#compose #tracks div#t3 input:checked + .sync svg {
-  fill: var(--tdark);
+  fill: var(--tmain);
 }
 
 main#compose #tracks div#t4 {
@@ -2275,13 +2284,16 @@ main#compose #tracks div#t4 div[id^="seq"] > div:nth-of-type(2n) input + label {
 }
 
 main#compose #tracks div#t4 .next-page:hover,
-main#compose #tracks div#t4 .previous-page:hover,
-main#compose #tracks div#t4 .sync:hover {
-  fill: var(--tdark);
+main#compose #tracks div#t4 .previous-page:hover {
+  fill: var(--tmain);
+}
+
+main#compose #tracks div#t4 .sync:hover svg {
+  fill: var(--tmain);
 }
 
 main#compose #tracks div#t4 input:checked + .sync svg {
-  fill: var(--tdark);
+  fill: var(--tmain);
 }
 
 /*FORGOT*/

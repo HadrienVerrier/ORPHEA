@@ -288,7 +288,9 @@ if (href == "compose") {
 
 	//SYNC TRANSPORT
 	$(".sync").on("click", function () {
-		let t = $(this).parent().attr("id");
+		if ($(this).prev().prop("checked") == false) {
+			syncT($(this));
+		}
 	});
 	//////////////
 	/////MIDI/////
@@ -840,7 +842,6 @@ if (href == "compose") {
 	});
 	let bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 	function transportA(state) {
-		console.log(transport);
 		if (state == "run") {
 			transport.stop();
 		} else {
@@ -860,6 +861,15 @@ if (href == "compose") {
 							$("#seq_" + i + " div[id^='transport_']").show();
 						}
 					});
+					$(".sync")
+						.prev()
+						.filter(async function () {
+							if ($(this).prop("checked")) {
+								syncT($(this));
+							}
+						});
+					// syncT($(this));
+
 					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 					transport.stop();
 					transport.css({
@@ -876,6 +886,21 @@ if (href == "compose") {
 				"1m",
 				"1m"
 			);
+		}
+	}
+
+	function syncT(elm) {
+		let t = $(elm).parent().attr("id");
+
+		while (
+			$("#" + t)
+				.find("> span")
+				.html() !=
+			(Tone.Transport.position.split(":")[0] % 4) + 1
+		) {
+			$("#" + t)
+				.find(".next-page")
+				.trigger("click");
 		}
 	}
 }

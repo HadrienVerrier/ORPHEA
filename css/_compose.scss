@@ -252,9 +252,9 @@ main#compose {
 			}
 			.sync {
 				top: 6rem;
-				right: 0.6rem;
 				svg {
 					width: 1.6rem;
+					fill: $background;
 				}
 			}
 
@@ -348,15 +348,19 @@ main#compose {
 					}
 				}
 				.next-page,
-				.previous-page,
-				.sync {
+				.previous-page {
 					&:hover {
-						fill: var(--tdark);
+						fill: var(--tmain);
+					}
+				}
+				.sync:hover {
+					svg {
+						fill: var(--tmain);
 					}
 				}
 				input:checked + .sync {
 					svg {
-						fill: var(--tdark);
+						fill: var(--tmain);
 					}
 				}
 			}

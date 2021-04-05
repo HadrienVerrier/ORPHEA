@@ -344,7 +344,7 @@ if (href == "compose") {
 				if (channels.tracks.t1.rec) {
 					if (Tone.Transport.state == "started") {
 						let t = Tone.Transport.position.split(":");
-						let m = t[0] % 4;
+						let m = t[0] % mesure;
 						let b = t[1];
 						let q = parseInt(t[2]);
 						let n;

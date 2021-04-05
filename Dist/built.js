@@ -1943,6 +1943,24 @@ function transportP() {
 		}
 	});
 
+	//CLEAR DRUM TRACK
+
+	$(".d_click").on("dblclick", function () {
+		$("#t1_n" + parseInt($(this).index() + 1) + " input").prop(
+			"checked",
+			false
+		);
+		data.t1["n" + parseInt($(this).index() + 1)].id = {};
+		data.t1["n" + parseInt($(this).index() + 1)].seq = [];
+
+		channels.tracks.t1.part._events.forEach((event) => {
+			if (event.value.note == $(this).attr("data-midi")) {
+				channels.tracks.t1.part._events.delete(event);
+				event.dispose();
+			}
+		});
+		console.log(data.t1["n" + parseInt($(this).index() + 1)]);
+	});
 	//SYNTHS
 
 	//OPEN MENU ADD NOTE

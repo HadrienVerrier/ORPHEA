@@ -1840,7 +1840,12 @@ function transportP() {
 			$("#l_step").attr("disabled", false);
 		}
 	});
-
+	$(document).on("keypress", function (e) {
+		if (e.keyCode == 32) {
+			e.preventDefault();
+			$(".gPlay").trigger("click");
+		}
+	});
 	//STOP
 	transportControls.find("#stop").on("click", function () {
 		stopSequencer();

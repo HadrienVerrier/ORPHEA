@@ -138,7 +138,7 @@ main#compose {
 					}
 					input[type="checkbox"] {
 						display: none;
-						& + label {
+						& + label:not([for^="rec_t"]) {
 							cursor: pointer;
 							display: block;
 							background-color: $main;
@@ -166,10 +166,21 @@ main#compose {
 					div[id^="pan"] {
 						display: none;
 					}
+					input[id^="rec_t"] {
+						& + label {
+							display: inline-block;
+							svg {
+								cursor: pointer;
+								filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.555));
+
+								margin: 1rem;
+							}
+						}
+					}
 					svg {
 						cursor: pointer;
 						filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.555));
-						display: inline-block;
+
 						margin: 1rem;
 					}
 				}
@@ -311,15 +322,22 @@ main#compose {
 				.controls {
 					> div {
 						input[type="checkbox"] {
-							& + label {
+							& + label:not([for^="rec_t"]) {
 								background-color: var(--tdark);
 							}
-							&:checked + label {
+							&:checked + label:not([for^="rec_t"]) {
 								background-color: var(--tmain);
 							}
 						}
 						svg {
 							fill: var(--tmain);
+						}
+						input[id^="rec_t"] {
+							&:checked + label {
+								svg {
+									fill: var(--tdark);
+								}
+							}
 						}
 					}
 				}

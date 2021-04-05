@@ -328,6 +328,7 @@ if (href == "compose") {
 				t1Input = undefined;
 			}
 			t1Input = WebMidi.inputs[$(this).val().split("-")[1]];
+			$("#midi_channel_t1").prop("disabled", false);
 		});
 
 		tracks.find("#midi_channel_t1").on("change", function () {
@@ -339,6 +340,59 @@ if (href == "compose") {
 			t1Input.addListener("noteon", t1Channel, (e) => {
 				note = e.note.name + e.note.octave;
 				drumKit.triggerAttackRelease(note, "16n", "+0", e.velocity);
+				if (channels.tracks.t1.rec) {
+					if (Tone.Transport.state == "started") {
+						let t = Tone.Transport.position.split(":");
+						let m = t[0] % 4;
+						let b = t[1];
+						let q = parseInt(t[2]);
+						let n;
+						switch (note) {
+							case "C2":
+								n = "n1";
+								break;
+							case "D2":
+								n = "n2";
+								break;
+							case "D#2":
+								n = "n8";
+								break;
+							case "F2":
+								n = "n5";
+								break;
+							case "F#2":
+								n = "n3";
+								break;
+							case "A2":
+								n = "n6";
+								break;
+							case "A#2":
+								n = "n4";
+								break;
+							case "C3":
+								n = "n7";
+								break;
+						}
+						let x = parseInt(m * 1 * 16 + 1) + parseInt(b * 4) + q;
+						let id = "t1_" + n + "_" + x;
+
+						let sequ = {
+							time: m + ":" + b + ":" + q,
+							note: note,
+							velocity: e.velocity,
+						};
+						//UPDATE DATA
+
+						if (!$("#" + id).prop("checked")) {
+							$("#" + id).prop("checked", true);
+							data.t1[n].id[x] = id;
+
+							data.t1[n].seq[x] = sequ;
+
+							drumPart.add(sequ);
+						}
+					}
+				}
 			});
 		});
 
@@ -353,6 +407,7 @@ if (href == "compose") {
 				t2Input = undefined;
 			}
 			t2Input = WebMidi.inputs[$(this).val().split("-")[1]];
+			$("#midi_channel_t2").prop("disabled", false);
 		});
 		tracks.find("#midi_channel_t2").on("input", function () {
 			if (t2Channel !== undefined) {
@@ -382,6 +437,7 @@ if (href == "compose") {
 				t3Input = undefined;
 			}
 			t3Input = WebMidi.inputs[$(this).val().split("-")[1]];
+			$("#midi_channel_t3").prop("disabled", false);
 		});
 		tracks.find("#midi_channel_t3").on("input", function () {
 			if (t3Channel !== undefined) {
@@ -411,6 +467,7 @@ if (href == "compose") {
 				t4Input = undefined;
 			}
 			t4Input = WebMidi.inputs[$(this).val().split("-")[1]];
+			$("#midi_channel_t4").prop("disabled", false);
 		});
 		tracks.find("#midi_channel_t4").on("input", function () {
 			if (t4Channel !== undefined) {
@@ -430,6 +487,14 @@ if (href == "compose") {
 		});
 	}, true);
 
+	//ACTIVATE RECORD TRACK
+
+	$('label[for^="rec_t"]').on("click", function () {
+		channels.tracks[$(this).attr("for").split("_")[1]].rec = !$(this)
+			.prev()
+			.prop("checked");
+		console.log(channels.tracks[$(this).attr("for").split("_")[1]]);
+	});
 	///////////////////
 	/////SEQUENCER/////
 	///////////////////
@@ -937,7 +1002,6 @@ if (href == "compose") {
 								syncT($(this));
 							}
 						});
-					// syncT($(this));
 
 					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 					transport.stop();

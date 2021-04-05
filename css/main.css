@@ -1875,7 +1875,7 @@ main#compose #tracks > div[id^="t"] .controls > div input[type="checkbox"] {
   display: none;
 }
 
-main#compose #tracks > div[id^="t"] .controls > div input[type="checkbox"] + label {
+main#compose #tracks > div[id^="t"] .controls > div input[type="checkbox"] + label:not([for^="rec_t"]) {
   cursor: pointer;
   display: block;
   background-color: #650076;
@@ -1906,11 +1906,21 @@ main#compose #tracks > div[id^="t"] .controls > div div[id^="pan"] {
   display: none;
 }
 
+main#compose #tracks > div[id^="t"] .controls > div input[id^="rec_t"] + label {
+  display: inline-block;
+}
+
+main#compose #tracks > div[id^="t"] .controls > div input[id^="rec_t"] + label svg {
+  cursor: pointer;
+  -webkit-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.555));
+          filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.555));
+  margin: 1rem;
+}
+
 main#compose #tracks > div[id^="t"] .controls > div svg {
   cursor: pointer;
   -webkit-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.555));
           filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.555));
-  display: inline-block;
   margin: 1rem;
 }
 
@@ -2077,16 +2087,20 @@ main#compose #tracks div#t1 #drum_name p:hover {
   background-color: #6f6f6f;
 }
 
-main#compose #tracks div#t1 .controls > div input[type="checkbox"] + label {
+main#compose #tracks div#t1 .controls > div input[type="checkbox"] + label:not([for^="rec_t"]) {
   background-color: var(--tdark);
 }
 
-main#compose #tracks div#t1 .controls > div input[type="checkbox"]:checked + label {
+main#compose #tracks div#t1 .controls > div input[type="checkbox"]:checked + label:not([for^="rec_t"]) {
   background-color: var(--tmain);
 }
 
 main#compose #tracks div#t1 .controls > div svg {
   fill: var(--tmain);
+}
+
+main#compose #tracks div#t1 .controls > div input[id^="rec_t"]:checked + label svg {
+  fill: var(--tdark);
 }
 
 main#compose #tracks div#t1 div[id^="seq"] > div input + label {
@@ -2134,16 +2148,20 @@ main#compose #tracks div#t2 {
       grid-template-columns: 20rem 1fr;
 }
 
-main#compose #tracks div#t2 .controls > div input[type="checkbox"] + label {
+main#compose #tracks div#t2 .controls > div input[type="checkbox"] + label:not([for^="rec_t"]) {
   background-color: var(--tdark);
 }
 
-main#compose #tracks div#t2 .controls > div input[type="checkbox"]:checked + label {
+main#compose #tracks div#t2 .controls > div input[type="checkbox"]:checked + label:not([for^="rec_t"]) {
   background-color: var(--tmain);
 }
 
 main#compose #tracks div#t2 .controls > div svg {
   fill: var(--tmain);
+}
+
+main#compose #tracks div#t2 .controls > div input[id^="rec_t"]:checked + label svg {
+  fill: var(--tdark);
 }
 
 main#compose #tracks div#t2 div[id^="seq"] > div input + label {
@@ -2191,16 +2209,20 @@ main#compose #tracks div#t3 {
       grid-template-columns: 20rem 1fr;
 }
 
-main#compose #tracks div#t3 .controls > div input[type="checkbox"] + label {
+main#compose #tracks div#t3 .controls > div input[type="checkbox"] + label:not([for^="rec_t"]) {
   background-color: var(--tdark);
 }
 
-main#compose #tracks div#t3 .controls > div input[type="checkbox"]:checked + label {
+main#compose #tracks div#t3 .controls > div input[type="checkbox"]:checked + label:not([for^="rec_t"]) {
   background-color: var(--tmain);
 }
 
 main#compose #tracks div#t3 .controls > div svg {
   fill: var(--tmain);
+}
+
+main#compose #tracks div#t3 .controls > div input[id^="rec_t"]:checked + label svg {
+  fill: var(--tdark);
 }
 
 main#compose #tracks div#t3 div[id^="seq"] > div input + label {
@@ -2248,16 +2270,20 @@ main#compose #tracks div#t4 {
       grid-template-columns: 20rem 1fr;
 }
 
-main#compose #tracks div#t4 .controls > div input[type="checkbox"] + label {
+main#compose #tracks div#t4 .controls > div input[type="checkbox"] + label:not([for^="rec_t"]) {
   background-color: var(--tdark);
 }
 
-main#compose #tracks div#t4 .controls > div input[type="checkbox"]:checked + label {
+main#compose #tracks div#t4 .controls > div input[type="checkbox"]:checked + label:not([for^="rec_t"]) {
   background-color: var(--tmain);
 }
 
 main#compose #tracks div#t4 .controls > div svg {
   fill: var(--tmain);
+}
+
+main#compose #tracks div#t4 .controls > div input[id^="rec_t"]:checked + label svg {
+  fill: var(--tdark);
 }
 
 main#compose #tracks div#t4 div[id^="seq"] > div input + label {

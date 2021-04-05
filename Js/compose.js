@@ -207,6 +207,7 @@ if (href == "compose") {
 		$.each(channels.tracks, function (it, t) {
 			t.part.loopEnd = mesure + ":0:0";
 		});
+		$("#stop").trigger("click");
 	});
 
 	//CHANGE VIEW
@@ -1006,13 +1007,6 @@ if (href == "compose") {
 			);
 			Tone.Transport.scheduleRepeat(
 				() => {
-					$.each(pageTrack, async function (i, p) {
-						if (p !== (Tone.Transport.position.split(":")[0] % 4) + 1) {
-							$("#seq_" + i + " div[id^='transport_']").hide();
-						} else {
-							$("#seq_" + i + " div[id^='transport_']").show();
-						}
-					});
 					$(".sync")
 						.prev()
 						.filter(async function () {
@@ -1020,6 +1014,13 @@ if (href == "compose") {
 								syncT($(this));
 							}
 						});
+					$.each(pageTrack, async function (i, p) {
+						if (p !== (Tone.Transport.position.split(":")[0] % mesure) + 1) {
+							$("#seq_" + i + " div[id^='transport_']").hide();
+						} else {
+							$("#seq_" + i + " div[id^='transport_']").show();
+						}
+					});
 
 					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 					transport.stop();
@@ -1047,7 +1048,7 @@ if (href == "compose") {
 			$("#" + t)
 				.find("> span")
 				.html() !=
-			(Tone.Transport.position.split(":")[0] % 4) + 1
+			(Tone.Transport.position.split(":")[0] % mesure) + 1
 		) {
 			$("#" + t)
 				.find(".next-page")

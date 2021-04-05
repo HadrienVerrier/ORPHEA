@@ -1519,6 +1519,7 @@ function transportP() {
 		$.each(channels.tracks, function (it, t) {
 			t.part.loopEnd = mesure + ":0:0";
 		});
+		$("#stop").trigger("click");
 	});
 
 	//CHANGE VIEW
@@ -2318,13 +2319,6 @@ function transportP() {
 			);
 			Tone.Transport.scheduleRepeat(
 				() => {
-					$.each(pageTrack, async function (i, p) {
-						if (p !== (Tone.Transport.position.split(":")[0] % 4) + 1) {
-							$("#seq_" + i + " div[id^='transport_']").hide();
-						} else {
-							$("#seq_" + i + " div[id^='transport_']").show();
-						}
-					});
 					$(".sync")
 						.prev()
 						.filter(async function () {
@@ -2332,6 +2326,13 @@ function transportP() {
 								syncT($(this));
 							}
 						});
+					$.each(pageTrack, async function (i, p) {
+						if (p !== (Tone.Transport.position.split(":")[0] % mesure) + 1) {
+							$("#seq_" + i + " div[id^='transport_']").hide();
+						} else {
+							$("#seq_" + i + " div[id^='transport_']").show();
+						}
+					});
 
 					bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
 					transport.stop();
@@ -2359,7 +2360,7 @@ function transportP() {
 			$("#" + t)
 				.find("> span")
 				.html() !=
-			(Tone.Transport.position.split(":")[0] % 4) + 1
+			(Tone.Transport.position.split(":")[0] % mesure) + 1
 		) {
 			$("#" + t)
 				.find(".next-page")

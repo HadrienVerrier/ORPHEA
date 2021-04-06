@@ -899,6 +899,11 @@ function page(pageName) {
 					changeNav(pageName + ".php");
 					$("footer form").attr("action", pageName + ".php");
 					hidePausePlayer();
+					if (log()) {
+						$("#galaxy").show();
+					} else {
+						$("#galaxy").hide();
+					}
 					//GET DOCUMENT NAME
 					$.ajax({
 						async: true,
@@ -916,6 +921,19 @@ function page(pageName) {
 			dataType: "html",
 		});
 	}
+}
+//CHECK LOG
+function log() {
+	let x;
+	$.ajax({
+		url: "php/function/log.php",
+		async: false,
+		type: "POST",
+		success: function (data) {
+			x = data === "true" ? true : false;
+		},
+	});
+	return x;
 }
 
 //CHANGE HEADER

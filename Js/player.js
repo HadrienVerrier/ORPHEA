@@ -8,10 +8,22 @@ $("#searchbar").on("input", function () {
 	if (!$(this).val()) {
 		$("#results").addClass("empty");
 	} else {
+		getDataPlayer($(this).val());
 		$("#results").removeClass("empty");
 	}
 });
 
+function getDataPlayer(input) {
+	$.ajax({
+		async: true,
+		url: "php/function/player.php",
+		data: { type: "input", input: input },
+		type: "POST",
+		success: function (data) {
+			console.log(data);
+		},
+	});
+}
 //OPEN PLAYER AND CLOSE
 function togglePlayer() {
 	if ($("#player-container").hasClass("close")) {
@@ -19,6 +31,12 @@ function togglePlayer() {
 	} else {
 		$("#player-container").removeClass("open").addClass("close");
 	}
+}
+
+if (log()) {
+	$("#galaxy").show();
+} else {
+	$("#galaxy").hide();
 }
 
 //HIDE PLAYER ON COMPOSE PAGE

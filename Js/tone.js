@@ -7,7 +7,6 @@ href = href[href.length - 1].split(".")[0];
 
 let data = $("[data-data-song]");
 if (data.length == 0) {
-	console.log("test");
 	data =
 		'{"t1":{"n1":{"seq":[],"id":{}, "midi": "C2" },"n2":{"seq":[],"id":{}, "midi": "D2"},"n3":{"seq":[],"id":{}, "midi": "Gb2"},"n4":{"seq":[],"id":{}, "midi": "Bb2"},"n5":{"seq":[],"id":{}, "midi": "F2"},"n6":{"seq":[],"id":{}, "midi": "A2"},"n7":{"seq":[],"id":{}, "midi": "C3"},"n8":{"seq":[],"id":{}, "midi": "Eb2"}},"t2":{"n1":{"seq":[],"id":{}},"n2":{"seq":[],"id":{}},"n3":{"seq":[],"id":{}},"n4":{"seq":[],"id":{}},"n5":{"seq":[],"id":{}},"n6":{"seq":[],"id":{}},"n7":{"seq":[],"id":{}},"n8":{"seq":[],"id":{}}},"t3":{"n1":{"seq":[],"id":{}},"n2":{"seq":[],"id":{}},"n3":{"seq":[],"id":{}},"n4":{"seq":[],"id":{}},"n5":{"seq":[],"id":{}},"n6":{"seq":[],"id":{}},"n7":{"seq":[],"id":{}},"n8":{"seq":[],"id":{}}},"t4":{"n1":{"seq":[],"id":{}},"n2":{"seq":[],"id":{}},"n3":{"seq":[],"id":{}},"n4":{"seq":[],"id":{}},"n5":{"seq":[],"id":{}},"n6":{"seq":[],"id":{}},"n7":{"seq":[],"id":{}},"n8":{"seq":[],"id":{}}}}';
 	data = JSON.parse(data);
@@ -17,7 +16,7 @@ if (data.length == 0) {
 
 let settings = $("[data-settings]");
 if (settings.length == 0) {
-	settings = '{"bpm" : "120","timeSignature" : "4","swing" : "0"}';
+	settings = '{"bpm" : "120","timeSignature" : "4","swing" : "0", "step":"16"}';
 	settings = JSON.parse(settings);
 } else {
 	settings = JSON.parse($(settings).attr("data-settings"));
@@ -33,13 +32,6 @@ $(document).on("click", async () => {
 
 //SEQUENCER
 
-setSettings(settings);
-function setSettings(settings) {
-	Tone.Transport.bpm.value = settings.bpm;
-	Tone.Transport.timeSignature = settings.timeSignature;
-	Tone.Transport.swing = settings.swing;
-	return;
-}
 let gPlayState = true;
 let eventID = undefined;
 function sequencer() {
@@ -87,6 +79,20 @@ let channels = {
 		t4: { bus: bus4 },
 	},
 };
+
+Tone.Transport.bpm.value = settings.bpm;
+Tone.Transport.timeSignature = settings.timeSignature;
+Tone.Transport.swing = settings.swing;
+function setSettings(settings) {
+	Tone.Transport.bpm.value = settings.bpm;
+	Tone.Transport.timeSignature = settings.timeSignature;
+	Tone.Transport.swing = settings.swing;
+	mesure = settings.step / 16;
+	$.each(channels.tracks, function (it, t) {
+		t.part.loopEnd = mesure + ":0:0";
+	});
+	return;
+}
 //FUNCTION
 
 function createToneContext() {

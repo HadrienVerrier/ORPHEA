@@ -20,7 +20,11 @@ function getDataPlayer(input) {
 		data: { type: "input", input: input },
 		type: "POST",
 		success: function (data) {
-			console.log(data);
+			if (data == "void") {
+				$("#songs").hide();
+			} else {
+				$("#songs").show().replaceWith(data);
+			}
 		},
 	});
 }
@@ -34,9 +38,9 @@ function togglePlayer() {
 }
 
 if (log()) {
-	$("#galaxy").show();
+	$("#galaxy").removeClass("hidden");
 } else {
-	$("#galaxy").hide();
+	$("#galaxy").addClass("hidden");
 }
 
 //HIDE PLAYER ON COMPOSE PAGE

@@ -18,9 +18,14 @@ if (isset($_SESSION['lang'])) {
 switch ($_POST['type']) {
     case 'input':
 
-        $data = request('SELECT L.id_loop, L.name, M.nickname, M.pp_link FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE L.name LIKE :input AND NOT L.licence ="PRIVATE" ', array('input' => $_POST['input'] . "%"), false);
-        $data = $data->fetchAll(PDO::FETCH_ASSOC);
+        $results = request('SELECT L.id_loop, L.name, M.nickname, M.pp_link FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE L.name LIKE :input AND NOT L.licence ="PRIVATE" ', array('input' => $_POST['input'] . "%"), false);
+        $data['songs'] = $results->fetchAll(PDO::FETCH_ASSOC);
+        if (empty($data['songs'])) {
+            echo 'void';
+        } else {
+            trender('searchSong', true);
+        }
 
-        print_r($data);
+
         break;
 }

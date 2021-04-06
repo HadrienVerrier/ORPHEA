@@ -3,12 +3,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 /*PLACEHOLDER ACTION*/
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
-body > header a, body > footer a, .button, #player-container.open #search #results > section > ul > li:last-of-type, .popup a, #player-container #player #song-info > div #current-artist a, #player-container.open #search a, main#dashboard > section article ul li a, main#member > section > article a {
+body > header a, body > footer a, .button, .popup a, #player-container #player #song-info > div #current-artist a, #player-container.open #search a, main#dashboard > section article ul li a, main#member > section > article a {
   color: #f7f9f5;
   font-style: normal;
 }
 
-body > header a:visited, body > footer a:visited, .button:visited, #player-container.open #search #results > section > ul > li:visited:last-of-type, .popup a:visited, #player-container #player #song-info > div #current-artist a:visited, #player-container.open #search a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
+body > header a:visited, body > footer a:visited, .button:visited, .popup a:visited, #player-container #player #song-info > div #current-artist a:visited, #player-container.open #search a:visited, main#dashboard > section article ul li a:visited, main#member > section > article a:visited {
   color: #f7f9f5;
 }
 
@@ -171,7 +171,7 @@ body > footer a:hover {
   display: none;
 }
 
-.button, #player-container.open #search #results > section > ul > li:last-of-type {
+.button {
   display: block;
   width: 70%;
   text-align: center;
@@ -187,11 +187,11 @@ body > footer a:hover {
   cursor: pointer;
 }
 
-.button:hover, #player-container.open #search #results > section > ul > li:hover:last-of-type {
+.button:hover {
   background-color: #e366f6;
 }
 
-.button a, #player-container.open #search #results > section > ul > li:last-of-type a {
+.button a {
   display: block;
   width: 100%;
 }
@@ -954,11 +954,6 @@ input[type="submit"] + label {
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
 }
 
-#player-container.open #search #results > section > ul > li:last-of-type {
-  width: 10rem;
-  margin-bottom: 2rem;
-}
-
 #player-container.open #search #results > section img {
   width: 3.5rem;
   height: 3.5rem;
@@ -1671,7 +1666,7 @@ main#dashboard > section article ul li a svg {
   fill: #383838;
 }
 
-.popup.loop div#pu_loop .button, .popup.loop div#pu_loop #player-container.open #search #results > section > ul > li:last-of-type, #player-container.open #search .popup.loop div#pu_loop #results > section > ul > li:last-of-type {
+.popup.loop div#pu_loop .button {
   width: 80%;
 }
 
@@ -2606,7 +2601,7 @@ main#admin section input {
     margin-bottom: 2rem;
     height: 20rem;
   }
-  body > main#dashboard > section article .button, body > main#dashboard > section article #player-container.open #search #results > section > ul > li:last-of-type, #player-container.open #search body > main#dashboard > section article #results > section > ul > li:last-of-type {
+  body > main#dashboard > section article .button {
     height: auto;
     width: 70%;
     font-size: 1.6rem;
@@ -2932,7 +2927,7 @@ main#admin section input {
     margin-bottom: 2rem;
     height: 20rem;
   }
-  body > main#dashboard > section article .button, body > main#dashboard > section article #player-container.open #search #results > section > ul > li:last-of-type, #player-container.open #search body > main#dashboard > section article #results > section > ul > li:last-of-type {
+  body > main#dashboard > section article .button {
     height: auto;
     width: 70%;
     font-size: 1.6rem;

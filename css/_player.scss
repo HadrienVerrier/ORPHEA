@@ -204,12 +204,6 @@
 								border-radius: $borderRadius * 0.8;
 								box-shadow: $shadow;
 							}
-
-							&:last-of-type {
-								@extend .button;
-								width: 10rem;
-								margin-bottom: 2rem;
-							}
 						}
 					}
 					img {

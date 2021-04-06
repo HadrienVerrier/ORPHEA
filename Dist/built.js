@@ -532,7 +532,7 @@ $("body").on("click", "header nav a.nr", function () {
 
 					success: function (data) {
 						if (data == "true") {
-							page("index");
+							window.location = "index.php";
 						}
 					},
 				});
@@ -739,6 +739,61 @@ $("body").on("click", "main#dashboard li#change-password", function (e) {
 					},
 				});
 			});
+		},
+	});
+});
+
+//PICTURE
+$("body").on("click", "main#dashboard li#update_pp", function (e) {
+	$("#loader").fadeIn(200);
+	$.ajax({
+		async: true,
+		url: "php/function/updateAccount.php",
+		type: "POST",
+		data: { type: "pp" },
+		success: function (data) {
+			popUp(data);
+			$(".popup > svg").on("click", function () {
+				$(".popup").fadeOut(200);
+				$.ajax({
+					async: true,
+					url: "php/function/updateAccount.php",
+					type: "POST",
+					data: { type: "pop" },
+				});
+			});
+
+			$("body").on(
+				"click",
+				".popup input[type='submit'] + label",
+				function (e) {
+					e.preventDefault();
+					// if()
+					$(".popup").fadeOut(200);
+					$("#loader").fadeIn(200);
+
+					let fd = new FormData();
+					let file = $("#pp")[0].files;
+
+					if (file.length > 0) {
+						fd.append("pp", file[0]);
+						fd.append("old", $("#old").attr("value"));
+						fd.append("type", "pp");
+						$.ajax({
+							async: true,
+							url: "php/function/updateAccount.php",
+							type: "POST",
+							data: fd,
+							contentType: false,
+							processData: false,
+							success: function (data) {
+								$("#loader").fadeOut(100);
+								console.log(data);
+							},
+						});
+					}
+				}
+			);
 		},
 	});
 });

@@ -1,9 +1,26 @@
 main#dashboard {
 	header {
-		h2 {
-			text-align: center;
+		section {
+			@include center(false, true);
+			h2 {
+				text-align: center;
+				display: inline-block;
+			}
+			> img {
+				text-align: center;
+				vertical-align: middle;
+				width: 8rem;
+				height: 8rem;
+				border-radius: 50%;
+				object-fit: cover;
+				margin-right: 3rem;
+				position: relative;
+				top: -1rem;
+			}
 		}
+
 		> ul {
+			padding-top: 9rem;
 			margin-top: 3rem;
 			display: grid;
 			grid-template-columns: 33% 33% 33%;

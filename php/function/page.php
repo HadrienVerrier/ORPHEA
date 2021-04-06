@@ -264,8 +264,13 @@ function getMainData($page, $lang)
             );
             break;
         case 'dashboard':
+            $pp = request('SELECT pp_link FROM members WHERE nickname = :username', array('username' => $_SESSION['username']), true)['pp_link'];
+            if ($pp == 'defaults') {
+                $pp = 'degrade.jpg';
+            }
             //RETURN RESULT
             return array(
+                'pp' => $pp,
                 'dashboard_member' => $_SESSION['username'],
                 'dashboard_hello' => $dashboard_hello,
                 'dashboard_compose' => $dashboard_compose,
@@ -285,6 +290,9 @@ function getMainData($page, $lang)
                 'dashboard_account' => $dashboard_account,
                 'dashboard_stats' => $dashboard_stats,
                 'dashboard_news' => $dashboard_news,
+                'dashboard_pp' => $dashboard_pp,
+                'dashboard_up_pp' => $dashboard_up_pp,
+                'dashboard_img' => $dashboard_img,
             );
             break;
         case 'forgot':
@@ -720,6 +728,17 @@ function getPopUpData($popup, $lang)
                 "pu_loop_delete_abort" => $pu_loop_delete_abort,
                 'pu_loop_delete_confirm' => $pu_loop_delete_confirm,
                 'loops' => $loops,
+            );
+            break;
+        case 'pp':
+            $pp_old = request('SELECT pp_link FROM members WHERE nickname = :user', array('user' => $_SESSION['username']), true)['pp_link'];
+            //RETURN RESULT
+            return array(
+                'type' => $popup,
+                'pp_title' => $pp_title,
+                'pp_cross' => $pp_cross,
+                'pp_l' => $pp_l,
+                'pp_old' => $pp_old,
             );
             break;
     }

@@ -232,7 +232,7 @@ body > footer a:hover {
   font-style: italic;
   width: 80%;
   white-space: nowrap;
-  overflow-x: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   padding: 0.5rem;
   border-radius: 0.75rem;
@@ -361,6 +361,19 @@ body > footer a:hover {
 .popup > div#pu-compose-form p {
   border-radius: 1.5rem;
   margin: 2rem;
+  height: 4rem;
+}
+
+.popup > div#pp_form input[type="file"] {
+  position: absolute;
+  z-index: -10;
+  left: -99999px;
+  top: -99999px;
+}
+
+.popup > div#pp_form input[type="file"] + label svg {
+  position: static;
+  width: 4rem;
   height: 4rem;
 }
 
@@ -1359,11 +1372,33 @@ main#contact section a svg:first-of-type {
 }
 
 /*DASHBOARD*/
-main#dashboard header h2 {
+main#dashboard header section {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+main#dashboard header section h2 {
   text-align: center;
+  display: inline-block;
+}
+
+main#dashboard header section > img {
+  text-align: center;
+  vertical-align: middle;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 3rem;
+  position: relative;
+  top: -1rem;
 }
 
 main#dashboard header > ul {
+  padding-top: 9rem;
   margin-top: 3rem;
   display: -ms-grid;
   display: grid;

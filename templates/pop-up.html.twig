@@ -324,3 +324,24 @@
 		</svg>
 	</section>
 {% endif %}
+
+{% if type == 'pp' %}
+	<section class="popup">
+		<h4>{{pp_title|upper}}</h4>
+		<div id="hide">
+		</div>
+		<div id="pp_form">
+			<form method="POST" action="#" enctype="multipart/form-data">
+				<input type="file" id="pp" name="pp" required="required">
+				<label for="pp"><svg title="{{pp_l|upper}}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19.479 10.092c-.212-3.951-3.473-7.092-7.479-7.092-4.005 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408zm-7.479-1.092l4 4h-3v4h-2v-4h-3l4-4z"/></svg></label>
+				<input type="hidden" name="old" id="old" value="{{pp_old}}"/>
+				<input class="hidden" type="submit" name="submit" id"submit" value="{{pp_title|upper}}">
+				<label for="submit" class="button">{{pp_title|upper}}</label>
+			</form>
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+			<title>{{pp_cross}}</title>
+			<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/>
+		</svg>
+	</section>
+{% endif %}

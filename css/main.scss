@@ -199,7 +199,7 @@ body {
 		font-style: italic;
 		width: 80%;
 		white-space: nowrap;
-		overflow-x: hidden;
+		overflow: hidden;
 		text-overflow: ellipsis;
 		padding: 0.5rem;
 		border-radius: $borderRadius * 0.5;
@@ -314,6 +314,21 @@ body {
 				border-radius: $borderRadius;
 				margin: 2rem;
 				height: 4rem;
+			}
+		}
+		&#pp_form {
+			input[type="file"] {
+				position: absolute;
+				z-index: -10;
+				left: -99999px;
+				top: -99999px;
+				& + label {
+					svg {
+						position: static;
+						width: 4rem;
+						height: 4rem;
+					}
+				}
 			}
 		}
 	}

@@ -101,6 +101,32 @@ switch ($_POST['type']) {
             echo 'success';
         }
         break;
+    case 'pp':
+        if (!isset($_SESSION['pop'])) {
+            $_SESSION['pop'] = true;
+            sleep(1);
+            $data = getPopUpData('pp', $lang);
+            trender('pop-up', true);
+        } else {
+            unset($_SESSION['pop']);
+            sleep(1);
+            $target_dir = '../../ressources/images/pp/';
+            if ($_POST['old'] !== "defaults") {
+                //DELETE OLD PICTURE
+                unlink($target_dir . $_POST['old']);
+            }
+            //SET NEW PICTURE
+            $target_file = $target_dir;
+            //GENERATE FILE NAME
+            $target_file .= htmlspecialchars($_SESSION['username']);
+            if (explode('.', $_FILES["pp"]['name'])[1] == "png" || explode('.', $_FILES["pp"]['name'])[1] == "jpg") {
+                move_uploaded_file($_FILES["pp"]["tmp_name"], $target_file . "." . explode('.', $_FILES["pp"]['name'])[1]);
+
+                request('UPDATE members SET pp_link = :pp WHERE nickname = :user', array('pp' => htmlspecialchars($_SESSION['username']) . "." . explode('.', $_FILES["pp"]['name'])[1], 'user' => $_SESSION['username']), false);
+            }
+            echo $_SESSION['username'] . "." . explode('.', $_FILES["pp"]['name'])[1];
+        }
+        break;
     case 'pop':
         unset($_SESSION['pop']);
         break;

@@ -19,7 +19,7 @@ switch ($_POST['type']) {
     case 'input':
         switch ($_POST['wich']) {
             case 'song':
-                $results = request('SELECT L.id_loop, L.name, M.nickname, M.pp_link FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE L.name LIKE :input AND NOT L.licence ="PRIVATE" ', array('input' => $_POST['input'] . "%"), false);
+                $results = request('SELECT DISTINCT L.id_loop, L.name, M.nickname, M.pp_link FROM loops L RIGHT JOIN members M ON L.author = M.id_member LEFT JOIN loops_x_tags X ON L.id_loop = X.id_loop LEFT JOIN tags T ON X.id_tag = T.id_tag WHERE L.name LIKE :input OR M.nickname LIKE :input OR T.tag_sn LIKE :input AND NOT L.licence ="PRIVATE" ', array('input' => $_POST['input'] . "%"), false);
                 $data['songs'] = $results->fetchAll(PDO::FETCH_ASSOC);
                 if (empty($data['songs'])) {
                     echo 'void';

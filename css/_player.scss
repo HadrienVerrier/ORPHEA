@@ -33,7 +33,9 @@
 		position: relative;
 		display: grid;
 		grid-template-columns: 1fr 1fr 3fr 0.5fr;
-
+		&.one {
+			grid-template-columns: 1fr;
+		}
 		#song-info {
 			width: 15rem;
 			white-space: nowrap;

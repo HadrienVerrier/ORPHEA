@@ -1941,12 +1941,21 @@ function transportP() {
 			$("#l_step").attr("disabled", false);
 		}
 	});
+	let onInput = false;
+	$("#l_name").on("mouseenter", function (e) {
+		e.preventDefault();
+		onInput = true;
+		$(this).on("mouseleave", function () {
+			onInput = false;
+		});
+	});
 	$(document).on("keypress", function (e) {
-		if (e.keyCode == 32) {
+		if (e.keyCode == 32 && !onInput) {
 			e.preventDefault();
 			$(".gPlay").trigger("click");
 		}
 	});
+
 	//STOP
 	transportControls.find("#stop").on("click", function () {
 		stopSequencer();

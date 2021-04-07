@@ -17,14 +17,36 @@ if (isset($_SESSION['lang'])) {
 
 switch ($_POST['type']) {
     case 'input':
-
-        $results = request('SELECT L.id_loop, L.name, M.nickname, M.pp_link FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE L.name LIKE :input AND NOT L.licence ="PRIVATE" ', array('input' => $_POST['input'] . "%"), false);
-        $data['songs'] = $results->fetchAll(PDO::FETCH_ASSOC);
-        if (empty($data['songs'])) {
-            echo 'void';
-        } else {
-            trender('searchSong', true);
+        switch ($_POST['wich']) {
+            case 'song':
+                $results = request('SELECT L.id_loop, L.name, M.nickname, M.pp_link FROM loops L LEFT JOIN members M ON L.author = M.id_member WHERE L.name LIKE :input AND NOT L.licence ="PRIVATE" ', array('input' => $_POST['input'] . "%"), false);
+                $data['songs'] = $results->fetchAll(PDO::FETCH_ASSOC);
+                if (empty($data['songs'])) {
+                    echo 'void';
+                } else {
+                    trender('searchSong', true);
+                }
+                break;
+            case 'author':
+                $results = request('SELECT id_member, nickname, pp_link FROM members WHERE nickname LIKE :input', array('input' => $_POST['input'] . "%"), false);
+                $data['authors'] = $results->fetchAll(PDO::FETCH_ASSOC);
+                if (empty($data['authors'])) {
+                    echo 'void';
+                } else {
+                    trender('searchAuthor', true);
+                }
+                break;
+            case 'tag':
+                $results = request('SELECT id_tag, tag_sn FROM tags WHERE tag_sn LIKE :input', array('input' => $_POST['input'] . "%"), false);
+                $data['tags'] = $results->fetchAll(PDO::FETCH_ASSOC);
+                if (empty($data['tags'])) {
+                    echo 'void';
+                } else {
+                    trender('searchTag', true);
+                }
+                break;
         }
+
 
 
         break;

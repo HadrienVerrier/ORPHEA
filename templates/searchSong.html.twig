@@ -3,7 +3,7 @@
     <ul>
         {% for song in songs %}
         <li>
-            <article>
+            <article id="loop-{{song.id_loop}}">
                 <img src="ressources/images/footage/degrade.jpg" alt="image du morceau">
                 <div class="song-list-info">
                     <h6>{{song.name}}</h6>

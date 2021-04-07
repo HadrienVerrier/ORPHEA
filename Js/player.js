@@ -17,13 +17,39 @@ function getDataPlayer(input) {
 	$.ajax({
 		async: true,
 		url: "php/function/player.php",
-		data: { type: "input", input: input },
+		data: { type: "input", wich: "song", input: input },
 		type: "POST",
 		success: function (data) {
 			if (data == "void") {
 				$("#songs").hide();
 			} else {
 				$("#songs").show().replaceWith(data);
+			}
+		},
+	});
+	$.ajax({
+		async: true,
+		url: "php/function/player.php",
+		data: { type: "input", wich: "author", input: input },
+		type: "POST",
+		success: function (data) {
+			if (data == "void") {
+				$("#author").hide();
+			} else {
+				$("#author").show().replaceWith(data);
+			}
+		},
+	});
+	$.ajax({
+		async: true,
+		url: "php/function/player.php",
+		data: { type: "input", wich: "tag", input: input },
+		type: "POST",
+		success: function (data) {
+			if (data == "void") {
+				$("#tags").hide();
+			} else {
+				$("#tags").show().replaceWith(data);
 			}
 		},
 	});
@@ -38,9 +64,9 @@ function togglePlayer() {
 }
 
 if (log()) {
-	$("#galaxy").removeClass("hidden");
+	$("#galaxy").show();
 } else {
-	$("#galaxy").addClass("hidden");
+	$("#galaxy").hide();
 }
 
 //HIDE PLAYER ON COMPOSE PAGE

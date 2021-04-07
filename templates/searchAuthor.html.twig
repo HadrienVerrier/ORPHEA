@@ -1,9 +1,10 @@
 <section id="author">
     <h5>Authors</h5>
     <ul>
+    {% for author in authors %}
         <li>
-            <article>
-                <img src="ressources/images/footage/hadrien.jpg" alt="Avatar de Hadrien Verrier"
+            <article id="author-{{author.id_member}}">
+                <img src="ressources/images/pp/{{author.pp_link}}" alt="Avatar de {{author.nickname}}"
                     width="50">
                 <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path
@@ -15,73 +16,10 @@
                         <path
                             d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
                     </svg></a>
-                <h6>Hadrien Verrier</h6>
-
-                <section>
-                    <h6 class="hidden">Tags</h6>
-                    <ul>
-                        <li>EDM</li>
-                        <li>Lo-fi</li>
-                        <li>Funk</li>
-                    </ul>
-                </section>
+                <h6>{{author.nickname}}</h6>
 
             </article>
         </li>
-        <li>
-            <article>
-                <img src="ressources/images/footage/hadrien.jpg" alt="Avatar de Hadrien Verrier"
-                    width="50">
-                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path
-                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
-                    </svg></a>
-                <a class="nr" href="member.html?m=HadrienVerrier"><svg xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24">
-                        <title>Click Here to have more info</title>
-                        <path
-                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
-                    </svg></a>
-                <h6>Hadrien Verrier</h6>
-
-                <section>
-                    <h6 class="hidden">Tags</h6>
-                    <ul>
-                        <li>EDM</li>
-                        <li>Lo-fi</li>
-                        <li>Funk</li>
-                    </ul>
-                </section>
-
-            </article>
-        </li>
-        <li>
-            <article>
-                <img src="ressources/images/footage/hadrien.jpg" alt="Avatar de Hadrien Verrier"
-                    width="50">
-                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path
-                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z" />
-                    </svg></a>
-                <a class="nr" href="member.html?m=HadrienVerrier"><svg xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24">
-                        <title>Click Here to have more info</title>
-                        <path
-                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
-                    </svg></a>
-                <h6>Hadrien Verrier</h6>
-
-                <section>
-                    <h6 class="hidden">Tags</h6>
-                    <ul>
-                        <li>EDM</li>
-                        <li>Lo-fi</li>
-                        <li>Funk</li>
-                    </ul>
-                </section>
-
-            </article>
-        </li>
-        <li> <a class="nr" href="search.html?q=HadrienVerrier">See more</a></li>
+    {% endfor %}
     </ul>
 </section>

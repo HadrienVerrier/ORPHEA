@@ -900,9 +900,9 @@ function page(pageName) {
 					$("footer form").attr("action", pageName + ".php");
 					hidePausePlayer();
 					if (log()) {
-						$("#galaxy").removeClass("hidden");
+						$("#galaxy").show();
 					} else {
-						$("#galaxy").addClass("hidden");
+						$("#galaxy").hide();
 					}
 					//GET DOCUMENT NAME
 					$.ajax({

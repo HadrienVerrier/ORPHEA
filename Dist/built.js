@@ -794,7 +794,8 @@ $("body").on("click", "main#dashboard li#update_pp", function (e) {
 							processData: false,
 							success: function (data) {
 								$("#loader").fadeOut(100);
-								console.log(data);
+								url = "ressources/images/pp/" + data;
+								$("#image").attr("src", url + `?v=${new Date().getTime()}`);
 							},
 						});
 					}
@@ -980,55 +981,48 @@ $("body").on(
 				$(".popup > svg").on("click", function () {
 					$(".popup").fadeOut(200).remove();
 				});
-				$("body").on("click", ".popup p", function (e) {
-					$(this).off();
-					$(".popup").fadeOut(100).remove();
-					$("#loader").fadeIn(200);
-					$.ajax({
-						async: true,
-						type: "POST",
-						url: "php/function/compose.php",
-						data: { type: "return", mode: $(this).attr("data-mode") },
-						success: function (data) {
-							popUp(data);
-							toogleSearchLoop();
-							$(".popup > svg").on("click", function () {
-								$(".popup").fadeOut(200).remove();
-							});
-
-							$("body").on(
-								"click",
-								'.popup label[for="new_loop"]',
-								function () {
-									$(".popup").fadeOut(100).remove();
-									$("#loader").fadeIn(200);
-
-									$.ajax({
-										async: true,
-										type: "POST",
-										url: "php/function/compose.php",
-										data: { type: "new", mode: "loop" },
-										success: function (data) {
-											switch (data.mode) {
-												case "loop":
-													window.location.assign(
-														"compose.php?l=" + encodeURI(data.name)
-													);
-													break;
-											}
-										},
-										dataType: "json",
-									});
-								}
-							);
-						},
-					});
-				});
 			},
 		});
 	}
 );
+$("body").on("click", ".popup.pcompose p", function (e) {
+	$(this).off();
+	$(".popup").fadeOut(100).remove();
+	$("#loader").fadeIn(200);
+	$.ajax({
+		async: true,
+		type: "POST",
+		url: "php/function/compose.php",
+		data: { type: "return", mode: $(this).attr("data-mode") },
+		success: function (data) {
+			popUp(data);
+			toogleSearchLoop();
+			$(".popup > svg").on("click", function () {
+				$(".popup").fadeOut(200).remove();
+			});
 
+			$("body").on("click", '.popup label[for="new_loop"]', function () {
+				$(".popup").fadeOut(100).remove();
+				$("#loader").fadeIn(200);
+
+				$.ajax({
+					async: true,
+					type: "POST",
+					url: "php/function/compose.php",
+					data: { type: "new", mode: "loop" },
+					success: function (data) {
+						switch (data.mode) {
+							case "loop":
+								window.location.assign("compose.php?l=" + encodeURI(data.name));
+								break;
+						}
+					},
+					dataType: "json",
+				});
+			});
+		},
+	});
+});
 //TOGGLE SUBMENU
 $("body").on("click", ".popup article .loop-menu", function () {
 	if ($(this).parent().find(".menu").hasClass("hidden")) {
@@ -1335,7 +1329,10 @@ function hidePausePlayer() {
 }
 
 //GET DATA FROM LOOP AND PLAY IT
-
+$(document).on("click", ".song-list-controls svg:first-of-type", function () {
+	console.log("test");
+	getLoop($(this).parent().parent().attr("id").split("-")[1]);
+});
 function getLoop(id) {
 	$.ajax({
 		async: true,
@@ -1348,6 +1345,7 @@ function getLoop(id) {
 			setData(JSON.parse(data.data));
 			setInfos(data.name, data.nickname);
 			sequencer();
+
 			transportP();
 		},
 		dataType: "json",
@@ -1403,7 +1401,7 @@ function transportP() {
 				{
 					width: "100%",
 				},
-				bpmSpeed,
+				bpmSpeed * mesure,
 				"linear"
 			);
 		},
@@ -1415,7 +1413,7 @@ function transportP() {
 		{
 			left: "100%",
 		},
-		bpmSpeed,
+		bpmSpeed * mesure,
 		"linear"
 	);
 	Tone.Transport.scheduleRepeat(
@@ -1429,12 +1427,12 @@ function transportP() {
 				{
 					left: "100%",
 				},
-				bpmSpeed,
+				bpmSpeed * mesure,
 				"linear"
 			);
 		},
-		"1m",
-		"1m"
+		mesure + "m",
+		mesure + "m"
 	);
 }
 ;if (href == "compose") {

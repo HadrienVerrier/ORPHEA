@@ -84,7 +84,10 @@ function hidePausePlayer() {
 }
 
 //GET DATA FROM LOOP AND PLAY IT
-
+$(document).on("click", ".song-list-controls svg:first-of-type", function () {
+	console.log("test");
+	getLoop($(this).parent().parent().attr("id").split("-")[1]);
+});
 function getLoop(id) {
 	$.ajax({
 		async: true,
@@ -97,6 +100,7 @@ function getLoop(id) {
 			setData(JSON.parse(data.data));
 			setInfos(data.name, data.nickname);
 			sequencer();
+
 			transportP();
 		},
 		dataType: "json",
@@ -152,7 +156,7 @@ function transportP() {
 				{
 					width: "100%",
 				},
-				bpmSpeed,
+				bpmSpeed * mesure,
 				"linear"
 			);
 		},
@@ -164,7 +168,7 @@ function transportP() {
 		{
 			left: "100%",
 		},
-		bpmSpeed,
+		bpmSpeed * mesure,
 		"linear"
 	);
 	Tone.Transport.scheduleRepeat(
@@ -178,11 +182,11 @@ function transportP() {
 				{
 					left: "100%",
 				},
-				bpmSpeed,
+				bpmSpeed * mesure,
 				"linear"
 			);
 		},
-		"1m",
-		"1m"
+		mesure + "m",
+		mesure + "m"
 	);
 }

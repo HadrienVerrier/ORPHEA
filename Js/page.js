@@ -515,9 +515,7 @@ $("body").on("click", "main#dashboard li#update_pp", function (e) {
 							processData: false,
 							success: function (data) {
 								$("#loader").fadeOut(100);
-								console.log(data);
 								url = "ressources/images/pp/" + data;
-
 								$("#image").attr("src", url + `?v=${new Date().getTime()}`);
 							},
 						});
@@ -704,55 +702,48 @@ $("body").on(
 				$(".popup > svg").on("click", function () {
 					$(".popup").fadeOut(200).remove();
 				});
-				$("body").on("click", ".popup p", function (e) {
-					$(this).off();
-					$(".popup").fadeOut(100).remove();
-					$("#loader").fadeIn(200);
-					$.ajax({
-						async: true,
-						type: "POST",
-						url: "php/function/compose.php",
-						data: { type: "return", mode: $(this).attr("data-mode") },
-						success: function (data) {
-							popUp(data);
-							toogleSearchLoop();
-							$(".popup > svg").on("click", function () {
-								$(".popup").fadeOut(200).remove();
-							});
-
-							$("body").on(
-								"click",
-								'.popup label[for="new_loop"]',
-								function () {
-									$(".popup").fadeOut(100).remove();
-									$("#loader").fadeIn(200);
-
-									$.ajax({
-										async: true,
-										type: "POST",
-										url: "php/function/compose.php",
-										data: { type: "new", mode: "loop" },
-										success: function (data) {
-											switch (data.mode) {
-												case "loop":
-													window.location.assign(
-														"compose.php?l=" + encodeURI(data.name)
-													);
-													break;
-											}
-										},
-										dataType: "json",
-									});
-								}
-							);
-						},
-					});
-				});
 			},
 		});
 	}
 );
+$("body").on("click", ".popup.pcompose p", function (e) {
+	$(this).off();
+	$(".popup").fadeOut(100).remove();
+	$("#loader").fadeIn(200);
+	$.ajax({
+		async: true,
+		type: "POST",
+		url: "php/function/compose.php",
+		data: { type: "return", mode: $(this).attr("data-mode") },
+		success: function (data) {
+			popUp(data);
+			toogleSearchLoop();
+			$(".popup > svg").on("click", function () {
+				$(".popup").fadeOut(200).remove();
+			});
 
+			$("body").on("click", '.popup label[for="new_loop"]', function () {
+				$(".popup").fadeOut(100).remove();
+				$("#loader").fadeIn(200);
+
+				$.ajax({
+					async: true,
+					type: "POST",
+					url: "php/function/compose.php",
+					data: { type: "new", mode: "loop" },
+					success: function (data) {
+						switch (data.mode) {
+							case "loop":
+								window.location.assign("compose.php?l=" + encodeURI(data.name));
+								break;
+						}
+					},
+					dataType: "json",
+				});
+			});
+		},
+	});
+});
 //TOGGLE SUBMENU
 $("body").on("click", ".popup article .loop-menu", function () {
 	if ($(this).parent().find(".menu").hasClass("hidden")) {

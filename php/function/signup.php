@@ -47,7 +47,7 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['passwor
 
                         // CREATE ACCOUNT IN DB
                         request(
-                            'INSERT INTO `members` (`id_member`, `nickname`, `password`, `email`, `member_page`) VALUES (NULL, :username, :password, :mail, \'{"disposition": "defaults"}\')',
+                            'INSERT INTO `members` (`id_member`, `nickname`, `password`, `email`, `member_page`, `pp_link`) VALUES (NULL, :username, :password, :mail, \'{"disposition": "defaults"}\', "defaults")',
                             array(
                                 'username' => htmlspecialchars($_POST['username']),
                                 'password' => password_hash($_POST['password'], PASSWORD_BCRYPT),

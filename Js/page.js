@@ -516,6 +516,9 @@ $("body").on("click", "main#dashboard li#update_pp", function (e) {
 							success: function (data) {
 								$("#loader").fadeOut(100);
 								console.log(data);
+								url = "ressources/images/pp/" + data;
+
+								$("#image").attr("src", url + `?v=${new Date().getTime()}`);
 							},
 						});
 					}

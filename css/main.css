@@ -22,7 +22,9 @@ html {
 }
 
 body {
-  background-color: #383838;
+  background-color: #5a5a5a;
+  background-image: url("../ressources/images/logo_pattern/pattern_nb.png");
+  background-blend-mode: soft-light;
   font-family: "Quicksand", sans-serif;
   font-size: 1.6rem;
   color: #f7f9f5;
@@ -756,6 +758,11 @@ input[type="submit"] + label {
       grid-template-columns: 1fr 1fr 3fr 0.5fr;
 }
 
+#player-container #player.one {
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
 #player-container #player #song-info {
   width: 15rem;
   white-space: nowrap;
@@ -1122,10 +1129,8 @@ main#index #video-container {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  max-width: 50rem;
+  max-width: 60rem;
   min-width: 44.1rem;
-  max-height: 25rem;
-  min-height: 22.05rem;
   margin: auto;
 }
 

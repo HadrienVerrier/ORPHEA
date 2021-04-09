@@ -5,7 +5,9 @@
             <h2 class="hidden">{{main.index_video_title}}</h2>
             <div id="video-container">
                 <video width="160" height="90" controls>
-                    <source src="#" type="video/mp4">
+                    <source src="ressources/video/pres.mp4" type="video/mp4">
+                    <track src="ressources/video/subtitles/en.vtt" kind="subtitles" srclang="en" label="English" />
+                    <track src="ressources/video/subtitles/fr.vtt" kind="subtitles" srclang="fr" label="Français" />
                     {{main.index_video_fail}}
                 </video>
             </div>

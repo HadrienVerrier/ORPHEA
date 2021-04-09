@@ -14,7 +14,9 @@ html {
 	height: 100%;
 }
 body {
-	background-color: $background;
+	background-color: #5a5a5a;
+	background-image: $pattern;
+	background-blend-mode: soft-light;
 	font-family: $fRegular;
 	font-size: $regular;
 	color: $white;
@@ -101,7 +103,10 @@ body {
 	}
 	> footer {
 		position: relative;
-		background-image: url("../ressources/images/logo_pattern/pattern_nb.png");
+
+		// background-image: linear-gradient(-90deg, $main, rgb(34, 34, 126)), $pattern;
+		background-image: $pattern;
+		// background-blend-mode: difference;
 		background-size: $footerH * 2;
 		height: $footerH;
 		width: 100%;

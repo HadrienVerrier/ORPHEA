@@ -981,9 +981,11 @@ input[type="submit"] + label {
   font-size: 1.2rem;
 }
 
-#player-container.open #search #results > section#songs ul li article > p {
-  margin: 1rem 0.5rem;
-  width: calc(100% - 3.5rem);
+#player-container.open #search #results > section#songs ul li article h6 {
+  outline: 1px solid black;
+  width: calc(100% - 3.6rem);
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 #player-container.open #search #results > section#songs ul li article .song-list-controls {
@@ -1498,6 +1500,7 @@ main#dashboard > section article ul li a svg {
 
 .popup.loop div#pu_loop > div div#loop_results article {
   width: 16rem;
+  height: 16rem;
   border-radius: 0.75rem;
   overflow: hidden;
   position: relative;

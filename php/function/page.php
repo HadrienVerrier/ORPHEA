@@ -739,6 +739,8 @@ function getPopUpData($popup, $lang)
                 'pp_cross' => $pp_cross,
                 'pp_l' => $pp_l,
                 'pp_old' => $pp_old,
+                'pp_upload' => $pp_upload,
+                'pp_button' => $pp_button,
             );
             break;
     }

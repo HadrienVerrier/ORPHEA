@@ -323,6 +323,11 @@ body {
 			}
 		}
 		&#pp_form {
+			span {
+				padding-left: 2rem;
+				position: relative;
+				top: 0.2rem;
+			}
 			input[type="file"] {
 				position: absolute;
 				z-index: -10;
@@ -331,6 +336,7 @@ body {
 				& + label {
 					svg {
 						position: static;
+						vertical-align: middle;
 						width: 4rem;
 						height: 4rem;
 					}
@@ -598,6 +604,9 @@ input[type="submit"] + label {
 
 /*ADMIN*/
 @import "_admin.scss";
+
+/*TERMS*/
+@import "_terms.scss";
 
 /**************/
 /**RESPONSIVE**/

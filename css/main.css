@@ -600,6 +600,7 @@ input[type="password"] {
   background-color: #f7f9f5;
   color: #383838;
   border: 1px solid #aaa;
+  width: 20rem;
 }
 
 input[type="text"]:hover,
@@ -982,7 +983,6 @@ input[type="submit"] + label {
 }
 
 #player-container.open #search #results > section#songs ul li article h6 {
-  outline: 1px solid black;
   width: calc(100% - 3.6rem);
   white-space: nowrap;
   overflow: hidden;
@@ -1192,6 +1192,9 @@ main#index > section:not(#video) article a {
 
 /*ABOUT*/
 main#about section {
+  background-color: rgba(0, 0, 0, 0.644);
+  padding: 2rem;
+  border-radius: 1.5rem;
   text-align: left;
   width: 80%;
   margin: 4rem auto 2rem auto;
@@ -1219,6 +1222,7 @@ main#login {
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 
 main#login::after {
@@ -1239,6 +1243,9 @@ main#login p {
 }
 
 main#login section {
+  background-color: rgba(0, 0, 0, 0.342);
+  padding: 2rem;
+  border-radius: 1.5rem;
   text-align: center;
   -ms-grid-column-align: center;
       justify-self: center;

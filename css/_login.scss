@@ -3,7 +3,7 @@ main#login {
 
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-
+	gap: 2rem;
 	&::after {
 		content: " ";
 		@include center(false, true);
@@ -19,6 +19,10 @@ main#login {
 	}
 
 	section {
+		background-color: rgba(0, 0, 0, 0.342);
+		padding: 2rem;
+		border-radius: $borderRadius;
+
 		text-align: center;
 		justify-self: center;
 	}

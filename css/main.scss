@@ -502,7 +502,7 @@ input[type="password"] {
 	background-color: $white;
 	color: $background;
 	border: 1px solid #aaa;
-
+	width: 20rem;
 	&:hover {
 		background-color: $white + 255;
 	}

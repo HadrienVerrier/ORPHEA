@@ -28,6 +28,7 @@ main#dashboard {
 				position: relative;
 				line-height: $regular * 3;
 				height: 5rem;
+				max-width: 50rem;
 				border-radius: $borderRadius;
 				&::before {
 					height: 2rem;
@@ -64,10 +65,12 @@ main#dashboard {
 		margin-top: 5rem;
 		display: grid;
 		grid-template-columns: 1fr;
+		height: 100%;
 		article {
 			justify-self: center;
 			width: 90%;
-			height: 40rem;
+			min-height: 40rem;
+			max-width: 50rem;
 			text-align: center;
 			box-shadow: $shadow;
 			background-color: $main;

@@ -1420,6 +1420,7 @@ main#dashboard header > ul li {
   position: relative;
   line-height: 4.8rem;
   height: 5rem;
+  max-width: 50rem;
   border-radius: 1.5rem;
 }
 
@@ -1463,13 +1464,15 @@ main#dashboard > section {
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
+  height: 100%;
 }
 
 main#dashboard > section article {
   -ms-grid-column-align: center;
       justify-self: center;
   width: 90%;
-  height: 40rem;
+  min-height: 40rem;
+  max-width: 50rem;
   text-align: center;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);

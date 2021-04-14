@@ -169,6 +169,7 @@ body {
 	box-shadow: $shadow;
 	padding: 1rem;
 	cursor: pointer;
+	margin-bottom: 1.5rem;
 	&:hover {
 		background-color: $mainLightPlus;
 	}

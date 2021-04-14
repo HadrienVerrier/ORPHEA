@@ -187,6 +187,7 @@ body > footer a:hover {
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
   padding: 1rem;
   cursor: pointer;
+  margin-bottom: 1.5rem;
 }
 
 .button:hover {
@@ -1411,8 +1412,8 @@ main#dashboard header > ul {
   margin-top: 3rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 33% 33% 33%;
-      grid-template-columns: 33% 33% 33%;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
 }
 
 main#dashboard header > ul li {
@@ -1460,8 +1461,8 @@ main#dashboard > section {
   margin-top: 5rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 33% 33% 33%;
-      grid-template-columns: 33% 33% 33%;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
 }
 
 main#dashboard > section article {

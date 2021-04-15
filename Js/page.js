@@ -865,8 +865,8 @@ $("body").on("click", ".popup .loop-edit", function () {
 //PREVIEW LOOP IN PLAYER
 
 $("body").on("click", ".popup #loop_results article .loop-play", function () {
-	// console.log($(this).parent().attr("id").split("-")[1]);
 	getLoop($(this).parent().attr("id").split("-")[1]);
+	loopLoad = true;
 });
 ///////////////
 ////FUNCTION///

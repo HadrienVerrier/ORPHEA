@@ -1243,7 +1243,9 @@ function toogleSearchLoop() {
 		$('#pu_loop label[for="loop_search"]').show();
 	}
 }
-;//OPEN PLAYER
+;let loopLoad = false;
+
+//OPEN PLAYER
 $("#player-open").on("click", togglePlayer);
 $("body").on("click", 'a[data-translate="index_listen_button"]', function () {
 	togglePlayer();
@@ -1327,10 +1329,16 @@ function hidePausePlayer() {
 		$("aside").show();
 	}
 }
-
+//
+$(document).on("click", ".gPlay", function () {
+	if (loopLoad) {
+		sequencer();
+		Tone.Transport.state !== "started" ? transportP("run") : transportP("stop");
+	}
+});
 //GET DATA FROM LOOP AND PLAY IT
 $(document).on("click", ".song-list-controls svg:first-of-type", function () {
-	console.log("test");
+	if (!loopLoad) loopLoad = true;
 	getLoop($(this).parent().parent().attr("id").split("-")[1]);
 });
 function getLoop(id) {
@@ -1346,7 +1354,9 @@ function getLoop(id) {
 			setInfos(data.name, data.nickname);
 			sequencer();
 
-			transportP();
+			Tone.Transport.state !== "started"
+				? transportP("run")
+				: transportP("stop");
 		},
 		dataType: "json",
 	});
@@ -1380,60 +1390,65 @@ let width = $("#timebar").width();
 $(window).resize(function () {
 	width = $("#timebar").width();
 });
-function transportP() {
+function transportP(state) {
 	let bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
-	//BAR
-	$("#timebar div").animate(
-		{
-			width: "100%",
-		},
-		bpmSpeed,
-		"linear"
-	);
-	Tone.Transport.scheduleRepeat(
-		() => {
-			bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
-			$("#timebar div").stop();
-			$("#timebar div").css({
-				width: "0%",
-			});
-			$("#timebar div").animate(
-				{
-					width: "100%",
-				},
-				bpmSpeed * mesure,
-				"linear"
-			);
-		},
-		"1m",
-		"1m"
-	);
-	//POINT
-	$("#timebar span").animate(
-		{
-			left: "100%",
-		},
-		bpmSpeed * mesure,
-		"linear"
-	);
-	Tone.Transport.scheduleRepeat(
-		() => {
-			bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
-			$("#timebar span").stop();
-			$("#timebar span").css({
-				left: "0%",
-			});
-			$("#timebar span").animate(
-				{
-					left: "100%",
-				},
-				bpmSpeed * mesure,
-				"linear"
-			);
-		},
-		mesure + "m",
-		mesure + "m"
-	);
+	if (state == "run") {
+		$("#timebar span").stop();
+		$("#timebar div").stop();
+	} else {
+		//BAR
+		$("#timebar div").animate(
+			{
+				width: "100%",
+			},
+			bpmSpeed * mesure,
+			"linear"
+		);
+		Tone.Transport.scheduleRepeat(
+			() => {
+				bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
+				$("#timebar div").stop();
+				$("#timebar div").css({
+					width: "0%",
+				});
+				$("#timebar div").animate(
+					{
+						width: "100%",
+					},
+					bpmSpeed * mesure,
+					"linear"
+				);
+			},
+			mesure + "m",
+			mesure + "m"
+		);
+		//POINT
+		$("#timebar span").animate(
+			{
+				left: "100%",
+			},
+			bpmSpeed * mesure,
+			"linear"
+		);
+		Tone.Transport.scheduleRepeat(
+			() => {
+				bpmSpeed = (60 / (Tone.Transport.bpm.value / 4)) * 1000;
+				$("#timebar span").stop();
+				$("#timebar span").css({
+					left: "0%",
+				});
+				$("#timebar span").animate(
+					{
+						left: "100%",
+					},
+					bpmSpeed * mesure,
+					"linear"
+				);
+			},
+			mesure + "m",
+			mesure + "m"
+		);
+	}
 }
 ;if (href == "compose") {
 	//GENERAL INIT
@@ -2507,6 +2522,6 @@ function transportP() {
 		}
 	}
 }
-;// console.clear();
+;console.clear();
 
 });

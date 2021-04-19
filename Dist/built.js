@@ -1341,6 +1341,16 @@ $(document).on("click", ".song-list-controls svg:first-of-type", function () {
 	if (!loopLoad) loopLoad = true;
 	getLoop($(this).parent().parent().attr("id").split("-")[1]);
 });
+
+if (href !== "compose") {
+	getLoop(79);
+
+	loopLoad = true;
+
+	gMute();
+}
+
+$(document).on("click", ".gVol", gMute);
 function getLoop(id) {
 	$.ajax({
 		async: true,
@@ -1354,9 +1364,7 @@ function getLoop(id) {
 			setInfos(data.name, data.nickname);
 			sequencer();
 
-			Tone.Transport.state !== "started"
-				? transportP("run")
-				: transportP("stop");
+			Tone.Transport.state !== "started" ? transportP("run") : transportP("stop");
 		},
 		dataType: "json",
 	});

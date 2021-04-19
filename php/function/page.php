@@ -444,7 +444,20 @@ function getMiscData($lang)
     if (!isset($_GET['email_forgot'])) {
         $_GET['email_forgot'] = 'none';
     }
+    if (isset($_SESSION['username'])) {
+        $id = request('SELECT id_member FROM members WHERE nickname = :username', array('username' => $_SESSION['username']), true)['id_member'];
+
+        $galaxy = request('SELECT L.id_loop,  M.nickname, L.name
+                            FROM galaxy G
+                            LEFT JOIN loops L ON G.id_song = L.id_loop
+                            LEFT JOIN members M ON L.author = M.id_member
+        
+                            WHERE G.id_member =:id', array('id' => $id), false)->fetchAll(PDO::FETCH_ASSOC);
+    } else {
+        $galaxy = null;
+    }
     return array(
+        'songsGalaxy' => $galaxy,
         'soon' => $misc_soon,
         'misc_home_page_title' => $misc_home_page_title,
         'misc_logo_alt' => $misc_logo_alt,

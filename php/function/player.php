@@ -48,6 +48,15 @@ switch ($_POST['type']) {
                     trender('searchTag', true);
                 }
                 break;
+            case 'galaxy':
+                $results = request('SELECT id_tag, tag_sn FROM tags WHERE tag_sn LIKE :input', array('input' => $_POST['input'] . "%"), false);
+                $data['tags'] = $results->fetchAll(PDO::FETCH_ASSOC);
+                if (empty($data['tags'])) {
+                    echo 'void';
+                } else {
+                    trender('searchTag', true);
+                }
+                break;
         }
 
 

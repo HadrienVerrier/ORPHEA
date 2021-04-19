@@ -363,7 +363,12 @@ body {
 		}
 	}
 }
-
+#notFound {
+	h2 {
+		@include center(true, true);
+		font-size: 10rem;
+	}
+}
 #loader {
 	display: none;
 	position: fixed;

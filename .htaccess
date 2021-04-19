@@ -21,3 +21,6 @@ Options All -Indexes
 # HIDE SERVER INFOS
 ServerSignature Off
 
+#REDIRECT
+
+ErrorDocument 404 /404.html

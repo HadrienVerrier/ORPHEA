@@ -729,6 +729,7 @@ input[type="submit"] + label {
   left: 0;
   width: 100%;
   background-color: #2b1f2d;
+  opacity: 0.95 !important;
   z-index: 8;
   height: 8rem;
 }

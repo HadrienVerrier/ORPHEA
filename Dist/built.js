@@ -1351,6 +1351,53 @@ if (href !== "compose") {
 }
 
 $(document).on("click", ".gVol", gMute);
+
+//ADD TO GALAXY
+
+$(document).on(
+	"click",
+	"#songs .song-list-controls svg:last-of-type",
+	function () {
+		if (log()) {
+			let elm = $(this);
+			if ($(this).hasClass("toAdd")) {
+				$(this).removeClass("toAdd").addClass("added");
+
+				$.ajax({
+					url: "php/function/player.php",
+					data: {
+						type: "galaxy",
+						mode: "add",
+						loopID: $(elm).parent().parent().attr("id").split("-")[1],
+					},
+					type: "POST",
+					success: function (data) {
+						let x =
+							'<svg class="added" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Remove to my Galaxy</title><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-12v-2h12v2z"/></svg>';
+						$(elm).replaceWith(x);
+					},
+				});
+			} else if ($(this).hasClass("added")) {
+				$(this).addClass("toAdd").removeClass("added");
+				$.ajax({
+					url: "php/function/player.php",
+					data: {
+						type: "galaxy",
+						mode: "delete",
+						loopID: $(elm).parent().parent().attr("id").split("-")[1],
+					},
+					type: "POST",
+					success: function (data) {
+						let x =
+							'<svg class="toAdd" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Add to my Galaxy</title><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" /></svg>';
+						$(elm).replaceWith(x);
+					},
+				});
+			}
+		}
+	}
+);
+
 function getLoop(id) {
 	$.ajax({
 		async: true,

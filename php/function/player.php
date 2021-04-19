@@ -49,12 +49,19 @@ switch ($_POST['type']) {
                 }
                 break;
             case 'galaxy':
-                $results = request('SELECT id_tag, tag_sn FROM tags WHERE tag_sn LIKE :input', array('input' => $_POST['input'] . "%"), false);
-                $data['tags'] = $results->fetchAll(PDO::FETCH_ASSOC);
-                if (empty($data['tags'])) {
+                $id = request('SELECT id_member FROM members WHERE nickname = :username', array('username' => $_SESSION['username']), true)['id_member'];
+                $songsGalaxy = request('SELECT L.id_loop,  M.nickname, L.name
+                FROM galaxy G
+                LEFT JOIN loops L ON G.id_song = L.id_loop
+                LEFT JOIN members M ON L.author = M.id_member
+
+                WHERE G.id_member =:id AND L.name LIKE :input', array('id' => $id, 'input' => $_POST['input'] . "%"), false)->fetchAll(PDO::FETCH_ASSOC);
+
+                $data['misc'] = array('songsGalaxy' => $songsGalaxy);
+                if (empty($songsGalaxy)) {
                     echo 'void';
                 } else {
-                    trender('searchTag', true);
+                    trender('galaxy', true);
                 }
                 break;
         }
@@ -75,6 +82,23 @@ switch ($_POST['type']) {
                 $id = request('SELECT id_member FROM members WHERE nickname = :username', array('username' => $_SESSION['username']), true)['id_member'];
                 request('DELETE FROM `galaxy` WHERE id_member = :member AND id_song= :loop', array('member' => $id, "loop" => $_POST['loopID']), false);
                 echo "success";
+                break;
+            case 'get':
+                $id = request('SELECT id_member FROM members WHERE nickname = :username', array('username' => $_SESSION['username']), true)['id_member'];
+                $songsGalaxy = request('SELECT L.id_loop,  M.nickname, L.name
+                    FROM galaxy G
+                    LEFT JOIN loops L ON G.id_song = L.id_loop
+                    LEFT JOIN members M ON L.author = M.id_member
+    
+                    WHERE G.id_member =:id', array('id' => $id), false)->fetchAll(PDO::FETCH_ASSOC);
+
+                $data['misc'] = array('songsGalaxy' => $songsGalaxy);
+                if (empty($songsGalaxy)) {
+                    echo 'void';
+                } else {
+                    trender('galaxy', true);
+                }
+
                 break;
         }
 
